@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Classic Car Acquisition Concierge — Business Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-dark: #131426;
+    --ink-dark-2: #1c1d34;
+    --ink-dark-3: #252645;
+    --cream: #f7f3ec;
+    --cream-2: #efe9de;
+    --paper: #ffffff;
+    --text: #1c1d34;
+    --text-soft: #4a4b6a;
+    --text-dim: #8a8ba3;
+    --text-on-dark: #f7f3ec;
+    --text-on-dark-soft: #c9cadc;
+    --text-on-dark-dim: #8082a6;
+    --rule: rgba(28, 29, 52, 0.12);
+    --rule-soft: rgba(28, 29, 52, 0.06);
+    --rule-dark: rgba(247, 243, 236, 0.16);
+    --accent: #d9ff3c;
+    --accent-soft: rgba(217, 255, 60, 0.18);
+    --warm: #c57b3c;
+    --warm-soft: rgba(197, 123, 60, 0.14);
+    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ==================== HERO (DARK) ==================== */
+  .hero {
+    background: var(--ink-dark);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(217, 255, 60, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(197, 123, 60, 0.12) 0%, transparent 45%);
+    color: var(--text-on-dark);
+    padding: 28px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero .constellation {
+    position: absolute;
+    inset: 0;
+    opacity: 0.32;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 60px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-soft);
+  }
+  .topnav .brand {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--text-on-dark);
+    font-style: italic;
+  }
+  .topnav .meta-chip {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule-dark);
+    max-width: 80px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin: 0 0 28px;
+    max-width: 14ch;
+  }
+  .hero h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--text-on-dark-soft);
+    max-width: 46ch;
+    margin: 0 0 44px;
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule-dark);
+  }
+  .hero-meta .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .hero-meta .meta-item .value {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-on-dark);
+  }
+
+  /* ==================== CONTENT SECTIONS (LIGHT) ==================== */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  section.block {
+    padding: 88px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section.block:last-of-type { border-bottom: none; }
+
+  .section-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-kicker::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--text-dim);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(34px, 4.2vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+    max-width: 22ch;
+  }
+  h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm);
+  }
+
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--text-soft);
+    max-width: 58ch;
+    margin: 0 0 36px;
+    font-style: italic;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p.body { font-size: 16px; line-height: 1.7; color: var(--text-soft); }
+
+  /* ==================== INSIGHT TWO-COL ==================== */
+  .insight-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 20px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .insight-card {
+    background: var(--paper);
+    padding: 32px 34px;
+  }
+  .insight-card .tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .insight-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+  }
+  .insight-card p { font-size: 15px; line-height: 1.65; color: var(--text-soft); margin: 0; }
+
+  /* ==================== VERTICAL TIMELINE (Tim's style) ==================== */
+  .timeline-v {
+    position: relative;
+    padding-left: 56px;
+    margin-top: 16px;
+  }
+  .timeline-v::before {
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: 18px;
+    bottom: 18px;
+    width: 1px;
+    background: var(--rule);
+  }
+  .step-v {
+    position: relative;
+    padding: 22px 0 28px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .step-v:last-child { border-bottom: none; }
+  .step-v .num {
+    position: absolute;
+    left: -56px;
+    top: 22px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-v.active .num {
+    background: var(--accent);
+    color: var(--ink-dark);
+  }
+  .step-v h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+  }
+  .step-v h4 .role-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-left: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+  .step-v .pace {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--warm);
+    margin: 2px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step-v .pace::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 1px;
+    background: var(--warm);
+    opacity: 0.6;
+  }
+  .step-v p { font-size: 15px; line-height: 1.6; color: var(--text-soft); margin: 0; max-width: 62ch; }
+
+  /* ==================== ERA STRIP ==================== */
+  .era-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 20px 0 28px;
+  }
+  .era-slice {
+    padding: 22px 22px 26px;
+    background: var(--paper);
+  }
+  .era-slice .years {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--warm);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .era-slice .name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.18;
+    margin-bottom: 10px;
+  }
+  .era-slice .ex {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  /* ==================== RECRUITER PARALLEL ==================== */
+  .parallel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 20px;
+  }
+  .parallel-side {
+    background: var(--paper);
+    padding: 32px 34px;
+  }
+  .parallel-side .tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+  .parallel-side h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    margin: 0 0 18px;
+  }
+  .parallel-side ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .parallel-side li {
+    font-size: 15px;
+    line-height: 1.55;
+    padding: 8px 0;
+    color: var(--text-soft);
+    border-top: 1px solid var(--rule-soft);
+  }
+  .parallel-side li:first-child { border-top: none; }
+
+  /* ==================== PRICING ==================== */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 20px 0 28px;
+  }
+  .tier {
+    background: var(--paper);
+    padding: 28px 28px 32px;
+  }
+  .tier .tier-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .tier h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1;
+    margin: 0 0 8px;
+  }
+  .tier .range {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 18px;
+  }
+  .tier .fee {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--warm);
+    margin-bottom: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tier .includes {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.5;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .rev-math {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 26px 32px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .rev-math .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .rev-math strong { color: var(--accent); font-weight: 500; }
+  .rev-math .total {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-on-dark);
+    display: inline-block;
+  }
+
+  /* ==================== PRICING · PATHS ==================== */
+  .path-header {
+    margin-top: 56px;
+    margin-bottom: 20px;
+  }
+  .path-header:first-of-type { margin-top: 40px; }
+  .path-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 10px;
+  }
+  .path-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.18;
+    margin: 0 0 10px;
+    color: var(--ink-dark);
+  }
+  .path-title em {
+    font-style: italic;
+    color: var(--warm);
+  }
+  .path-sub {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* À la carte menu */
+  .alc-list {
+    margin-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .alc-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) 2fr minmax(180px, auto);
+    gap: 32px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .alc-row .alc-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--ink-dark);
+  }
+  .alc-row .alc-desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.55;
+  }
+  .alc-row .alc-price {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--warm);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* Add-ons grid */
+  .addons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 12px;
+  }
+  .addon {
+    background: var(--paper);
+    padding: 24px 24px 26px;
+  }
+  .addon .addon-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+  .addon .addon-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0 0 10px;
+    color: var(--ink-dark);
+  }
+  .addon p {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* ==================== DIFFERENTIATORS ==================== */
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 20px;
+  }
+  .diff {
+    background: var(--paper);
+    padding: 28px 28px;
+  }
+  .diff .vs-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .diff .vs-head {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.25;
+    color: var(--warm);
+    margin-bottom: 14px;
+  }
+  .diff p { font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0; }
+
+  /* ==================== IS / IS NOT ==================== */
+  .is-isnot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--ink-dark);
+    margin-top: 24px;
+  }
+  .is-isnot .col-head {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 18px 28px 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .is-isnot .col-head.is { color: var(--warm); }
+  .is-isnot .col-head.isnot {
+    color: var(--text-dim);
+    border-left: 1px solid var(--rule);
+  }
+  .is-isnot .cell {
+    padding: 20px 28px;
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.35;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .is-isnot .cell:nth-child(even) {
+    border-left: 1px solid var(--rule-soft);
+  }
+  .is-isnot .cell.is {
+    color: var(--ink-dark);
+  }
+  .is-isnot .cell.isnot {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+  .is-isnot .cell:last-of-type,
+  .is-isnot .cell:nth-last-of-type(2) {
+    border-bottom: none;
+  }
+
+  /* ==================== NAMES ==================== */
+  .names-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 18px 0 20px;
+  }
+  .pill {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 17px;
+    padding: 7px 16px 9px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    color: var(--text-soft);
+  }
+  .pill.favored {
+    background: var(--accent);
+    color: var(--ink-dark);
+    border-color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ==================== 90 DAYS ==================== */
+  .plan {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 20px;
+  }
+  .phase {
+    background: var(--paper);
+    padding: 26px 26px 30px;
+  }
+  .phase .weeks {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .phase h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.18;
+    margin: 0 0 14px;
+  }
+  .phase ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .phase li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    padding: 6px 0 6px 14px;
+    position: relative;
+  }
+  .phase li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 1px;
+    background: var(--text-dim);
+  }
+
+  /* ==================== OPEN QUESTIONS ==================== */
+  .questions {
+    background: var(--cream-2);
+    padding: 36px 40px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  .questions h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.15;
+    margin: 0 0 20px;
+  }
+  .questions ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: q;
+  }
+  .questions li {
+    counter-increment: q;
+    padding: 14px 0 14px 44px;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.55;
+    position: relative;
+  }
+  .questions li:first-child { border-top: none; }
+  .questions li::before {
+    content: counter(q, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    font-weight: 500;
+  }
+  .questions li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ==================== FOOTER (DARK) ==================== */
+  .footer {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 64px 0 52px;
+    margin-top: 0;
+  }
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .footer .kicker-footer {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 20px;
+  }
+  .footer h2 {
+    color: var(--text-on-dark);
+    font-size: clamp(30px, 3.8vw, 44px);
+    margin: 0 0 16px;
+  }
+  .footer h2 em { color: var(--accent); font-style: italic; }
+  .footer .foot-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    color: var(--text-on-dark-soft);
+    max-width: 52ch;
+    margin-bottom: 36px;
+  }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule-dark);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 860px) {
+    .hero-inner, .content, .footer-inner { padding: 0 28px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .insight-pair, .parallel, .plan { grid-template-columns: 1fr; }
+    .tiers, .diff-grid, .era-grid, .addons { grid-template-columns: 1fr; }
+    .alc-row { grid-template-columns: 1fr; gap: 6px; }
+    .alc-row .alc-price { text-align: left; }
+    .is-isnot { grid-template-columns: 1fr; }
+    .is-isnot .col-head.isnot { border-left: none; border-top: 1px solid var(--rule); }
+    .is-isnot .cell:nth-child(even) { border-left: none; }
+    section.block { padding: 60px 0; }
+  }
+
+  /* ==================== PRINT ==================== */
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+  @media print {
+    body { background: var(--cream); }
+    .hero { padding: 48px 0 64px; break-after: page; }
+    .hero-inner, .content, .footer-inner { padding: 0 64px; max-width: 100%; }
+    section.block { padding: 48px 0; }
+    .insight-pair, .era-grid, .parallel, .tiers, .diff-grid { break-inside: avoid; }
+    .addon, .alc-row, .path-header, .is-isnot .cell { break-inside: avoid; }
+    .rev-math { break-inside: avoid; }
+    .questions { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    .footer { break-before: page; padding: 72px 0; }
+    .hero h1 { font-size: 72px; }
+    .hero .tagline { font-size: 22px; }
+    h2 { font-size: 38px; }
+    .step-v { break-inside: avoid; padding: 16px 0 20px; }
+    .phase, .tier, .diff, .era-slice, .parallel-side, .insight-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <svg class="constellation" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="dot" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#d9ff3c" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#d9ff3c" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- faint connecting lines -->
+    <g stroke="#c9cadc" stroke-width="0.4" stroke-opacity="0.25" fill="none">
+      <line x1="120" y1="110" x2="280" y2="200"/>
+      <line x1="280" y1="200" x2="420" y2="90"/>
+      <line x1="420" y1="90" x2="580" y2="180"/>
+      <line x1="580" y1="180" x2="740" y2="120"/>
+      <line x1="740" y1="120" x2="900" y2="230"/>
+      <line x1="900" y1="230" x2="1060" y2="150"/>
+      <line x1="200" y1="420" x2="340" y2="480"/>
+      <line x1="340" y1="480" x2="520" y2="400"/>
+      <line x1="520" y1="400" x2="680" y2="490"/>
+      <line x1="680" y1="490" x2="840" y2="430"/>
+      <line x1="840" y1="430" x2="1000" y2="520"/>
+      <line x1="280" y1="200" x2="340" y2="480"/>
+      <line x1="580" y1="180" x2="680" y2="490"/>
+      <line x1="740" y1="120" x2="840" y2="430"/>
+      <line x1="120" y1="110" x2="200" y2="420"/>
+      <line x1="900" y1="230" x2="1000" y2="520"/>
+      <line x1="420" y1="90" x2="520" y2="400"/>
+    </g>
+    <!-- nodes -->
+    <g fill="#c9cadc" fill-opacity="0.55">
+      <circle cx="120" cy="110" r="2.5"/>
+      <circle cx="280" cy="200" r="3"/>
+      <circle cx="420" cy="90" r="2"/>
+      <circle cx="580" cy="180" r="3.5"/>
+      <circle cx="740" cy="120" r="2.5"/>
+      <circle cx="900" cy="230" r="3"/>
+      <circle cx="1060" cy="150" r="2"/>
+      <circle cx="200" cy="420" r="2.5"/>
+      <circle cx="340" cy="480" r="3.5"/>
+      <circle cx="520" cy="400" r="2"/>
+      <circle cx="680" cy="490" r="3"/>
+      <circle cx="840" cy="430" r="2.5"/>
+      <circle cx="1000" cy="520" r="3"/>
+    </g>
+    <!-- accent glow node -->
+    <circle cx="580" cy="180" r="18" fill="url(#dot)"/>
+    <circle cx="340" cy="480" r="14" fill="url(#dot)"/>
+  </svg>
+
+  <div class="hero-inner">
+    <nav class="topnav">
+      <span class="brand">Business Plan · v0.1</span>
+      <span class="meta-chip">Internal · Tim &amp; Kendra</span>
+    </nav>
+
+    <div class="kicker">A practice of connecting people to cars · planning document</div>
+
+    <h1>A <em>concierge experience</em> for enthusiasts making their dream real.</h1>
+
+    <p class="tagline">End-to-end service for enthusiasts buying classic and modern-classic cars — from the first conversation to the first drive.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="label">Era</span>
+        <div class="value">1965 — 1999</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Market</span>
+        <div class="value">Northeast US first</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Model</span>
+        <div class="value">Asset-light<br>partnered transport</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Cadence</span>
+        <div class="value">6 — 12 engagements<br>per year</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== CONTENT ==================== -->
+<main class="content">
+
+  <!-- Core insight -->
+  <section class="block">
+    <div class="section-kicker">The core insight</div>
+    <h2>Matchmaking and transport aren't two businesses. They're <em>two ends of one service</em>.</h2>
+    <p class="lede">The real pain for collectors isn't finding a car, and it isn't shipping a car. It's that the whole arc — find, vet, negotiate, move, deliver — is fragmented. No one owns it for you.</p>
+
+    <div class="insight-pair">
+      <div class="insight-card">
+        <div class="tag">Front of house</div>
+        <h3>Matchmaking</h3>
+        <p>Intake interview. Search the market and the network. Curate 3–5 real candidates. Coordinate pre-purchase inspections. Negotiate or bid on the client's behalf.</p>
+      </div>
+      <div class="insight-card">
+        <div class="tag">Back of house</div>
+        <h3>White-glove transport</h3>
+        <p>Partner carriers, not owned trucks. Enclosed-first. Condition documentation. Obsessive communication in transit. A thoughtful handoff at delivery — keys, docs, first drive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service arc -->
+  <section class="block">
+    <div class="section-kicker">The service arc</div>
+    <h2>One engagement. <em>Five steps</em>. One person in front of you the whole way.</h2>
+    <p class="body">Every step is timeboxed. The total calendar flexes with the car and the market — but you always know where you are, what's next, and how long it should take.</p>
+
+    <div class="timeline-v">
+      <div class="step-v">
+        <div class="num">01</div>
+        <h4>Intake <span class="role-label">Listen</span></h4>
+        <div class="pace">30 – 90 minutes · scheduled around you</div>
+        <p>A structured conversation about the dream: era, marque, originality tolerance, budget, and how the car will live — daily driver, weekend, show, keep.</p>
+      </div>
+      <div class="step-v">
+        <div class="num">02</div>
+        <h4>Curate <span class="role-label">Find</span></h4>
+        <div class="pace">1 – 2 weeks · the best fit, swiftly</div>
+        <p>BaT, Hemmings, auctions, marque shops, and a collector network built car by car over two decades. You get three to five real candidates — each with a point of view on tradeoffs, not a dump of listings. Rarer specs take longer; we tell you on day one.</p>
+      </div>
+      <div class="step-v">
+        <div class="num">03</div>
+        <h4>Vet <span class="role-label">Verify</span></h4>
+        <div class="pace">Within a week · in person where it counts</div>
+        <p>Within 200 miles of Greenwich, CT, Tim inspects the car personally. Beyond that radius, remote vetting with a trusted marque specialist — or an in-person visit by arrangement, priced transparently by distance. Either way: docs, history, provenance, and an honest recommendation, not a sales pitch.</p>
+      </div>
+      <div class="step-v">
+        <div class="num">04</div>
+        <h4>Negotiate <span class="role-label">Advocate</span></h4>
+        <div class="pace">24 – 48 hours · decisive, on your side</div>
+        <p>Offer or auction bid on your behalf. Terms, deposits, paperwork, payment coordination. Nobody disappears after the deposit.</p>
+      </div>
+      <div class="step-v">
+        <div class="num">05</div>
+        <h4>Deliver <span class="role-label">Hand off</span></h4>
+        <div class="pace">3 – 7 days · routed by distance</div>
+        <p>Enclosed transport via a vetted partner. Photo walkaround before and after. A handoff that feels like a friend dropping off a car, not a freight call.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The niche -->
+  <section class="block">
+    <div class="section-kicker">The niche</div>
+    <h2>1965 to 1999. <em>Enthusiast cars</em> worth the effort.</h2>
+    <p class="body">A coherent era: big-V8 American, air-cooled German and Italian, analog Japanese, pre-digital Europeans. These cars reward human judgment — they're harder to buy remotely and harder to move carelessly. That's where a concierge earns the fee.</p>
+
+    <div class="era-grid">
+      <div class="era-slice">
+        <div class="years">1965 — 1974</div>
+        <div class="name">Muscle &amp; Originals</div>
+        <div class="ex">'68 Mustangs, early Broncos, 911 long-hood, 280SL.</div>
+      </div>
+      <div class="era-slice">
+        <div class="years">1975 — 1984</div>
+        <div class="name">Malaise &amp; Survivors</div>
+        <div class="ex">R107 SLs, BMW E9 / E24, 911 SC, Alfa GTV6.</div>
+      </div>
+      <div class="era-slice">
+        <div class="years">1985 — 1994</div>
+        <div class="name">Analog Modern</div>
+        <div class="ex">E30, 964, R32 Skyline, Supra MkIII, NSX.</div>
+      </div>
+      <div class="era-slice">
+        <div class="years">1995 — 1999</div>
+        <div class="name">BaT Era</div>
+        <div class="ex">E36 M3, 993, 80-Series Land Cruiser, Integra Type R.</div>
+      </div>
+    </div>
+    <p class="body">Start broad inside the era, narrow through reputation. After ten engagements, the lane that rings truest becomes the positioning.</p>
+  </section>
+
+  <!-- Recruiter parallel -->
+  <section class="block">
+    <div class="section-kicker">Why the partnership works</div>
+    <h2>A recruiter is <em>a matchmaker</em>. The cars are the only variable that changes.</h2>
+
+    <div class="parallel">
+      <div class="parallel-side">
+        <div class="tag">The talent craft</div>
+        <h4>What Tim already does for careers</h4>
+        <ul>
+          <li>Intake interviews that surface what someone actually wants vs. what they say they want</li>
+          <li>Reading fit across taste, temperament, and lifestyle</li>
+          <li>Discreet reference checks and vetting</li>
+          <li>Advocacy through negotiation</li>
+          <li>Graceful handoff and onboarding</li>
+        </ul>
+      </div>
+      <div class="parallel-side">
+        <div class="tag">Applied to cars</div>
+        <h4>The same craft, for collectors</h4>
+        <ul>
+          <li>An enthusiast serving enthusiasts — Tim is his own target client, buying in the same market he serves</li>
+          <li>Intake: dream, budget, and how the car will live</li>
+          <li>Fit across era, marque, and condition tolerance</li>
+          <li>Pre-purchase inspection and provenance review</li>
+          <li>Offer, counter, auction bidding</li>
+          <li>White-glove delivery and first drive</li>
+        </ul>
+      </div>
+    </div>
+    <p class="body" style="margin-top: 24px;">Plus: collector credibility. A modest but real network. A design and build partner (Kendra) who can ship the brand, site, and intake portal without outside spend. A personal fleet that proves taste before a single client has been served.</p>
+  </section>
+
+  <!-- Pricing -->
+  <section class="block">
+    <div class="section-kicker">How it makes money</div>
+    <h2>Full concierge, or <em>any piece of it</em>. Priced clearly either way.</h2>
+    <p class="body">Two paths in. End-to-end flat-fee engagements for buyers who want the whole arc handled. À la carte pricing for clients who only need a step or two. Both are scoped on the intake call and priced transparently — nothing starts until the number is on paper.</p>
+
+    <!-- Path 01: End-to-End -->
+    <div class="path-header">
+      <div class="path-tag">Path 01 · End-to-end</div>
+      <h3 class="path-title">The whole arc, <em>one flat fee</em>.</h3>
+      <p class="path-sub">Tiered by where the car lands in value. The fee covers intake through delivery. Transport is coordinated at a modest margin on top of the carrier's quote — disclosed, not hidden.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-label">Tier 01</div>
+        <h4>Driver</h4>
+        <div class="range">Cars under $50K</div>
+        <div class="fee">$2,500 — $3,500</div>
+        <div class="includes">Full arc. Open or enclosed transport to client's preference.</div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">Tier 02</div>
+        <h4>Icon</h4>
+        <div class="range">Cars $50K — $150K</div>
+        <div class="fee">$4,000 — $6,500</div>
+        <div class="includes">Full arc. Enclosed-only. Photo documentation at pickup and delivery.</div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">Tier 03</div>
+        <h4>Collector</h4>
+        <div class="range">Cars $150K and up</div>
+        <div class="fee">$7,500+</div>
+        <div class="includes">Full arc. Enclosed with climate control. On-site at pickup when warranted.</div>
+      </div>
+    </div>
+
+    <!-- Path 02: À la carte -->
+    <div class="path-header">
+      <div class="path-tag">Path 02 · À la carte</div>
+      <h3 class="path-title">Only the step you need. <em>Priced per service</em>.</h3>
+      <p class="path-sub">Already found the car? Just need a trusted pair of eyes on a PPI, a hand at auction, or transport coordinated well? Individual services are priced per scope — variable by car, distance, and complexity.</p>
+    </div>
+
+    <div class="alc-list">
+      <div class="alc-row">
+        <div class="alc-name">Curation sprint</div>
+        <div class="alc-desc">Three to five real candidates for a given brief — each with a point of view on tradeoffs.</div>
+        <div class="alc-price">$750 — $1,500</div>
+      </div>
+      <div class="alc-row">
+        <div class="alc-name">Pre-purchase inspection</div>
+        <div class="alc-desc">Coordinated with a marque specialist. In person within 200 mi of Greenwich; remote beyond.</div>
+        <div class="alc-price">$500 — $800 + specialist</div>
+      </div>
+      <div class="alc-row">
+        <div class="alc-name">Auction representation</div>
+        <div class="alc-desc">Bidding on your behalf — BaT, Mecum, Gooding, RM Sotheby's. Discipline on the ceiling.</div>
+        <div class="alc-price">$500 + capped premium</div>
+      </div>
+      <div class="alc-row">
+        <div class="alc-name">Negotiation only</div>
+        <div class="alc-desc">You've found the car. Tim handles the offer, counter, and close on your behalf.</div>
+        <div class="alc-price">$500 — $1,000</div>
+      </div>
+      <div class="alc-row">
+        <div class="alc-name">Transport coordination</div>
+        <div class="alc-desc">Enclosed carrier vetted, routed, and managed end-to-end. No freight-broker phone tag.</div>
+        <div class="alc-price">Carrier quote + margin</div>
+      </div>
+    </div>
+
+    <!-- Add-ons -->
+    <div class="path-header">
+      <div class="path-tag">Add-ons · The network, on call</div>
+      <h3 class="path-title">Beyond the purchase. <em>What the network unlocks</em>.</h3>
+      <p class="path-sub">These aren't service steps — they're doors Tim opens. Priced per request, disclosed before anything starts. Available to end-to-end clients and à la carte clients alike.</p>
+    </div>
+
+    <div class="addons">
+      <div class="addon">
+        <div class="addon-tag">Add-on · 01</div>
+        <div class="addon-name">On-site vetting outside 200 mi</div>
+        <p>When the car can't be driven to Connecticut, Tim can travel to inspect in person. Priced by distance plus a day rate — disclosed before booking.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-tag">Add-on · 02</div>
+        <div class="addon-name">Restoration shop introductions</div>
+        <p>For a car that needs frame-up, paint, or driveline work. Matched to shops with a track record on the specific marque — not just the nearest option.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-tag">Add-on · 03</div>
+        <div class="addon-name">Trusted mechanic network</div>
+        <p>A warm introduction to a specialist who'll treat the car the way it deserves — for ongoing service, not just one-offs.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-tag">Add-on · 04</div>
+        <div class="addon-name">Sale-side concierge</div>
+        <p>Selling a car out of the collection? Tim can run the listing, vet buyers, and handle the handoff — the whole arc in reverse.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-tag">Add-on · 05</div>
+        <div class="addon-name">Insurance &amp; appraisal</div>
+        <p>Introductions to classic-car-specific insurers (agreed-value policies) and credentialed appraisers — boring but essential.</p>
+      </div>
+      <div class="addon">
+        <div class="addon-tag">Add-on · 06</div>
+        <div class="addon-name">Import &amp; registration</div>
+        <p>25-year rule JDM imports, gray-market European, state-specific titling quirks. The paperwork most people don't want to learn twice.</p>
+      </div>
+    </div>
+
+    <div class="rev-math">
+      <span class="label">Side-project math · year one target</span>
+      8 end-to-end engagements × avg <strong>$4,500</strong> fee = <strong>$36,000</strong><br>
+      + transport coordination margin (~$400 avg × 8) = <strong>$3,200</strong><br>
+      + blended à la carte + add-on revenue (est.) = <strong>$4,000 — $8,000</strong><br>
+      <span class="total">≈ $43K — $47K in year one</span>, evenings and weekends, with no capital outlay.<br>
+      <span style="color: var(--text-on-dark-soft); font-size: 13px;">Year-two upside: 12–15 end-to-end engagements plus a compounding book of à la carte referrals and add-on repeat work.</span>
+    </div>
+  </section>
+
+  <!-- Referral program -->
+  <section class="block">
+    <div class="section-kicker">How the book grows · referrals</div>
+    <h2>Reputation travels through <em>satisfied clients</em>. The program should too.</h2>
+    <p class="lede">Tim's view: the best marketing for a practice like this isn't advertising, it's a past client saying "you should call him." A referral program makes that instinct tangible — a real thank-you for the people who bring new clients in, without turning the network into a sales team.</p>
+
+    <!-- How it works -->
+    <div class="path-header">
+      <div class="path-tag">The program · proposed</div>
+      <h3 class="path-title">A <em>meaningful thank-you</em>, disclosed openly.</h3>
+      <p class="path-sub">Simple and small on purpose. The goal is to honor the act of sharing, not to build an affiliate funnel.</p>
+    </div>
+
+    <div class="plan">
+      <div class="phase">
+        <div class="weeks">Who qualifies</div>
+        <h4>Past clients, the network, and trade partners</h4>
+        <ul>
+          <li>Past clients Tim has delivered a car for</li>
+          <li>Personal network who makes a warm intro</li>
+          <li>Trade partners (mechanics, restoration shops, marque specialists) who send a serious buyer</li>
+          <li>Not: strangers who pass along a link — the program rewards relationships, not traffic</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">The thank-you</div>
+        <h4>$500 flat per engagement that closes</h4>
+        <ul>
+          <li>Paid after the new client's engagement wraps</li>
+          <li>Past clients can take cash or a credit against their next engagement</li>
+          <li>Trade partners can take cash or bank it as reciprocal work</li>
+          <li>An annual note of thanks to the year's senders — keep it personal, even when the amount is small</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Disclosure</div>
+        <h4>On the table, never hidden</h4>
+        <ul>
+          <li>Every new client is told at intake who sent them</li>
+          <li>And that the sender will receive a thank-you fee</li>
+          <li>The client's fee is the same either way — Tim pays this out of his side, not theirs</li>
+          <li>Trust stays intact because nothing is buried</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">The guardrails</div>
+        <h4>Keep it small, keep it honest</h4>
+        <ul>
+          <li>One step only — a referrer can't earn fees on clients their referrals refer</li>
+          <li>Bad-fit clients don't count. If a trade partner keeps sending mismatches, the thank-yous stop</li>
+          <li>Cap the annual total per referrer if a single person starts driving a large share — a signal to talk, not to scale</li>
+          <li>Non-cash alternatives welcome: a day at a track, a classic dinner, a curated gift — sometimes more memorable</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Open decisions -->
+    <div class="questions" style="margin-top: 40px;">
+      <h3>Four calls still open on the program</h3>
+      <ol>
+        <li><strong>Flat or percentage.</strong> $500 flat is simple and fair on most engagements. 10% of the engagement fee flexes with the work ($250 on a Driver, $450 on an Icon, $750+ on a Collector) — which feels more proportional but more complicated. Pick one; mixing both muddies it.</li>
+        <li><strong>Warm intros that don't close.</strong> Some concierges pay a token "thanks anyway" ($100) for any intro that turns into an intake call, even if it doesn't go further. Recognizes the effort without over-rewarding it. Worth it, or overcomplication?</li>
+        <li><strong>Announce or not.</strong> Two schools. (A) Talk about the program openly on the site and at intake — "reputation is how we grow, and we thank the people who share it." (B) Keep it quiet — pay it when it happens, don't advertise it. Option A invites referrals; Option B preserves the feel of a gift. Tim's instinct probably leans B.</li>
+        <li><strong>Past clients specifically.</strong> Repeat clients are different from first-timers. For them, a credit against their next engagement is almost always more meaningful than $500 cash. Worth codifying: past clients get credit by default, cash on request.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Differentiators -->
+  <section class="block">
+    <div class="section-kicker">What's different</div>
+    <h2>What it is. <em>What it isn't</em>.</h2>
+    <p class="body">Adjacent categories — broker, shipper, dealer — claim some of this territory but none cover the whole arc. Clarity at the edges makes the middle obvious.</p>
+
+    <div class="is-isnot">
+      <div class="col-head is">Is</div>
+      <div class="col-head isnot">Is not</div>
+
+      <div class="cell is">An enthusiast buying in the same market he serves</div>
+      <div class="cell isnot">A salesperson who learned the vocabulary</div>
+
+      <div class="cell is">A guide through the whole arc — find to first drive</div>
+      <div class="cell isnot">A broker who hands off at the listing</div>
+
+      <div class="cell is">A network of specialists, opened on your behalf</div>
+      <div class="cell isnot">One contact pretending to cover every marque</div>
+
+      <div class="cell is">White-glove handling by people who know <em>why</em> the car matters</div>
+      <div class="cell isnot">A freight broker routing a load</div>
+
+      <div class="cell is">Flat or scoped pricing, disclosed up front</div>
+      <div class="cell isnot">A meter running on time and materials</div>
+
+      <div class="cell is">In it for the next car, too — and the one after that</div>
+      <div class="cell isnot">A one-transaction goodbye</div>
+    </div>
+  </section>
+
+  <!-- Names -->
+  <section class="block">
+    <div class="section-kicker">Working name · to try on</div>
+    <h2>Naming is a decision, <em>not a starting point</em>.</h2>
+    <p class="body">Don't name it until the first three validation calls are done. Let the language clients use for the service inform the name. The directions below lean into the thesis: connection, fit, and the rush of finding the right one — white-glove without the stuffy.</p>
+    <div class="names-row">
+      <span class="pill favored">First Drive</span>
+      <span class="pill">Kindred</span>
+      <span class="pill">The Pairing</span>
+      <span class="pill">Well Sorted</span>
+      <span class="pill">Hand in Glove</span>
+      <span class="pill">Right Hand</span>
+      <span class="pill">Homecoming</span>
+      <span class="pill">Day One</span>
+    </div>
+    <p class="body" style="font-style: italic; color: var(--text-dim); font-size: 14px;">The name should be chosen after the first three conversations, from the words clients actually use for the problem. The shortlist above pairs the moment (First Drive, Homecoming, Day One) with the craft (Kindred, The Pairing, Hand in Glove, Right Hand) and the enthusiast's own code (Well Sorted).</p>
+  </section>
+
+  <!-- Year-one roadmap -->
+  <section class="block">
+    <div class="section-kicker">Year-one roadmap</div>
+    <h2>Prove demand <em>before anything else</em>.</h2>
+    <p class="lede">No trucks. No office. No LLC filing in week one. Just three conversations, a sharper pitch, and the first paid engagement. Everything after that is compounding.</p>
+
+    <div class="plan">
+      <div class="phase">
+        <div class="weeks">Weeks 1 — 2</div>
+        <h4>Validate</h4>
+        <ul>
+          <li>3–5 calls from the collector network using the validation script</li>
+          <li>Listen for real interest vs. polite nodding</li>
+          <li>Note the exact phrases clients use for the problem</li>
+          <li>Decide: go / refine / shelve</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Weeks 3 — 4</div>
+        <h4>Position</h4>
+        <ul>
+          <li>Choose a working name</li>
+          <li>Kendra ships a one-page site and intake form</li>
+          <li>Draft the service tiers and client agreement</li>
+          <li>Line up 2 enclosed transport partners</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Weeks 5 — 8</div>
+        <h4>First engagement</h4>
+        <ul>
+          <li>Close first paid client from network</li>
+          <li>Form LLC &amp; bind E&amp;O + GL insurance <em>before</em> deposit</li>
+          <li>Run the arc end-to-end</li>
+          <li>Document everything: hours, surprises, PPI costs</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Weeks 9 — 12</div>
+        <h4>Codify</h4>
+        <ul>
+          <li>Testimonials, photo documentation, case study</li>
+          <li>Second and third engagements from referrals</li>
+          <li>Tighten pricing based on real hours</li>
+          <li>Review attorney's guidance on CT dealer-license thresholds</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Months 4 — 6</div>
+        <h4>Deepen</h4>
+        <ul>
+          <li>Hit 4–6 completed engagements total</li>
+          <li>Introduce first add-ons: restoration + mechanic introductions</li>
+          <li>Build out vendor roster: PPI specialists by marque, preferred carriers, attorneys</li>
+          <li>First sale-side engagement if organic demand appears</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Months 7 — 12</div>
+        <h4>Scale or narrow</h4>
+        <ul>
+          <li>Hit 8–10 engagements total; target blended revenue $40K+</li>
+          <li>Review which sub-lane is producing the most natural referrals — lean in</li>
+          <li>Run transport ownership break-even against actual volume data</li>
+          <li>Decide on year-two ambition: widen, sharpen, or hold</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entity & Insurance Playbook -->
+  <section class="block">
+    <div class="section-kicker">Entity &amp; insurance · staged setup</div>
+    <h2>A founder's sequence. <em>Nothing before it's needed</em>.</h2>
+    <p class="lede">The goal is to be protected before money moves and unencumbered before it does. Phases correspond to the year-one roadmap above. Not legal advice — a one-hour paid consult with a CT business attorney is the highest-leverage expenditure in the entire setup.</p>
+
+    <div class="plan">
+      <div class="phase">
+        <div class="weeks">Phase 01 · Now – first call</div>
+        <h4>Zero-cost prep</h4>
+        <ul>
+          <li>Draft engagement-letter template (scope, fee, disclaimers, PPI language)</li>
+          <li>Reserve CT LLC name via Secretary of State portal ($60, 120-day hold)</li>
+          <li>Route all concierge-related spend to one dedicated credit card</li>
+          <li>Begin attorney search in the collector network</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Phase 02 · Next 30 days</div>
+        <h4>Find two professionals</h4>
+        <ul>
+          <li><strong>CT business attorney</strong> with broker/dealer experience · ~$400 consult</li>
+          <li>Single question to answer: at what volume does CT DMV require motor-vehicle-dealer licensure for a buyer's agent?</li>
+          <li><strong>Small-business insurance broker</strong> · request E&amp;O + GL quotes at $1M/$1M and $2M/$2M</li>
+          <li>Keep quotes in a folder, unbound — activate on day of first engagement</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Phase 03 · First signed engagement</div>
+        <h4>Formation day</h4>
+        <ul>
+          <li>File single-member LLC with CT SoS (~$120, online, ~7 days)</li>
+          <li>Get EIN from IRS (free, 10 minutes)</li>
+          <li>Open business checking + card; deposit $500–$1,000 capital</li>
+          <li>Bind E&amp;O + GL policies <em>before</em> taking client deposit</li>
+          <li>Sign engagement letter naming the LLC as counterparty</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="weeks">Phase 04 · Ongoing</div>
+        <h4>Guardrails</h4>
+        <ul>
+          <li>Never take title — even briefly in transit</li>
+          <li>Never accept a seller-side finder's fee</li>
+          <li>Never co-mingle personal and business funds</li>
+          <li>Verify CT bond/licensure thresholds with attorney by year-end</li>
+          <li>Written coordinator-not-shipper language in all transport agreements</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-math" style="margin-top: 40px;">
+      <span class="label">Year-one entity + insurance budget</span>
+      LLC filing + annual report: <strong>~$200</strong><br>
+      Attorney consult: <strong>~$400</strong><br>
+      E&amp;O + general liability: <strong>~$1,500</strong><br>
+      Possible CT surety bond (if required): <strong>$500 — $1,000</strong><br>
+      Accounting software (QuickBooks / Wave): <strong>$0 — $360</strong><br>
+      <span class="total">≈ $2,500 — $3,500 in year one</span><br>
+      <span style="color: var(--text-on-dark-soft); font-size: 13px;">Small enough that it shouldn't gate the decision to start.</span>
+    </div>
+  </section>
+
+  <!-- Risks & watch-outs -->
+  <section class="block">
+    <div class="section-kicker">Risks &amp; watch-outs</div>
+    <h2>The things that could <em>actually</em> derail this.</h2>
+    <p class="body">Not a catalog of hypothetical risks — the handful that are plausible enough and costly enough to plan against.</p>
+
+    <div class="is-isnot">
+      <div class="col-head is">Risk</div>
+      <div class="col-head isnot">Mitigation</div>
+
+      <div class="cell is">A PPI clears a car that later reveals undisclosed issues — client sues.</div>
+      <div class="cell isnot">E&amp;O in force before first deposit. Engagement letter makes clear Tim coordinates, the specialist opines.</div>
+
+      <div class="cell is">CT regulates buyer's agents as motor vehicle dealers above a volume threshold we haven't confirmed.</div>
+      <div class="cell isnot">Attorney consult in Phase 02 answers this definitively. Surety bond budgeted if required.</div>
+
+      <div class="cell is">A transport partner damages a car in transit — we get named in the claim.</div>
+      <div class="cell isnot">Written "coordinator not shipper" clause in every transport agreement. Verify carrier's cargo coverage before booking.</div>
+
+      <div class="cell is">Volume stalls at 2–3 engagements/year — revenue doesn't justify the time.</div>
+      <div class="cell isnot">The validation calls are the de-risk. If demand is thin, refine positioning or shelve before investing further.</div>
+
+      <div class="cell is">Referrals concentrate in one marque / era and the broad niche collapses into a narrow one by accident.</div>
+      <div class="cell isnot">Lean into it. Per the niche plan: let reputation narrow the lane. Rebrand or sub-brand if needed.</div>
+
+      <div class="cell is">Tim's day job constrains availability at a critical negotiation or PPI window.</div>
+      <div class="cell isnot">Engagement letter makes the pacing explicit (not 24/7 availability). Cap concurrent engagements at 2.</div>
+    </div>
+  </section>
+
+  <!-- Decisions & open items -->
+  <section class="block">
+    <div class="section-kicker">Where things stand · four decided, two to finish</div>
+    <h2>Decisions captured. <em>A few still open</em>.</h2>
+
+    <div class="questions">
+      <h3>Six calls that shape the shop</h3>
+      <ol>
+        <li><strong>Scope of service · Decided.</strong> Buy-side is the practice. Sell-side is available as an add-on — the arc in reverse for clients thinning a collection — but not the headline.</li>
+        <li><strong>Sub-lane · Deferred by design.</strong> Stay broad across 1965–1999 for the first ten engagements. Let reputation — not guesswork — narrow the lane.</li>
+        <li><strong>Fee model · Decided.</strong> Flat tiers for end-to-end plus scoped à la carte. Flat reads as trust; percentage-of-purchase creates a conflict of interest (bigger car, bigger fee, bigger incentive to push).</li>
+        <li><strong>Transport · Partnered now, own later (maybe).</strong> Rent and coordinate through year one. If volume and utilization support it, ownership comes onto the table — a break-even projection will answer the question rather than instinct.</li>
+        <li><strong>Kendra's role · Silent partner.</strong> Design, brand, site, and portal behind the scenes. Tim is the client-facing principal and the voice of the practice.</li>
+        <li><strong>Entity and insurance · Staged.</strong> LLC at the first paid engagement; E&amp;O and general liability before the third; Connecticut-specific broker/dealer licensing verified with a local attorney before year-end.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="kicker-footer">What we're solving for</div>
+    <h2>A small, <em>real</em> business — not a side hustle, not a platform.</h2>
+    <p class="foot-note">This plan is a tool for decision-making. It should get sharper each time Tim has a conversation with someone in the network, each time a new constraint surfaces, each time we confirm or kill an assumption. Revisit it often.</p>
+    <div class="foot-bottom">
+      <span>Business Plan · v0.1 · internal</span>
+      <span>Living doc · update as decisions resolve</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
