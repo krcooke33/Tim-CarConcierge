@@ -53,9 +53,10 @@
   }
   .wrap {
     position: relative;
-    max-width: 620px;
+    max-width: 940px;
     text-align: center;
     z-index: 1;
+    width: 100%;
   }
   .kicker {
     font-family: 'DM Sans';
@@ -71,8 +72,9 @@
     font-size: 52px;
     line-height: 1.08;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     letter-spacing: -0.01em;
+    max-width: 14ch;
   }
   h1 em {
     font-style: italic;
@@ -84,14 +86,18 @@
     font-size: 20px;
     color: var(--cream);
     opacity: 0.8;
-    margin-bottom: 56px;
+    margin: 0 auto 56px;
     line-height: 1.5;
+    max-width: 48ch;
   }
   .docs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-bottom: 48px;
+  }
+  @media (max-width: 860px) {
+    .docs { grid-template-columns: 1fr 1fr; max-width: 620px; margin-left: auto; margin-right: auto; }
   }
   @media (max-width: 560px) {
     .docs { grid-template-columns: 1fr; }
@@ -169,6 +175,12 @@
       <div class="doc-title">POV conversation guide</div>
       <div class="doc-desc">Talking points for early conversations with friends, collectors, and the network.</div>
       <div class="doc-arrow">Start a conversation →</div>
+    </a>
+    <a class="doc" href="competitor-research.html">
+      <div class="doc-label">Internal · Reference</div>
+      <div class="doc-title">Competitor research</div>
+      <div class="doc-desc">A scan of four players in the space — and where Tim's lane sits among them.</div>
+      <div class="doc-arrow">Read the scan →</div>
     </a>
   </div>
 
