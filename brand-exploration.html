@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brand Exploration — & Garage by Tim Young</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-dark: #131426;
+    --ink-dark-2: #1c1d34;
+    --ink-dark-3: #252645;
+    --cream: #f7f3ec;
+    --cream-2: #efe9de;
+    --paper: #ffffff;
+    --text: #1c1d34;
+    --text-soft: #4a4b6a;
+    --text-dim: #8a8ba3;
+    --text-on-dark: #f7f3ec;
+    --text-on-dark-soft: #c9cadc;
+    --text-on-dark-dim: #8082a6;
+    --rule: rgba(28, 29, 52, 0.12);
+    --rule-soft: rgba(28, 29, 52, 0.06);
+    --rule-dark: rgba(247, 243, 236, 0.16);
+    --accent: #d9ff3c;
+    --accent-soft: rgba(217, 255, 60, 0.18);
+    --warm: #c57b3c;
+    --warm-soft: rgba(197, 123, 60, 0.14);
+    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ==================== HERO ==================== */
+  .hero {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 18px 0 76px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .constellation {
+    position: absolute;
+    inset: 0;
+    opacity: 0.18;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 12% 22%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 78% 18%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 32% 76%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 88% 64%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 52% 8%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 22% 92%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 68% 48%, #fff 1px, transparent 1.5px);
+  }
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 60px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-soft);
+  }
+  .topnav .brand {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--text-on-dark);
+    font-style: italic;
+  }
+  .topnav .meta-chip {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule-dark);
+    max-width: 80px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(46px, 7.6vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 28px;
+    max-width: 18ch;
+  }
+  .hero h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.42;
+    color: var(--text-on-dark-soft);
+    max-width: 50ch;
+    margin: 0 0 44px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule-dark);
+  }
+  .hero-meta .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .hero-meta .meta-item .value {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-on-dark);
+  }
+  .hero-meta .meta-item .value a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(217,255,60,0.4);
+  }
+  .hero-meta .meta-item .value a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  /* ==================== CONTENT ==================== */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  section.block {
+    padding: 88px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section.block:last-of-type { border-bottom: none; }
+
+  .section-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-kicker::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--text-dim);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(34px, 4.2vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+    max-width: 26ch;
+  }
+  h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm);
+  }
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--text-soft);
+    max-width: 58ch;
+    margin: 0 0 28px;
+    font-style: italic;
+  }
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p.body { font-size: 16px; line-height: 1.7; color: var(--text-soft); }
+
+  /* ==================== LINEAGE PAIR ==================== */
+  .lineage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 36px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .lineage-card {
+    background: var(--paper);
+    padding: 36px 36px 32px;
+  }
+  .lineage-card.parent {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+  }
+  .lineage-card .tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .lineage-card.parent .tag { color: var(--text-on-dark-dim); }
+  .lineage-card.child .tag { color: var(--warm); }
+  .lineage-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1;
+    margin: 0 0 14px;
+  }
+  .lineage-card.parent h3 { color: var(--text-on-dark); }
+  .lineage-card .what {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+  }
+  .lineage-card.parent .what { color: var(--text-on-dark-soft); }
+  .lineage-card.child .what { color: var(--text-soft); }
+  .lineage-card .inherits {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .lineage-card.parent .inherits {
+    border-top-color: var(--rule-dark);
+    color: var(--text-on-dark-dim);
+  }
+  .lineage-card.child .inherits { color: var(--text-dim); }
+  .lineage-card a.visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 16px;
+  }
+  .lineage-card.parent a.visit {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(217,255,60,0.3);
+    padding-bottom: 2px;
+  }
+
+  /* ==================== AMBIGRAM SHOWCASES ==================== */
+  .ambigram-hero {
+    margin-top: 36px;
+    padding: 64px 36px;
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ambigram-hero .grid-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image:
+      linear-gradient(to right, var(--cream) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--cream) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+  .ambigram-hero .pair {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    z-index: 1;
+  }
+  .ambigram-hero .num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(140px, 22vw, 240px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    font-feature-settings: "lnum";
+  }
+  .ambigram-hero .num.flip {
+    color: var(--accent);
+    transform: rotate(180deg);
+    transform-origin: center;
+  }
+  .ambigram-hero .between {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    padding: 6px 16px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 100px;
+  }
+  .ambigram-hero .caption {
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--text-on-dark-soft);
+    max-width: 36ch;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ==================== FIVE APPROACHES ==================== */
+  .approaches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 36px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .approach {
+    background: var(--paper);
+    padding: 32px 32px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .approach.featured {
+    grid-column: span 2;
+    background: var(--cream);
+  }
+  .approach .num-tag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .approach .num-tag .num {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    background: var(--ink-dark);
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+  .approach .num-tag .name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--text);
+  }
+  .approach .num-tag .kind {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+  .approach .vis {
+    background: var(--ink-dark);
+    color: var(--cream);
+    padding: 36px 24px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
+  }
+  .approach.featured .vis { min-height: 260px; }
+  .approach p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* Mark glyphs (drawn with simple text for v0.1 — production would be hand-paths) */
+  .mark-rotation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .mark-rotation .glyphs {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+  .mark-rotation .glyphs.solid { color: var(--cream); }
+  .mark-rotation .glyphs.flipped {
+    color: var(--accent);
+    transform: rotate(180deg);
+  }
+
+  .mark-overlap {
+    position: relative;
+    width: 200px;
+    height: 140px;
+  }
+  .mark-overlap .layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .mark-overlap .layer.back { color: var(--accent); transform: translate(8px, 6px); }
+  .mark-overlap .layer.front { color: var(--cream); }
+
+  .mark-mirror {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.78;
+  }
+  .mark-mirror .top {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 84px;
+    color: var(--cream);
+    letter-spacing: -0.04em;
+  }
+  .mark-mirror .rule {
+    width: 64px;
+    height: 1px;
+    background: var(--accent);
+    margin: 6px 0;
+  }
+  .mark-mirror .bot {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 84px;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+
+  .mark-badge {
+    width: 180px;
+    height: 180px;
+    border: 2px solid var(--cream);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mark-badge .center {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .mark-badge svg { position: absolute; inset: 0; }
+
+  .mark-slash {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 84px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mark-slash .slash {
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  /* ==================== PUSH PANELS ==================== */
+  .push-panel {
+    margin-top: 36px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .push-panel + .push-panel { margin-top: 32px; }
+  .push-head {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+  }
+  .push-head .num {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    background: var(--ink-dark);
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+  .push-head .label {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--text);
+  }
+  .push-head .blurb {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-left: auto;
+    text-align: right;
+    max-width: 28ch;
+  }
+  .push-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+  }
+  .push-cell {
+    background: var(--paper);
+    padding: 28px 24px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+  }
+  .push-cell.dark { background: var(--ink-dark); color: var(--cream); }
+  .push-cell.cream { background: var(--cream); }
+  .push-cell.warm { background: var(--warm); color: var(--cream); }
+  .push-cell.lime { background: var(--accent); color: var(--ink-dark); }
+  .push-cell .small-mark {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .push-cell .small-mark.flipped { transform: rotate(180deg); display: inline-block; }
+  .push-cell .label-below {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .push-cell .byline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    margin-top: -4px;
+    opacity: 0.85;
+  }
+  .push-cell .lockup {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .push-cell .lockup .slash { font-weight: 300; opacity: 0.5; }
+  .push-cell .lockup-large {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+  }
+  .push-cell .ampersand {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1;
+  }
+  .push-cell.favicon {
+    aspect-ratio: 1;
+    min-height: 0;
+    padding: 0;
+  }
+
+  /* ==================== DIRECTIONAL DECISIONS ==================== */
+  .decisions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 32px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .decision {
+    background: var(--paper);
+    padding: 26px 24px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .decision .d-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--ink-dark);
+    align-self: flex-start;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+  }
+  .decision .d-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .decision .d-headline em {
+    font-style: italic;
+    color: var(--warm);
+  }
+  .decision p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* ==================== STACKED VARIATIONS ==================== */
+  .stacked-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.85;
+  }
+  .stacked-mark > span {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+  }
+  .stacked-mark.with-rule {
+    gap: 8px;
+  }
+  .stacked-mark .rule-thin {
+    width: 56px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+
+  /* ==================== MULTI-SLASH ==================== */
+  .multi-slash {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .multi-slash .slashes {
+    display: inline-flex;
+    gap: 0;
+    font-weight: 500;
+    letter-spacing: -0.18em;
+  }
+  .multi-slash .slashes span {
+    display: inline-block;
+  }
+  .multi-slash .stripe-1 { color: var(--accent); }
+  .multi-slash .stripe-2 { color: var(--warm); }
+  .multi-slash .stripe-3 { color: #6b8a4f; }
+
+  /* ==================== BRAND NAME (UPRIGHT, NOT ITALIC) ==================== */
+  /* Forces the traditional roman ampersand instead of the cursive italic Fraunces glyph */
+  .brandname {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+  }
+  .amp-roman {
+    font-style: normal;
+  }
+
+  /* ==================== OPEN QUESTIONS ==================== */
+  .questions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 36px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .question {
+    background: var(--paper);
+    padding: 26px 28px;
+  }
+  .question .q-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 8px;
+  }
+  .question h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 8px;
+  }
+  .question p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* ==================== RESOLVED QUESTIONS ==================== */
+  .question.resolved {
+    background: var(--cream);
+    position: relative;
+  }
+  .question.resolved h4 {
+    color: var(--text);
+  }
+  .question.resolved p {
+    color: var(--text-soft);
+  }
+  .question.resolved .q-tag {
+    color: var(--text-dim);
+  }
+  .question.resolved .resolved-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--ink-dark);
+    padding: 4px 8px;
+  }
+  .question .resolution {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--warm);
+  }
+
+  /* ==================== FOOTER ==================== */
+  .footer {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 64px 0 52px;
+  }
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .footer .kicker-footer {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 20px;
+  }
+  .footer h2 {
+    color: var(--text-on-dark);
+    font-size: clamp(30px, 3.8vw, 44px);
+    margin: 0 0 16px;
+    max-width: 26ch;
+  }
+  .footer h2 em { color: var(--accent); font-style: italic; }
+  .footer .foot-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    color: var(--text-on-dark-soft);
+    max-width: 56ch;
+    margin: 0 0 32px;
+  }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule-dark);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 760px) {
+    .hero-inner, .content, .footer-inner { padding: 0 24px; }
+    .topnav { padding-bottom: 40px; }
+    .hero { padding-bottom: 56px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .lineage { grid-template-columns: 1fr; }
+    .approaches { grid-template-columns: 1fr; }
+    .approach.featured { grid-column: span 1; }
+    .push-grid { grid-template-columns: 1fr 1fr; }
+    .push-head { flex-direction: column; gap: 8px; }
+    .push-head .blurb { text-align: left; max-width: none; margin-left: 0; }
+    .questions-grid { grid-template-columns: 1fr; }
+    .decisions-grid { grid-template-columns: repeat(2, 1fr); }
+    section.block { padding: 64px 0; }
+    .foot-bottom { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="constellation"></div>
+  <div class="hero-inner">
+    <nav class="topnav">
+      <span class="brand">Brand Exploration · v0.1</span>
+      <span class="meta-chip">Internal · Tim &amp; Kendra</span>
+    </nav>
+
+    <div class="kicker">&amp; Garage · a new branch of The &amp; Network</div>
+
+    <h1>The <span class="brandname" style="color: var(--accent);">&amp;</span> Garage — brought to you by Tim Young.</h1>
+
+    <p class="tagline">A sibling brand to The &amp; Network — sharing DNA, not a face. The ampersand and the connector instinct carry over. The look, the palette, and the texture should be its own.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="label">Lineage</span>
+        <div class="value"><a href="https://timyoungtalent.com/" target="_blank" rel="noopener">The &amp; Network ↗</a></div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Era</span>
+        <div class="value">1965 — 1999</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Mark</span>
+        <div class="value">66 ↔ 99<br>ambigram</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Voice</span>
+        <div class="value">Enthusiast,<br>not luxury</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== CONTENT ==================== -->
+<main class="content">
+
+  <!-- Directional decisions -->
+  <section class="block">
+    <div class="section-kicker">Directional decisions · 2026-04-25</div>
+    <h2>Four directions taken — to <em>steer</em> the mood board.</h2>
+    <p class="lede">An interview round closed four high-leverage choices. The remaining work moves from "explore everything" to "push these directions hard."</p>
+
+    <div class="decisions-grid">
+      <div class="decision">
+        <div class="d-label">Ambigram</div>
+        <div class="d-headline"><em>High</em> conviction.</div>
+        <p>The 66 ↔ 99 idea is the heart of the brand — not just a mark. The era IS the brand. Every surface should let that idea breathe.</p>
+      </div>
+      <div class="decision">
+        <div class="d-label">66/99 treatment</div>
+        <div class="d-headline">#5 <em>The slash</em> leads.</div>
+        <p>Of the 66/99 treatments, the slash leads as the dominant form. Sits below "The &amp; Garage" in the hierarchy (see follow-up). The rotation glyph supports for stamps, favicons, hood badges.</p>
+      </div>
+      <div class="decision">
+        <div class="d-label">Departure</div>
+        <div class="d-headline"><em>Subtle</em> from The &amp; Network.</div>
+        <p>Same Fraunces + DM Sans, same dark ink, keep the constellation. Swap the lime for a new signature color. Family resemblance is intentional.</p>
+      </div>
+      <div class="decision">
+        <div class="d-label">Photography</div>
+        <div class="d-headline"><em>Mix</em>, context-led.</div>
+        <p>Workshop / drive / detail used contextually. Cohesion comes from a single grading direction — grain, contrast, and color treatment unified.</p>
+      </div>
+    </div>
+
+    <div class="decisions-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 28px;">
+      <div class="decision">
+        <div class="d-label">Hierarchy · follow-up</div>
+        <div class="d-headline">"<span class="brandname" style="color: var(--warm);">The &amp; Garage</span>" leads.</div>
+        <p>The brand-name wordmark is the primary form. "66 / 99" is a wordmark-logo that travels alongside — both wordmark and logo, dual-purpose. The rotation glyph remains the supporting symbolic mark.</p>
+      </div>
+      <div class="decision">
+        <div class="d-label">Ampersand · follow-up</div>
+        <div class="d-headline"><em>Inherit</em> the &amp;.</div>
+        <p>Use The &amp; Network's exact ampersand glyph. The instant family recognition is worth more than the risk of looking derivative — and the rest of the surface will carry the distinction.</p>
+      </div>
+      <div class="decision">
+        <div class="d-label">Voice / byline · open</div>
+        <div class="d-headline"><em>Explore</em> in mood board.</div>
+        <p>"by Tim Young" placement and voice tone (expert vs. enthusiast, formal vs. casual) still need to be played out in context. Mood board surfaces real options to react to.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; padding: 22px 26px; background: var(--paper); border-left: 3px solid var(--accent); max-width: 70ch;">
+      <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">Two tensions worth holding</div>
+      <p style="font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0 0 8px;"><strong style="color: var(--text);">High conviction + subtle departure.</strong> A central concept usually demands visual presence; a subtle departure asks for restraint. Resolution: the ambigram lives <em>big</em> on hero surfaces; everything else stays close to The &amp; Network. Surface contrast does the heavy lifting.</p>
+      <p style="font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0;"><strong style="color: var(--text);">Slash leads + ambigram is central.</strong> The slash is typographic; the ambigram is symbolic. The rotation glyph has to do meaning-making work even while the slash does brand work. Solution: rotation glyph appears <em>next to or behind</em> the slash wordmark — not as a sub-brand, but as visual proof of the wordmark's idea.</p>
+    </div>
+  </section>
+
+  <!-- The lineage -->
+  <section class="block">
+    <div class="section-kicker">The lineage</div>
+    <h2>Shared <em>DNA</em>, not a shared face.</h2>
+    <p class="lede">&amp; Garage should feel related to The &amp; Network — clearly the same operator, the same instinct, the same character. But it shouldn't look like a copy. The visual identity needs its own texture, its own palette mood, its own object-world.</p>
+    <p class="body">Tim's first business connects people to the right next chapter — talent to roles, leaders to networks. &amp; Garage is the same instinct applied to a different object: connecting enthusiasts to the cars they've been chasing. The matchmaking shape carries over. The ampersand and the connector mindset carry over. The voice — direct, well-read, allergic to corporate phrasing — carries over.</p>
+    <p class="body">What should <strong>diverge</strong> is the surface. The &amp; Network is digital, professional, talent-flavored. &amp; Garage is tactile, mechanical, era-flavored — workshops, dashboards, cracked leather, brushed aluminum. The visual system should announce that difference: a more analog texture, a different photographic vocabulary, a palette that nods to oil and copper and weathered enamel rather than corporate cream.</p>
+
+    <div class="lineage">
+      <div class="lineage-card parent">
+        <div class="tag">The parent</div>
+        <h3>The &amp; Network</h3>
+        <p class="what">Tim's recruiting and connection practice. Talent leaders, founders, and the builders they want next to them. Digital-native, professional, polished.</p>
+        <div class="inherits">Shares: ampersand · voice · operator · network · "&amp;" mindset</div>
+        <a class="visit" href="https://timyoungtalent.com/" target="_blank" rel="noopener">Visit timyoungtalent.com ↗</a>
+      </div>
+      <div class="lineage-card child">
+        <div class="tag">The sibling</div>
+        <h3>The &amp; Garage</h3>
+        <p class="what">Acquisition concierge for enthusiasts buying classic and modern-classic cars from 1965 – 99. Tactile, mechanical, era-bound.</p>
+        <div class="inherits">Diverges: palette · texture · photography · object-world</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; padding: 22px 26px; background: var(--paper); border-left: 3px solid var(--warm); max-width: 66ch;">
+      <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm); margin-bottom: 8px;">A note on this page</div>
+      <p style="font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0;">This exploration deck is styled in the &amp; Network visual system on purpose — it sits inside Tim's existing site and needs to read as part of that family. The actual &amp; Garage brand should depart from these surfaces. The mood board is where that departure starts.</p>
+    </div>
+  </section>
+
+  <!-- Why 66 ↔ 99 -->
+  <section class="block">
+    <div class="section-kicker">Why 66 ↔ 99</div>
+    <h2>Six and nine are <em>rotational twins</em>. The era is already a mark.</h2>
+    <p class="lede">"1965 to 1999" isn't only a date range. It's a perfect ambigram — the same mark read two ways.</p>
+    <p class="body">The numerals are doing the conceptual work for free: 6 and 9 are the same form rotated 180°, which means "66" and "99" can be the same mark seen from either end. That's not a clever device — it's the literal shape of the era we're claiming. The first analog-modern decade and the last one collapse into one glyph.</p>
+
+    <div class="ambigram-hero">
+      <div class="grid-bg"></div>
+      <div class="pair">
+        <div class="num">66</div>
+        <div class="between">read again</div>
+        <div class="num flip">66</div>
+      </div>
+      <div class="caption">The same mark. Rotate 180° and 66 becomes 99 — one glyph, two readings, one era.</div>
+    </div>
+  </section>
+
+  <!-- Five approaches -->
+  <section class="block">
+    <div class="section-kicker">Five approaches</div>
+    <h2>Five ways to <em>read the same idea</em>.</h2>
+    <p class="body">From the chat: five takes on the 66 ↔ 99 concept. The featured one (#1 The rotation) is the purest expression. The others are siblings — different ways the same thought could land.</p>
+
+    <div class="approaches">
+
+      <div class="approach featured">
+        <div class="num-tag">
+          <span class="num">01</span>
+          <span class="name">The rotation</span>
+          <span class="kind">Pure ambigram</span>
+        </div>
+        <div class="vis">
+          <div class="mark-rotation">
+            <div class="glyphs solid">66</div>
+            <div class="glyphs flipped">66</div>
+          </div>
+        </div>
+        <p>Solid + outline. Flip 180° and what was 66 becomes 99. The cleanest expression of the concept — a single mark with two readings.</p>
+      </div>
+
+      <div class="approach">
+        <div class="num-tag">
+          <span class="num">02</span>
+          <span class="name">The overlap</span>
+          <span class="kind">Typographic</span>
+        </div>
+        <div class="vis">
+          <div class="mark-overlap">
+            <div class="layer back">99</div>
+            <div class="layer front">66</div>
+          </div>
+        </div>
+        <p>Both numbers stacked in a single mark, slightly offset. The mark contains both eras at once.</p>
+      </div>
+
+      <div class="approach">
+        <div class="num-tag">
+          <span class="num">03</span>
+          <span class="name">The mirror</span>
+          <span class="kind">Typographic</span>
+        </div>
+        <div class="vis">
+          <div class="mark-mirror">
+            <div class="top">66</div>
+            <div class="rule"></div>
+            <div class="bot">99</div>
+          </div>
+        </div>
+        <p>6 on top, 9 on bottom, sharing a vertical axis. The era is bookended in one composite glyph.</p>
+      </div>
+
+      <div class="approach">
+        <div class="num-tag">
+          <span class="num">04</span>
+          <span class="name">The badge</span>
+          <span class="kind">Medallion</span>
+        </div>
+        <div class="vis">
+          <div class="mark-badge">
+            <svg viewBox="0 0 180 180" width="180" height="180">
+              <defs>
+                <path id="topArc" d="M 30,90 A 60,60 0 0,1 150,90" fill="none"/>
+                <path id="botArc" d="M 30,90 A 60,60 0 0,0 150,90" fill="none"/>
+              </defs>
+              <text font-family="Fraunces, serif" font-size="22" letter-spacing="6" fill="#f7f3ec">
+                <textPath href="#topArc" startOffset="50%" text-anchor="middle">— 66 —</textPath>
+              </text>
+              <text font-family="Fraunces, serif" font-size="22" letter-spacing="6" fill="#d9ff3c">
+                <textPath href="#botArc" startOffset="50%" text-anchor="middle">— 99 —</textPath>
+              </text>
+            </svg>
+            <div class="center"></div>
+          </div>
+        </div>
+        <p>A circular medallion — 66 across the top, 99 across the bottom. Reads correctly either way up — like a coin.</p>
+      </div>
+
+      <div class="approach">
+        <div class="num-tag">
+          <span class="num">05</span>
+          <span class="name">The slash</span>
+          <span class="kind">Wordmark</span>
+        </div>
+        <div class="vis">
+          <div class="mark-slash">
+            <span>66</span><span class="slash">/</span><span>99</span>
+          </div>
+        </div>
+        <p>66 / 99 as a horizontal lockup, like a model designation. Pairs cleanly with "by Tim Young" and the &amp; Garage wordmark.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pushing the favorites -->
+  <section class="block">
+    <div class="section-kicker">Pushing the favorites</div>
+    <h2>Directions worth taking <em>further</em>.</h2>
+    <p class="lede">#5 leads as the wordmark. #1 supports as the symbolic mark. #3 (stacked) is a model-badge alternative worth pressure-testing. And the slash itself can multiply — single, double, triple, BMW-M tri-stripe — for rhythm and motorsport energy.</p>
+
+    <!-- Push panel 00 · The hierarchy -->
+    <div class="push-panel">
+      <div class="push-head">
+        <span class="num">00</span>
+        <span class="label">The hierarchy in lockup</span>
+        <span class="blurb">"The &amp; Garage" leads · "66/99" supports as wordmark-logo · rotation glyph as symbolic mark.</span>
+      </div>
+      <div class="push-grid">
+        <div class="push-cell dark">
+          <div style="font-family: var(--serif); font-size: 38px; line-height: 1; letter-spacing: -0.02em; color: var(--cream);">
+            The <span style="color: var(--accent);">&amp;</span> Garage
+          </div>
+          <div class="label-below">Primary wordmark</div>
+        </div>
+        <div class="push-cell dark">
+          <div style="display:flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div style="font-family: var(--serif); font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: var(--cream);">
+              The <span style="color: var(--accent);">&amp;</span> Garage
+            </div>
+            <div style="display:flex; align-items: center; gap: 6px; font-family: var(--serif); font-size: 16px; color: var(--text-on-dark-soft);">
+              <span>66</span><span style="color: var(--accent); font-weight: 300;">/</span><span>99</span>
+              <span style="color: var(--text-on-dark-dim); font-style: italic; margin-left: 8px;">by Tim Young</span>
+            </div>
+          </div>
+          <div class="label-below">Hero / masthead lockup</div>
+        </div>
+        <div class="push-cell cream">
+          <div style="display:flex; align-items: center; gap: 16px;">
+            <div style="font-family: var(--serif); font-size: 28px; line-height: 1; letter-spacing: -0.02em; color: var(--ink-dark);">
+              The <span style="color: var(--warm);">&amp;</span> Garage
+            </div>
+            <div style="display:flex; flex-direction: column; align-items: center; line-height: 0.9;">
+              <span style="font-family: var(--serif); font-size: 18px; color: var(--ink-dark);">66</span>
+              <span style="font-family: var(--serif); font-size: 18px; color: var(--ink-dark);">99</span>
+            </div>
+          </div>
+          <div class="label-below" style="color: var(--text-dim);">Inline · brand + glyph</div>
+        </div>
+        <div class="push-cell warm">
+          <div style="font-family: var(--serif); font-size: 36px; line-height: 1; letter-spacing: -0.025em; color: var(--cream); display: flex; align-items: center; gap: 8px;">
+            <span>66</span>
+            <span style="font-weight: 300; color: var(--ink-dark); opacity: 0.6;">/</span>
+            <span>99</span>
+          </div>
+          <div class="label-below">Wordmark-logo alone</div>
+        </div>
+        <div class="push-cell cream" style="aspect-ratio: 1; min-height: 0;">
+          <div style="display:flex; flex-direction: column; align-items: center; gap: 2px;">
+            <div style="font-family: var(--serif); font-size: 28px; line-height: 0.85; color: var(--ink-dark);">66</div>
+            <div style="font-family: var(--serif); font-size: 28px; line-height: 0.85; color: var(--ink-dark); transform: rotate(180deg);">66</div>
+          </div>
+          <div class="label-below" style="color: var(--text-dim);">Favicon · symbolic only</div>
+        </div>
+        <div class="push-cell dark">
+          <div style="display:flex; flex-direction: column; align-items: center; gap: 6px;">
+            <div style="font-family: var(--serif); font-size: 24px; line-height: 1; letter-spacing: -0.02em; color: var(--cream);">
+              The <span style="color: var(--accent);">&amp;</span> Garage
+            </div>
+            <div style="font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--text-on-dark-soft);">a classic car concierge by Tim Young</div>
+            <div style="display:flex; align-items: center; gap: 4px; font-family: var(--serif); font-size: 13px; color: var(--text-on-dark-dim); margin-top: 4px;">
+              <span>66</span><span style="color: var(--accent); font-weight: 300;">/</span><span>99</span>
+              <span style="margin: 0 4px; opacity: 0.5;">·</span>
+              <span>1965 — 1999</span>
+            </div>
+          </div>
+          <div class="label-below">Full system · footer / about</div>
+        </div>
+      </div>
+      <div style="padding: 18px 32px 24px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--text-soft); line-height: 1.6;">
+        <strong style="color: var(--text); font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;">Note</strong> — the ampersand glyph here is a stand-in. Production version inherits the exact glyph from The &amp; Network for instant family recognition. The "Garage" wordmark uses the same Fraunces face but doesn't otherwise replicate The &amp; Network's masthead.
+      </div>
+    </div>
+
+    <!-- Push panel #1 -->
+    <div class="push-panel">
+      <div class="push-head">
+        <span class="num">01</span>
+        <span class="label">The rotation, pushed</span>
+        <span class="blurb">Solid + outline pairing, color, and the byline lockup.</span>
+      </div>
+      <div class="push-grid">
+        <div class="push-cell dark">
+          <div class="small-mark">66</div>
+          <div class="small-mark flipped" style="color: var(--accent);">66</div>
+          <div class="label-below">Pure rotation</div>
+        </div>
+        <div class="push-cell cream">
+          <div class="small-mark" style="color: var(--ink-dark);">66</div>
+          <div class="small-mark flipped" style="color: var(--warm);">66</div>
+          <div class="label-below" style="color: var(--text-dim);">Cream / warm</div>
+        </div>
+        <div class="push-cell warm">
+          <div class="small-mark">66</div>
+          <div class="small-mark flipped" style="color: var(--ink-dark);">66</div>
+          <div class="label-below">Copper / ink</div>
+        </div>
+        <div class="push-cell dark">
+          <div style="display:flex; flex-direction: column; align-items:center; gap: 4px;">
+            <div class="small-mark" style="font-size: 56px;">66</div>
+            <div class="small-mark flipped" style="font-size: 56px; color: var(--accent);">66</div>
+          </div>
+          <div class="byline" style="color: var(--text-on-dark-soft);">by Tim Young</div>
+        </div>
+        <div class="push-cell cream">
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <div class="small-mark" style="color: var(--ink-dark); font-size: 28px;">66</div>
+            <div class="small-mark flipped" style="color: var(--ink-dark); font-size: 28px;">66</div>
+          </div>
+          <div class="label-below" style="color: var(--text-dim);">Favicon size</div>
+        </div>
+        <div class="push-cell lime">
+          <div class="small-mark" style="font-size: 28px;">66</div>
+          <div class="small-mark flipped" style="font-size: 28px;">66</div>
+          <div class="label-below" style="color: var(--ink-dark); opacity: 0.6;">Stamp / sticker</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Push panel #3 (stacked) -->
+    <div class="push-panel">
+      <div class="push-head">
+        <span class="num">03</span>
+        <span class="label">The stacked variant</span>
+        <span class="blurb">A model-badge feeling — vertical, compact, ownable.</span>
+      </div>
+      <div class="push-grid">
+        <div class="push-cell dark">
+          <div class="stacked-mark">
+            <span style="font-size: 56px; color: var(--cream);">66</span>
+            <span style="font-size: 56px; color: var(--accent);">99</span>
+          </div>
+          <div class="label-below">Pure stack</div>
+        </div>
+        <div class="push-cell cream">
+          <div class="stacked-mark with-rule">
+            <span style="font-size: 50px; color: var(--ink-dark);">66</span>
+            <div class="rule-thin" style="background: var(--warm);"></div>
+            <span style="font-size: 50px; color: var(--ink-dark);">99</span>
+          </div>
+          <div class="label-below" style="color: var(--text-dim);">With rule</div>
+        </div>
+        <div class="push-cell dark">
+          <div class="stacked-mark">
+            <span style="font-size: 36px; color: var(--cream);">66</span>
+            <span style="font-size: 22px; color: var(--accent); font-style: italic;">/</span>
+            <span style="font-size: 36px; color: var(--cream);">99</span>
+          </div>
+          <div class="label-below">Slash divider</div>
+        </div>
+        <div class="push-cell warm">
+          <div class="stacked-mark">
+            <span style="font-size: 44px; color: var(--cream);">66</span>
+            <span style="font-size: 44px; color: var(--ink-dark);">99</span>
+          </div>
+          <div class="byline">model badge</div>
+        </div>
+        <div class="push-cell cream">
+          <div style="display:flex; flex-direction: column; align-items: center; gap: 6px;">
+            <div class="stacked-mark">
+              <span style="font-size: 30px; color: var(--ink-dark);">66</span>
+              <span style="font-size: 30px; color: var(--ink-dark);">99</span>
+            </div>
+            <div class="byline" style="color: var(--warm);">&amp; Garage</div>
+            <div class="byline" style="color: var(--text-dim); font-size: 11px;">by Tim Young</div>
+          </div>
+        </div>
+        <div class="push-cell lime">
+          <div class="stacked-mark">
+            <span style="font-size: 28px; color: var(--ink-dark);">66</span>
+            <span style="font-size: 28px; color: var(--ink-dark);">99</span>
+          </div>
+          <div class="label-below" style="color: var(--ink-dark); opacity: 0.6;">Sticker / pin</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Push panel #5 -->
+    <div class="push-panel">
+      <div class="push-head">
+        <span class="num">05</span>
+        <span class="label">The slash, pushed</span>
+        <span class="blurb">Lockup with the &amp; Garage wordmark and the by-line.</span>
+      </div>
+      <div class="push-grid">
+        <div class="push-cell dark">
+          <div class="lockup-large">66<span class="slash" style="color: var(--accent); font-weight: 300;">/</span>99</div>
+          <div class="label-below">Primary lockup</div>
+        </div>
+        <div class="push-cell cream">
+          <div class="lockup-large" style="color: var(--ink-dark);">66<span class="slash" style="color: var(--warm); font-weight: 300;">/</span>99</div>
+          <div class="label-below" style="color: var(--text-dim);">Cream variant</div>
+        </div>
+        <div class="push-cell dark">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+            <div class="lockup" style="color: var(--accent);"><span class="ampersand">&amp;</span> Garage</div>
+            <div class="lockup-large" style="font-size: 32px;">66<span class="slash" style="opacity: 0.5; font-weight: 300;">/</span>99</div>
+          </div>
+        </div>
+        <div class="push-cell warm">
+          <div class="lockup-large" style="font-size: 32px;">66<span class="slash" style="color: var(--ink-dark); font-weight: 300;">/</span>99</div>
+          <div class="byline">by Tim Young</div>
+        </div>
+        <div class="push-cell cream">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+            <div class="lockup" style="color: var(--ink-dark);"><span class="ampersand" style="color: var(--warm);">&amp;</span> Garage</div>
+            <div class="lockup" style="color: var(--text-dim); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;">66 / 99 · by Tim Young</div>
+          </div>
+        </div>
+        <div class="push-cell dark">
+          <div class="lockup-large" style="font-size: 22px;">66<span class="slash" style="opacity: 0.5; font-weight: 300;">/</span>99</div>
+          <div class="label-below">Compact / nav</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Push panel #5b (multi-slash) -->
+    <div class="push-panel">
+      <div class="push-head">
+        <span class="num">05 ·b</span>
+        <span class="label">The slash, multiplied</span>
+        <span class="blurb">Double and triple slashes — a motorsport-stripe nod (BMW M energy without the M).</span>
+      </div>
+      <div class="push-grid">
+        <div class="push-cell dark">
+          <div class="multi-slash" style="font-size: 42px; color: var(--cream);">
+            <span>66</span>
+            <span class="slashes" style="color: var(--accent);">
+              <span>/</span><span>/</span>
+            </span>
+            <span>99</span>
+          </div>
+          <div class="label-below">Double slash</div>
+        </div>
+        <div class="push-cell dark">
+          <div class="multi-slash" style="font-size: 42px; color: var(--cream);">
+            <span>66</span>
+            <span class="slashes" style="color: var(--accent);">
+              <span>/</span><span>/</span><span>/</span>
+            </span>
+            <span>99</span>
+          </div>
+          <div class="label-below">Triple slash</div>
+        </div>
+        <div class="push-cell dark">
+          <div class="multi-slash" style="font-size: 42px; color: var(--cream);">
+            <span>66</span>
+            <span class="slashes">
+              <span class="stripe-1">/</span><span class="stripe-2">/</span><span class="stripe-3">/</span>
+            </span>
+            <span>99</span>
+          </div>
+          <div class="label-below">Tri-stripe homage · brand colors</div>
+        </div>
+        <div class="push-cell cream">
+          <div class="multi-slash" style="font-size: 42px; color: var(--ink-dark);">
+            <span>66</span>
+            <span class="slashes" style="color: var(--warm);">
+              <span>/</span><span>/</span>
+            </span>
+            <span>99</span>
+          </div>
+          <div class="label-below" style="color: var(--text-dim);">Double, cream</div>
+        </div>
+        <div class="push-cell cream">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="font-family: var(--serif); font-size: 24px; color: var(--ink-dark);">The <span style="color: var(--warm);">&amp;</span> Garage</div>
+            <div class="multi-slash" style="font-size: 22px; color: var(--ink-dark);">
+              <span>66</span>
+              <span class="slashes" style="color: var(--warm);">
+                <span>/</span><span>/</span><span>/</span>
+              </span>
+              <span>99</span>
+            </div>
+          </div>
+          <div class="label-below" style="color: var(--text-dim);">Tight triple · with brand</div>
+        </div>
+        <div class="push-cell warm">
+          <div style="display:flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div class="multi-slash" style="font-size: 28px; color: var(--cream);">
+              <span>66</span>
+              <span class="slashes" style="color: var(--ink-dark);">
+                <span>/</span><span>/</span><span>/</span>
+              </span>
+              <span>99</span>
+            </div>
+            <div class="byline">by Tim Young</div>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 18px 32px 24px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--text-soft); line-height: 1.6;">
+        <strong style="color: var(--text); font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;">Honest read</strong> — slashes are now tightened (gap removed, weight bumped) so the three strokes cluster like a stripe rather than read as separate marks. Tri-stripe homage uses the brand's own three colors (lime accent, warm copper, weathered green) rather than BMW's blue/purple/red — the energy is preserved without quoting the M3 directly. Mood board can pressure-test single vs. double vs. tight-triple at hero scale to see which rhythm earns its place.
+      </div>
+    </div>
+  </section>
+
+  <!-- Open questions -->
+  <section class="block">
+    <div class="section-kicker">Open questions</div>
+    <h2>What we still need to <em>resolve</em>.</h2>
+    <p class="body">A first round of brand exploration always surfaces more questions than it closes. These are the ones worth taking into the mood board.</p>
+
+    <div class="questions-grid">
+      <div class="question resolved">
+        <span class="resolved-badge">Resolved</span>
+        <div class="q-tag">Mark</div>
+        <h4>Primary mark or primary lockup?</h4>
+        <p>#1 (rotation) is a true mark — quiet, unsigned, ownable. #5 (slash) is a wordmark. They could co-exist, but one has to lead.</p>
+        <div class="resolution">→ #5 The slash leads. #1 supports.</div>
+      </div>
+      <div class="question resolved">
+        <span class="resolved-badge">Resolved</span>
+        <div class="q-tag">Ampersand</div>
+        <h4>Inherit the &amp; or redraw it?</h4>
+        <p>The "&amp;" is the family name. Two options: lift The &amp; Network's exact ampersand glyph (instant recognition, risk of looking derivative) or draw a new one in a different face that holds the same role (more distinct, more work).</p>
+        <div class="resolution">→ Inherit. Use the exact glyph for instant family recognition. The rest of the surface carries the distinction.</div>
+      </div>
+      <div class="question resolved">
+        <span class="resolved-badge">Resolved</span>
+        <div class="q-tag">Palette</div>
+        <h4>Where does the palette depart?</h4>
+        <p>Tim's existing system: ink dark + cream + lime accent + warm copper italic. The lime is the most recognizably-Tim color — keeping it would make the relationship obvious, dropping it would force real distinction.</p>
+        <div class="resolution">→ Subtle departure. Keep warm copper, swap lime for a new signature (oxblood / brass / weathered green / off-white) — to be picked in mood board.</div>
+      </div>
+      <div class="question resolved">
+        <span class="resolved-badge">Resolved</span>
+        <div class="q-tag">Photography</div>
+        <h4>Studio, drive, or detail?</h4>
+        <p>Three different image directions: cars on lifts and stands (workshop), cars in motion on roads (drive), close crops of badges and dashboards (detail). The question was which mood is the emotional center.</p>
+        <div class="resolution">→ Mix, context-led. Cohesion comes from a single grading direction (grain, contrast, color treatment) — to be defined in mood board.</div>
+      </div>
+      <div class="question">
+        <div class="q-tag">Voice / byline</div>
+        <h4>"by Tim Young" or just "&amp; Garage" — and what's the tonal register?</h4>
+        <p>Personal credibility is the moat (per the competitor scan), but "by Tim Young" can read as confidence or as caveat depending on placement. Voice tone — expert vs. enthusiast, formal vs. casual — is also unresolved. Mood board explores both in real surfaces (hero, business card, social header) so we can react in context.</p>
+      </div>
+      <div class="question">
+        <div class="q-tag">Range</div>
+        <h4>Does the mark scale down to favicon size?</h4>
+        <p>Production test for #1: at 32px, do the rotated glyphs still read as 6 and 9, or do they collapse into noise? If they collapse, we need a simplified glyph for small surfaces.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="kicker-footer">What this exploration is for</div>
+    <h2>A first cut. The <em>mood board</em> is where this gets material.</h2>
+    <p class="foot-note">This is the strategic frame and the mark exploration. Next step: a mood board that turns the partial signals — palette, typography, motif, photography, voice — into a concrete-enough whole that we can react to it instead of arguing about it.</p>
+    <div class="foot-bottom">
+      <span>Brand Exploration · v0.1 · internal</span>
+      <span>Updated April 2026 · living doc</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
