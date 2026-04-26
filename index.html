@@ -92,15 +92,23 @@
   }
   .docs {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin-bottom: 48px;
-    max-width: 720px;
+    margin-bottom: 20px;
+    max-width: 940px;
     margin-left: auto;
     margin-right: auto;
   }
+  .docs.brand-row {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 860px) {
+    .docs, .docs.brand-row { grid-template-columns: 1fr 1fr; max-width: 620px; }
+  }
   @media (max-width: 560px) {
-    .docs { grid-template-columns: 1fr; }
+    .docs, .docs.brand-row { grid-template-columns: 1fr; }
     h1 { font-size: 38px; }
   }
   .doc {
@@ -182,11 +190,20 @@
       <div class="doc-desc">A scan of four players in the space — and where Tim's lane sits among them.</div>
       <div class="doc-arrow">Read the scan →</div>
     </a>
+  </div>
+
+  <div class="docs brand-row">
     <a class="doc" href="brand-exploration.html">
       <div class="doc-label">Internal · Brand</div>
       <div class="doc-title">Brand exploration</div>
-      <div class="doc-desc">"The &amp; Garage" — concept, 66 ↔ 99 ambigram, lockup hierarchy, and directional decisions feeding the mood board.</div>
+      <div class="doc-desc">"The &amp; Garage" — concept, 66 ↔ 99 ambigram, lockup hierarchy, and directional decisions.</div>
       <div class="doc-arrow">Explore the brand →</div>
+    </a>
+    <a class="doc" href="mood-board.html">
+      <div class="doc-label">Internal · Brand</div>
+      <div class="doc-title">Mood board</div>
+      <div class="doc-desc">Hand-craft feel · oxblood and off-white palettes · Fraunces &amp; DM Sans · image treatments. A living visual exploration.</div>
+      <div class="doc-arrow">Set the mood →</div>
     </a>
   </div>
 

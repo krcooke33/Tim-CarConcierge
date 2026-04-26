@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Mood Board — The & Garage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Inherited base */
+    --ink-dark: #131426;
+    --ink-dark-2: #1c1d34;
+    --ink-dark-3: #252645;
+    --cream: #f7f3ec;
+    --cream-2: #efe9de;
+    --paper: #ffffff;
+    --text: #1c1d34;
+    --text-soft: #4a4b6a;
+    --text-dim: #8a8ba3;
+    --text-on-dark: #f7f3ec;
+    --text-on-dark-soft: #c9cadc;
+    --text-on-dark-dim: #8082a6;
+    --rule: rgba(28, 29, 52, 0.12);
+    --rule-soft: rgba(28, 29, 52, 0.06);
+    --rule-dark: rgba(247, 243, 236, 0.16);
+    --warm: #c57b3c;
+    --warm-soft: rgba(197, 123, 60, 0.14);
+    --accent: #d9ff3c; /* legacy lime — preserved for site-wide consistency, not used in & Garage palette */
+    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* New & Garage candidate signature colors */
+    --oxblood: #6e2828;
+    --oxblood-dark: #4a1a1a;
+    --oxblood-bright: #b53838; /* saturated brick red — for highlights on dark surfaces */
+    --oxblood-tint: rgba(110, 40, 40, 0.10);
+    --offwhite: #f3ede0;
+    --offwhite-warm: #ebe4d3;
+    --offwhite-deep: #ddd3bc;
+  }
+
+  /* ==================== BRAND AMPERSAND ==================== */
+  /* Single source of truth for the "&" in "The & Garage" wordmark.
+     Always roman (never italic), always oxblood-bright, always Fraunces.
+     Use everywhere "The & Garage" appears as a brand reference. */
+  .brand-amp {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--oxblood-bright);
+  }
+
+  /* ==================== YEAR MARK (66 to 99) ==================== */
+  .year-mark {
+    font-family: var(--serif);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32em;
+    line-height: 1;
+  }
+  .year-mark .num {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .year-mark .connector {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.5em;
+    letter-spacing: 0.06em;
+    color: var(--oxblood);
+    transform: translateY(-0.06em);
+  }
+  .year-mark.on-dark .connector { color: var(--oxblood-bright); }
+  .year-mark.on-warm .connector { color: var(--ink-dark); }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ==================== HERO ==================== */
+  .hero {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 18px 0 76px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .constellation {
+    position: absolute;
+    inset: 0;
+    opacity: 0.18;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 12% 22%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 78% 18%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 32% 76%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 88% 64%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 52% 8%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 22% 92%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 68% 48%, #fff 1px, transparent 1.5px);
+  }
+  .hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 60px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-soft);
+  }
+  .topnav .brand {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--text-on-dark);
+    font-style: italic;
+  }
+  .topnav .meta-chip {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule-dark);
+    max-width: 80px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(46px, 7.6vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 28px;
+    max-width: 18ch;
+  }
+  .hero h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--oxblood);
+    color: var(--oxblood-bright); /* lighter version of oxblood for contrast on dark */
+  }
+  .hero .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.42;
+    color: var(--text-on-dark-soft);
+    max-width: 50ch;
+    margin: 0 0 44px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule-dark);
+  }
+  .hero-meta .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .hero-meta .meta-item .value {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-on-dark);
+  }
+
+  /* ==================== CONTENT ==================== */
+  .content {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  section.block {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section.block:last-of-type { border-bottom: none; }
+
+  .section-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-kicker::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--text-dim);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(34px, 4.2vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+    max-width: 26ch;
+  }
+  h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm);
+  }
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--text-soft);
+    max-width: 58ch;
+    margin: 0 0 28px;
+    font-style: italic;
+  }
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p.body { font-size: 16px; line-height: 1.7; color: var(--text-soft); }
+
+  /* ==================== HOW-TO CALLOUT ==================== */
+  .howto {
+    margin-top: 24px;
+    padding: 22px 26px;
+    background: var(--paper);
+    border-left: 3px solid var(--warm);
+    max-width: 70ch;
+  }
+  .howto .howto-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 10px;
+  }
+  .howto p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin: 0 0 8px;
+  }
+  .howto code {
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+    background: var(--cream-2);
+    padding: 2px 6px;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  /* ==================== MOOD WORDS ==================== */
+  .moodwords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .moodword {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1;
+    padding: 14px 20px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--text);
+  }
+  .moodword.warm { background: var(--warm); color: var(--cream); border-color: var(--warm); }
+  .moodword.ox { background: var(--oxblood); color: var(--cream); border-color: var(--oxblood); }
+  .moodword.off { background: var(--offwhite); color: var(--text); border-color: var(--offwhite-deep); }
+  .moodword.dark { background: var(--ink-dark); color: var(--cream); border-color: var(--ink-dark); }
+  .moodword em {
+    font-style: italic;
+    color: var(--warm);
+  }
+  .moodword.warm em, .moodword.ox em, .moodword.dark em { color: var(--offwhite); }
+
+  /* ==================== MATERIALS / TEXTURES ==================== */
+  .materials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 32px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .material {
+    background: var(--paper);
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .material .swatch {
+    position: absolute;
+    inset: 0;
+  }
+  .material .label-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 16px;
+    background: rgba(247, 243, 236, 0.94);
+    backdrop-filter: blur(4px);
+  }
+  .material .label-block .name {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+  .material .label-block .desc {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+
+  /* Material textures via CSS */
+  .swatch.paper {
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(28,29,52,0.04) 0%, transparent 30%),
+      radial-gradient(circle at 70% 60%, rgba(28,29,52,0.03) 0%, transparent 25%),
+      repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(28,29,52,0.015) 2px, rgba(28,29,52,0.015) 3px);
+  }
+  .swatch.leather {
+    background:
+      radial-gradient(ellipse at 30% 30%, #a85d4a 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 70%, #6b3022 0%, transparent 50%),
+      linear-gradient(135deg, #8b4936, #5c2418);
+  }
+  .swatch.brushed {
+    background:
+      repeating-linear-gradient(0deg, #b8b8b8 0, #c4c4c4 1px, #b0b0b0 2px, #c4c4c4 3px),
+      linear-gradient(180deg, #c8c8c8, #989898);
+  }
+  .swatch.oil-rubbed {
+    background:
+      radial-gradient(ellipse at 40% 40%, rgba(60,40,30,0.6) 0%, transparent 60%),
+      linear-gradient(135deg, #2a2018, #1a1208);
+  }
+  .swatch.linen {
+    background-color: #d8d0bd;
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(120,100,70,0.08) 3px, rgba(120,100,70,0.08) 4px),
+      repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(120,100,70,0.08) 3px, rgba(120,100,70,0.08) 4px);
+  }
+  .swatch.enamel {
+    background:
+      radial-gradient(ellipse at 60% 30%, #d4d2c8 0%, transparent 70%),
+      linear-gradient(135deg, #8a8775, #5e5c4f);
+  }
+  .swatch.cork {
+    background-color: #b08866;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(80,50,30,0.4) 1px, transparent 2px),
+      radial-gradient(circle at 50% 60%, rgba(80,50,30,0.5) 1px, transparent 2px),
+      radial-gradient(circle at 80% 40%, rgba(80,50,30,0.3) 1px, transparent 2px),
+      radial-gradient(circle at 30% 80%, rgba(80,50,30,0.4) 1px, transparent 2px);
+    background-size: 10px 10px, 14px 14px, 8px 8px, 12px 12px;
+  }
+  .swatch.aged-paper {
+    background-color: var(--offwhite-deep);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(110,80,50,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(110,80,50,0.06) 0%, transparent 40%);
+  }
+  .swatch.wood-wheel {
+    background:
+      radial-gradient(ellipse at 30% 30%, #8b4a26 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 70%, #4a2410 0%, transparent 50%),
+      linear-gradient(135deg, #6b3818, #3a1c0a);
+  }
+  .swatch.chrome {
+    background:
+      linear-gradient(180deg, #d8d8d8 0%, #a8a8a8 30%, #c4c4c4 50%, #888888 75%, #b0b0b0 100%);
+  }
+  .swatch.asphalt {
+    background-color: #2a2c30;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04) 1px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(255,255,255,0.03) 1px, transparent 2px),
+      linear-gradient(135deg, #2e303a, #1c1e22);
+    background-size: 12px 12px, 16px 16px, auto;
+  }
+  .swatch.desert {
+    background:
+      radial-gradient(ellipse at 50% 60%, #c8a378 0%, transparent 60%),
+      linear-gradient(180deg, #d4b88e, #a07d4f);
+  }
+  .swatch.enamel-gauge {
+    background:
+      radial-gradient(circle at 50% 50%, #e8dfc8 0%, #b8a880 60%, #2a2418 100%);
+  }
+
+  /* ==================== IMAGE SLOTS ==================== */
+  .img-slot {
+    position: relative;
+    aspect-ratio: 4/3;
+    background-color: var(--cream-2);
+    background-size: cover;
+    background-position: center;
+    border: 1px dashed rgba(28,29,52,0.18);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .img-slot:hover { border-color: rgba(28,29,52,0.4); }
+  .img-slot.has-image { border: none; }
+  .img-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .img-slot.has-image .img-overlay {
+    opacity: 0;
+    background: rgba(28, 29, 52, 0.78);
+    color: var(--cream);
+  }
+  .img-slot.has-image:hover .img-overlay {
+    opacity: 1;
+  }
+  .img-slot.has-image:hover .img-name,
+  .img-slot.has-image:hover .img-hint {
+    color: var(--cream);
+  }
+  .img-name {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .img-hint {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-dim);
+    max-width: 22ch;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .img-picker {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .img-slot.preview::after {
+    content: "preview";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--warm);
+    color: var(--cream);
+    padding: 3px 8px;
+    z-index: 3;
+  }
+  .img-slot.has-caption .img-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 16px;
+    background: rgba(247, 243, 236, 0.94);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .img-caption .name {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .img-caption .desc {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+
+  /* ==================== PHOTO MOOD GRID ==================== */
+  .photo-mood {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  /* ==================== ADJACENT INSPIRATION ==================== */
+  .inspirations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 32px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .inspiration {
+    background: var(--paper);
+    padding: 24px 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .inspiration .insp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .inspiration h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--text);
+  }
+  .inspiration .insp-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+  }
+  .inspiration .insp-img {
+    aspect-ratio: 16/9;
+  }
+  .inspiration p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin: 0;
+  }
+  .inspiration .insp-takeaway {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--warm);
+    line-height: 1.5;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+
+  /* ==================== PALETTE ==================== */
+  .palette-base {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 32px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .swatch-card {
+    background: var(--paper);
+    aspect-ratio: 1.6;
+    position: relative;
+    overflow: hidden;
+  }
+  .swatch-card .fill {
+    position: absolute;
+    inset: 0;
+  }
+  .swatch-card .label-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 14px;
+    background: rgba(247, 243, 236, 0.94);
+    backdrop-filter: blur(4px);
+  }
+  .swatch-card .name {
+    font-family: var(--serif);
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .swatch-card .hex {
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .swatch-card.dark-label .label-block {
+    background: rgba(28,29,52,0.85);
+  }
+  .swatch-card.dark-label .name { color: var(--cream); }
+  .swatch-card.dark-label .hex { color: var(--text-on-dark-soft); }
+
+  .palette-direction {
+    margin-top: 36px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .palette-direction + .palette-direction { margin-top: 32px; }
+  .pd-head {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+  }
+  .pd-head .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--cream);
+    background: var(--ink-dark);
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+  .pd-head .name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    color: var(--text);
+  }
+  .pd-head .blurb {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-left: auto;
+    text-align: right;
+    max-width: 32ch;
+  }
+  .pd-swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+  }
+  .pd-applications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border-top: 1px solid var(--rule);
+  }
+  .pd-app {
+    background: var(--paper);
+    padding: 32px 32px 28px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .pd-app.dark { background: var(--ink-dark); color: var(--cream); }
+  .pd-app.cream { background: var(--cream); }
+  .pd-app.ox { background: var(--oxblood); color: var(--cream); }
+  .pd-app.off { background: var(--offwhite); }
+  .pd-app .app-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: -4px;
+  }
+  .pd-app.dark .app-label { color: var(--text-on-dark-dim); }
+  .pd-app.ox .app-label { color: rgba(247,243,236,0.6); }
+  .pd-app .app-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .pd-app.dark .app-headline { color: var(--cream); }
+  .pd-app .app-headline em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .pd-app .app-button {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border: 1px solid currentColor;
+    align-self: flex-start;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .pd-app .app-pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.4;
+    padding-left: 16px;
+    border-left: 3px solid currentColor;
+  }
+
+  /* ==================== TYPE SYSTEM ==================== */
+  .type-spec {
+    margin-top: 32px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .type-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .type-row:last-of-type { border-bottom: none; }
+  .type-row .meta {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .type-row .meta strong {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .type-row .specimen {
+    color: var(--text);
+  }
+  .type-row .specimen em {
+    font-style: italic;
+    color: var(--warm);
+  }
+
+  .specimen-hero {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+  .specimen-h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .specimen-h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .specimen-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--text-soft);
+  }
+  .specimen-body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-soft);
+  }
+  .specimen-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .specimen-caption {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  .type-cases {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .type-case {
+    background: var(--paper);
+    padding: 28px 32px;
+  }
+  .type-case .tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 12px;
+  }
+  .type-case .demo {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .type-case p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* ==================== IMAGE TREATMENTS ==================== */
+  .treatment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 32px;
+  }
+  .treatment-col {
+    background: var(--cream);
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .treatment-col .col-head {
+    margin-bottom: 4px;
+  }
+  .treatment-col .col-head .col-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 4px;
+  }
+  .treatment-col .col-head h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .treatment-col .col-head p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-soft);
+    margin: 6px 0 0;
+  }
+
+  .grade-direction {
+    margin-top: 36px;
+    padding: 28px 32px;
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .grade-direction .grade-tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 14px;
+  }
+  .grade-direction h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.2;
+    margin: 0 0 10px;
+  }
+  .grade-direction h3 em { font-style: italic; }
+  .grade-direction p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-on-dark-soft);
+    margin: 0;
+  }
+  .grade-direction ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .grade-direction li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-on-dark-soft);
+    padding-left: 20px;
+    position: relative;
+  }
+  .grade-direction li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--warm);
+  }
+
+  /* ==================== PUTTING IT TOGETHER ==================== */
+  .mock-hero {
+    margin-top: 36px;
+    aspect-ratio: 16/9;
+    position: relative;
+    background: var(--ink-dark);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+  .mock-hero .veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(19,20,38,0.4) 0%, rgba(19,20,38,0.85) 100%);
+  }
+  .mock-hero .mock-inner {
+    position: absolute;
+    left: 48px;
+    bottom: 48px;
+    right: 48px;
+    color: var(--cream);
+    z-index: 2;
+  }
+  .mock-hero .mh-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .mock-hero .mh-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+    max-width: 18ch;
+  }
+  .mock-hero .mh-title .brand {
+    color: var(--oxblood);
+    color: var(--oxblood-bright);
+  }
+  .mock-hero .mh-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--text-on-dark-soft);
+    max-width: 42ch;
+    margin-bottom: 24px;
+  }
+  .mock-hero .mh-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .mock-hero .mh-mark .slashes {
+    display: inline-flex;
+    gap: 0;
+    letter-spacing: -0.18em;
+    font-weight: 500;
+    color: var(--warm);
+  }
+
+  .mock-card-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 36px;
+  }
+  .mock-card {
+    aspect-ratio: 1.75;
+    position: relative;
+    padding: 32px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mock-card.dark {
+    background: var(--ink-dark);
+    color: var(--cream);
+  }
+  .mock-card.cream {
+    background: var(--offwhite);
+    color: var(--text);
+  }
+  .mock-card .card-mark {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.1;
+  }
+  .mock-card .card-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .mock-card .card-role {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+  }
+  .mock-card.dark .card-role { color: var(--oxblood-bright); }
+  .mock-card .card-meta {
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .mock-card.dark .card-meta { color: var(--text-on-dark-soft); }
+  .mock-card .card-stripe {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-family: var(--serif);
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .mock-card .card-stripe .slashes {
+    display: inline-flex;
+    gap: 0;
+    letter-spacing: -0.18em;
+    font-weight: 500;
+    color: var(--warm);
+  }
+  .mock-card.dark .card-stripe .slashes { color: var(--warm); }
+
+  /* ==================== FOOTER ==================== */
+  .footer {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 64px 0 52px;
+  }
+  .footer-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .footer .kicker-footer {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 20px;
+  }
+  .footer h2 {
+    color: var(--text-on-dark);
+    font-size: clamp(30px, 3.8vw, 44px);
+    margin: 0 0 16px;
+    max-width: 26ch;
+  }
+  .footer h2 em {
+    color: var(--oxblood-bright);
+    font-style: italic;
+  }
+  .footer .foot-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    color: var(--text-on-dark-soft);
+    max-width: 56ch;
+    margin: 0 0 32px;
+  }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule-dark);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 900px) {
+    .hero-inner, .content, .footer-inner { padding: 0 32px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .materials { grid-template-columns: repeat(2, 1fr); }
+    .photo-mood { grid-template-columns: repeat(2, 1fr); }
+    .inspirations { grid-template-columns: 1fr; }
+    .palette-base { grid-template-columns: repeat(2, 1fr); }
+    .pd-swatches { grid-template-columns: repeat(2, 1fr); }
+    .pd-applications { grid-template-columns: 1fr; }
+    .type-row { grid-template-columns: 1fr; gap: 12px; }
+    .type-cases { grid-template-columns: 1fr; }
+    .treatment-grid { grid-template-columns: 1fr; }
+    .grade-direction { grid-template-columns: 1fr; }
+    .mock-card-pair { grid-template-columns: 1fr; }
+    .pd-head { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .pd-head .blurb { text-align: left; max-width: none; margin-left: 0; }
+    section.block { padding: 56px 0; }
+    .specimen-hero { font-size: 44px; }
+    .specimen-h1 { font-size: 32px; }
+  }
+  @media (max-width: 560px) {
+    .hero-inner, .content, .footer-inner { padding: 0 20px; }
+    .photo-mood { grid-template-columns: 1fr; }
+    .materials { grid-template-columns: 1fr; }
+    .palette-base { grid-template-columns: 1fr; }
+    .pd-swatches { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="constellation"></div>
+  <div class="hero-inner">
+    <nav class="topnav">
+      <span class="brand">Mood Board · v0.1</span>
+      <span class="meta-chip">Internal · Tim &amp; Kendra</span>
+    </nav>
+
+    <div class="kicker">The <span class="brand-amp">&amp;</span> Garage · brand mood board</div>
+
+    <h1>The <em>poetry</em> of the drive.</h1>
+
+    <p class="tagline">A white-glove concierge for enthusiasts. Sun-faded photography, pristine surfaces, Tim's eye on every step — from the first conversation to the first drive. The romance is real. The handling is paired.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="label">Feel</span>
+        <div class="value">Sun-faded romance</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Palette</span>
+        <div class="value">Oxblood-led<br>copper complement</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Type</span>
+        <div class="value">Fraunces &amp; DM Sans</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Photography</span>
+        <div class="value">Drive · arrival<br>· detail</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== CONTENT ==================== -->
+<main class="content">
+
+  <!-- The center -->
+  <section class="block">
+    <div class="section-kicker">The center</div>
+    <h2>The <em>poetry</em> of the drive — and the <em>hands</em> that get you there.</h2>
+    <p class="lede">Two qualities run together. <strong style="color: var(--text);">The romance:</strong> the freedom of driving a car you love, the beauty of the vehicle that gets you there, the yearning of the open road. <strong style="color: var(--text);">The handling:</strong> Tim's eye, paired enthusiast to enthusiast, white-glove care from the first conversation to the first drive. The brand has to do both.</p>
+
+    <div class="howto">
+      <div class="howto-tag">How to use this mood board</div>
+      <p>Most photo and reference cards on this page are <strong>image slots</strong>. Click any slot to preview your own image locally for this session — useful for trying things on. To make an image stick, drop a file into <code>img/mood/</code> with the matching filename shown on the placeholder, then refresh.</p>
+      <p>You can edit copy, swap palette colors, and rearrange sections directly in <code>mood-board.html</code>. The page is a living doc — change it as the brand sharpens.</p>
+    </div>
+
+    <p style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); margin: 36px 0 12px;">The romance</p>
+    <div class="moodwords">
+      <div class="moodword">Sun-faded</div>
+      <div class="moodword warm">Romantic</div>
+      <div class="moodword off">Bygone</div>
+      <div class="moodword dark">Free</div>
+      <div class="moodword">Yearning</div>
+      <div class="moodword ox">Last-of-its-kind</div>
+      <div class="moodword">Open-road</div>
+      <div class="moodword off">Wind-warmed</div>
+      <div class="moodword">Pre-digital</div>
+      <div class="moodword warm">Golden-hour</div>
+      <div class="moodword dark">Analog</div>
+      <div class="moodword ox">Wax-poetic</div>
+    </div>
+
+    <p style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); margin: 32px 0 12px;">The handling</p>
+    <div class="moodwords">
+      <div class="moodword">White-glove</div>
+      <div class="moodword warm">Paired</div>
+      <div class="moodword">Vetted</div>
+      <div class="moodword off">Attentive</div>
+      <div class="moodword dark">Championed</div>
+      <div class="moodword">Considered</div>
+      <div class="moodword ox">Accountable</div>
+      <div class="moodword">Hand-paired</div>
+      <div class="moodword">Enthusiast-to-enthusiast</div>
+      <div class="moodword warm">Patient</div>
+      <div class="moodword">Earned</div>
+      <div class="moodword dark">Slowly better</div>
+    </div>
+  </section>
+
+  <!-- Voice register -->
+  <section class="block">
+    <div class="section-kicker">Voice notes · the register</div>
+    <h2>Two registers, <em>running together</em>.</h2>
+    <p class="lede">Pull-quotes for headlines, body, and conversations. Two parallel voice lanes — the romance of the drive and the white-glove handling — woven through everything the brand says.</p>
+    <p class="body">The voice carries an undercurrent of cultural awareness — driving a car you love is becoming optional in a world of autonomous vehicles — but doesn't preach about it. The romance is sincere; the urgency is implicit. Use these as starting points; pressure-test in real headlines and body when copy production starts.</p>
+
+    <div class="howto" style="border-left-color: var(--oxblood); margin-top: 32px;">
+      <div class="howto-tag" style="color: var(--oxblood);">The romance</div>
+      <p>"While we still drive." · "Before they drive themselves." · "The last analog road." · "For the drive, not the destination." · "Some cars remember when driving was the point." · "For the dream car you've been chasing."</p>
+      <p style="font-style: italic; color: var(--text-dim);">Tonal register: aware-not-preachy. Worn-warm, not bitter.</p>
+    </div>
+
+    <div class="howto" style="border-left-color: var(--warm); margin-top: 18px;">
+      <div class="howto-tag" style="color: var(--warm);">The handling</div>
+      <p>"Hand-paired, enthusiast to enthusiast." · "From the first conversation to the first drive." · "Tim's eye on every step." · "White-glove, end-to-end." · "Vetted in person, delivered with care." · "One concierge, one car, one accountable hand."</p>
+      <p style="font-style: italic; color: var(--text-dim);">Tonal register: peer, not vendor. Tim is one of you who happens to do this for a living. Expertise is generous, care is total, language stays human.</p>
+    </div>
+  </section>
+
+  <!-- Materials -->
+  <section class="block">
+    <div class="section-kicker">Feel · materials &amp; texture</div>
+    <h2>The <em>materials</em> of the road.</h2>
+    <p class="body">Surfaces the brand should feel adjacent to. These are placeholder textures rendered in CSS — drop in real photo references via <code style="background: var(--cream-2); padding: 2px 6px; font-family: monospace; font-size: 12px;">img/mood/texture-{name}.jpg</code> if you want to push them harder.</p>
+
+    <div class="materials">
+      <div class="material">
+        <div class="swatch leather"></div>
+        <div class="label-block">
+          <div class="name">Sun-warmed leather</div>
+          <div class="desc">A driver's seat in late afternoon. Deep, soft, oxblood at the edges.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch enamel"></div>
+        <div class="label-block">
+          <div class="name">Faded paint</div>
+          <div class="desc">A bonnet that has seen ten summers. Sun-bleached, beautifully imperfect.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch aged-paper"></div>
+        <div class="label-block">
+          <div class="name">Aged paper</div>
+          <div class="desc">Map margins, vintage owners' manuals, glove-box ephemera. Cream and warm.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch wood-wheel"></div>
+        <div class="label-block">
+          <div class="name">Wood-rim wheel</div>
+          <div class="desc">Mahogany or rosewood, warmed by hands. The most romantic surface in any classic.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch chrome"></div>
+        <div class="label-block">
+          <div class="name">Patina'd chrome</div>
+          <div class="desc">Bumpers, badges, gear knobs. Bright but with history — never showroom.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch asphalt"></div>
+        <div class="label-block">
+          <div class="name">Open asphalt</div>
+          <div class="desc">The road itself. Sun-warmed in the afternoon, blue at dusk.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch desert"></div>
+        <div class="label-block">
+          <div class="name">Desert dust</div>
+          <div class="desc">Off-white earth, low chaparral, the highway shoulder. Where the photos happen.</div>
+        </div>
+      </div>
+      <div class="material">
+        <div class="swatch enamel-gauge"></div>
+        <div class="label-block">
+          <div class="name">Aged enamel</div>
+          <div class="desc">Veglia, Smiths, Jaeger — the cream-and-black of vintage gauge faces.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photographic mood -->
+  <section class="block">
+    <div class="section-kicker">Feel · photographic mood</div>
+    <h2>What it <em>looks like</em>.</h2>
+    <p class="body">Sun-faded romance — cars in motion, cars at rest in atmospheric places, people with the cars they love. Mostly golden hour, mostly warm, slightly grainy. Click any slot to preview your own image; commit to <code style="background: var(--cream-2); padding: 2px 6px; font-family: monospace; font-size: 12px;">img/mood/feel-{n}.jpg</code> to make it permanent.</p>
+
+    <div class="photo-mood">
+      <div class="img-slot" data-img="img/mood/feel-01.jpg">
+        <div class="img-overlay">
+          <div class="img-name">feel-01.jpg</div>
+          <div class="img-hint">A car on a country road, golden hour. Cinematic.</div>
+        </div>
+        <input type="file" accept="image/*" class="img-picker">
+      </div>
+      <div class="img-slot" data-img="img/mood/feel-02.jpg">
+        <div class="img-overlay">
+          <div class="img-name">feel-02.jpg</div>
+          <div class="img-hint">A couple in or beside a classic — the lifestyle, not the catalogue.</div>
+        </div>
+        <input type="file" accept="image/*" class="img-picker">
+      </div>
+      <div class="img-slot" data-img="img/mood/feel-03.jpg">
+        <div class="img-overlay">
+          <div class="img-name">feel-03.jpg</div>
+          <div class="img-hint">A car at rest somewhere atmospheric — desert, gates, fall leaves.</div>
+        </div>
+        <input type="file" accept="image/*" class="img-picker">
+      </div>
+      <div class="img-slot" data-img="img/mood/feel-04.jpg">
+        <div class="img-overlay">
+          <div class="img-name">feel-04.jpg</div>
+          <div class="img-hint">A wood-rim wheel with a hand on it. The most intimate detail.</div>
+        </div>
+        <input type="file" accept="image/*" class="img-picker">
+      </div>
+      <div class="img-slot" data-img="img/mood/feel-05.jpg">
+        <div class="img-overlay">
+          <div class="img-name">feel-05.jpg</div>
+          <div class="img-hint">A dashboard with patina — gauges, wood, polished metal.</div>
+        </div>
+        <input type="file" accept="image/*" class="img-picker">
+      </div>
+      <div class="img-slot" data-img="img/mood/feel-06.jpg">
+        <div class="img-overlay">
+          <div class="img-name">feel-06.jpg</div>
+          <div class="img-hint">A sunlit interior — leather warm, the wheel waiting.</div>
+        </div>
+        <input type="file" accept="image/*" class="img-picker">
+      </div>
+    </div>
+  </section>
+
+  <!-- Adjacent inspiration -->
+  <section class="block">
+    <div class="section-kicker">Feel · adjacent inspiration</div>
+    <h2>Brands that <em>share the air</em>.</h2>
+    <p class="body">Not direct competitors — adjacencies that handle hand-craft, restraint, or enthusiast credibility well. Worth pulling visual swatches from any of these into the mood.</p>
+
+    <div class="inspirations">
+      <div class="inspiration">
+        <div class="insp-head">
+          <h3>Petrolicious</h3>
+          <span class="insp-tag">Enthusiast media · drive</span>
+        </div>
+        <div class="img-slot insp-img" data-img="img/mood/inspiration-petrolicious.jpg">
+          <div class="img-overlay">
+            <div class="img-name">inspiration-petrolicious.jpg</div>
+            <div class="img-hint">A reference shot from Petrolicious — the gear-shift / wood-wheel kind.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <p>The clearest reference for the exact aesthetic territory — film-grain photography, sun-warmed interiors, owners' stories about the cars they love. Editorial, romantic, never catalogue-y. The visual vocabulary the <span class="brand-amp">&amp;</span> Garage brand is closest to.</p>
+        <div class="insp-takeaway">Take: film-grain warmth, owner-as-subject, story as the point. Steal the photographic posture.</div>
+      </div>
+
+      <div class="inspiration">
+        <div class="insp-head">
+          <h3>Singer Vehicle Design</h3>
+          <span class="insp-tag">Restomod · cinematic</span>
+        </div>
+        <div class="img-slot insp-img" data-img="img/mood/inspiration-singer.jpg">
+          <div class="img-overlay">
+            <div class="img-name">inspiration-singer.jpg</div>
+            <div class="img-hint">A reference shot of Singer's hero photography.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <p>Porsche reimagined with obsessive care. Photography is cinematic — dark backgrounds, hot directional light on bodywork, single car as protagonist. Brand surfaces are crisp, modern, restrained.</p>
+        <div class="insp-takeaway">Take: the two-layer model — pristine brand + emotional photography. Exactly what we're trying.</div>
+      </div>
+
+      <div class="inspiration">
+        <div class="insp-head">
+          <h3>Hodinkee</h3>
+          <span class="insp-tag">Connoisseur voice</span>
+        </div>
+        <div class="img-slot insp-img" data-img="img/mood/inspiration-hodinkee.jpg">
+          <div class="img-overlay">
+            <div class="img-name">inspiration-hodinkee.jpg</div>
+            <div class="img-hint">A reference shot of Hodinkee's editorial layout or photography.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <p>Adjacent enthusiast space (watches), same care for provenance, expert eye, warm photography, editorial discipline. The voice that knows things and shares them generously — which is the Tim Young voice we want.</p>
+        <div class="insp-takeaway">Take: write like someone who actually knows. Photography as documentary romance, not catalogue.</div>
+      </div>
+
+      <div class="inspiration">
+        <div class="insp-head">
+          <h3>Magnus Walker / Outlaw culture</h3>
+          <span class="insp-tag">Owner culture · romance</span>
+        </div>
+        <div class="img-slot insp-img" data-img="img/mood/inspiration-magnus.jpg">
+          <div class="img-overlay">
+            <div class="img-name">inspiration-magnus.jpg</div>
+            <div class="img-hint">A reference shot of Magnus Walker / 277 / outlaw Porsche aesthetic.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <p>Ownership as a love affair. The romance of <em>using</em> a classic, not preserving it. Patina is a feature. Films and photo essays where the car is driven, not displayed. Closest emotional adjacency to the cultural-moment idea.</p>
+        <div class="insp-takeaway">Take: drive them, don't preserve them. Patina as virtue. The owner's relationship is the story.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color palette -->
+  <section class="block">
+    <div class="section-kicker">Color palette</div>
+    <h2>Two directions to <em>react to</em>.</h2>
+    <p class="lede">Same inherited base — ink dark, cream, warm copper. Two different signature colors layered on top. The question: which one feels more like the <span class="brand-amp">&amp;</span> Garage?</p>
+
+    <h3 style="font-family: var(--serif); font-weight: 400; font-size: 22px; margin: 32px 0 0; color: var(--text); letter-spacing: -0.005em;">Inherited base · same as The &amp; Network</h3>
+    <div class="palette-base">
+      <div class="swatch-card dark-label">
+        <div class="fill" style="background: var(--ink-dark);"></div>
+        <div class="label-block">
+          <div class="name">Ink dark</div>
+          <div class="hex">#131426</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="fill" style="background: var(--cream);"></div>
+        <div class="label-block">
+          <div class="name">Cream</div>
+          <div class="hex">#f7f3ec</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="fill" style="background: var(--warm);"></div>
+        <div class="label-block">
+          <div class="name">Warm copper</div>
+          <div class="hex">#c57b3c</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="fill" style="background: var(--cream-2);"></div>
+        <div class="label-block">
+          <div class="name">Soft cream</div>
+          <div class="hex">#efe9de</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direction A: Oxblood-led (RECOMMENDED) -->
+    <div class="palette-direction" style="border: 2px solid var(--oxblood);">
+      <div class="pd-head" style="background: var(--oxblood-tint);">
+        <span class="label" style="background: var(--oxblood);">Direction A · recommended</span>
+        <span class="name">Oxblood-led</span>
+        <span class="blurb">Tim's pick. Rich, warm, saturated. Italian-leather depth. Oxblood does the heavy lifting; copper plays the warm complement on dark surfaces.</span>
+      </div>
+      <div class="pd-swatches">
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--oxblood);"></div>
+          <div class="label-block">
+            <div class="name">Oxblood</div>
+            <div class="hex">#6e2828</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--oxblood-dark);"></div>
+          <div class="label-block">
+            <div class="name">Oxblood deep</div>
+            <div class="hex">#4a1a1a</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--warm);"></div>
+          <div class="label-block">
+            <div class="name">Copper (kept)</div>
+            <div class="hex">#c57b3c</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--cream);"></div>
+          <div class="label-block">
+            <div class="name">Cream (base)</div>
+            <div class="hex">#f7f3ec</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-applications">
+        <div class="pd-app dark">
+          <div class="app-label">Hero · dark</div>
+          <div class="app-headline">For the <em style="color: var(--oxblood-bright);">dream car</em> you've been chasing.</div>
+          <a class="app-button" style="color: var(--cream); border-color: var(--oxblood); background: var(--oxblood);">Start a conversation</a>
+        </div>
+        <div class="pd-app cream">
+          <div class="app-label">Body · cream</div>
+          <div class="app-pull" style="border-color: var(--oxblood); color: var(--text-soft);">"It's not finding the car. It's that the whole arc — find, vet, move, deliver — is fragmented. No one owns it for you."</div>
+        </div>
+        <div class="pd-app ox">
+          <div class="app-label">Stamp · oxblood</div>
+          <div class="app-headline" style="font-size: 36px;">
+            <span class="year-mark" style="color: var(--cream);">
+              <span class="num">66</span>
+              <span class="connector" style="color: var(--cream);">to</span>
+              <span class="num">99</span>
+            </span>
+          </div>
+          <div style="font-family: var(--serif); font-style: italic; font-size: 14px; color: rgba(247,243,236,0.8);">by Tim Young</div>
+        </div>
+        <div class="pd-app cream">
+          <div class="app-label">Detail · trim</div>
+          <div style="height: 1px; background: var(--oxblood); margin-bottom: 6px;"></div>
+          <div class="specimen-kicker" style="color: var(--oxblood);">A practice of connecting people to cars</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--text); margin-top: 4px;">The <span class="brand-amp">&amp;</span> Garage</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direction B: Off-white-led -->
+    <div class="palette-direction">
+      <div class="pd-head">
+        <span class="label">Direction B</span>
+        <span class="name">Off-white-led</span>
+        <span class="blurb">Restrained, paper, quiet. Type and photography carry the brand. Less is more.</span>
+      </div>
+      <div class="pd-swatches">
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--offwhite);"></div>
+          <div class="label-block">
+            <div class="name">Off-white</div>
+            <div class="hex">#f3ede0</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--offwhite-warm);"></div>
+          <div class="label-block">
+            <div class="name">Warm paper</div>
+            <div class="hex">#ebe4d3</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--offwhite-deep);"></div>
+          <div class="label-block">
+            <div class="name">Aged paper</div>
+            <div class="hex">#ddd3bc</div>
+          </div>
+        </div>
+        <div class="swatch-card dark-label">
+          <div class="fill" style="background: var(--warm);"></div>
+          <div class="label-block">
+            <div class="name">Copper (kept)</div>
+            <div class="hex">#c57b3c</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-applications">
+        <div class="pd-app off">
+          <div class="app-label" style="color: var(--text-dim);">Hero · off-white</div>
+          <div class="app-headline" style="color: var(--text);">For the <em style="color: var(--warm);">dream car</em> you've been chasing.</div>
+          <a class="app-button" style="color: var(--text); border-color: var(--text);">Start a conversation</a>
+        </div>
+        <div class="pd-app dark">
+          <div class="app-label">Body · dark</div>
+          <div class="app-pull" style="border-color: var(--warm);">"It's not finding the car. It's that the whole arc — find, vet, move, deliver — is fragmented."</div>
+        </div>
+        <div class="pd-app off">
+          <div class="app-label" style="color: var(--text-dim);">Stamp · paper</div>
+          <div class="app-headline" style="font-size: 36px; color: var(--text);">
+            <span class="year-mark">
+              <span class="num">66</span>
+              <span class="connector" style="color: var(--warm);">to</span>
+              <span class="num">99</span>
+            </span>
+          </div>
+          <div style="font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--text-soft);">by Tim Young</div>
+        </div>
+        <div class="pd-app cream">
+          <div class="app-label">Detail · trim</div>
+          <div style="height: 1px; background: var(--warm); margin-bottom: 6px;"></div>
+          <div class="specimen-kicker" style="color: var(--warm);">A practice of connecting people to cars</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--text); margin-top: 4px;">The <span class="brand-amp">&amp;</span> Garage</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direction C: The hybrid (alternative) -->
+    <div class="palette-direction">
+      <div class="pd-head">
+        <span class="label">Direction C</span>
+        <span class="name">The hybrid</span>
+        <span class="blurb">Off-white surfaces + oxblood as surgical accent + warm copper + ink-dark. Kept here as a comparison point — softer, more restrained, less Italian-leather.</span>
+      </div>
+      <div class="pd-swatches">
+        <div class="swatch-card dark-label">
+          <div class="fill" style="background: var(--ink-dark);"></div>
+          <div class="label-block">
+            <div class="name">Ink dark</div>
+            <div class="hex">#131426</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--offwhite);"></div>
+          <div class="label-block">
+            <div class="name">Off-white (lead)</div>
+            <div class="hex">#f3ede0</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--oxblood);"></div>
+          <div class="label-block">
+            <div class="name">Oxblood (accent)</div>
+            <div class="hex">#6e2828</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="fill" style="background: var(--warm);"></div>
+          <div class="label-block">
+            <div class="name">Warm copper</div>
+            <div class="hex">#c57b3c</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-applications">
+        <div class="pd-app off">
+          <div class="app-label" style="color: var(--text-dim);">Hero · off-white surface</div>
+          <div class="app-headline" style="color: var(--text);">For the <em style="color: var(--oxblood);">dream car</em> you've been chasing.</div>
+          <a class="app-button" style="color: var(--cream); background: var(--oxblood); border-color: var(--oxblood);">Start a conversation</a>
+        </div>
+        <div class="pd-app off">
+          <div class="app-label" style="color: var(--text-dim);">Body · paper-quiet</div>
+          <div class="app-pull" style="border-color: var(--oxblood); color: var(--text-soft);">"Hand-paired, enthusiast to enthusiast — from the first conversation to the first drive."</div>
+        </div>
+        <div class="pd-app off">
+          <div class="app-label" style="color: var(--text-dim);">Stamp · oxblood accent</div>
+          <div class="app-headline" style="font-size: 36px; color: var(--text);">
+            <span class="year-mark">
+              <span class="num">66</span>
+              <span class="connector">to</span>
+              <span class="num">99</span>
+            </span>
+          </div>
+          <div style="font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--text-soft);">by Tim Young</div>
+        </div>
+        <div class="pd-app off">
+          <div class="app-label" style="color: var(--text-dim);">Detail · trim</div>
+          <div style="height: 1px; background: var(--oxblood); margin-bottom: 6px;"></div>
+          <div class="specimen-kicker" style="color: var(--oxblood);">A practice of connecting people to cars</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--text); margin-top: 4px;">The <span class="brand-amp">&amp;</span> Garage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Type system -->
+  <section class="block">
+    <div class="section-kicker">Type system</div>
+    <h2>Same letters, <em>different posture</em>.</h2>
+    <p class="lede">Inherited typefaces from The &amp; Network — Fraunces (serif) and DM Sans. The departure isn't in the type itself; it's in how it's used. Less polish, more weight, more confidence in restraint.</p>
+
+    <div class="type-spec">
+      <div class="type-row">
+        <div class="meta">
+          <strong>Hero</strong>
+          Fraunces · 300 · 88px<br>tracking -0.025em
+        </div>
+        <div class="specimen">
+          <div class="specimen-hero">For the <em>dream car</em></div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="meta">
+          <strong>H1</strong>
+          Fraunces · 300 · 52px<br>tracking -0.02em
+        </div>
+        <div class="specimen">
+          <div class="specimen-h1">A concierge experience for enthusiasts <em>making their dream real</em>.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="meta">
+          <strong>H2</strong>
+          Fraunces · 300 · 30px<br>tracking -0.015em
+        </div>
+        <div class="specimen">
+          <div class="specimen-h2">Matchmaking and transport aren't two businesses. They're <em>two ends of one service</em>.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="meta">
+          <strong>Lede</strong>
+          Fraunces · italic · 22px
+        </div>
+        <div class="specimen">
+          <div class="specimen-lede">The real pain for collectors isn't finding a car, and it isn't shipping a car. It's that the whole arc is fragmented.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="meta">
+          <strong>Body</strong>
+          DM Sans · 400 · 16px<br>line-height 1.7
+        </div>
+        <div class="specimen">
+          <div class="specimen-body">Tim's first business is built on connecting people to the right next chapter — talent to roles, leaders to networks. & Garage is the same instinct applied to a different object.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="meta">
+          <strong>Kicker</strong>
+          DM Sans · 500 · 11px<br>tracking 0.24em · uppercase
+        </div>
+        <div class="specimen">
+          <div class="specimen-kicker">A practice of connecting people to cars · planning document</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="meta">
+          <strong>Caption</strong>
+          DM Sans · 400 · 12px
+        </div>
+        <div class="specimen">
+          <div class="specimen-caption">Photographed at the workshop — March 2026. Restoration in progress.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-cases">
+      <div class="type-case">
+        <div class="tag">Italic vs. roman</div>
+        <div class="demo">The <em>dream car</em> you've been chasing.</div>
+        <p>Italic is reserved for <strong>emotional emphasis</strong> — never for brand names. "The <span class="brand-amp">&amp;</span> Garage" is roman (upright), always. The italic ampersand glyph (cursive Et-ligature) is intentionally avoided.</p>
+      </div>
+      <div class="type-case">
+        <div class="tag">Tracked caps</div>
+        <div class="demo specimen-kicker" style="font-size: 11px;">A PRACTICE OF CONNECTING PEOPLE TO CARS</div>
+        <p>Kicker labels and section markers use DM Sans at 11px with 0.24em tracking. Generous letter-spacing turns a label into a quiet visual rule — like a gauge marking.</p>
+      </div>
+      <div class="type-case">
+        <div class="tag">Year-mark</div>
+        <div class="demo">
+          <span class="year-mark">
+            <span class="num">66</span>
+            <span class="connector">to</span>
+            <span class="num">99</span>
+          </span>
+          <span style="font-family: var(--sans); font-size: 14px; color: var(--text-dim); letter-spacing: 0.04em; margin-left: 12px;">1965 to 1999</span>
+        </div>
+        <p>Lining figures (Fraunces default). The <em>year-mark</em> uses a small italic Fraunces "to" sized roughly half the numerals, sitting between the eras. The connector is oxblood on light surfaces, brick-bright on dark.</p>
+      </div>
+      <div class="type-case">
+        <div class="tag">Hierarchy economy</div>
+        <div class="demo" style="font-size: 18px;">Three levels max — hero, body, kicker.</div>
+        <p>Resist the temptation to invent intermediate sizes. Three clear tiers per section keeps the hierarchy honest and the page hand-craft, not over-designed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image treatments -->
+  <section class="block">
+    <div class="section-kicker">Image treatments</div>
+    <h2>One <em>eye</em>, three subjects.</h2>
+    <p class="lede">Mix-and-context-led photography — workshop, drive, detail. Cohesion comes from a shared grade direction, not from picking one mood and ignoring the others.</p>
+
+    <div class="treatment-grid">
+      <div class="treatment-col">
+        <div class="col-head">
+          <div class="col-tag">Drive</div>
+          <h3>The freedom</h3>
+          <p>Cars in motion, the open road, golden hour. The yearning made visible. Cars as protagonists.</p>
+        </div>
+        <div class="img-slot" data-img="img/mood/drive-01.jpg">
+          <div class="img-overlay">
+            <div class="img-name">drive-01.jpg</div>
+            <div class="img-hint">Car on a country road, low light or golden hour.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <div class="img-slot" data-img="img/mood/drive-02.jpg">
+          <div class="img-overlay">
+            <div class="img-name">drive-02.jpg</div>
+            <div class="img-hint">A hand on a wood wheel, in motion. Windscreen sun-flare.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <div class="img-slot" data-img="img/mood/drive-03.jpg">
+          <div class="img-overlay">
+            <div class="img-name">drive-03.jpg</div>
+            <div class="img-hint">A car kicking up dust on an empty highway. Cinematic.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+      </div>
+
+      <div class="treatment-col">
+        <div class="col-head">
+          <div class="col-tag">Arrival</div>
+          <h3>The companion</h3>
+          <p>The car at rest in atmospheric places — and the people who drove it there. Romance, not catalogue.</p>
+        </div>
+        <div class="img-slot" data-img="img/mood/arrival-01.jpg">
+          <div class="img-overlay">
+            <div class="img-name">arrival-01.jpg</div>
+            <div class="img-hint">A couple beside a convertible — desert, mountain, or beach.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <div class="img-slot" data-img="img/mood/arrival-02.jpg">
+          <div class="img-overlay">
+            <div class="img-name">arrival-02.jpg</div>
+            <div class="img-hint">A car parked alone in a beautiful place — the gate, the cliff, the field.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <div class="img-slot" data-img="img/mood/arrival-03.jpg">
+          <div class="img-overlay">
+            <div class="img-name">arrival-03.jpg</div>
+            <div class="img-hint">A driver leaning, looking — the moment after the drive.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+      </div>
+
+      <div class="treatment-col">
+        <div class="col-head">
+          <div class="col-tag">Detail</div>
+          <h3>The beauty</h3>
+          <p>Close crops — wood wheels, gauge clusters, leather, gear knobs. The car as the beautiful object that gets you there.</p>
+        </div>
+        <div class="img-slot" data-img="img/mood/detail-01.jpg">
+          <div class="img-overlay">
+            <div class="img-name">detail-01.jpg</div>
+            <div class="img-hint">Wood-rim wheel, hand resting. Petrolicious-style.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <div class="img-slot" data-img="img/mood/detail-02.jpg">
+          <div class="img-overlay">
+            <div class="img-name">detail-02.jpg</div>
+            <div class="img-hint">Gauge cluster — Veglia, Smiths, Jaeger. Cream-on-black.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+        <div class="img-slot" data-img="img/mood/detail-03.jpg">
+          <div class="img-overlay">
+            <div class="img-name">detail-03.jpg</div>
+            <div class="img-hint">Polished gear knob, sun-warmed leather, the small considered things.</div>
+          </div>
+          <input type="file" accept="image/*" class="img-picker">
+        </div>
+      </div>
+    </div>
+
+    <div class="grade-direction">
+      <div>
+        <div class="grade-tag">Recommended grade</div>
+        <h3><em>Sun-faded · grain · golden hour.</em></h3>
+        <p>The unifying treatment that makes drive, arrival, and detail feel like one photographer's work — and one bygone era's. Cohesion comes from how the images are processed, not just what they show.</p>
+      </div>
+      <div>
+        <div class="grade-tag">The recipe</div>
+        <ul>
+          <li>Visible film grain (a Portra 400 / Ektar 100 feel — the photo as object)</li>
+          <li>Soft contrast (don't crush blacks; preserve highlight detail in skies)</li>
+          <li>Warm color temperature (+amber, -blue) — late afternoon, never noon</li>
+          <li>Gentle desaturation (10 – 15%) — faded, not muddy</li>
+          <li>Lifted blacks, slightly milky shadows — Polaroid-faded rather than digital-clean</li>
+          <li>Reds and oranges hold their saturation; everything else relaxes around them</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Putting it together -->
+  <section class="block">
+    <div class="section-kicker">Putting it together</div>
+    <h2>The brand alive on a <em>page</em>.</h2>
+    <p class="body">First-pass mockups pulling palette + type + photography into single compositions. Drop a hero image at <code style="background: var(--cream-2); padding: 2px 6px; font-family: monospace; font-size: 12px;">img/mood/mock-hero.jpg</code> to see this come alive.</p>
+
+    <div class="mock-hero img-slot" data-img="img/mood/mock-hero.jpg" style="aspect-ratio: 16/9; cursor: pointer;">
+      <div class="img-overlay" style="opacity: 0.8;">
+        <div class="img-name" style="color: var(--cream);">mock-hero.jpg</div>
+        <div class="img-hint" style="color: var(--text-on-dark-soft);">A hero image — workshop, dashboard, or open road. Click to preview locally.</div>
+      </div>
+      <input type="file" accept="image/*" class="img-picker">
+      <div class="veil"></div>
+      <div class="mock-inner">
+        <div class="mh-kicker">While we still drive · 1965 to 1999</div>
+        <h2 class="mh-title">For the <span class="brand">dream car</span> you've been chasing.</h2>
+        <p class="mh-tag">The <span class="brand-amp">&amp;</span> Garage — an acquisition concierge for the cars worth driving while we still can. End-to-end, enthusiast to enthusiast.</p>
+        <div class="mh-mark">
+          <span class="year-mark on-dark" style="font-size: 22px;">
+            <span class="num">66</span>
+            <span class="connector">to</span>
+            <span class="num">99</span>
+          </span>
+          <span style="margin: 0 8px; opacity: 0.5;">·</span>
+          <span style="font-style: italic; opacity: 0.85;">by Tim Young</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mock-card-pair">
+      <div class="mock-card dark">
+        <div class="card-mark">The <span class="brand-amp">&amp;</span> Garage</div>
+        <div class="card-stripe">
+          <span class="year-mark on-dark" style="font-size: 18px;">
+            <span class="num">66</span>
+            <span class="connector">to</span>
+            <span class="num">99</span>
+          </span>
+        </div>
+        <div>
+          <div class="card-name">Tim Young</div>
+          <div class="card-role">Founder · Concierge</div>
+        </div>
+        <div class="card-meta">
+          tim@andgarage.com<br>+1 ___ ___ ____<br>Northeast US · 1965 to 99
+        </div>
+      </div>
+      <div class="mock-card cream">
+        <div class="card-mark">The <span class="brand-amp">&amp;</span> Garage</div>
+        <div class="card-stripe">
+          <span class="year-mark" style="font-size: 18px; color: var(--ink-dark);">
+            <span class="num">66</span>
+            <span class="connector">to</span>
+            <span class="num">99</span>
+          </span>
+        </div>
+        <div>
+          <div class="card-name">Tim Young</div>
+          <div class="card-role" style="color: var(--oxblood);">Founder · Concierge</div>
+        </div>
+        <div class="card-meta" style="color: var(--text-soft);">
+          tim@andgarage.com<br>+1 ___ ___ ____<br>Northeast US · 1965 to 99
+        </div>
+      </div>
+    </div>
+    <p class="body" style="margin-top: 18px; font-style: italic; color: var(--text-dim); font-size: 13px;">Two business card directions — dark (Direction A: oxblood lockup on ink-dark) and cream (Direction B: oxblood on off-white). Same hierarchy, different temperature.</p>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="kicker-footer">What this mood board is for</div>
+    <h2>A mood is a <em>starting line</em>, not a finish.</h2>
+    <p class="foot-note">First-pass exploration of the sun-faded romance and the sleek surfaces that contain it. Push back, swap images, change the recipe. Decisions made here feed the production system — real type tokens, a final palette, a photographer brief, and a voice that knows it's writing about the last analog era of driving.</p>
+    <div class="foot-bottom">
+      <span>Mood Board · v0.1 · internal</span>
+      <span>Living doc · update as it sharpens</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    function loadImageSlot(slot) {
+      const url = slot.dataset.img;
+      if (!url) return;
+      const img = new Image();
+      img.onload = () => {
+        slot.style.backgroundImage = `url('${url}')`;
+        slot.classList.add('has-image');
+      };
+      img.src = url;
+    }
+
+    function setupFilePicker(slot) {
+      const input = slot.querySelector('input[type="file"]');
+      if (!input) return;
+      input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          slot.style.backgroundImage = `url(${ev.target.result})`;
+          slot.classList.add('has-image', 'preview');
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    document.querySelectorAll('.img-slot').forEach(slot => {
+      loadImageSlot(slot);
+      setupFilePicker(slot);
+    });
+  })();
+</script>
+
+</body>
+</html>
