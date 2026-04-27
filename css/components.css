@@ -2984,3 +2984,44 @@ a.gallery-card {
     font-size: 16px;
   }
 }
+
+/* ─── Mobile/Tablet polish · aged-paper sections + CTA micro-copy ──
+   Task #27 walk-through. The aged-paper radials, the small italic
+   `.final-cta-quiet` / `.final-cta-kicker` lines, and the contact
+   `.next-coda` were tuned for desktop in task #24. These rules tighten
+   spacing and soften the radials at smaller widths so each beat still
+   reads intentional on phones. */
+
+/* Tablet (≈ 768px) — what-next kicker tightens, next-coda settles
+   closer to the steps so the section reads as one beat, not two. */
+@media (max-width: 760px) {
+  .section.what-next .kicker {
+    margin-bottom: 32px;
+  }
+  .next-coda {
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 16px;
+    max-width: 34ch;
+  }
+}
+
+/* Mobile (≤ 480px) — soften the aged-paper radials so warmth doesn't
+   pool at narrow widths; tighten CTA micro-copy wraps and coda spacing. */
+@media (max-width: 480px) {
+  .surface-aged-paper {
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(110, 80, 50, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 78% 78%, rgba(110, 80, 50, 0.04) 0%, transparent 50%);
+  }
+  .final-cta-quiet {
+    max-width: 28ch;
+  }
+  .final-cta-kicker {
+    letter-spacing: 0.22em;
+  }
+  .next-coda {
+    margin-top: 32px;
+    font-size: 15.5px;
+  }
+}
