@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The &amp; Garage — a classic car acquisition concierge for enthusiasts. Hand-paired, end-to-end, 1966 to 1999. Operated by Tim Young.">
+  <meta name="description" content="The &amp; Garage — an acquisition concierge for enthusiasts buying classic and modern-classic cars. Hand-paired, end-to-end, from the first conversation to the first drive.">
   <meta name="robots" content="noindex, nofollow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://andgarage.com/">
-  <meta property="og:title" content="The &amp; Garage — Classic Car Acquisition Concierge">
+  <meta property="og:title" content="The &amp; Garage — For the dream car you've been chasing.">
   <meta property="og:description" content="Hand-paired, end-to-end acquisition service for classic and modern-classic cars from 1966 to 1999. By Tim Young.">
   <meta property="og:image" content="https://andgarage.com/img/hero/home.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The &amp; Garage — Classic Car Acquisition Concierge">
+  <meta name="twitter:title" content="The &amp; Garage — For the dream car you've been chasing.">
   <meta name="twitter:description" content="Hand-paired, end-to-end acquisition service for classic and modern-classic cars from 1966 to 1999. By Tim Young.">
   <meta name="twitter:image" content="https://andgarage.com/img/hero/home.jpg">
 
-  <title>The &amp; Garage — Classic Car Acquisition Concierge</title>
+  <title>The &amp; Garage — For the dream car you've been chasing.</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,162 +30,149 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
-
-  <style>
-    /* Component-test page layout only */
-    .test-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 8px;
-      margin-bottom: 32px;
-    }
-    .test-hero-surface {
-      min-height: auto;
-      padding: 72px 40px;
-    }
-    .test-hero-surface .hero-inner {
-      justify-content: flex-start;
-      padding: 0;
-    }
-    .wordmark {
-      font-family: 'Fraunces', serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 28px;
-      letter-spacing: -0.01em;
-      margin-bottom: 24px;
-      display: block;
-    }
-    .year-mark-wrap {
-      margin-bottom: 32px;
-      font-size: 22px;
-    }
-    @media (max-width: 480px) {
-      .test-hero-surface {
-        padding: 48px 20px;
-      }
-    }
-  </style>
 </head>
-<body>
+<body class="page-home">
 
   <!-- ═══════════════════════════════════════════════
-       SITE NAV
+       SECTION 1 — HERO (nav integrated inside hero-inner)
   ════════════════════════════════════════════════ -->
-  <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-    <a class="nav-wordmark" href="/">The <span class="brand-amp">&amp;</span> Garage</a>
-
-    <!-- Desktop links -->
-    <ul class="nav-links" role="list">
-      <li><a href="/about/">About</a></li>
-      <li><a href="/process/">How it works</a></li>
-      <li><a href="/gallery/">Gallery</a></li>
-      <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
-    </ul>
-
-    <!-- Persistent CTA (mobile only — always visible) -->
-    <a class="nav-cta-mobile" href="/contact/">Start a conversation</a>
-
-    <!-- Hamburger (mobile) -->
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-drawer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Mobile drawer -->
-    <ul class="nav-drawer" id="nav-drawer" role="list">
-      <li><a href="/about/">About</a></li>
-      <li><a href="/process/">How it works</a></li>
-      <li><a href="/gallery/">Gallery</a></li>
-      <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
-    </ul>
-  </nav>
-
-  <!-- ═══════════════════════════════════════════════
-       DARK SURFACE — hero with constellation
-  ════════════════════════════════════════════════ -->
-  <header class="hero test-hero-surface">
+  <header class="hero">
+    <img
+      class="hero-image"
+      src="img/hero/home.jpg"
+      alt="Classic car at golden hour"
+      loading="eager"
+      width="2000"
+      height="1333"
+    >
+    <div class="veil"></div>
     <div class="constellation"></div>
+
     <div class="hero-inner">
 
-      <p class="test-label" style="color:var(--text-on-dark-dim); border-color:var(--rule-dark);">Component test · dark surface</p>
+      <!-- Top nav — wordmark left, links right, hamburger at < 760px -->
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a class="nav-wordmark" href="/">The <span class="brand-amp">&amp;</span> Garage</a>
 
-      <!-- Brand wordmark -->
-      <span class="wordmark" style="color:var(--text-on-dark);">
-        The <span class="brand-amp">&amp;</span> Garage
-      </span>
+        <!-- Desktop links -->
+        <ul class="nav-links" role="list">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/process/">How it works</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
+        </ul>
 
-      <!-- Year-mark on dark -->
-      <div class="year-mark-wrap">
-        <span class="year-mark on-dark" style="color:var(--text-on-dark);">
-          <span class="num">66</span>
-          <span class="connector">to</span>
-          <span class="num">99</span>
-        </span>
+        <!-- Persistent CTA (mobile only — always visible) -->
+        <a class="nav-cta-mobile" href="/contact/">Start a conversation</a>
+
+        <!-- Hamburger (mobile) -->
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Mobile drawer -->
+        <ul class="nav-drawer" id="nav-drawer" role="list">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/process/">How it works</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hero content — pushed to bottom of viewport -->
+      <div class="hero-content">
+
+        <span class="kicker">While we still drive · 1966 to 1999</span>
+
+        <h1>For the <em>dream car</em> you've been chasing.</h1>
+
+        <p class="tagline">The <span class="brand-amp">&amp;</span> Garage — an acquisition concierge for enthusiasts buying classic and modern-classic cars. Hand-paired, end-to-end, from the first conversation to the first drive.</p>
+
+        <div class="hero-byline">
+          <span class="year-mark on-dark">
+            <span class="num">66</span>
+            <span class="connector">to</span>
+            <span class="num">99</span>
+          </span>
+          <span class="hero-by">· <em>by Tim Young</em></span>
+        </div>
+
+        <a class="btn on-dark solid" href="/contact/">Start a conversation</a>
+
       </div>
-
-      <!-- Kicker -->
-      <span class="kicker" style="display:block; margin-bottom:20px;">While we still drive · 1966 to 1999</span>
-
-      <!-- H1 with italic emphasis -->
-      <h1 style="color:var(--text-on-dark); max-width:16ch; margin-bottom:28px;">
-        For the <em>dream car</em> you've been chasing.
-      </h1>
-
-      <!-- Primary CTA -->
-      <a class="btn on-dark solid" href="/contact/">Start a conversation</a>
 
     </div>
   </header>
 
   <!-- ═══════════════════════════════════════════════
-       LIGHT SURFACE — section.block on cream
+       SECTION 2 — THE PROBLEM
   ════════════════════════════════════════════════ -->
   <section class="section block">
+    <h2>Matchmaking and transport aren't two businesses. They're <em>two ends of one service</em>.</h2>
 
-    <p class="test-label">Component test · light surface</p>
+    <p class="lede">The real pain isn't finding a car, and it isn't shipping a car. It's that the whole arc — find, vet, negotiate, move, deliver — is fragmented. No one owns it for you.</p>
 
-    <!-- Brand wordmark on light -->
-    <span class="wordmark" style="font-size:28px; margin-bottom:24px;">
-      The <span class="brand-amp">&amp;</span> Garage
-    </span>
+    <p>The &amp; Garage is one accountable hand from the first conversation to the first drive. Tim brings 13 years of recruiting — the same hunt-and-match expertise — to a market built on relationships and gut.</p>
+  </section>
 
-    <!-- Year-mark on light (no modifier) -->
-    <div class="year-mark-wrap" style="margin-bottom:32px;">
-      <span class="year-mark" style="font-size:22px; color:var(--text);">
-        <span class="num">66</span>
-        <span class="connector">to</span>
-        <span class="num">99</span>
-      </span>
+  <!-- ═══════════════════════════════════════════════
+       SECTION 3 — WHAT WE DO
+  ════════════════════════════════════════════════ -->
+  <section class="section block what-we-do">
+    <h2>What <span class="brand-amp">&amp;</span> Garage does</h2>
+
+    <div class="card-grid">
+
+      <article class="service-card">
+        <a href="/process/">
+          <h3>Find</h3>
+          <p>Tell me what you're chasing. I work the sources, the network, the in-person leads.</p>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <a href="/process/">
+          <h3>Vet</h3>
+          <p>I see it in person. Pre-purchase inspection, history check, and a real conversation about what you're getting.</p>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <a href="/process/">
+          <h3>Negotiate</h3>
+          <p>Flat fee, on your side. Your budget gets respected and your time doesn't get wasted.</p>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <a href="/process/">
+          <h3>Move &amp; hand off</h3>
+          <p>Enclosed transport, vetted carriers, and a delivery you'll remember. The first drive is the point.</p>
+        </a>
+      </article>
+
     </div>
+  </section>
 
-    <!-- Kicker -->
-    <span class="kicker" style="display:block; margin-bottom:16px;">Acquisition concierge · Northeast US</span>
+  <!-- ═══════════════════════════════════════════════
+       SECTION 4 — TIM SIGNATURE (deferred)
+       SECTION 5 — QUOTES (deferred)
+       SECTION 6 — GALLERY TEASER (deferred)
+       These sections require .tim-signature, .quote-card,
+       and .gallery-card components not yet built.
+  ════════════════════════════════════════════════ -->
 
-    <!-- H2 with italic emphasis -->
-    <h2 style="margin-bottom:20px;">
-      Matchmaking and transport aren't two businesses. They're <em>two ends of one service</em>.
-    </h2>
-
-    <!-- Lede -->
-    <p class="lede" style="margin-bottom:24px;">
-      The real pain isn't finding a car, and it isn't shipping a car. It's that the whole arc — find, vet, negotiate, move, deliver — is fragmented.
-    </p>
-
-    <!-- Body copy -->
-    <p style="color:var(--text-soft); margin-bottom:36px;">
-      The &amp; Garage is one accountable hand from the first conversation to the first drive. Tim brings 13 years of recruiting — the same hunt-and-match expertise — to a market built on relationships and gut.
-    </p>
-
-    <!-- Button on light surface -->
-    <a class="btn" href="/process/">Read how it works</a>
-
+  <!-- ═══════════════════════════════════════════════
+       SECTION 7 — FINAL CTA
+  ════════════════════════════════════════════════ -->
+  <section class="section final-cta dark-surface">
+    <div class="constellation"></div>
+    <div class="final-cta-inner">
+      <p class="final-cta-lead"><em>Start a conversation. Tell me what you're chasing.</em></p>
+      <a class="btn on-dark solid" href="/contact/">Start a conversation</a>
+    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════
@@ -223,7 +210,7 @@
       <!-- Col 3 — Lineage -->
       <div class="footer-lineage">
         <h4>Lineage</h4>
-        <p>A sibling brand of The &amp; Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
+        <p>A sibling brand of <a href="https://timyoungtalent.com" target="_blank" rel="noopener">The &amp; Network</a>.</p>
       </div>
 
     </div>

@@ -189,6 +189,10 @@
   color: var(--text-on-dark);
   text-decoration: none;
   white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
@@ -294,9 +298,14 @@
   }
 }
 
-/* Push body down so nav doesn't overlap content */
+/* Push body down so fixed nav doesn't overlap content on interior pages */
 body {
   padding-top: 64px;
+}
+
+/* Home page — nav lives inside the hero, no top padding needed */
+body.page-home {
+  padding-top: 0;
 }
 
 /* ─── Site Footer ─────────────────────────────────────────── */
@@ -521,19 +530,54 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 40px 40px 72px;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 0 0;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+
+/* Nav inside hero — override fixed/opaque default for home page */
+.hero .site-nav {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  background: transparent;
+  border-bottom: 1px solid rgba(247, 243, 236, 0.12);
+  padding: 0 40px;
+  max-width: none;
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .hero .site-nav {
+    padding: 0 20px;
+  }
+}
+
+/* Mobile drawer inside hero — full width from top of drawer */
+.hero .nav-drawer {
+  top: 64px;
+}
+
+/* Hero content block — aligns to bottom of hero */
+.hero .hero-content {
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
+  padding: 40px 40px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.hero .hero-inner .kicker {
+.hero .hero-content .kicker {
   margin-bottom: 20px;
 }
 
-.hero .hero-inner h1 {
+.hero .hero-content h1 {
   color: var(--text-on-dark);
   max-width: 16ch;
   margin-bottom: 20px;
@@ -551,7 +595,7 @@ body {
 }
 
 @media (max-width: 760px) {
-  .hero .hero-inner {
+  .hero .hero-content {
     padding: 24px 20px 52px;
   }
 }
@@ -775,6 +819,104 @@ body {
   padding: 96px 40px;
 }
 
+/* ─── Hero Byline ─────────────────────────────────────────── */
+
+.hero .hero-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 36px;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--text-on-dark-soft);
+}
+
+.hero .hero-by {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-on-dark-dim);
+  letter-spacing: 0.01em;
+}
+
+/* ─── What We Do Card Grid ────────────────────────────────── */
+
+.what-we-do h2 {
+  margin-bottom: 48px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  border-top: 2px solid var(--oxblood);
+  padding-top: 28px;
+}
+
+.service-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  margin-bottom: 14px;
+  transition: color 0.15s ease;
+}
+
+.service-card a:hover h3 {
+  color: var(--oxblood);
+}
+
+.service-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-soft);
+  max-width: none;
+}
+
+/* ─── Final CTA Section (standalone dark surface) ─────────── */
+
+.final-cta {
+  position: relative;
+  background: var(--ink-dark);
+  overflow: hidden;
+}
+
+.final-cta .constellation {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 8% 30%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 14%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 44% 80%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 91% 55%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 28% 60%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 60% 92%, #fff 1px, transparent 1.5px);
+}
+
 .final-cta-inner {
   position: relative;
   z-index: 2;
@@ -785,6 +927,7 @@ body {
   align-items: center;
   text-align: center;
   gap: 32px;
+  padding: 80px 40px;
 }
 
 .final-cta-line {
@@ -803,11 +946,23 @@ body {
   color: var(--warm);
 }
 
+.final-cta-lead {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.2;
+  color: var(--text-on-dark);
+  max-width: 32ch;
+  margin: 0 auto 40px;
+}
+
 @media (max-width: 760px) {
   .section.final-cta {
     padding: 64px 20px;
   }
   .final-cta-inner {
     gap: 24px;
+    padding: 64px 20px;
   }
 }
