@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Tim Young — the person behind The &amp; Garage, classic car acquisition concierge.">
+  <meta name="description" content="Meet Tim Young — the operator of The &amp; Garage. Lifelong car enthusiast, recruiter, illustrator. Currently drives a 1968 Mustang, a 1993 BMW E30 Touring, and a 1997 Toyota 4Runner.">
   <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://andgarage.com/about/">
+  <meta property="og:title" content="About Tim Young — The &amp; Garage">
+  <meta property="og:description" content="Lifelong car enthusiast, recruiter, illustrator — and the operator of The &amp; Garage.">
+  <meta property="og:image" content="https://andgarage.com/img/hero/about.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Tim Young — The &amp; Garage">
+  <meta name="twitter:description" content="Lifelong car enthusiast, recruiter, illustrator — and the operator of The &amp; Garage.">
+  <meta name="twitter:image" content="https://andgarage.com/img/hero/about.jpg">
+
   <title>About Tim — The &amp; Garage</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +30,14 @@
 </head>
 <body>
 
+  <!-- ═══════════════════════════════════════════════
+       SITE NAV
+  ════════════════════════════════════════════════ -->
   <nav class="site-nav" id="site-nav" aria-label="Main navigation">
     <a class="nav-wordmark" href="/">The <span class="brand-amp">&amp;</span> Garage</a>
 
     <ul class="nav-links" role="list">
-      <li><a href="/about/">About</a></li>
+      <li><a href="/about/" aria-current="page">About</a></li>
       <li><a href="/process/">How it works</a></li>
       <li><a href="/gallery/">Gallery</a></li>
       <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
@@ -36,17 +52,103 @@
     </button>
 
     <ul class="nav-drawer" id="nav-drawer" role="list">
-      <li><a href="/about/">About</a></li>
+      <li><a href="/about/" aria-current="page">About</a></li>
       <li><a href="/process/">How it works</a></li>
       <li><a href="/gallery/">Gallery</a></li>
       <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
     </ul>
   </nav>
 
-  <main class="section block">
-    <p>[Placeholder — About Tim page coming soon]</p>
+  <!-- ═══════════════════════════════════════════════
+       1. HERO — Tim's portrait
+  ════════════════════════════════════════════════ -->
+  <header class="hero hero-about">
+    <img class="hero-image" src="/img/hero/about.jpg" alt="Tim Young, founder of The &amp; Garage, with one of his cars" loading="eager" width="1021" height="1021">
+    <div class="veil"></div>
+    <div class="constellation"></div>
+
+    <div class="hero-inner">
+      <span class="kicker">Meet Tim</span>
+      <h1>I've been drawing cars since I was <em>5</em>.</h1>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       2. THE STORY — 7 paragraphs verbatim from §06.2
+  ════════════════════════════════════════════════ -->
+  <main>
+    <section class="section block story">
+      <article class="story-body">
+
+        <p>I've been drawing cars since I was 5 years old. That's when it started — the obsession, the love, the need to be around them. I grew up in a family of car enthusiasts and old-school NASCAR fans. Weekends were spent in the garage with my dad, hands covered in grease, learning how things worked. My first car was a 1973 Dodge Charger SE — my uncle's company car, passed down to me.</p>
+
+        <p>Over the years, I've owned numerous classics from that golden era between 1966 and 1999 — a 1985 Dodge Daytona Turbo Z, a 1967 Sunbeam Alpine, a 1985 Ford F-150, a 1987 BMW E30, a 1994 Toyota Land Cruiser, and more. Some were perfect. Some needed work. And one taught me everything I know about commitment.</p>
+
+        <p>My grandfather owned a 1974 Bronco Explorer, and I always wanted one of my own. I found a 1971 with a 302 and "3 on the tree" for $1,500 in Waynesville, NC. The motor wasn't as solid as the seller claimed. I could have walked away. Instead, I tore it down to the frame and rebuilt it from scratch. That full off-frame restoration became one of the projects I'm most proud of — not because it was easy, but because it reminded me why I love this. The hunt. The work. The moment you turn the key and it all comes together.</p>
+
+        <p>Today I drive a 1968 Mustang coupe, a rare 1993 BMW E30 316i Touring, and a 1997 Toyota 4Runner. I found all three for a combined $23k. Yes, I eat my own cooking.</p>
+
+        <p>Few people know I spent two years as Art Director at Lowe's Corporate, working with Team Lowe's Racing — Jimmie Johnson's #48 car and team #5 drivers Blake Feese and Boston Reid, part of Ricky Hendrick's driver development program. Or that I'm an illustrator. Most of what I draw? Classic cars.</p>
+
+        <p>For 13 years, I've been recruiting globally for creative agencies and consultancies. The <span class="brand-amp">&amp;</span> Network is my most recent venture. My job has always been the same: connect people to what makes them come alive. I've placed hundreds of professionals in roles where they thrive. Now I'm doing the same thing with cars.</p>
+
+        <p class="story-close"><em>If you're chasing a dream car from that era, I'll find it. Not because it's a service I offer — because I know what it feels like to want one. And I know what it feels like to finally get behind the wheel.</em> <strong><em>Let's find yours.</em></strong></p>
+
+      </article>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         3. CURRENTLY DRIVING — 3 cars
+    ════════════════════════════════════════════════ -->
+    <section class="section block currently-driving">
+      <span class="kicker">Currently driving</span>
+      <h2>Three keys, <em>three eras</em>.</h2>
+
+      <div class="car-cards">
+
+        <article class="car-card">
+          <div class="car-card-image">
+            <img src="/img/tim/mustang-1968.jpg" alt="1968 Ford Mustang Coupe — Tim's daily classic" loading="lazy" width="800" height="600">
+          </div>
+          <h3 class="car-title">1968 Ford Mustang Coupe</h3>
+          <p class="car-caption">[NEEDS COPY: one line per car in Tim's voice]</p>
+        </article>
+
+        <article class="car-card">
+          <div class="car-card-image">
+            <img src="/img/tim/bmw-e30-1993.jpg" alt="1993 BMW E30 316i Touring — rare wagon variant" loading="lazy" width="800" height="600">
+          </div>
+          <h3 class="car-title">1993 BMW E30 316i Touring</h3>
+          <p class="car-caption">[NEEDS COPY: one line per car in Tim's voice]</p>
+        </article>
+
+        <article class="car-card">
+          <div class="car-card-image">
+            <img src="/img/tim/4runner-1997.jpg" alt="1997 Toyota 4Runner — the workhorse" loading="lazy" width="800" height="600">
+          </div>
+          <h3 class="car-title">1997 Toyota 4Runner</h3>
+          <p class="car-caption">[NEEDS COPY: one line per car in Tim's voice]</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         4. FINAL CTA — section.block on dark surface
+    ════════════════════════════════════════════════ -->
+    <section class="section on-dark final-cta">
+      <div class="constellation"></div>
+      <div class="final-cta-inner">
+        <p class="final-cta-line"><em>Let's find yours.</em></p>
+        <a class="btn on-dark solid" href="/contact/">Start a conversation</a>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ═══════════════════════════════════════════════
+       SITE FOOTER
+  ════════════════════════════════════════════════ -->
   <footer class="site-footer">
     <div class="footer-inner">
 
@@ -76,12 +178,12 @@
 
       <div class="footer-lineage">
         <h4>Lineage</h4>
-        <p>A sibling brand of The &amp; Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
+        <p>A sibling brand of The <span class="brand-amp">&amp;</span> Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
       </div>
 
     </div>
     <div class="footer-bottom">
-      <p>© 2026 The &amp; Garage · Northeast US · 1966 to 1999</p>
+      <p>© 2026 The <span class="brand-amp">&amp;</span> Garage · Northeast US · 1966 to 1999</p>
     </div>
   </footer>
 

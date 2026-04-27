@@ -1,0 +1,38 @@
+
+Foundations look good. Now build the home page per BRIEF.md §06.1 — but only sections 1 (Hero), 2 (The problem), 3 (What we do), and 7 (Final CTA). Skip sections 4 (Tim signature), 5 (Quotes), and 6 (Gallery teaser) for now — those depend on .tim-signature, .quote-card, and .gallery-card components we haven't built yet. We'll come back to add them in a later step.
+What to build
+1. Hero section. Full-bleed <header class="hero"> with the constellation dot pattern as background, plus an <img> at img/hero/home.jpg underneath a dark gradient veil for text legibility. Inside .hero-inner:
+
+Top nav: brand wordmark "The & Garage" on the left (using .brand-amp for the &), and primary nav links on the right (About / How it works / Gallery / Start a conversation). The "Start a conversation" link should look like a button. Mobile: hamburger menu.
+Kicker: While we still drive · 1966 to 1999
+H1: For the <em>dream car</em> you've been chasing. (italic emphasis on "dream car")
+Tagline: pull verbatim from BRIEF.md §08 ("The & Garage — an acquisition concierge for enthusiasts buying classic and modern-classic cars. Hand-paired, end-to-end, from the first conversation to the first drive.")
+Inline below tagline: year-mark 66 to 99 (using .year-mark.on-dark) + " · by Tim Young" italic.
+Primary CTA button: "Start a conversation" → /contact/
+
+2. The problem section. A .section.block on the cream surface. Use the real copy from §08:
+
+H2: Matchmaking and transport aren't two businesses. They're <em>two ends of one service</em>.
+Lede paragraph (italic Fraunces): the "real pain isn't finding a car…" quote from §08.
+Body paragraph: the second paragraph from §08's "The problem section".
+
+3. What we do (four cards). A .section.block with a four-column grid of small cards (stacks to 2-col on tablet, 1-col on mobile). Each card: bold title + one sentence body, both pulled verbatim from §08. Titles: Find · Vet · Negotiate · Move & hand off.
+4. Final CTA section. A .section.block on the dark surface (or with an oxblood-tinted background — your call which reads better). Single line in serif italic: "Start a conversation. Tell me what you're chasing." + repeat the "Start a conversation" button.
+Constraints
+
+Use only components from §07 that already exist (.brand-amp, .year-mark, .kicker, .btn, .section.block, .hero). Do not build new components yet.
+Real copy from §08 verbatim — do not paraphrase, do not invent.
+Hero image at img/hero/home.jpg exists; reference it directly. Add loading="eager" (it's above the fold) and explicit width/height attributes to prevent CLS.
+The dark surfaces (hero, possibly final CTA) get the constellation motif. Light surfaces don't.
+Brand-amp on dark surfaces = copper. On light = oxblood.
+Year ranges: "to" only.
+Mobile responsive: test mentally at 320px, 768px, 1024px, 1440px.
+
+Acceptance
+When done, show me:
+
+The rendered home page (screenshot or live preview link).
+The HTML for index.html.
+Any new CSS additions to components.css (there shouldn't be much — most should be reusing what's in there).
+
+Pause and confirm before moving to the About page. I want to see what you've built before we keep going.

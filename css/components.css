@@ -10,7 +10,9 @@
 }
 
 .hero .brand-amp,
-.footer .brand-amp,
+.site-footer .brand-amp,
+.site-nav .brand-amp,
+.section.on-dark .brand-amp,
 .dark-surface .brand-amp {
   color: var(--warm);
 }
@@ -551,5 +553,261 @@ body {
 @media (max-width: 760px) {
   .hero .hero-inner {
     padding: 24px 20px 52px;
+  }
+}
+
+/* ─── About Hero (image variant) ──────────────────────────── */
+
+.hero.hero-about {
+  min-height: 76svh;
+}
+
+.hero.hero-about .hero-inner {
+  justify-content: flex-end;
+  padding-bottom: 80px;
+  max-width: 1080px;
+}
+
+.hero.hero-about .kicker {
+  color: var(--text-on-dark-dim);
+  margin-bottom: 16px;
+}
+
+.hero.hero-about h1 {
+  color: var(--text-on-dark);
+  max-width: 18ch;
+  margin-bottom: 0;
+}
+
+.hero.hero-about h1 em {
+  font-style: italic;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+@media (max-width: 760px) {
+  .hero.hero-about {
+    min-height: 64svh;
+  }
+  .hero.hero-about .hero-inner {
+    padding: 24px 20px 40px;
+  }
+}
+
+/* ─── Story (long-form readable typography) ───────────────── */
+
+.section.story {
+  padding-top: 88px;
+  padding-bottom: 32px;
+}
+
+.story-body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.story-body p {
+  max-width: 66ch;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 24px;
+}
+
+.story-body p:last-child {
+  margin-bottom: 0;
+}
+
+.story-body .story-close {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--text);
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.story-body .story-close em {
+  font-style: italic;
+}
+
+.story-body .story-close strong {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--oxblood);
+}
+
+@media (max-width: 760px) {
+  .section.story {
+    padding-top: 56px;
+    padding-bottom: 24px;
+  }
+  .story-body p {
+    font-size: 16px;
+  }
+  .story-body .story-close {
+    font-size: 19px;
+    padding-top: 24px;
+    margin-top: 28px;
+  }
+}
+
+/* ─── Currently Driving (3-card grid) ─────────────────────── */
+
+.section.currently-driving {
+  padding-top: 56px;
+  padding-bottom: 96px;
+}
+
+.section.currently-driving h2 {
+  margin-bottom: 40px;
+  max-width: 24ch;
+}
+
+.car-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.car-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ink-dark);
+  margin-bottom: 16px;
+}
+
+.car-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.car-card:hover .car-card-image img {
+  transform: scale(1.03);
+}
+
+.car-card .car-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+.car-card .car-caption {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 960px) {
+  .car-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .car-cards .car-card:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 600px) {
+  .section.currently-driving {
+    padding-bottom: 64px;
+  }
+  .car-cards {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .car-cards .car-card:nth-child(3) {
+    max-width: none;
+  }
+  .section.currently-driving h2 {
+    margin-bottom: 28px;
+  }
+}
+
+/* ─── Section · on-dark modifier ──────────────────────────── */
+
+.section.on-dark {
+  position: relative;
+  background: var(--ink-dark);
+  color: var(--text-on-dark);
+  overflow: hidden;
+}
+
+.section.on-dark .constellation {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 12% 22%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 78% 18%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 32% 76%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 64%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 52% 8%, #fff 1px, transparent 1.5px),
+    radial-gradient(circle at 22% 92%, #fff 1px, transparent 1.5px);
+}
+
+/* ─── Final CTA (composes .section.on-dark) ───────────────── */
+
+.section.final-cta {
+  padding: 96px 40px;
+}
+
+.final-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.final-cta-line {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  color: var(--text-on-dark);
+  margin: 0;
+  max-width: 20ch;
+}
+
+.final-cta-line em {
+  font-style: italic;
+  color: var(--warm);
+}
+
+@media (max-width: 760px) {
+  .section.final-cta {
+    padding: 64px 20px;
+  }
+  .final-cta-inner {
+    gap: 24px;
   }
 }

@@ -1,0 +1,29 @@
+Now build the About Tim page at about/index.html per BRIEF.md §06.2. Self-contained — no new components needed beyond what's in §07.
+What to build
+1. Hero section. Same dark hero pattern as home, but with img/hero/about.jpg (Tim's portrait) as the image. Apply the same dark gradient veil for text legibility. Kicker: Meet Tim. H1: I've been drawing cars since I was <em>5</em>. Skip the tagline — let the H1 carry the page open.
+2. The story. A .section.block on the cream surface with the full About story rendered as long-form readable typography. Use the exact seven paragraphs from BRIEF.md §06.2 verbatim — do not paraphrase, do not shorten. Set max-width: 66ch on the body paragraphs for readability. Last paragraph (the "If you're chasing a dream car…") is italic Fraunces. The closing "Let's find yours." should be bolded inside the italic.
+3. Currently driving. A .section.block with a three-card grid (stacks to 1-column on mobile). Three cards using the photos in img/tim/:
+
+mustang-1968.jpg — title "1968 Ford Mustang Coupe"
+bmw-e30-1993.jpg — title "1993 BMW E30 316i Touring"
+4runner-1997.jpg — title "1997 Toyota 4Runner"
+
+Per card: image (4:3 aspect, lazy-loaded with width/height), year/make/model in Fraunces, and a one-line caption in Tim's voice — leave as [NEEDS COPY: one line per car in Tim's voice] since Tim hasn't written these yet.
+4. Final CTA. A .section.block on dark surface. Single italic Fraunces line: Let's find yours. + button "Start a conversation" → /contact/.
+Constraints
+
+Use only existing components from §07 (.brand-amp, .year-mark, .kicker, .btn, .section.block, .hero).
+Story copy is final and verbatim from BRIEF.md §06.2 — seven paragraphs total, do not condense or rewrite.
+Currently-driving captions stay as [NEEDS COPY] — do not invent.
+Top nav and footer should match what was built on the home page (consistent across pages).
+Brand-amp on dark surfaces = copper. On light = oxblood.
+Mobile responsive at 320px, 768px, 1024px, 1440px.
+
+Acceptance
+Show me:
+
+The rendered About Tim page (screenshot or live preview).
+Confirm the seven story paragraphs are verbatim — no paraphrasing.
+Confirm the three "Currently driving" captions still read [NEEDS COPY].
+
+Pause and confirm before moving to the Process page.
