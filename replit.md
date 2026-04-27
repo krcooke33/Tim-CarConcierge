@@ -42,6 +42,8 @@ Both the nav and footer are defined in `index.html` and must be copied consisten
 - `js/site.js` — Mobile hamburger toggle
 - `site-brief.html` — Styled HTML version of the brief for human review
 - `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/` (current cars + portrait, plus `tim/past/` for the About-page timeline and `tim/illustrations/` for the About-page sketchbook grid), `mood/`, `texture/` (e.g. `grain.png` — the tiled film-grain overlay used on dark surfaces)
+- `img_original/` — Source-of-truth high-resolution photos. Web-optimized versions in `img/` are generated from these.
+- `scripts/resize-images.sh` — Re-runs the image pipeline (`magick -auto-orient` → strip metadata → resize → q82 progressive JPEG). Run this whenever a source photo is added or replaced in `img_original/gallery/`. **Always uses `-auto-orient` BEFORE stripping EXIF** — without that step, photos with EXIF orientation flags render rotated in the browser once metadata is gone (the bug that hit `mercedes-450sl.jpg` in Task #13 / formalized in Task #29).
 
 ## Constraints (from BRIEF.md §10)
 
