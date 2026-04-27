@@ -42,6 +42,12 @@ uri = "file://img/tim/past/land-cruiser-1994.png"
 type = "image"
 title = "land-cruiser-1994"
 
+[[generated]]
+id = "mhNUVo2uod4GP0K89KoRG"
+uri = "file://img/tim/garage-atmosphere.jpg"
+type = "image"
+title = "garage atmosphere"
+
 [[outputs]]
 id = "UjERf-fTWJOJWxtEmGyUt"
 uri = "file://attached_assets/stock_images/charger-se-1973.jpg"

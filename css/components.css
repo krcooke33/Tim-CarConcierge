@@ -1830,12 +1830,18 @@ a.gallery-card {
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 56px;
-  align-items: center;
+  align-items: start;
   max-width: 1080px;
   margin: 0 auto;
 }
 
-.tim-signature > img {
+.tim-signature-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tim-signature .tim-portrait {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -1843,10 +1849,22 @@ a.gallery-card {
   background: var(--ink-dark);
 }
 
+.tim-signature .tim-atmosphere {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--ink-dark);
+  filter: saturate(0.92) contrast(0.96);
+  opacity: 0.92;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
 .tim-signature .copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-top: 8px;
 }
 
 .tim-signature .copy .kicker {
@@ -1872,9 +1890,20 @@ a.gallery-card {
   .tim-signature {
     grid-template-columns: 1fr;
     gap: 32px;
+    align-items: stretch;
   }
-  .tim-signature > img {
+  .tim-signature-images {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .tim-signature .tim-portrait {
     aspect-ratio: 4 / 3;
+  }
+  .tim-signature .tim-atmosphere {
+    aspect-ratio: 16 / 10;
+  }
+  .tim-signature .copy {
+    padding-top: 0;
   }
   .tim-signature .signature-body {
     font-size: 19px;
