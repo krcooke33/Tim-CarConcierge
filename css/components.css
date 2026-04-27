@@ -1849,6 +1849,14 @@ a.gallery-card {
   background: var(--ink-dark);
 }
 
+.tim-signature .tim-atmosphere {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--ink-dark);
+}
+
 .tim-signature .copy {
   display: flex;
   flex-direction: column;
