@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gallery — classic cars sourced by The &amp; Garage, 1966 to 1999.">
+  <meta name="description" content="Cars Tim has spotted in driveways, lots, shows, and the side of the road — the scouting feed for The &amp; Garage.">
   <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andgarage.com/gallery/">
+  <meta property="og:title" content="Gallery — The &amp; Garage">
+  <meta property="og:description" content="Cars I've spotted in driveways, lots, shows, and the side of the road. If one's calling your name, tell me.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gallery — The &amp; Garage">
+  <meta name="twitter:description" content="Cars I've spotted in driveways, lots, shows, and the side of the road. If one's calling your name, tell me.">
+
   <title>Gallery — The &amp; Garage</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +28,16 @@
 </head>
 <body>
 
+  <!-- ═══════════════════════════════════════════════
+       SITE NAV
+  ════════════════════════════════════════════════ -->
   <nav class="site-nav" id="site-nav" aria-label="Main navigation">
     <a class="nav-wordmark" href="/">The <span class="brand-amp">&amp;</span> Garage</a>
 
     <ul class="nav-links" role="list">
       <li><a href="/about/">About</a></li>
       <li><a href="/process/">How it works</a></li>
-      <li><a href="/gallery/">Gallery</a></li>
+      <li><a href="/gallery/" aria-current="page">Gallery</a></li>
       <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
     </ul>
 
@@ -38,15 +52,239 @@
     <ul class="nav-drawer" id="nav-drawer" role="list">
       <li><a href="/about/">About</a></li>
       <li><a href="/process/">How it works</a></li>
-      <li><a href="/gallery/">Gallery</a></li>
+      <li><a href="/gallery/" aria-current="page">Gallery</a></li>
       <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
     </ul>
   </nav>
 
-  <main class="section block">
-    <p>[Placeholder — Gallery page coming soon]</p>
+  <main>
+
+    <!-- ═══════════════════════════════════════════════
+         1. HERO — typographic, dark, no image
+    ════════════════════════════════════════════════ -->
+    <header class="section on-dark gallery-hero">
+      <div class="constellation"></div>
+      <div class="gallery-hero-inner">
+        <span class="kicker">Gallery</span>
+        <h1>Cars I'm <em>seeing right now</em>.</h1>
+        <p class="gallery-hero-lede">Cars I've spotted in driveways, lots, shows, and the side of the road. If one's calling your name, tell me.</p>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════
+         2. GALLERY GRID — 27 .gallery-card instances
+    ════════════════════════════════════════════════ -->
+    <section class="section block gallery-feed">
+      <div class="gallery-grid">
+
+        <article class="gallery-card">
+          <img src="/img/gallery/mustang-fastback-black.jpg" alt="1966 Ford Mustang fastback in black, Shelby-style with chrome wheels" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1966 Ford Mustang Fastback</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences on why this caught your eye and what buyer it'd suit]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/iso-grifo.jpg" alt="1968 Iso Grifo in maroon, displayed at the New York International Auto Show" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1968 Iso Grifo</h3>
+          <p class="spotted">New York International Auto Show · [Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/dodge-charger.jpg" alt="1973 Dodge Charger SE in red, side profile on a country road" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1973 Dodge Charger SE</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/bmw-320i.jpg" alt="1980 BMW 320i in dark blue, parked on a brownstone-lined block" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1980 BMW 320i</h3>
+          <p class="spotted">[Tim: NYC neighborhood · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/mustang-coupe-blue.jpg" alt="1966 Ford Mustang coupe in blue, parked outside Books of Wonder in NYC" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1966 Ford Mustang Coupe</h3>
+          <p class="spotted">Manhattan, NY · [Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/bmw-2002-red.jpg" alt="1972 BMW 2002 in red, parked on a brownstone-lined street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1972 BMW 2002</h3>
+          <p class="spotted">[Tim: NYC neighborhood · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/mercedes-300td-wagon.jpg" alt="1982 Mercedes-Benz 300TD wagon in light blue, on a city street in autumn" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1982 Mercedes-Benz 300TD Wagon</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/buick-regal.jpg" alt="1986 Buick Regal in white, side profile on a city street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1986 Buick Regal</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/ford-bronco.jpg" alt="1971 Ford Bronco in orange with white roof, in a driveway" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1971 Ford Bronco</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/dodge-charger-blue.jpg" alt="1967 Dodge Charger in light blue, in front of an auto repair shop" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1967 Dodge Charger</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/alfa-romeo-gtv.jpg" alt="1972 Alfa Romeo GTV in red, parked on a city street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1972 Alfa Romeo GTV</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/aston-martin-db4.jpg" alt="1962 Aston Martin DB4 in silver, displayed at a concours event" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1962 Aston Martin DB4</h3>
+          <p class="spotted">[Tim: concours / event name · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/peugeot-304-cabriolet.jpg" alt="1972 Peugeot 304 Cabriolet in white, parked on an Italian street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1972 Peugeot 304 Cabriolet</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/mustang-fastback-silver.jpg" alt="1966 Ford Mustang fastback in silver, parked outside Lombardi's in NYC" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1966 Ford Mustang Fastback</h3>
+          <p class="spotted">Little Italy, Manhattan, NY · [Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/shelby-gt500-red.jpg" alt="1969 Ford Mustang Shelby GT500 in red with white stripes, in a suburban driveway" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1969 Ford Mustang Shelby GT500</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/vw-beetle-mint.jpg" alt="1967 Volkswagen Beetle in mint green, in a vintage auto workshop" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1967 Volkswagen Beetle</h3>
+          <p class="spotted">[Tim: workshop name, city · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/mustang-boss-302.jpg" alt="1969 Ford Mustang Boss 302 in white with black stripes, in an autumn yard" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1969 Ford Mustang Boss 302</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/bmw-2002-orange.jpg" alt="1974 BMW 2002 in orange with black wheels, at a cars and coffee event" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1974 BMW 2002</h3>
+          <p class="spotted">[Tim: event / location · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/porsche-911.jpg" alt="1973 Porsche 911 long-hood in red, in a parking lot" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1973 Porsche 911</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/chevrolet-camaro-z28.jpg" alt="1971 Chevrolet Camaro Z28 in red with white stripes, at a car show" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1971 Chevrolet Camaro Z28</h3>
+          <p class="spotted">[Tim: event / location · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/vw-beetle-turquoise.jpg" alt="1968 Volkswagen Beetle in turquoise with surfboard on roof, in a parking lot" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1968 Volkswagen Beetle</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/vw-bus.jpg" alt="1976 Volkswagen Bus (Type 2 Bay Window) in mint green, parked on a tree-lined street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1976 Volkswagen Bus</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/chevrolet-camaro-ss-convertible.jpg" alt="1967 Chevrolet Camaro SS 350 convertible in red, parked outside Mezza Luna restaurant in California" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1967 Chevrolet Camaro SS Convertible</h3>
+          <p class="spotted">Half Moon Bay, CA · [Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/fiat-500.jpg" alt="1972 Fiat 500 in yellow, parked on a tree-lined street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1972 Fiat 500</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/bmw-e30-touring.jpg" alt="1991 BMW E30 Touring in red with roof rack, in winter" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1991 BMW E30 Touring</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/mercedes-450sl.jpg" alt="1980 Mercedes-Benz 450SL in blue, parked in a residential driveway" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1980 Mercedes-Benz 450SL</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/shelby-gt500-blue.jpg" alt="1969 Ford Mustang Shelby GT500 in Grabber Blue with white stripes, in a suburban driveway" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1969 Ford Mustang Shelby GT500</h3>
+          <p class="spotted">[Tim: city, state · Month YYYY]</p>
+          <p class="note">[Tim: 1–2 sentences]</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         3. FINAL CTA — small, dark, single line
+    ════════════════════════════════════════════════ -->
+    <section class="section on-dark final-cta small">
+      <div class="constellation"></div>
+      <div class="final-cta-inner">
+        <p class="final-cta-line">See one you want? <strong>Tell me.</strong></p>
+        <a class="btn on-dark solid" href="/contact/">Start a conversation</a>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ═══════════════════════════════════════════════
+       SITE FOOTER
+  ════════════════════════════════════════════════ -->
   <footer class="site-footer">
     <div class="footer-inner">
 
@@ -76,12 +314,12 @@
 
       <div class="footer-lineage">
         <h4>Lineage</h4>
-        <p>A sibling brand of The &amp; Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
+        <p>A sibling brand of The <span class="brand-amp">&amp;</span> Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
       </div>
 
     </div>
     <div class="footer-bottom">
-      <p>© 2026 The &amp; Garage · Northeast US · 1966 to 1999</p>
+      <p>© 2026 The <span class="brand-amp">&amp;</span> Garage · Northeast US · 1966 to 1999</p>
     </div>
   </footer>
 

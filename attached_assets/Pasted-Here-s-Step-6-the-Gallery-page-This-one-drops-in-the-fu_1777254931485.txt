@@ -1,0 +1,225 @@
+Here's Step 6 — the Gallery page. This one drops in the full 27-card scouting feed.
+Step 6 — Gallery page
+Two things to paste: the prompt below, then the 27-card markup right after. You can paste them as one combined message to Replit, or do the prompt first, let it build the page structure, then drop in the cards as a follow-up. Combined-message is faster.
+The prompt — copy below
+
+Now build the Gallery page at gallery/index.html per BRIEF.md §06.4.
+1. Hero (typographic — no full-bleed image). Dark surface, constellation motif. Kicker: Gallery. H1: Cars I'm <em>seeing right now</em>. Lede (italic Fraunces): Cars I've spotted in driveways, lots, shows, and the side of the road. If one's calling your name, tell me.
+2. Gallery grid. A <div class="gallery-grid"> containing the 27 .gallery-card instances I'm pasting below. Add CSS for .gallery-grid:
+
+3 columns at desktop (≥ 900px)
+2 columns at tablet (560 – 900px)
+1 column at phone (< 560px)
+Gap: ~24px between cards
+
+All 27 cards reference real images already in img/gallery/. Most have placeholder copy where Tim hasn't yet provided spotting location and his note — leave placeholders as-is, do not invent.
+3. Final CTA. A small .section.block after the grid on dark surface. Single line: See one you want? <strong>Tell me.</strong> + button "Start a conversation" → /contact/.
+Constraints
+
+Use only the .gallery-card component built in Step 5 and the new .gallery-grid wrapper.
+Placeholder copy stays — do not invent locations or notes.
+Top nav and footer consistent with other pages.
+Year ranges in alt text: "to" only.
+Mobile responsive.
+
+Acceptance
+Show me:
+
+The rendered Gallery page with all 27 cards visible.
+Grid responds correctly at 3-col, 2-col, 1-col.
+Confirm placeholders still render as [Tim: city, state · Month YYYY] and [Tim: 1–2 sentences] — not filled in.
+
+Pause and confirm before moving to the Contact page.
+Here's the gallery markup to drop in:
+html<div class="gallery-grid">
+
+  <article class="gallery-card">
+    <img src="img/gallery/mustang-fastback-black.jpg" alt="1966 Ford Mustang fastback in black, Shelby-style with chrome wheels" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1966 Ford Mustang Fastback</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences on why this caught your eye and what buyer it'd suit]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/iso-grifo.jpg" alt="1968 Iso Grifo in maroon, displayed at the New York International Auto Show" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1968 Iso Grifo</h3>
+    <p class="spotted">New York International Auto Show · [Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/dodge-charger.jpg" alt="1973 Dodge Charger SE in red, side profile on a country road" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1973 Dodge Charger SE</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/bmw-320i.jpg" alt="1980 BMW 320i in dark blue, parked on a brownstone-lined block" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1980 BMW 320i</h3>
+    <p class="spotted">[Tim: NYC neighborhood · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/mustang-coupe-blue.jpg" alt="1966 Ford Mustang coupe in blue, parked outside Books of Wonder in NYC" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1966 Ford Mustang Coupe</h3>
+    <p class="spotted">Manhattan, NY · [Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/bmw-2002-red.jpg" alt="1972 BMW 2002 in red, parked on a brownstone-lined street" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1972 BMW 2002</h3>
+    <p class="spotted">[Tim: NYC neighborhood · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/mercedes-300td-wagon.jpg" alt="1982 Mercedes-Benz 300TD wagon in light blue, on a city street in autumn" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1982 Mercedes-Benz 300TD Wagon</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/buick-regal.jpg" alt="1986 Buick Regal in white, side profile on a city street" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1986 Buick Regal</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/ford-bronco.jpg" alt="1971 Ford Bronco in orange with white roof, in a driveway" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1971 Ford Bronco</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/dodge-charger-blue.jpg" alt="1967 Dodge Charger in light blue, in front of an auto repair shop" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1967 Dodge Charger</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/alfa-romeo-gtv.jpg" alt="1972 Alfa Romeo GTV in red, parked on a city street" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1972 Alfa Romeo GTV</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/aston-martin-db4.jpg" alt="1962 Aston Martin DB4 in silver, displayed at a concours event" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1962 Aston Martin DB4</h3>
+    <p class="spotted">[Tim: concours / event name · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/peugeot-304-cabriolet.jpg" alt="1972 Peugeot 304 Cabriolet in white, parked on an Italian street" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1972 Peugeot 304 Cabriolet</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/mustang-fastback-silver.jpg" alt="1966 Ford Mustang fastback in silver, parked outside Lombardi's in NYC" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1966 Ford Mustang Fastback</h3>
+    <p class="spotted">Little Italy, Manhattan, NY · [Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/shelby-gt500-red.jpg" alt="1969 Ford Mustang Shelby GT500 in red with white stripes, in a suburban driveway" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1969 Ford Mustang Shelby GT500</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/vw-beetle-mint.jpg" alt="1967 Volkswagen Beetle in mint green, in a vintage auto workshop" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1967 Volkswagen Beetle</h3>
+    <p class="spotted">[Tim: workshop name, city · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/mustang-boss-302.jpg" alt="1969 Ford Mustang Boss 302 in white with black stripes, in an autumn yard" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1969 Ford Mustang Boss 302</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/bmw-2002-orange.jpg" alt="1974 BMW 2002 in orange with black wheels, at a cars and coffee event" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1974 BMW 2002</h3>
+    <p class="spotted">[Tim: event / location · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/porsche-911.jpg" alt="1973 Porsche 911 long-hood in red, in a parking lot" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1973 Porsche 911</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/chevrolet-camaro-z28.jpg" alt="1971 Chevrolet Camaro Z28 in red with white stripes, at a car show" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1971 Chevrolet Camaro Z28</h3>
+    <p class="spotted">[Tim: event / location · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/vw-beetle-turquoise.jpg" alt="1968 Volkswagen Beetle in turquoise with surfboard on roof, in a parking lot" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1968 Volkswagen Beetle</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/vw-bus.jpg" alt="1976 Volkswagen Bus (Type 2 Bay Window) in mint green, parked on a tree-lined street" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1976 Volkswagen Bus</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/chevrolet-camaro-ss-convertible.jpg" alt="1967 Chevrolet Camaro SS 350 convertible in red, parked outside Mezza Luna restaurant in California" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1967 Chevrolet Camaro SS Convertible</h3>
+    <p class="spotted">Half Moon Bay, CA · [Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/fiat-500.jpg" alt="1972 Fiat 500 in yellow, parked on a tree-lined street" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1972 Fiat 500</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/bmw-e30-touring.jpg" alt="1991 BMW E30 Touring in red with roof rack, in winter" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1991 BMW E30 Touring</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/mercedes-450sl.jpg" alt="1980 Mercedes-Benz 450SL in blue, parked in a residential driveway" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1980 Mercedes-Benz 450SL</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+  <article class="gallery-card">
+    <img src="img/gallery/shelby-gt500-blue.jpg" alt="1969 Ford Mustang Shelby GT500 in Grabber Blue with white stripes, in a suburban driveway" loading="lazy" width="800" height="600">
+    <h3 class="car-title">1969 Ford Mustang Shelby GT500</h3>
+    <p class="spotted">[Tim: city, state · Month YYYY]</p>
+    <p class="note">[Tim: 1–2 sentences]</p>
+  </article>
+
+</div>

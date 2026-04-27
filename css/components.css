@@ -1459,3 +1459,115 @@ body.page-home {
 .components-review .component-section + .component-section {
   border-top: 1px solid var(--rule);
 }
+
+/* ─── Gallery Hero (typographic, no image) ────────────────── */
+
+.gallery-hero {
+  padding: 120px 24px 96px;
+}
+
+.gallery-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gallery-hero .kicker {
+  display: block;
+  color: var(--text-on-dark-dim);
+  margin-bottom: 24px;
+}
+
+.gallery-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-on-dark);
+  margin: 0 0 32px;
+  max-width: 22ch;
+}
+
+.gallery-hero h1 em {
+  font-style: italic;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+.gallery-hero-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  color: var(--text-on-dark-soft);
+  max-width: 46ch;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .gallery-hero {
+    padding: 80px 20px 64px;
+  }
+  .gallery-hero-inner {
+    padding: 0;
+  }
+}
+
+/* ─── Gallery Grid (wrapper for .gallery-card) ────────────── */
+
+.section.gallery-feed {
+  padding-top: 80px;
+  padding-bottom: 96px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+@media (max-width: 899px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 559px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Final CTA · small variant (post-grid, single-line) ──── */
+
+.section.final-cta.small {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.final-cta.small .final-cta-inner {
+  padding: 32px 24px;
+  gap: 20px;
+}
+
+.final-cta.small .final-cta-line {
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .section.final-cta.small {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .final-cta.small .final-cta-inner {
+    padding: 24px 16px;
+  }
+}
