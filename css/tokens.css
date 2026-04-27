@@ -1,0 +1,16 @@
+:root {
+  --ink-dark:    #131426;
+  --cream:       #f7f3ec;
+  --offwhite:    #f3ede0;
+  --warm:        #c57b3c;
+  --oxblood:     #6e2828;
+  --oxblood-tint: rgba(110, 40, 40, 0.10);
+  --text:        #1c1d34;
+  --text-soft:   #4a4b6a;
+  --text-dim:    #8a8ba3;
+  --text-on-dark:      #f7f3ec;
+  --text-on-dark-soft: #c9cadc;
+  --text-on-dark-dim:  #8082a6;
+  --rule:       rgba(28, 29, 52, 0.12);
+  --rule-dark:  rgba(247, 243, 236, 0.16);
+}
