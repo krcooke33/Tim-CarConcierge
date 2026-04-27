@@ -160,6 +160,37 @@
   color: var(--text-on-dark);
 }
 
+/* Active page indicator — subtle copper underline */
+.site-nav .nav-links a[aria-current="page"] {
+  color: var(--text-on-dark);
+  position: relative;
+}
+.site-nav .nav-links a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1.5px;
+  background: var(--warm);
+}
+.site-nav .nav-links .nav-cta a[aria-current="page"]::after {
+  display: none;
+}
+.site-nav .nav-links .nav-cta a[aria-current="page"] {
+  background: var(--warm);
+  border-color: var(--warm);
+  color: var(--ink-dark);
+}
+.site-nav .nav-cta-mobile[aria-current="page"] {
+  background: var(--warm);
+  border-color: var(--warm);
+  color: var(--ink-dark);
+}
+.site-nav .nav-drawer a[aria-current="page"] {
+  color: var(--warm);
+}
+
 .site-nav .nav-links .nav-cta a {
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -395,10 +426,12 @@ body.page-home {
   margin-top: 4px;
 }
 
-/* Col 3 — Lineage */
+/* Col 3 — Lineage (italic Fraunces, single line per spec) */
 .site-footer .footer-lineage p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
   color: var(--text-on-dark-soft);
   line-height: 1.6;
   max-width: none;
@@ -415,19 +448,26 @@ body.page-home {
   color: var(--text-on-dark);
 }
 
-/* Bottom bar */
+/* Bottom strip — two columns left/right */
 .site-footer .footer-bottom {
   max-width: 1080px;
   margin: 0 auto;
   padding: 20px 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .site-footer .footer-bottom p {
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text-on-dark-dim);
   max-width: none;
+  margin: 0;
 }
 
 @media (max-width: 760px) {
@@ -438,6 +478,11 @@ body.page-home {
     grid-template-columns: 1fr;
     gap: 40px;
     padding-bottom: 40px;
+  }
+  .site-footer .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }
 
