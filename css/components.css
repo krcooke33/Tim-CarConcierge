@@ -1962,3 +1962,83 @@ a.gallery-card {
     margin-top: 24px;
   }
 }
+
+/* ─── 404 Hero (typographic, dark) ─────────────────────────── */
+
+.notfound-hero {
+  padding: 140px 24px 120px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.notfound-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.notfound-hero .kicker {
+  display: block;
+  color: var(--text-on-dark-dim);
+  margin-bottom: 24px;
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+}
+
+.notfound-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-on-dark);
+  margin: 0 0 32px;
+  max-width: 22ch;
+}
+
+.notfound-hero h1 em {
+  font-style: italic;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+.notfound-hero-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  color: var(--text-on-dark-soft);
+  margin: 0 0 40px;
+  max-width: 36ch;
+}
+
+.notfound-hero-lede a {
+  color: var(--warm);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+
+.notfound-hero-lede a:hover {
+  color: var(--text-on-dark);
+}
+
+.notfound-back {
+  margin-top: 8px;
+}
+
+@media (max-width: 760px) {
+  .notfound-hero {
+    padding: 80px 20px 64px;
+    min-height: 60vh;
+  }
+  .notfound-hero-inner {
+    padding: 0;
+  }
+}

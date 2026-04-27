@@ -1,0 +1,75 @@
+Final polish pass before launch. Five distinct sub-tasks. Do them in order.
+1. 404 page (404.html at repo root)
+Per BRIEF.md §08. Same dark hero pattern as the other pages, with constellation motif. Inside:
+
+Kicker: 404
+H1: Wrong turn. <em>Happens to all of us.</em>
+Body line (italic Fraunces, lede-style): Lost page. Try the <a href="/">home page</a> or <a href="/contact/">start a conversation</a>.
+Single button "Back to home" → /
+
+Same nav and footer as the other pages.
+2. Meta tags on every page
+Add to <head> of all six pages (index.html, about/index.html, process/index.html, gallery/index.html, contact/index.html, 404.html):
+Standard meta:
+
+<title> — per page (examples below)
+<meta name="description"> — one-sentence summary in Tim's voice, ~155 characters max
+
+Open Graph:
+
+og:title, og:description, og:image (use img/hero/home.jpg as default for all pages for now), og:url, og:type (website)
+
+Twitter card:
+
+twitter:card (summary_large_image), twitter:title, twitter:description, twitter:image
+
+Per-page titles and descriptions:
+PageTitleDescriptionHomeThe & Garage — Classic car concierge by Tim YoungAn acquisition concierge for enthusiasts buying classic and modern-classic cars from 1966 to 1999. Hand-paired, end-to-end.AboutAbout Tim — The & GarageTim Young is a recruiter who spent 13 years matching people to careers. Now he's matching enthusiasts to dream cars from 1966 to 1999.ProcessHow it works — The & GarageFrom the first conversation to the first drive. End-to-end, white-glove, hand-paired enthusiast to enthusiast. Flat fees on success.GalleryGallery — The & GarageCars Tim is seeing right now — spotted in driveways, lots, shows, and on the side of the road. If one's calling your name, tell him.ContactStart a conversation — The & GarageTell Tim what you're chasing. He'll reply within a day with thoughts and next steps.404Wrong turn — The & GarageLost page. Try the home page or start a conversation.
+3. Favicon
+Generate the year-mark "66 to 99" rotation glyph (or just an oxblood square #6e2828 with cream "&G" letters as a simpler placeholder) at:
+
+32×32 PNG
+16×16 PNG
+SVG (scalable, modern browsers)
+apple-touch-icon.png at 180×180
+
+Reference all four from each page's <head> with appropriate link rel attributes.
+4. Mobile QA
+Manually test all six pages at: 320px (small phone), 414px (large phone), 768px (tablet), 1024px (small desktop), 1440px (large desktop).
+Fix anything that breaks. Specifically check:
+
+Hero text doesn't get cropped, doesn't overflow.
+Hamburger nav works at < 760px on every page.
+Image grids stack properly (gallery 3→2→1 col, currently-driving 3→1 col).
+Tap targets ≥ 44px on mobile.
+No horizontal scroll at any width.
+Form embed placeholder responsive on contact page.
+
+5. Lighthouse pass
+Run Lighthouse on each of the six pages on mobile. Targets:
+
+Performance ≥ 90
+Accessibility ≥ 95
+Best Practices ≥ 90
+SEO ≥ 90
+
+Common quick wins to apply:
+
+Add loading="lazy" to all below-the-fold images.
+Add explicit width and height to every <img> (prevents CLS).
+Use font-display: swap on Google Fonts.
+Ensure all images are compressed (img/hero/home.jpg is currently 4.9MB — must be compressed to ~300 – 500KB before this pass).
+Add alt text to every image.
+Heading hierarchy correct (one h1 per page, h2/h3 nested logically).
+Color contrast meets WCAG AA on all text.
+
+Acceptance
+Show me:
+
+The rendered 404 page.
+A summary of meta tags applied to each page.
+The favicon visible in the browser tab.
+Lighthouse scores for all six pages on mobile.
+Any pages that didn't hit the score targets — flag them with what's holding them back so we can fix.
+
+Pause and confirm. After this lands cleanly, V1 is shippable.
