@@ -1,0 +1,66 @@
+
+Now do a consistency pass on navigation and footer across all five pages. Per BRIEF.md §05.
+Top navigation
+Verify every page (index.html, about/index.html, process/index.html, gallery/index.html, contact/index.html) has the same top nav structure inside .hero .topnav:
+
+Left side: Brand wordmark "The & Garage" using .brand-amp for the &. Links to /. Fraunces, weight 400, sized to read as the brand mark (not as nav body text).
+Right side: Four nav links in this order:
+
+About (links to /about/)
+How it works (links to /process/)
+Gallery (links to /gallery/)
+Start a conversation (links to /contact/) — styled stronger than the others, button-like (oxblood background or oxblood underline). This is the CTA in nav.
+
+
+Active page indicator: On each page, the current page's nav link should have a subtle visual marker — a thin oxblood underline beneath the link, OR a slight color shift, OR slightly bolder weight. Pick one approach and apply consistently across all five pages. The current-page link should not be a visible link (e.g., on /about/, the "About" nav item is non-clickable or has aria-current="page").
+
+Mobile navigation (< 760px)
+Hamburger menu icon on the right side of the nav (replaces the four links). Click opens a top-down drawer with the same four links stacked vertically. Drawer covers most of the screen with the dark hero background and constellation motif, large tap targets.
+The "Start a conversation" CTA should remain visible even when the drawer is collapsed — either as a sticky element next to the hamburger or as the only persistent right-side element. The hamburger toggles the other three links.
+Footer
+Add a <footer class="footer"> to every page. Goes after the page's main content, before the closing </body>. Three columns on desktop (≥ 760px), stacks to 1-column on mobile.
+Column 1 — Brand mark.
+
+"The & Garage" wordmark (Fraunces, brand-amp on the & — copper since footer is dark).
+Year-mark 66 to 99 (using .year-mark.on-dark) directly beneath.
+Italic byline beneath that: "by Tim Young".
+
+Column 2 — Site links. Vertical list (one link per line):
+
+Home (/)
+About Tim (/about/)
+How it works (/process/)
+Gallery (/gallery/)
+Start a conversation (/contact/)
+Email Tim: tim@andgarage.com (mailto: link)
+
+DM Sans, modest size (~13px), text-on-dark-soft color, hover state lifts to cream.
+Column 3 — Lineage.
+
+Single italic Fraunces line: A sibling brand of The & Network.
+"The & Network" is a link to https://timyoungtalent.com/ (opens in new tab, rel="noopener").
+
+Bottom strip
+A thin horizontal strip below the three columns, separated by a thin rule (var(--rule-dark)). Two-column layout (stacks on mobile):
+
+Left: © 2026 The & Garage
+Right: Northeast US · 1966 to 1999
+
+Both in DM Sans, ~11px, tracked-out caps, text-on-dark-dim color.
+Constraints
+
+Footer is dark surface (ink-dark background, cream text). Brand-amp is copper there.
+Year ranges: "to" only — never em-dash, hyphen, or slash.
+All five pages get the same nav and footer — no per-page variants.
+Mobile responsive at 320px → 1440px.
+Active-page indicator works on all five pages (test by navigating between them).
+
+Acceptance
+Show me:
+
+All five pages with the consistent top nav (active page indicator visible on each).
+All five pages with the same footer.
+Mobile view of the nav (hamburger + drawer working).
+Test: clicking nav links from any page goes to the right destination.
+
+Pause and confirm before the polish pass.
