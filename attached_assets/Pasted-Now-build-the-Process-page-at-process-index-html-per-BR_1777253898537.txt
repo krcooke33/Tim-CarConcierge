@@ -1,0 +1,48 @@
+Now build the Process page at process/index.html per BRIEF.md §06.3. One small new component to build: the vertical timeline.
+What to build
+1. Hero (typographic — no full-bleed image). Dark surface with constellation motif. Kicker: How it works. H1: From the first conversation to the <em>first drive</em>. Tagline (italic Fraunces): End-to-end, hand-paired, white-glove. One concierge, one car, one accountable hand.
+2. The arc — vertical timeline. A new component, .timeline-v. Six numbered steps:
+
+Intake — Week 1. [NEEDS COPY: 1–2 sentences in Tim's voice — what happens on the intake call]
+Search — Weeks 2 – 4. [NEEDS COPY]
+Vet — Week 4 – 5. [NEEDS COPY]
+Negotiate — Week 5 – 6. [NEEDS COPY]
+Transport — Week 6 – 8. [NEEDS COPY]
+Handoff — Week 8. [NEEDS COPY]
+
+Visual structure:
+
+Vertical rule on the left.
+Circled step number (oxblood circle, cream text on light surface).
+Step name in Fraunces, weight 400.
+Italic timeline marker beneath name (e.g., "Week 1," "Weeks 2 – 6").
+Description paragraph beneath that.
+
+Reference the .timeline-v pattern in brand-exploration.html for the visual style — don't import the file, but the circle-on-rule pattern is what we want. Mobile: stays vertical, tighter padding.
+Step descriptions stay as [NEEDS COPY] — Tim writes them in his voice. Do not invent.
+3. Pricing. A .section.block on cream. H2: Flat fees. <em>On success.</em> Body — two short paragraphs using verbatim copy from BRIEF.md §08 FAQ:
+
+"Flat tiers, $2.5K to $7.5K+ depending on scope. Quote on the intake call, never after."
+"The fee is on success — match found, deal done, car delivered."
+
+End the pricing section with a single italic Fraunces line in oxblood, slightly smaller than body, set apart with extra top margin: Need more targeted support? Ask me about my à la carte service options.
+No standalone à la carte card grid or detail page in V1 — that single teaser line is the only mention.
+4. Final CTA. A .section.block on dark surface. Repeat the "Start a conversation" button.
+New component to add to components.css
+.timeline-v — vertical rule, numbered circles, step blocks. Match the visual conventions in brand-exploration.html's timeline pattern (oxblood circles on light, copper on dark). Mobile-responsive — stays vertical at all widths, just tighter padding on small screens.
+Constraints
+
+Step descriptions stay as [NEEDS COPY] — do not invent.
+À la carte: only the teaser line, no cards or expanded section.
+Year ranges in copy: "to" only — never em-dash, hyphen, or slash.
+Use existing components plus the new .timeline-v.
+Mobile responsive 320px → 1440px.
+
+Acceptance
+Show me:
+
+The rendered Process page.
+The new .timeline-v CSS in components.css.
+Confirm step descriptions render as [NEEDS COPY] placeholders.
+
+Pause and confirm before moving to component round 2.
