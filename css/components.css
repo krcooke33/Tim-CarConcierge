@@ -715,7 +715,7 @@ body.page-home {
 
 .hero.hero-about .hero-inner {
   justify-content: flex-end;
-  padding-bottom: 80px;
+  padding: 40px 40px 80px 96px;
   max-width: 1080px;
 }
 
