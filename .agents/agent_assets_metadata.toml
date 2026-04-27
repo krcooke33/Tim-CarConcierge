@@ -1,0 +1,73 @@
+uploads = []
+
+[[generated]]
+id = "o61tk5ZmAoIjhbJxKTPZl"
+uri = "file://img/tim/past/charger-se-1973.png"
+type = "image"
+title = "charger-se-1973"
+
+[[generated]]
+id = "rbAgsbU3hBJH3Y4ihr9xe"
+uri = "file://img/tim/past/sunbeam-alpine-1967.png"
+type = "image"
+title = "sunbeam-alpine-1967"
+
+[[generated]]
+id = "kiWzSNnSCqnW_Sh65B6fZ"
+uri = "file://img/tim/past/bronco-1971.png"
+type = "image"
+title = "bronco-1971"
+
+[[generated]]
+id = "UH4Fh_81UBBGU6iPvQjEU"
+uri = "file://img/tim/past/daytona-turbo-z-1985.png"
+type = "image"
+title = "daytona-turbo-z-1985"
+
+[[generated]]
+id = "tc1lxzbcBlBTm65ujK5xZ"
+uri = "file://img/tim/past/f150-1985.png"
+type = "image"
+title = "f150-1985"
+
+[[generated]]
+id = "RypPAcCLFH1rW5zEVkF9p"
+uri = "file://img/tim/past/bmw-e30-1987.png"
+type = "image"
+title = "bmw-e30-1987"
+
+[[generated]]
+id = "aOzxUzpT3rAZIUBcIx3LC"
+uri = "file://img/tim/past/land-cruiser-1994.png"
+type = "image"
+title = "land-cruiser-1994"
+
+[[outputs]]
+id = "UjERf-fTWJOJWxtEmGyUt"
+uri = "file://attached_assets/stock_images/charger-se-1973.jpg"
+type = "image"
+title = "1973 Dodge Charger SE classic muscle car side view, vintage"
+
+[[outputs]]
+id = "FKYOrRjK1Rt-mEpWkQmeS"
+uri = "file://attached_assets/stock_images/daytona-turbo-z-1985.jpg"
+type = "image"
+title = "1985 Dodge Daytona Turbo Z 1980s sports coupe"
+
+[[outputs]]
+id = "9pU4Kt7mRxmPGcxiUWnZT"
+uri = "file://attached_assets/stock_images/f150-1985.jpg"
+type = "image"
+title = "1985 Ford F-150 classic square body pickup truck"
+
+[[outputs]]
+id = "vbv90DcmlxhCzIoikrAYY"
+uri = "file://attached_assets/stock_images/bmw-e30-1987.jpg"
+type = "image"
+title = "1987 BMW E30 3-Series sedan classic"
+
+[[outputs]]
+id = "XhxjnJjUq8yu6uY2Ohqgr"
+uri = "file://attached_assets/stock_images/land-cruiser-1994.jpg"
+type = "image"
+title = "1994 Toyota Land Cruiser 80 series SUV"
