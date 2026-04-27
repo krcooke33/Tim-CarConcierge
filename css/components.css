@@ -1792,24 +1792,14 @@ body.page-home {
   padding-bottom: 96px;
 }
 
-.airtable-placeholder {
+.airtable-embed {
+  display: block;
   width: 100%;
-  max-width: 600px;
-  height: 500px;
+  max-width: 640px;
+  min-height: 600px;
   margin: 0 auto;
-  background: var(--offwhite);
-  border: 2px dashed var(--oxblood);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--oxblood);
-  font-weight: 500;
+  border: none;
+  background: transparent;
 }
 
 .email-fallback {
@@ -1839,9 +1829,8 @@ body.page-home {
   .section.contact-form-section {
     padding-bottom: 64px;
   }
-  .airtable-placeholder {
-    height: 420px;
-    font-size: 13px;
+  .airtable-embed {
+    min-height: 520px;
   }
 }
 

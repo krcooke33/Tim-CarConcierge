@@ -98,20 +98,30 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         3. FORM — Airtable embed (placeholder for V1)
+         3. FORM — Airtable embed
     ════════════════════════════════════════════════ -->
     <section class="section block contact-form-section">
 
       <!--
-        REPLACE WITH AIRTABLE IFRAME EMBED CODE.
-        Tim sets up the Airtable base per BRIEF.md §10 → "Form integration · Airtable".
-        Paste the iframe code from Airtable's Form view → Share → Embed.
-        Recommended customization: hide branding (paid feature, optional),
-        set background #f3ede0, button color #6e2828.
+        TO ACTIVATE: Replace the src value below with Tim's Airtable form embed URL.
+        Steps:
+          1. In Airtable, open your base → Forms → Share → Embed.
+          2. Copy the iframe src URL (looks like https://airtable.com/embed/shrXXXXXXXX).
+          3. Paste it as the value of the src attribute on the iframe below.
+          4. Remove the data-pending attribute once the URL is live.
+        Optional: set background #f3ede0, button color #6e2828 in Airtable form settings.
       -->
-      <div class="airtable-placeholder" role="img" aria-label="Airtable form embed placeholder">
-        [AIRTABLE IFRAME — Tim provides embed URL]
-      </div>
+      <iframe
+        class="airtable-embed"
+        src="about:blank"
+        data-pending="true"
+        title="Start a conversation — inquiry form"
+        width="100%"
+        height="600"
+        style="background: transparent; border: none;"
+        loading="lazy"
+        allow="fullscreen"
+      ></iframe>
 
       <p class="email-fallback">
         Or email Tim directly: <a href="mailto:tim@andgarage.com">tim@andgarage.com</a>.
