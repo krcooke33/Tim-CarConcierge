@@ -26,10 +26,20 @@ Served via Python's built-in HTTP server on port 5000:
 python3 -m http.server 5000 --bind 0.0.0.0
 ```
 
+## Shared Components
+
+Both the nav and footer are defined in `index.html` and must be copied consistently to every page:
+
+- **Nav** (`<nav class="site-nav">`) — fixed dark bar, wordmark left, 4 links right, hamburger at <760px
+- **Footer** (`<footer class="site-footer">`) — 3-column dark footer (brand | links+email | lineage), bottom copyright bar
+- **Mobile toggle** — wired in `js/site.js`; toggling `.is-open` on `#nav-drawer` and `.nav-open` on `#site-nav`
+
 ## Key Files
 
 - `BRIEF.md` — Canonical site specification (read before making changes)
-- `index.html` — Current working docs landing page (to be rebuilt as Home)
+- `index.html` — Component test page (to be rebuilt as Home); contains nav + footer partials
+- `css/components.css` — All reusable component styles including `.site-nav` and `.site-footer`
+- `js/site.js` — Mobile hamburger toggle
 - `site-brief.html` — Styled HTML version of the brief for human review
 - `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/`, `mood/`
 
