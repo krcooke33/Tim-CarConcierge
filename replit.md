@@ -47,6 +47,11 @@ Both the nav and footer are defined in `index.html` and must be copied consisten
 
 - No frameworks (React, Vue, etc.)
 - No build tools (Vite, Webpack, Tailwind)
-- No custom form handling — use Airtable embeds
+- No custom backend / form-handling service. Contact intake is a real
+  HTML form (`contact/index.html`) that progressively enhances into a
+  `mailto:tim@andgarage.com` on submit (see `js/site.js`), with a plain
+  `action="mailto:..."` as a no-JS fallback. BRIEF.md §06.5 originally
+  specified an Airtable embed; this was swapped out per task #12 so the
+  funnel works end-to-end without any third-party setup.
 - Always write year ranges as "1966 to 1999" (never dashes)
 - Tim is the protagonist on every page

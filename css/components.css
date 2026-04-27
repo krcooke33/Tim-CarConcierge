@@ -2147,21 +2147,153 @@ a.gallery-card {
   }
 }
 
-/* ─── Contact Form Section (Airtable embed) ───────────────── */
+/* ─── Contact Form Section (intake form) ──────────────────── */
 
 .section.contact-form-section {
   padding-top: 0;
   padding-bottom: 96px;
 }
 
-.airtable-embed {
+.contact-form {
   display: block;
   width: 100%;
   max-width: 640px;
-  min-height: 600px;
   margin: 0 auto;
-  border: none;
-  background: transparent;
+}
+
+.form-field {
+  margin-bottom: 28px;
+}
+
+.form-field label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+
+.form-hint {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  margin: -2px 0 10px;
+  max-width: none;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 12px 14px;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--oxblood);
+  box-shadow: 0 0 0 3px var(--oxblood-tint);
+  background: #fffaf0;
+}
+
+/* Error state — only applied after the JS validator flags a field on
+   submit. We avoid :invalid here because empty required inputs match
+   :invalid on first paint and would render every field in red before
+   the user even types. */
+.contact-form .form-field.has-error input,
+.contact-form .form-field.has-error select,
+.contact-form .form-field.has-error textarea {
+  border-color: var(--oxblood);
+  background: rgba(110, 40, 40, 0.04);
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--text-soft);
+  border-bottom: 1.5px solid var(--text-soft);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.contact-form select {
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 8px;
+}
+
+.form-actions .btn {
+  cursor: pointer;
+}
+
+.form-meta {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.form-status {
+  margin-top: 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 1.5em;
+}
+
+.form-status.is-success {
+  color: var(--text);
+}
+
+.form-status.is-error {
+  color: var(--oxblood);
 }
 
 .email-fallback {
@@ -2172,7 +2304,7 @@ a.gallery-card {
   line-height: 1.5;
   color: var(--text-soft);
   text-align: center;
-  margin: 24px auto 0;
+  margin: 32px auto 0;
   max-width: 600px;
 }
 
@@ -2191,8 +2323,26 @@ a.gallery-card {
   .section.contact-form-section {
     padding-bottom: 64px;
   }
-  .airtable-embed {
-    min-height: 520px;
+  .form-field {
+    margin-bottom: 22px;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 16px; /* prevent iOS zoom */
+    padding: 11px 13px;
+  }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .form-actions .btn {
+    text-align: center;
+  }
+  .form-meta {
+    text-align: center;
   }
 }
 

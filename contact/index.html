@@ -106,30 +106,55 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         3. FORM — Airtable embed
+         3. FORM — intake form (mailto delivery to Tim)
     ════════════════════════════════════════════════ -->
     <section class="section block contact-form-section">
 
-      <!--
-        TO ACTIVATE: Replace the src value below with Tim's Airtable form embed URL.
-        Steps:
-          1. In Airtable, open your base → Forms → Share → Embed.
-          2. Copy the iframe src URL (looks like https://airtable.com/embed/shrXXXXXXXX).
-          3. Paste it as the value of the src attribute on the iframe below.
-          4. Remove the data-pending attribute once the URL is live.
-        Optional: set background #f3ede0, button color #6e2828 in Airtable form settings.
-      -->
-      <iframe
-        class="airtable-embed"
-        src="about:blank"
-        data-pending="true"
-        title="Start a conversation — inquiry form"
-        width="100%"
-        height="600"
-        style="background: transparent; border: none;"
-        loading="lazy"
-        allow="fullscreen"
-      ></iframe>
+      <form
+        class="contact-form"
+        id="contact-form"
+        action="mailto:tim@andgarage.com"
+        method="post"
+        enctype="text/plain"
+      >
+        <div class="form-field">
+          <label for="cf-name">Your name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" maxlength="120">
+        </div>
+
+        <div class="form-field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" maxlength="160">
+        </div>
+
+        <div class="form-field">
+          <label for="cf-budget">Budget range</label>
+          <div class="select-wrap">
+            <select id="cf-budget" name="budget" required>
+              <option value="">Select a range</option>
+              <option value="Under $25k">Under $25k</option>
+              <option value="$25k to $50k">$25k to $50k</option>
+              <option value="$50k to $100k">$50k to $100k</option>
+              <option value="$100k to $250k">$100k to $250k</option>
+              <option value="$250k+">$250k+</option>
+              <option value="Still figuring it out">Still figuring it out</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="cf-brief">What you're chasing</label>
+          <p class="form-hint">Year, make, model, or just the dream — a sentence or a paragraph, whatever you've got.</p>
+          <textarea id="cf-brief" name="brief" rows="6" required maxlength="2000"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn solid" type="submit">Send to Tim</button>
+          <p class="form-meta"><em>Opens your email app with the note pre-filled. Tim replies within a day.</em></p>
+        </div>
+
+        <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+      </form>
 
       <p class="email-fallback">
         Or email Tim directly: <a href="mailto:tim@andgarage.com">tim@andgarage.com</a>.
