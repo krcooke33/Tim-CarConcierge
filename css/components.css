@@ -1844,3 +1844,82 @@ body.page-home {
     font-size: 13px;
   }
 }
+
+/* ─── Home Page · Tim Signature Section spacing ──────────── */
+
+.section.block.home-tim-signature {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* ─── Home Page · Quotes Section ─────────────────────────── */
+
+.section.block.home-quotes h2 {
+  margin-bottom: 48px;
+  max-width: 24ch;
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+@media (max-width: 899px) {
+  .quote-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 559px) {
+  .quote-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Home Page · Gallery Teaser Section ─────────────────── */
+
+.section.block.home-gallery-teaser h2 {
+  margin-bottom: 48px;
+  max-width: 24ch;
+}
+
+.section.block.home-gallery-teaser h2 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-weight: 300;
+}
+
+.gallery-teaser-foot {
+  max-width: 1180px;
+  margin: 32px auto 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gallery-teaser-link {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px solid var(--oxblood);
+  padding-bottom: 4px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-teaser-link:hover {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+@media (max-width: 559px) {
+  .gallery-teaser-foot {
+    justify-content: flex-start;
+    margin-top: 24px;
+  }
+}
