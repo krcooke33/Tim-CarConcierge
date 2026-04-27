@@ -1115,16 +1115,12 @@ body.page-home {
 
 .timeline-v .step-marker {
   font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
   font-size: 15px;
   line-height: 1.3;
   color: var(--text-soft);
   margin: 0 0 12px;
-}
-
-.timeline-v .step-marker em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--oxblood);
 }
 
 .timeline-v .step-body {
@@ -1152,10 +1148,6 @@ body.page-home {
 
 .section.on-dark .timeline-v .step-marker {
   color: var(--text-on-dark-soft);
-}
-
-.section.on-dark .timeline-v .step-marker em {
-  color: var(--warm);
 }
 
 .section.on-dark .timeline-v .step-body {
