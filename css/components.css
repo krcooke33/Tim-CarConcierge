@@ -1849,17 +1849,6 @@ a.gallery-card {
   background: var(--ink-dark);
 }
 
-.tim-signature .tim-atmosphere {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: var(--ink-dark);
-  filter: saturate(0.92) contrast(0.96);
-  opacity: 0.92;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-}
-
 .tim-signature .copy {
   display: flex;
   flex-direction: column;
@@ -1898,9 +1887,6 @@ a.gallery-card {
   }
   .tim-signature .tim-portrait {
     aspect-ratio: 4 / 3;
-  }
-  .tim-signature .tim-atmosphere {
-    aspect-ratio: 16 / 10;
   }
   .tim-signature .copy {
     padding-top: 0;
@@ -2711,8 +2697,9 @@ a.gallery-card {
     radial-gradient(circle at 70% 70%, rgba(110, 80, 50, 0.06) 0%, transparent 40%);
 }
 
-/* Film grain on dark surfaces — tiny SVG noise data-URI, no new image files.
-   Sits below inner content (which is z-index: 2) and above .constellation. */
+/* Film grain on dark surfaces — tiny tiled PNG (img/texture/grain.png,
+   ~5 KB) for sharp, cross-browser-identical rendering. Sits below inner
+   content (z-index: 2) and above .constellation. */
 .hero::after,
 .section.on-dark::after,
 .dark-surface::after,
@@ -2724,7 +2711,8 @@ a.gallery-card {
   z-index: 1;
   opacity: 0.10;
   mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.92  0 0 0 0 0.85  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-image: url("/img/texture/grain.png");
+  background-repeat: repeat;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2795,6 +2783,75 @@ a.gallery-card {
 .home-problem .kicker {
   display: block;
   margin-bottom: 16px;
+}
+
+/* Section-2 (home problem) — two-column layout: copy left, photo cluster right.
+   The two photos overlap diagonally for a casual, scrapbook feel. */
+.home-problem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  gap: 64px;
+  align-items: center;
+}
+
+.home-problem-copy {
+  min-width: 0;
+}
+
+.home-problem-photos {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.home-problem-photo {
+  position: absolute;
+  display: block;
+  background: var(--ink-dark);
+  object-fit: cover;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.06),
+    0 14px 28px -14px rgba(19, 20, 38, 0.35),
+    0 2px 6px rgba(19, 20, 38, 0.12);
+}
+
+.home-problem-photo-back {
+  top: 0;
+  left: 0;
+  width: 64%;
+  aspect-ratio: 1 / 1;
+  transform: rotate(-4deg);
+  transform-origin: center;
+  z-index: 1;
+}
+
+.home-problem-photo-front {
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  aspect-ratio: 4 / 5;
+  transform: rotate(5deg);
+  transform-origin: center;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .home-problem {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 280px);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-problem {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .home-problem-photos {
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+  }
 }
 
 /* ─── Oxblood-tinted hairlines (leather edges) ────────────── */

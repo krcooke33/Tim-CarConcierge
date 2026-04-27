@@ -41,7 +41,7 @@ Both the nav and footer are defined in `index.html` and must be copied consisten
 - `css/components.css` — All reusable component styles including `.site-nav` and `.site-footer`
 - `js/site.js` — Mobile hamburger toggle
 - `site-brief.html` — Styled HTML version of the brief for human review
-- `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/` (current cars + portrait, plus `tim/past/` for the About-page timeline and `tim/illustrations/` for the About-page sketchbook grid), `mood/`
+- `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/` (current cars + portrait, plus `tim/past/` for the About-page timeline and `tim/illustrations/` for the About-page sketchbook grid), `mood/`, `texture/` (e.g. `grain.png` — the tiled film-grain overlay used on dark surfaces)
 
 ## Constraints (from BRIEF.md §10)
 
