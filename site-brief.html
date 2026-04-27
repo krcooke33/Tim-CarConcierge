@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Site Brief — The & Garage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-dark: #131426;
+    --ink-dark-2: #1c1d34;
+    --cream: #f7f3ec;
+    --cream-2: #efe9de;
+    --paper: #ffffff;
+    --text: #1c1d34;
+    --text-soft: #4a4b6a;
+    --text-dim: #8a8ba3;
+    --text-on-dark: #f7f3ec;
+    --text-on-dark-soft: #c9cadc;
+    --text-on-dark-dim: #8082a6;
+    --rule: rgba(28, 29, 52, 0.12);
+    --rule-soft: rgba(28, 29, 52, 0.06);
+    --rule-dark: rgba(247, 243, 236, 0.16);
+    --warm: #c57b3c;
+    --oxblood: #6e2828;
+    --oxblood-tint: rgba(110, 40, 40, 0.10);
+    --offwhite: #f3ede0;
+    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* BRAND AMPERSAND */
+  .brand-amp {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--oxblood);
+  }
+  .hero .brand-amp,
+  .footer .brand-amp { color: var(--warm); }
+
+  /* HERO */
+  .hero {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 18px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .constellation {
+    position: absolute;
+    inset: 0;
+    opacity: 0.18;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 12% 22%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 78% 18%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 32% 76%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 88% 64%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 52% 8%, #fff 1px, transparent 1.5px),
+      radial-gradient(circle at 22% 92%, #fff 1px, transparent 1.5px);
+  }
+  .hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 56px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-soft);
+  }
+  .topnav .brand {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--text-on-dark);
+    font-style: italic;
+  }
+  .topnav .meta-chip {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule-dark);
+    max-width: 80px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(44px, 6.6vw, 74px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 18ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm);
+  }
+  .hero .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--text-on-dark-soft);
+    max-width: 56ch;
+    margin: 0 0 36px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule-dark);
+  }
+  .hero-meta .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .hero-meta .meta-item .value {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.3;
+    color: var(--text-on-dark);
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+  }
+  .toc-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .toc-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .toc-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc;
+  }
+  .toc-list li {
+    counter-increment: toc;
+    padding: 4px 0;
+  }
+  .toc-list li a {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+  }
+  .toc-list li a::before {
+    content: counter(toc, decimal-leading-zero);
+    color: var(--warm);
+    font-family: var(--mono);
+    font-size: 11px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .toc-list li a:hover { color: var(--oxblood); }
+
+  /* CONTENT */
+  .content {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  section.block {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+    scroll-margin-top: 24px;
+  }
+  section.block:last-of-type { border-bottom: none; }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--warm);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .section-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(30px, 3.8vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+    max-width: 28ch;
+  }
+  h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--oxblood);
+  }
+  h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin: 32px 0 12px;
+    color: var(--text);
+  }
+  h4 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin: 24px 0 10px;
+  }
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--text-soft);
+    max-width: 62ch;
+    margin: 0 0 26px;
+    font-style: italic;
+  }
+  p { margin: 0 0 12px; max-width: 70ch; line-height: 1.65; color: var(--text-soft); }
+  p strong { color: var(--text); font-weight: 600; }
+  ul, ol { max-width: 70ch; line-height: 1.7; color: var(--text-soft); padding-left: 22px; }
+  ul li, ol li { margin-bottom: 6px; }
+  ul li strong, ol li strong { color: var(--text); }
+  code {
+    font-family: var(--mono);
+    background: var(--cream-2);
+    padding: 2px 6px;
+    font-size: 0.88em;
+    color: var(--text);
+    border-radius: 2px;
+  }
+
+  /* CALLOUTS */
+  .callout {
+    margin: 24px 0;
+    padding: 20px 24px;
+    border-left: 3px solid var(--warm);
+    background: var(--paper);
+    max-width: 70ch;
+  }
+  .callout.phase-2 { border-left-color: var(--text-dim); background: var(--cream-2); }
+  .callout.must { border-left-color: var(--oxblood); }
+  .callout-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .callout.phase-2 .callout-tag { color: var(--text-dim); }
+  .callout.must .callout-tag { color: var(--oxblood); }
+  .callout p { font-size: 14px; margin: 0 0 6px; color: var(--text-soft); }
+  .callout p:last-child { margin: 0; }
+
+  /* ITEM TABLES (for goals, audience, components) */
+  .grid-pair {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+  .grid-pair:last-of-type { border-bottom: none; }
+  .grid-pair .label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding-top: 4px;
+    font-weight: 500;
+  }
+  .grid-pair .value {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .grid-pair .value p { margin-bottom: 8px; max-width: none; color: var(--text); }
+  .grid-pair .value p:last-child { margin-bottom: 0; }
+
+  /* PLACEHOLDER */
+  .placeholder {
+    margin: 24px 0;
+    padding: 28px;
+    background: var(--cream-2);
+    border: 1px dashed rgba(28,29,52,0.2);
+    text-align: center;
+    color: var(--text-dim);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* TOC AT TOP — Sticky on desktop */
+  @media (min-width: 1100px) {
+    /* No sticky for now to keep things simple */
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--ink-dark);
+    color: var(--text-on-dark);
+    padding: 56px 0 48px;
+  }
+  .footer-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .footer .kicker-footer {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+    margin-bottom: 18px;
+  }
+  .footer h2 {
+    color: var(--text-on-dark);
+    font-size: clamp(28px, 3.4vw, 40px);
+    margin: 0 0 14px;
+    max-width: 30ch;
+  }
+  .footer h2 em { color: var(--warm); font-style: italic; }
+  .footer .foot-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--text-on-dark-soft);
+    max-width: 60ch;
+    margin: 0 0 28px;
+  }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule-dark);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-dim);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner, .toc-inner, .content, .footer-inner { padding: 0 28px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .toc-list { grid-template-columns: repeat(2, 1fr); }
+    .grid-pair { grid-template-columns: 1fr; gap: 8px; }
+    section.block { padding: 56px 0; }
+  }
+  @media (max-width: 560px) {
+    .hero-inner, .toc-inner, .content, .footer-inner { padding: 0 20px; }
+    .toc-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="constellation"></div>
+  <div class="hero-inner">
+    <nav class="topnav">
+      <span class="brand">Site Brief · v0.1 · DRAFT</span>
+      <span class="meta-chip">Internal · Tim &amp; Kendra</span>
+    </nav>
+
+    <div class="kicker">The <span class="brand-amp">&amp;</span> Garage · build brief for Replit</div>
+
+    <h1>Build the <em>site</em>. Validation now, lead-gen later.</h1>
+
+    <p class="tagline">A small, focused, fast-shipping V1 for The <span class="brand-amp">&amp;</span> Garage. Five pages, real copy, locked brand system, optimized for Replit's AI agent. Phase 2 hooks marked clearly so the build stays in scope. Complete draft as of 2026-04-25.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="label">Pages · V1</span>
+        <div class="value">5 (Home · About · Process · Gallery · Contact)</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Stack</span>
+        <div class="value">Static HTML + CSS<br>+ minimal JS</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Built by</span>
+        <div class="value">Kendra<br>+ Replit AI agent</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Timeline</span>
+        <div class="value">2 — 4 weeks<br>to live V1</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<nav class="toc">
+  <div class="toc-inner">
+    <div class="toc-tag">Sections</div>
+    <ol class="toc-list">
+      <li><a href="#goals">Project &amp; goals</a></li>
+      <li><a href="#audience">Audience</a></li>
+      <li><a href="#voice">Voice &amp; tone</a></li>
+      <li><a href="#identity">Visual identity, locked</a></li>
+      <li><a href="#sitemap">Sitemap &amp; navigation</a></li>
+      <li><a href="#pages">Page-by-page briefs</a></li>
+      <li><a href="#components">Component inventory</a></li>
+      <li><a href="#content">Content &amp; copy</a></li>
+      <li><a href="#photography">Photography &amp; assets</a></li>
+      <li><a href="#tech">Tech &amp; deployment</a></li>
+      <li><a href="#scope">Scope &amp; phasing</a></li>
+      <li><a href="#out-of-scope">Out of scope (V1)</a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ==================== CONTENT ==================== -->
+<main class="content">
+
+  <!-- ============ 01 · PROJECT & GOALS ============ -->
+  <section class="block" id="goals">
+    <span class="section-num">01</span>
+    <div class="section-kicker">Project &amp; goals</div>
+    <h2>What we're building, and what success <em>looks like</em>.</h2>
+    <p class="lede">A focused 5-page site for The <span class="brand-amp">&amp;</span> Garage that launches as a validation tool for Tim's network and is built to extend into a lead-gen site as engagements compound.</p>
+
+    <h3>What is The <span class="brand-amp">&amp;</span> Garage?</h3>
+    <p>An acquisition concierge for enthusiasts buying classic and modern-classic cars from the era 1966 to 1999. End-to-end service, from the first conversation to the first drive — intake, search, vetting, negotiation, transport, handoff. Tim Young is the operator; the brand is a sibling to his existing recruiting practice, The <span class="brand-amp">&amp;</span> Network.</p>
+
+    <h3>What is the site for?</h3>
+    <div class="grid-pair">
+      <div class="label">Primary job · V1</div>
+      <div class="value">
+        <p><strong>Validation tool.</strong> A credible URL Tim sends to people in his network when he's setting up validation conversations. The site makes the conversation easier to have — it shows the offer, the operator, and the way of working before the call.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Secondary job · Phase 2</div>
+      <div class="value">
+        <p><strong>Lead-gen surface.</strong> Once Tim has 3 – 5 engagements behind him, the site becomes the front door for enthusiasts who don't know him yet. SEO-friendly, journal posts, real client quotes, gallery driven by Airtable.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Always</div>
+      <div class="value">
+        <p><strong>Tim's brand.</strong> The site is an extension of Tim's personal credibility. His name, his voice, his eye, his story. Everything else — palette, type, photography — supports that.</p>
+      </div>
+    </div>
+
+    <h3>Success metrics for V1</h3>
+    <p>The site doesn't need traffic to succeed. It needs to perform on three jobs:</p>
+    <ul>
+      <li><strong>Convert intent into conversation.</strong> When a network friend lands on the site, they finish on the Contact page or send Tim an email. Target: at least one out of three referred visitors completes an inquiry in the first 90 days.</li>
+      <li><strong>Communicate Tim's specific competence.</strong> Visitors come away knowing Tim's era (1966 to 1999), his approach (end-to-end), and his eye (gallery + story). Tested informally: ask three friends what the brand does after they've spent two minutes on the site — answers should be consistent.</li>
+      <li><strong>Hold up under enthusiast scrutiny.</strong> The site doesn't read as marketing; it reads as Tim. No lorem, no stock photo defaults, no generic "concierge" copy. If the BMW E30 forum lands here, they shouldn't roll their eyes.</li>
+    </ul>
+
+    <div class="callout must">
+      <div class="callout-tag">Non-negotiable</div>
+      <p><strong>Tim is the protagonist.</strong> The site is not a generic concierge service site with Tim's name on it. It's a site about Tim — a specific person with a specific eye and a specific era — that happens to offer a service. Every page should pass this test: <em>could anyone else's name be substituted here without changing what's said?</em> If yes, it's wrong.</p>
+    </div>
+
+    <div class="callout phase-2">
+      <div class="callout-tag">Phase 2 · deferred</div>
+      <p>Search-engine optimization, journal posts, Instagram embed (replaces gallery), newsletter signup + email engine, Airtable-driven gallery feed. Build hooks for these in V1 (extensible structure, semantic HTML, named slots for journal &amp; gallery feeds), do not implement.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 · AUDIENCE ============ -->
+  <section class="block" id="audience">
+    <span class="section-num">02</span>
+    <div class="section-kicker">Audience</div>
+    <h2>Who lands here. What they need to <em>feel</em>. What they need to <em>do</em>.</h2>
+    <p class="lede">Two cohorts at launch — Tim's network in V1, and self-found enthusiasts in Phase 2. Both are knowledgeable about cars; neither is a corporate buyer.</p>
+
+    <h3>Cohort 1 · Tim's network (V1 primary)</h3>
+    <div class="grid-pair">
+      <div class="label">Who</div>
+      <div class="value">
+        <p>People Tim knows directly or one degree removed. Mostly enthusiasts in the Northeast US — collectors, weekend drivers, people with a dream car they've been quietly thinking about for years. Some have bought classics before; many haven't. They trust Tim or trust someone who does.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">How they arrive</div>
+      <div class="value">
+        <p>Three direct paths to the site, all skipping search:</p>
+        <ul>
+          <li><strong>Direct URL share</strong> — Tim sends a text, email, or message during a conversation. Most common.</li>
+          <li><strong>Business card with QR code</strong> — Tim hands out at car shows, cruise-ins, and enthusiast events. Scan → site.</li>
+          <li><strong>Flyer with QR code</strong> — posted at high-end independent mechanic shops in the Northeast (BMW, Porsche, vintage specialists). Scan → site.</li>
+        </ul>
+        <p>Most visitors read on their phone first. Site must be phone-first. Each print channel uses a UTM-tagged URL (e.g., <code>/?ref=card</code>, <code>/?ref=mechanic</code>, <code>/?ref=show-2026-04</code>) so Tim can see channel attribution in Plausible — which materials are working, which aren't.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">What they need to feel</div>
+      <div class="value">
+        <p><strong>"This is real."</strong> Tim's name and credibility transfer to the site. They should see Tim's photo, recognize his voice, and feel like they're in the right place. <strong>"This isn't a side hustle."</strong> The work is considered, the era is specific, the process is real. <strong>"I could send my dad here."</strong> No cringe, no generic concierge language, no asking for a credit card.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Implication for the site</div>
+      <div class="value">
+        <p>The domain has to be print-friendly: short, memorable, easy to read at arm's length on a card. <code>andgarage.com</code> works; long alternatives don't. The QR code itself is a print asset (designed separately, not coded into the site). The site's only job is to handle the inbound visit cleanly — read the UTM, log the channel, present the same experience whether arrival was direct, scanned, or bookmarked.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">What they need to do</div>
+      <div class="value">
+        <p>Read enough to feel ready, then start a conversation. The conversion event isn't a purchase — it's a reply. They submit the intake form (Airtable) or email Tim directly.</p>
+      </div>
+    </div>
+
+    <h3>Cohort 2 · Self-found enthusiasts (Phase 2 primary)</h3>
+    <div class="grid-pair">
+      <div class="label">Who</div>
+      <div class="value">
+        <p>Enthusiasts who find the site through search, social, BaT-adjacent communities, or a referral from outside Tim's direct network. They don't know Tim yet. They're more skeptical, more comparative, more in research mode.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">How they arrive</div>
+      <div class="value">
+        <p>Search ("classic car concierge northeast," "1966 mustang acquisition help"), referrals from forums, eventually social. They land on Home, About, Gallery, or a journal post — not a single guaranteed entry point.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">What they need to feel</div>
+      <div class="value">
+        <p>Same three feelings as Cohort 1, plus one more: <strong>"This person knows more than I do."</strong> Tim's gallery, Tim's story, Tim's process all work harder for this cohort because they're scrutinizing for expertise, not just trusting a friend's referral.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">What they need to do</div>
+      <div class="value">
+        <p>Read the site fully (5 – 10 minutes), check the gallery, read Tim's story, then start a conversation. Higher consideration than Cohort 1; the path through the site matters more.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-tag">What this means for V1</div>
+      <p>Optimize for Cohort 1 (network-referred). That means: trust Tim's name to do half the work, keep the page count small, prioritize the Home and About Tim pages, make the Contact path obvious. Phase 2 will revisit Home and add SEO infrastructure for Cohort 2.</p>
+    </div>
+
+    <h4>Who this site is <strong>not</strong> for</h4>
+    <ul>
+      <li><strong>Investment-grade collectors.</strong> The audience that wants a Pebble Beach-quality 250 GTO with provenance authentication and a wealth-management voice. That's Sublimity Lifestyle's market, not ours.</li>
+      <li><strong>Buyers shopping on price.</strong> The site doesn't compete on lowest commission or fastest turnaround. If price is the question, Tim isn't the answer.</li>
+      <li><strong>Modern car buyers.</strong> No Teslas, no 2010s Porsches, no exotic supercars from the last decade. The era is 1966 to 1999, full stop. The site should communicate this clearly enough that off-era inquiries self-deselect before contacting Tim.</li>
+    </ul>
+  </section>
+
+  <!-- ============ 03 — 12 · PLACEHOLDERS ============ -->
+  <section class="block" id="voice">
+    <span class="section-num">03</span>
+    <div class="section-kicker">Voice &amp; tone</div>
+    <h2>How the site <em>sounds</em>.</h2>
+    <p class="lede">Two registers running together. The romance of the drive, and the white-glove handling that gets you there. Both, always, integrated. Equal weight (50/50).</p>
+
+    <h3>The romance register</h3>
+    <p>Sun-faded, bygone, free. The voice of someone who loves these cars, knows what they ask of you, and remembers when driving was the point. Underneath: a quiet awareness that human driving is becoming optional. Aware-not-preachy. Worn-warm, not bitter.</p>
+
+    <h4>Pull-quotes for headlines, body, conversation</h4>
+    <ul>
+      <li>"For the dream car you've been chasing."</li>
+      <li>"While we still drive."</li>
+      <li>"Before they drive themselves."</li>
+      <li>"The last analog road."</li>
+      <li>"For the drive, not the destination."</li>
+      <li>"Some cars remember when driving was the point."</li>
+    </ul>
+
+    <h3>The handling register</h3>
+    <p>White-glove, paired, accountable. The voice of a recruiter-turned-concierge — someone whose job is connecting the right person to the right thing. Tim is one of you who happens to do this for a living. Expertise is generous, care is total, language stays human.</p>
+
+    <h4>Pull-quotes for headlines, body, conversation</h4>
+    <ul>
+      <li>"Hand-paired, enthusiast to enthusiast."</li>
+      <li>"From the first conversation to the first drive."</li>
+      <li>"Tim's eye on every step."</li>
+      <li>"White-glove, end-to-end."</li>
+      <li>"Vetted in person, delivered with care."</li>
+      <li>"One concierge, one car, one accountable hand."</li>
+    </ul>
+
+    <h3>Voice mechanics — do / don't</h3>
+    <div class="grid-pair">
+      <div class="label">Do</div>
+      <div class="value">
+        <p>First-person plural ("we'll find it") for the service. First-person singular ("I drive a 1968 Mustang") for Tim's own voice. Specific years and models — never "vintage cars" or "classic vehicles." The em-dash is the punctuation of the brand; use generously for tonal shifts.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Don't</div>
+      <div class="value">
+        <p>No corporate-luxury vocabulary ("bespoke," "curated," "exquisite," "discerning clientele"). No exclamation marks. No emojis. No "we're passionate about..." opener. No "stewardship," "preservation," "keeper" — the brand is about driving, not museum-keeping. Avoid the word "vintage" — say "1966 to 1999" or "the era" or name the year.</p>
+      </div>
+    </div>
+
+    <h3>Tim's first-person voice</h3>
+    <p>The About Tim page and personal-signature blocks use Tim's actual voice — direct, dry, low-status, occasionally funny. His own line, "Yes, I eat my own cooking," is exactly the register. Do not over-write Tim. If a sentence sounds like a brochure, cut it.</p>
+
+    <div class="callout">
+      <div class="callout-tag">For the build</div>
+      <p>When Replit's agent fills body copy, instruct it explicitly: "Use the voice notes above. Do not improvise. If a slot needs copy not provided, leave a placeholder labeled <code>[NEEDS COPY]</code> rather than inventing." This prevents the agent from drifting toward generic concierge prose.</p>
+    </div>
+  </section>
+
+  <section class="block" id="identity">
+    <span class="section-num">04</span>
+    <div class="section-kicker">Visual identity, locked</div>
+    <h2>The brand system as <em>code-ready tokens</em>.</h2>
+    <p class="lede">Locked decisions only. No optionality. Every token below is final and lives in CSS variables; every component lives as reusable markup.</p>
+
+    <h3>Color tokens</h3>
+    <p>Six core tokens. Light surfaces get oxblood as the accent; dark surfaces get copper. No invented variants. The retired <code>--oxblood-bright</code> token is gone.</p>
+
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">:root {
+  --ink-dark:    #131426;  /* primary dark surface */
+  --cream:       #f7f3ec;  /* primary light surface */
+  --offwhite:    #f3ede0;  /* warmer paper tone */
+  --warm:        #c57b3c;  /* copper — accent on dark surfaces */
+  --oxblood:     #6e2828;  /* accent on light surfaces */
+  --oxblood-tint: rgba(110, 40, 40, 0.10); /* oxblood at 10% for backgrounds */
+  /* Text */
+  --text:        #1c1d34;  /* body text on light */
+  --text-soft:   #4a4b6a;  /* secondary text on light */
+  --text-dim:    #8a8ba3;  /* tertiary text on light */
+  --text-on-dark:      #f7f3ec;  /* body on dark */
+  --text-on-dark-soft: #c9cadc;  /* secondary on dark */
+  --rule:       rgba(28,29,52,0.12);  /* light dividers */
+  --rule-dark:  rgba(247,243,236,0.16); /* dark dividers */
+}</code></pre>
+
+    <div class="callout must">
+      <div class="callout-tag">Highlight color rule</div>
+      <p>Light surface (cream / offwhite / paper) → accent is <strong>oxblood</strong>. Dark surface (ink-dark) → accent is <strong>copper (warm)</strong>. No other colors play the highlight role. This rule governs italic emphasis, the brand &amp;, the year-mark connector, button hovers, and rules.</p>
+    </div>
+
+    <h3>Typography</h3>
+    <p>Two faces, both Google Fonts:</p>
+    <ul>
+      <li><strong>Fraunces</strong> — serif. Used for h1 / h2 / h3, hero, lede italics, brand wordmark, year-mark numerals. Weights: 300 (display), 400 (body), 500 (occasionally).</li>
+      <li><strong>DM Sans</strong> — sans. Used for body text, kickers, captions, button labels, microcopy. Weights: 400, 500, 600.</li>
+    </ul>
+
+    <h4>Type scale</h4>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">/* Hero */     Fraunces 300, clamp(46px, 7.6vw, 88px), tracking -0.025em
+/* H1 */       Fraunces 300, 52px, tracking -0.02em
+/* H2 */       Fraunces 300, clamp(34px, 4.2vw, 50px), tracking -0.015em
+/* H3 */       Fraunces 400, 22 — 30px, tracking -0.005em
+/* Lede */     Fraunces italic 300, 22px, line-height 1.45
+/* Body */     DM Sans 400, 16px, line-height 1.7
+/* Caption */  DM Sans 400, 12px, line-height 1.5
+/* Kicker */   DM Sans 500, 11px, tracking 0.24em, uppercase</code></pre>
+
+    <h4>Italic vs roman</h4>
+    <p>Italic Fraunces is reserved for <strong>emotional emphasis</strong> in headlines and lede paragraphs. Roman Fraunces is for everything else, including the brand wordmark "The &amp; Garage" — never italic. The italic Fraunces ampersand glyph (cursive Et-ligature) is intentionally avoided.</p>
+
+    <h3>Brand components — required</h3>
+
+    <h4>Brand ampersand · <code>.brand-amp</code></h4>
+    <p>Every "&amp;" in "The &amp; Garage" wordmark uses this class. Surface-aware color: oxblood on light, copper on dark.</p>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">/* CSS */
+.brand-amp {
+  font-family: 'Fraunces', serif;
+  font-style: normal;     /* never italic */
+  font-weight: 400;
+  color: var(--oxblood);  /* default: light surface */
+}
+.hero .brand-amp,
+.footer .brand-amp,
+.dark-surface .brand-amp {
+  color: var(--warm);     /* dark surface override */
+}
+
+&lt;!-- Markup --&gt;
+The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
+
+    <h4>Year-mark · <code>.year-mark</code></h4>
+    <p>The compact wordmark-logo "66 to 99". Three spans: numerals + connector + numerals. Connector is small italic Fraunces, half-size, oxblood on light / copper on dark.</p>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">/* CSS */
+.year-mark {
+  font-family: 'Fraunces', serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32em;
+  line-height: 1;
+}
+.year-mark .num     { font-weight: 400; letter-spacing: -0.02em; }
+.year-mark .connector {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.5em;
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
+  transform: translateY(-0.06em);
+}
+.year-mark.on-dark .connector { color: var(--warm); }
+
+&lt;!-- Markup --&gt;
+&lt;span class="year-mark"&gt;
+  &lt;span class="num"&gt;66&lt;/span&gt;
+  &lt;span class="connector"&gt;to&lt;/span&gt;
+  &lt;span class="num"&gt;99&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+
+    <h3>Year-range convention</h3>
+    <p>Always use the word "to" — never em-dash, hyphen, or slash. Full form: "1966 to 1999". Compact: "66 to 99". Sub-eras: "1966 to 1974" not "1966 — 1974". One rule, no exceptions.</p>
+
+    <h3>Photography treatment</h3>
+    <p>Sun-faded, warm grain, golden hour. Portra 400 / Ektar 100 film feel. Categories: <strong>Drive</strong> (in motion, golden hour) · <strong>Arrival</strong> (cars at rest in atmospheric places, often with people) · <strong>Detail</strong> (wood wheels, gauges, gear knobs, leather close crops). Workshop / craft category is dropped from V1.</p>
+
+    <h4>Grade recipe</h4>
+    <ul>
+      <li>Visible film grain (texture, not noise — light hand)</li>
+      <li>Soft contrast (don't crush blacks; preserve highlight detail in skies)</li>
+      <li>Warm color temperature (+amber, -blue) — late afternoon, never noon</li>
+      <li>Gentle desaturation (10 – 15%) — faded, not muddy</li>
+      <li>Lifted blacks, slightly milky shadows — Polaroid-faded rather than digital-clean</li>
+      <li>Reds and oranges hold their saturation; everything else relaxes around them</li>
+    </ul>
+
+    <h3>Motif: constellation dots</h3>
+    <p>The dark hero across all pages carries a low-opacity constellation of dots (inherited from The &amp; Network's visual system). Implementation as background-image with radial-gradient dots; no special component needed.</p>
+
+    <div class="callout must">
+      <div class="callout-tag">Brand non-negotiables</div>
+      <p>(1) "The &amp; Garage" wordmark always uses <code>.brand-amp</code>. (2) Year ranges always use "to" — never dashes. (3) Italic is for emotional emphasis only — never for the brand name. (4) No invented colors outside the six tokens. (5) Photography uses the grade recipe — no slick-digital catalogue shots. Replit agent: enforce these as hard rules.</p>
+    </div>
+  </section>
+
+  <section class="block" id="sitemap">
+    <span class="section-num">05</span>
+    <div class="section-kicker">Sitemap &amp; navigation</div>
+    <h2>The five pages and how they <em>connect</em>.</h2>
+    <p class="lede">Five pages, flat structure (no sub-pages in V1), one primary nav across every page. Every CTA path leads to <em>Start a conversation</em>.</p>
+
+    <h3>Pages &amp; URLs</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">/                  → Home (index.html)
+/about/            → About Tim (about.html or about/index.html)
+/process/          → How it works
+/gallery/          → Cars in the wild
+/contact/          → Start a conversation</code></pre>
+    <p>URL-friendly, no extensions visible to user (use directory-with-index.html pattern, or rely on hosting's pretty-URL handling). All lowercase, no underscores.</p>
+
+    <h3>Primary navigation</h3>
+    <p>Top nav, present on every page. Order matters — sequenced as the visitor's journey, not alphabetically:</p>
+    <ul>
+      <li><strong>The &amp; Garage</strong> (home link, Fraunces wordmark with brand-amp) · left side</li>
+      <li><strong>About</strong> (Tim's story) · right side</li>
+      <li><strong>How it works</strong> (Process) · right side</li>
+      <li><strong>Gallery</strong> (cars in the wild) · right side</li>
+      <li><strong>Start a conversation</strong> (Contact) · right side, styled as a button or stronger emphasis — the CTA</li>
+    </ul>
+
+    <h3>Footer</h3>
+    <p>Present on every page. Three columns on desktop, stacked on mobile:</p>
+    <ul>
+      <li><strong>Brand mark</strong> — "The &amp; Garage" wordmark, "66 to 99" year-mark beneath, "by Tim Young" italic byline.</li>
+      <li><strong>Site links</strong> — same five pages as nav, plus an explicit email link (<code>tim@andgarage.com</code> — assumes domain).</li>
+      <li><strong>Lineage line</strong> — "A sibling brand of The &amp; Network." with link to <code>timyoungtalent.com</code>.</li>
+    </ul>
+    <p>Copyright line: "© 2026 The &amp; Garage" — small, in the footer-bottom, alongside "Northeast US · 1966 to 1999".</p>
+
+    <h3>Mobile navigation</h3>
+    <p>Standard hamburger menu at &lt; 760px. Nav items collapse into a top-down drawer; "Start a conversation" remains visible as a sticky button or top-right element so the CTA never disappears.</p>
+
+    <div class="callout phase-2">
+      <div class="callout-tag">Phase 2 · deferred</div>
+      <p>Journal / blog page (<code>/journal/</code> with individual post URLs like <code>/journal/the-1971-bronco/</code>). Per-car case study pages linked from gallery cards (<code>/gallery/[year]-[make]-[model]/</code>). Build the URL pattern in V1 by leaving the gallery cards link-shaped for future drill-down; don't implement.</p>
+    </div>
+  </section>
+
+  <section class="block" id="pages">
+    <span class="section-num">06</span>
+    <div class="section-kicker">Page-by-page briefs</div>
+    <h2>Each page: <em>what it does, what it says</em>.</h2>
+    <p class="lede">Five sub-briefs. For each: purpose, sections, real headline copy, body direction, image direction, CTA, acceptance criteria. Real copy where Tim has provided it; copy direction (not lorem) where he hasn't.</p>
+
+    <!-- HOME -->
+    <h3>06.1 · Home</h3>
+    <div class="grid-pair">
+      <div class="label">Purpose</div>
+      <div class="value"><p>The destination Tim sends people. In one screen, communicate: <em>this is real, this is Tim, this is the era, here's how to talk to him</em>. Visitors should leave on the Contact page or with Tim's email in clipboard.</p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Sections (top to bottom)</div>
+      <div class="value">
+        <p><strong>1. Hero</strong> — full-bleed image of a classic in motion or at golden-hour rest, with veil. Kicker: "While we still drive · 1966 to 1999". H1: "For the <em>dream car</em> you've been chasing." Tagline: "The &amp; Garage — an acquisition concierge for enthusiasts buying classic and modern-classic cars. Hand-paired, end-to-end, from the first conversation to the first drive." Year-mark + "by Tim Young" inline. Primary CTA button: "Start a conversation".</p>
+        <p><strong>2. The problem</strong> — short two-paragraph section. H2: "Matchmaking and transport aren't two businesses. They're <em>two ends of one service</em>." Body: pulled from the BP's "core insight" section. Establishes the gap.</p>
+        <p><strong>3. What &amp; Garage does (at a glance)</strong> — four short cards or a simple list: Find · Vet · Negotiate · Move &amp; Hand off. One sentence per. Links to <em>How it works</em> for depth.</p>
+        <p><strong>4. Tim signature</strong> — photo of Tim (medium crop, with one of his cars or in a workshop), one paragraph in his voice (3 — 5 sentences pulled from the About story opening), and a link to "About Tim".</p>
+        <p><strong>5. Quotes section</strong> — H2: "Folks Tim has found cars for." Three quote cards in a row (stacks on mobile), each with: quote, first name + city + state, year/make/model of the car Tim found.</p>
+        <p><strong>6. Gallery teaser</strong> — H2: "Cars I'm seeing right now." Three gallery cards (latest scouting). Link to full gallery.</p>
+        <p><strong>7. Final CTA</strong> — One line ("Start a conversation. Tell me what you're chasing.") + repeat button.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Image direction</div>
+      <div class="value"><p>Hero image: drive or arrival, golden hour, must hold headline type cleanly (top-left or top-center text placement preferred). Tim signature: warm, mid-range, looks like a person not a model. Quote cards: optional small thumbnail of the matched car in each. Gallery teaser: pulled from <code>img/mood/gallery-*.jpg</code> set.</p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Primary CTA</div>
+      <div class="value"><p>"Start a conversation" → <code>/contact/</code></p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Acceptance</div>
+      <div class="value">
+        <p>Lighthouse Performance ≥ 90, Accessibility ≥ 95.<br>
+        Hero image lazy-loaded with width/height attrs to prevent CLS.<br>
+        All five sections render without horizontal scroll at 320px.<br>
+        CTA button visible above the fold on desktop.</p>
+      </div>
+    </div>
+
+    <!-- ABOUT TIM -->
+    <h3>06.2 · About Tim</h3>
+    <div class="grid-pair">
+      <div class="label">Purpose</div>
+      <div class="value"><p>Tim, in his own voice. The page where personal credibility — the moat — gets fully expressed. Visitors finish this page knowing Tim well enough to send him an email.</p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Sections</div>
+      <div class="value">
+        <p><strong>1. Hero</strong> — kicker "Meet Tim", h1 "I've been drawing cars since I was 5." Lead photo: Tim with a car, ideally one of his own (1968 Mustang, '93 BMW E30 316i Touring, or '97 4Runner — the cars he names in his story).</p>
+        <p><strong>2. The story</strong> — Tim's full About story (his version 2, lightly tightened by ~15% for pacing). Real copy follows below.</p>
+        <p><strong>3. Currently driving</strong> — short visual section: three cards, one per current car (Mustang · BMW · 4Runner), each with photo, year/make/model, and one line in Tim's voice. Optional but high-value — proves "I eat my own cooking."</p>
+        <p><strong>4. CTA</strong> — "Let's find yours." button → <code>/contact/</code>. Tim's actual closing line from the story.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">The story (real copy)</div>
+      <div class="value">
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 14px;">I've been drawing cars since I was 5 years old. That's when it started — the obsession, the love, the need to be around them. I grew up in a family of car enthusiasts and old-school NASCAR fans. Weekends were spent in the garage with my dad, hands covered in grease, learning how things worked. My first car was a 1973 Dodge Charger SE — my uncle's company car, passed down to me.</p>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 14px;">Over the years, I've owned numerous classics from that golden era between 1966 and 1999 — a 1985 Dodge Daytona Turbo Z, a 1967 Sunbeam Alpine, a 1985 Ford F-150, a 1987 BMW E30, a 1994 Toyota Land Cruiser, and more. Some were perfect. Some needed work. And one taught me everything I know about commitment.</p>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 14px;">My grandfather owned a 1974 Bronco Explorer, and I always wanted one of my own. I found a 1971 with a 302 and "3 on the tree" for $1,500 in Waynesville, NC. The motor wasn't as solid as the seller claimed. I could have walked away. Instead, I tore it down to the frame and rebuilt it from scratch. That full off-frame restoration became one of the projects I'm most proud of — not because it was easy, but because it reminded me why I love this. The hunt. The work. The moment you turn the key and it all comes together.</p>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 14px;">Today I drive a 1968 Mustang coupe, a rare 1993 BMW E30 316i Touring, and a 1997 Toyota 4Runner. I found all three for a combined $23k. Yes, I eat my own cooking.</p>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 14px;">Few people know I spent two years as Art Director at Lowe's Corporate, working with Team Lowe's Racing — Jimmie Johnson's #48 car and team #5 drivers Blake Feese and Boston Reid, part of Ricky Hendrick's driver development program. Or that I'm an illustrator. Most of what I draw? Classic cars.</p>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 14px;">For 13 years, I've been recruiting globally for creative agencies and consultancies. The &amp; Network is my most recent venture. My job has always been the same: connect people to what makes them come alive. I've placed hundreds of professionals in roles where they thrive. Now I'm doing the same thing with cars.</p>
+        <p style="font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--text);">If you're chasing a dream car from that era, I'll find it. Not because it's a service I offer — because I know what it feels like to want one. And I know what it feels like to finally get behind the wheel. <strong>Let's find yours.</strong></p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Acceptance</div>
+      <div class="value"><p>Story renders as long-form readable typography (max-width 66ch). Tim's photo loads above the fold. CTA button visible at end of story without forcing scroll-to-bottom.</p></div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <h3>06.3 · How it works (Process)</h3>
+    <div class="grid-pair">
+      <div class="label">Purpose</div>
+      <div class="value"><p>The "what you're hiring" page. Visitors should leave knowing exactly how Tim works and what they'd get.</p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Sections</div>
+      <div class="value">
+        <p><strong>1. Hero</strong> — kicker "How it works". H1: "From the first conversation to the <em>first drive</em>." Lede: "End-to-end, hand-paired, white-glove. One concierge, one car, one accountable hand."</p>
+        <p><strong>2. The arc</strong> — visual timeline of six steps: Intake → Search → Vet → Negotiate → Transport → Handoff. Each step has: number, name, one-paragraph description in Tim's voice, and approximate timeline ("week 1," "weeks 2 — 6," etc.). Pulled from BP's Path 01.</p>
+        <p><strong>3. Pricing</strong> — flat-tier ranges, transparent. The fee is on success — match found, deal done, car delivered. End with a quiet teaser line for à la carte options: <em>"Need more targeted support? Ask me about my à la carte service options."</em> No detail page or card grid in V1; the conversation handles the unbundling.</p>
+        <p><strong>4. CTA</strong> — "Start a conversation" → <code>/contact/</code>.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Image direction</div>
+      <div class="value"><p>Hero: detail or workshop-adjacent shot suggesting process. Each step in the arc: optional small inline image (hand-shake, document, key handoff, etc.) — V1 can ship without these and add later.</p></div>
+    </div>
+
+    <!-- GALLERY -->
+    <h3>06.4 · Gallery (Cars in the wild)</h3>
+    <div class="grid-pair">
+      <div class="label">Purpose</div>
+      <div class="value"><p>Tim's working scouting feed. Cars he's seeing in the wild that he could match to a buyer. Demonstrates his eye, his sources, and his active practice.</p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Sections</div>
+      <div class="value">
+        <p><strong>1. Hero</strong> — kicker "Gallery". H1: "Cars I'm <em>seeing right now</em>." Lede: short paragraph in Tim's voice explaining what this is — "Cars I've spotted in driveways, lots, shows, and the side of the road. If one's calling your name, tell me."</p>
+        <p><strong>2. Gallery grid</strong> — responsive card grid (3 cols desktop, 2 tablet, 1 mobile). Each card uses the structure below.</p>
+        <p><strong>3. CTA</strong> — "See one you want? <strong>Tell me.</strong>" → <code>/contact/</code>.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Card structure</div>
+      <div class="value">
+        <p>Per gallery item:</p>
+        <ul>
+          <li><strong>Image</strong> — Tim's photo of the car in the wild.</li>
+          <li><strong>Year · Make · Model</strong> — e.g., "1972 BMW 2002 tii".</li>
+          <li><strong>Spotted</strong> — where + when (e.g., "Lancaster, PA · April 2026").</li>
+          <li><strong>Tim's note</strong> — 1 — 2 sentences. Why it's interesting, what kind of buyer it'd suit.</li>
+        </ul>
+        <p><strong>No availability or matched-state pills.</strong> The gallery is a <em>scouting feed</em>, not a storefront. Every card reads as "Tim has seen this." The CTA at the bottom of the page invites readers to tell Tim what catches their eye; the conversation handles availability.</p>
+        <p>V1: ~27 hand-coded cards. Phase 2: Airtable-driven feed.</p>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <h3>06.5 · Start a conversation (Contact)</h3>
+    <div class="grid-pair">
+      <div class="label">Purpose</div>
+      <div class="value"><p>Convert intent into a real conversation. The page where the validation calls actually start.</p></div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Sections</div>
+      <div class="value">
+        <p><strong>1. Hero</strong> — kicker "Start a conversation". H1: "Tell me what you're <em>chasing</em>." Lede: "Drop a few details. I'll reply within a day with thoughts and next steps."</p>
+        <p><strong>2. What happens next</strong> — three short steps: "1. You send a note. 2. We talk — phone or video, 30 minutes. 3. If we're a fit, we start." Calibrates expectation.</p>
+        <p><strong>3. Form</strong> — Airtable embed. Fields: Name, Email, Phone (optional), What you're chasing (textarea, prompt: "year, make, model, or just the dream"), Timing (radio: "now" / "this year" / "still thinking"), Anything else (optional textarea).</p>
+        <p><strong>4. Email fallback</strong> — beneath the form: "Or email Tim directly: <code>tim@andgarage.com</code>." (assumes domain — confirm).</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Form integration</div>
+      <div class="value">
+        <p><strong>Airtable form embed.</strong> Tim sets up a base with a "Leads" table; submissions go into the base. Notification rule emails Tim per submission. Embed via Airtable's iframe code. Free tier covers V1.</p>
+        <p>Replit agent: do not implement custom form handling. Use Airtable's embed code. Tim provides the embed URL.</p>
+      </div>
+    </div>
+    <div class="grid-pair">
+      <div class="label">Acceptance</div>
+      <div class="value"><p>Form embed loads on first paint. Email link works on phone (mailto:). Page accessible on mobile without zoom.</p></div>
+    </div>
+  </section>
+
+  <section class="block" id="components">
+    <span class="section-num">07</span>
+    <div class="section-kicker">Component inventory</div>
+    <h2>Reusable patterns the site is <em>built from</em>.</h2>
+    <p class="lede">Every visual element on the site is one of these components. Replit's agent should reach for these patterns first before inventing new ones.</p>
+
+    <h3>Brand-amp · already in §04</h3>
+    <p>See visual identity section. Single class, surface-aware color.</p>
+
+    <h3>Year-mark · already in §04</h3>
+    <p>See visual identity section. Three-span structure with <code>.on-dark</code> modifier.</p>
+
+    <h3>Kicker (small-caps tracked label)</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">.kicker {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-dim); /* or text-on-dark-dim on dark surfaces */
+}</code></pre>
+
+    <h3>Button · primary CTA</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">.btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn:hover { background: var(--oxblood); color: var(--cream); border-color: var(--oxblood); }
+.btn.on-dark { color: var(--cream); }
+.btn.on-dark:hover { background: var(--warm); border-color: var(--warm); color: var(--ink-dark); }
+.btn.solid {
+  background: var(--oxblood); color: var(--cream); border-color: var(--oxblood);
+}</code></pre>
+
+    <h3>Quote card</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">&lt;article class="quote-card"&gt;
+  &lt;blockquote&gt;
+    "Tim's the guy I'd call if I were chasing
+     a 1972 BMW 2002. He just <em>knows</em>."
+  &lt;/blockquote&gt;
+  &lt;cite&gt;
+    &lt;span class="name"&gt;Marcus&lt;/span&gt; ·
+    &lt;span class="city"&gt;Brooklyn, NY&lt;/span&gt;
+    &lt;span class="car"&gt;Found a 1968 Mustang fastback&lt;/span&gt;
+  &lt;/cite&gt;
+&lt;/article&gt;</code></pre>
+
+    <h3>Gallery card</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">&lt;article class="gallery-card"&gt;
+  &lt;img src="img/gallery/bmw-2002-red.jpg"
+       alt="1972 BMW 2002 in red, parked on a brownstone-lined street"
+       loading="lazy" width="800" height="600"&gt;
+  &lt;h3 class="car-title"&gt;1972 BMW 2002&lt;/h3&gt;
+  &lt;p class="spotted"&gt;Brooklyn, NY · April 2026&lt;/p&gt;
+  &lt;p class="note"&gt;Original paint, owner three decades. Right buyer would
+     value matching numbers over a perfect respray.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+    <p>No status pill. The gallery is a scouting feed; every card reads as "Tim has seen this." The CTA at the bottom of the page is what invites a conversation.</p>
+
+    <h3>Tim signature block</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">&lt;section class="tim-signature"&gt;
+  &lt;img src="img/tim/portrait.jpg" alt="Tim Young, founder"&gt;
+  &lt;div class="copy"&gt;
+    &lt;p class="kicker"&gt;Meet Tim&lt;/p&gt;
+    &lt;p class="signature-body"&gt;
+      [3 — 5 sentences from About story]
+    &lt;/p&gt;
+    &lt;a class="btn" href="/about/"&gt;Tim's full story&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3>Section-block (used everywhere)</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">&lt;section class="block"&gt;
+  &lt;span class="section-kicker"&gt;[label]&lt;/span&gt;
+  &lt;h2&gt;[Headline with &lt;em&gt;italic emphasis&lt;/em&gt;]&lt;/h2&gt;
+  &lt;p class="lede"&gt;[Lede paragraph]&lt;/p&gt;
+  &lt;p class="body"&gt;[Body copy]&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3>Hero block (dark)</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">&lt;header class="hero"&gt;
+  &lt;div class="constellation"&gt;&lt;/div&gt; &lt;!-- background dots --&gt;
+  &lt;img class="hero-image" src="..." alt="..."&gt;
+  &lt;div class="veil"&gt;&lt;/div&gt; &lt;!-- gradient overlay for text legibility --&gt;
+  &lt;div class="hero-inner"&gt;
+    [topnav]
+    &lt;span class="kicker"&gt;[kicker]&lt;/span&gt;
+    &lt;h1&gt;[Headline]&lt;/h1&gt;
+    &lt;p class="tagline"&gt;[Tagline]&lt;/p&gt;
+    &lt;a class="btn on-dark solid" href="/contact/"&gt;Start a conversation&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+
+    <div class="callout">
+      <div class="callout-tag">For the build</div>
+      <p>Replit agent: when a new section is needed, use the <code>section.block</code> pattern with kicker + h2 + lede + body. Don't invent new section structures. Hero is its own thing — only the home, about, process, gallery, and contact pages get a hero.</p>
+    </div>
+  </section>
+
+  <section class="block" id="content">
+    <span class="section-num">08</span>
+    <div class="section-kicker">Content &amp; copy</div>
+    <h2>Real copy, ready to <em>paste</em>.</h2>
+    <p class="lede">Final copy in Tim's voice. Where multiple options exist, the recommended pick is marked. Replit agent: use these strings as-is. Do not paraphrase.</p>
+
+    <h3>Hero copy options</h3>
+    <h4>Home hero h1 — three options to choose from</h4>
+    <ul>
+      <li><strong>Recommended:</strong> "For the <em>dream car</em> you've been chasing."</li>
+      <li>"Some cars still want to be <em>driven</em>."</li>
+      <li>"While we still <em>drive</em>."</li>
+    </ul>
+    <h4>Home hero tagline (recommended)</h4>
+    <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"The &amp; Garage — an acquisition concierge for enthusiasts buying classic and modern-classic cars. Hand-paired, end-to-end, from the first conversation to the first drive."</p>
+
+    <h3>The problem section (Home page)</h3>
+    <p style="font-family: var(--serif); font-size: 17px; line-height: 1.55;">"The real pain isn't finding a car, and it isn't shipping a car. It's that the whole arc — find, vet, negotiate, move, deliver — is fragmented. No one owns it for you."</p>
+    <p>Followed by a short paragraph (BP-pulled): "The &amp; Garage is one accountable hand from the first conversation to the first drive. Tim brings 13 years of recruiting — the same hunt-and-match expertise — to a market built on relationships and gut."</p>
+
+    <h3>What we do (four-card section)</h3>
+    <p>Card titles + one-sentence body each:</p>
+    <ul>
+      <li><strong>Find</strong> — "Tell me what you're chasing. I work the sources, the network, the in-person leads."</li>
+      <li><strong>Vet</strong> — "I see it in person. Pre-purchase inspection, history check, and a real conversation about what you're getting."</li>
+      <li><strong>Negotiate</strong> — "Flat fee, on your side. Your budget gets respected and your time doesn't get wasted."</li>
+      <li><strong>Move &amp; hand off</strong> — "Enclosed transport, vetted carriers, and a delivery you'll remember. The first drive is the point."</li>
+    </ul>
+
+    <h3>FAQ-style answers (for Process page or expandable section)</h3>
+    <ul>
+      <li><strong>What does it cost?</strong> Flat tiers, $2.5K to $7.5K+ depending on scope. Quote on the intake call, never after.</li>
+      <li><strong>What if you can't find it?</strong> You don't pay. The fee is on success — match found, deal done, car delivered.</li>
+      <li><strong>How long does it take?</strong> Most engagements run 6 — 12 weeks from intake to first drive. Some take a day. Some take a year. The dream cars don't always show up on schedule.</li>
+      <li><strong>Do you work outside the Northeast?</strong> Yes — but I'm based in the Northeast and most engagements end here. National sourcing, regional handoff.</li>
+      <li><strong>What about cars outside 1966 to 1999?</strong> That's not the practice. There are good people for newer cars; I'm not one of them.</li>
+    </ul>
+
+    <h3>Microcopy</h3>
+    <h4>Button labels</h4>
+    <ul>
+      <li>Primary CTA: "Start a conversation"</li>
+      <li>Secondary: "Tim's full story" / "See the gallery" / "Read how it works"</li>
+      <li>Form submit: "Send to Tim"</li>
+    </ul>
+    <h4>Form field labels &amp; placeholders</h4>
+    <ul>
+      <li>Name → "Your name"</li>
+      <li>Email → "Email — where Tim should reply"</li>
+      <li>Phone (optional) → "Phone (optional)"</li>
+      <li>What you're chasing → "Year, make, model. Or just the dream."</li>
+      <li>Timing → "When are you thinking?" with options: "Right now" / "This year" / "Still dreaming"</li>
+      <li>Anything else → "Anything else? (optional)"</li>
+    </ul>
+    <h4>Form success message</h4>
+    <p style="font-family: var(--serif); font-style: italic;">"Got it. I'll reply within a day. — Tim"</p>
+    <h4>Form error fallback</h4>
+    <p style="font-family: var(--serif); font-style: italic;">"Something didn't go through. Email me directly: tim@andgarage.com — sorry about the friction."</p>
+
+    <h3>404 page</h3>
+    <p style="font-family: var(--serif); font-size: 18px;">"Wrong turn. <em>Happens to all of us.</em>"<br>
+    <span style="font-size: 14px; color: var(--text-soft);">Lost page. Try the <a href="/" style="color: var(--oxblood);">home page</a> or <a href="/contact/" style="color: var(--oxblood);">start a conversation</a>.</span></p>
+
+    <h3>Footer copy</h3>
+    <ul>
+      <li>Brand line: <code>The &amp; Garage · 66 to 99 · by Tim Young</code></li>
+      <li>Lineage line: <code>A sibling brand of The &amp; Network.</code> (with link to timyoungtalent.com)</li>
+      <li>Bottom: <code>© 2026 The &amp; Garage · Northeast US · 1966 to 1999</code></li>
+    </ul>
+  </section>
+
+  <section class="block" id="photography">
+    <span class="section-num">09</span>
+    <div class="section-kicker">Photography &amp; assets</div>
+    <h2>Where the images come from. How they're <em>treated</em>.</h2>
+    <p class="lede">Three categories. One unifying grade. Predictable filenames so the site can be coded and image management stays sane.</p>
+
+    <h3>Categories</h3>
+    <ul>
+      <li><strong>Drive</strong> — cars in motion, golden hour, open road. Cars as protagonists. Used in: hero images, gallery teasers, story moments.</li>
+      <li><strong>Arrival</strong> — cars at rest in atmospheric places. Often with people. Used in: feel-section moments, About-page imagery, lifestyle shots.</li>
+      <li><strong>Detail</strong> — close crops of wood wheels, gauges, gear knobs, leather. Cars as objects of close attention. Used in: process page steps, accent moments, alongside body copy.</li>
+    </ul>
+
+    <h3>Grade recipe</h3>
+    <p>Apply uniformly to all photography. Tim or whoever is shooting can use Lightroom presets approximating:</p>
+    <ul>
+      <li>Visible film grain (Portra 400 / Ektar 100 feel — light hand, not dirty)</li>
+      <li>Soft contrast — preserve highlight detail in skies, don't crush blacks</li>
+      <li>Warm color temperature: +200 to +400K white balance shift</li>
+      <li>Gentle desaturation: −10 to −15% global</li>
+      <li>Lifted blacks (~10% lift) for slightly milky shadows — Polaroid-faded, not digital-clean</li>
+      <li>Reds and oranges hold saturation; greens and blues relax</li>
+    </ul>
+
+    <h3>Asset folder structure</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">img/
+├── hero/
+│   ├── home.jpg              (full-bleed home hero — required)
+│   └── about.jpg             (about hero — Tim's portrait, required)
+├── tim/
+│   ├── portrait.jpg          (Tim signature portrait)
+│   ├── mustang-1968.jpg      (his current cars)
+│   ├── bmw-e30-1993.jpg
+│   └── 4runner-1997.jpg
+├── gallery/                  (27 cars in the wild)
+│   └── {make}-{model}.jpg
+└── mood/                     (mood board reference — NOT for site)</code></pre>
+
+    <p><strong>V1 hero strategy:</strong> only Home and About use full-bleed image heroes. Process, Gallery, and Contact use <em>typographic heroes</em> — kicker + h1 + lede on the dark ink-dark surface with the constellation motif, no full-bleed photo. Process content (the arc) is the visual; Gallery content (27 cards) is the visual; Contact's focus is the form.</p>
+
+    <h3>Filename convention</h3>
+    <ul>
+      <li>All lowercase, hyphens between words.</li>
+      <li>Dates: <code>YYYY-MM</code> (gallery scouting items only — establishes recency).</li>
+      <li>Cars: <code>year-make-model</code> (e.g., <code>1968-mustang-coupe.jpg</code>).</li>
+      <li>No spaces, no underscores, no capitals.</li>
+    </ul>
+
+    <h3>Alt-text rules</h3>
+    <p>Every image gets descriptive alt text. Format: <code>[year] [make] [model] in [color], [context]</code>. Example: <code>"1972 BMW 2002 tii in fjord blue, parked outside a brick warehouse"</code>. For Tim's portrait: <code>"Tim Young, founder of The &amp; Garage, leaning against a 1968 Mustang"</code>. Hero images get short emotional alt: <code>"A 1968 Mustang on a Vermont back road, golden hour"</code>.</p>
+
+    <h3>Image performance</h3>
+    <ul>
+      <li>Compress before commit (TinyPNG or ImageOptim) — keeps repo light, deploy fast.</li>
+      <li>Width: ~1600 — 2000px on the long edge for hero/gallery; ~800px for cards.</li>
+      <li>Format: <code>.jpg</code> for photography, <code>.svg</code> for any line art.</li>
+      <li>Always include <code>width</code> and <code>height</code> attributes on <code>&lt;img&gt;</code> tags to prevent CLS (cumulative layout shift).</li>
+      <li>Use <code>loading="lazy"</code> on images below the fold.</li>
+    </ul>
+
+    <h3>Image sources for V1</h3>
+    <p>Tim provides his own photography for: his portrait, his current cars, gallery (cars in the wild he's scouted), and ideally hero shots. For hero images he doesn't have yet, V1 may need temporary stock photography that fits the grade — flag this and source from Unsplash/Pexels with proper attribution. Phase 2 replaces with original.</p>
+
+    <div class="callout phase-2">
+      <div class="callout-tag">Phase 2 · deferred</div>
+      <p>Airtable-driven gallery feed (Tim adds to Airtable, site reads via API). Instagram embed replaces hand-coded gallery once Tim builds an account.</p>
+    </div>
+  </section>
+
+  <section class="block" id="tech">
+    <span class="section-num">10</span>
+    <div class="section-kicker">Tech &amp; deployment</div>
+    <h2>Stack, structure, hosting, <em>performance</em>.</h2>
+    <p class="lede">Static HTML, vanilla CSS, minimal JS. No framework. No build step. The site Tim ships in 2026 should still load in 2036.</p>
+
+    <h3>Stack</h3>
+    <ul>
+      <li><strong>HTML5</strong> — semantic, accessible. <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> properly used.</li>
+      <li><strong>CSS3</strong> — vanilla, no preprocessor. CSS variables for tokens (already specified in §04). Grid + Flexbox for layout. <code>clamp()</code> for fluid type.</li>
+      <li><strong>JavaScript</strong> — vanilla, only when truly needed. V1 needs only: mobile menu toggle, smooth scroll, optional gallery filter (Phase 2). No jQuery, no React, no build pipeline.</li>
+      <li><strong>Fonts</strong> — Google Fonts (Fraunces + DM Sans), preconnected.</li>
+      <li><strong>Forms</strong> — Airtable embed via iframe.</li>
+    </ul>
+
+    <h3>File structure</h3>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">Tim-CarConcierge/
+├── index.html                (Home)
+├── about/
+│   └── index.html            (About Tim)
+├── process/
+│   └── index.html            (How it works)
+├── gallery/
+│   └── index.html            (Cars in the wild)
+├── contact/
+│   └── index.html            (Start a conversation)
+├── 404.html
+├── css/
+│   ├── tokens.css            (CSS variables, no rules)
+│   ├── base.css              (resets, typography, body)
+│   └── components.css        (all reusable component styles)
+├── js/
+│   └── site.js               (mobile menu + minor interactions)
+├── img/                      (see §09)
+└── README.md                 (build notes for Tim/Kendra)</code></pre>
+    <p>Or — simpler — flatten to <code>index.html / about.html / process.html / gallery.html / contact.html</code> if pretty URLs aren't worth the hosting hassle. Pick based on hosting capability.</p>
+
+    <h3>Hosting</h3>
+    <p><strong>Recommended: keep GitHub Pages.</strong> The repo already exists; Pages already works; deploys are git push. Replit can be the build environment (where Kendra and the AI agent edit) — the actual hosted site stays at GitHub Pages and the existing custom-domain config (when domain is wired).</p>
+    <p><strong>Alternative: Replit Deploy.</strong> Replit can host the live site directly. Marginally faster to iterate, but adds a hosting layer to maintain. Only worth it if Replit-hosted gives meaningful benefit.</p>
+
+    <h3>Domain</h3>
+    <p><strong>Status: TBD.</strong> Working assumption is <code>andgarage.com</code> — confirm or replace. Other candidates if taken: <code>theandgarage.com</code>, <code>findyourdreamcar.com</code>, <code>timyounggarage.com</code>. Wire to GitHub Pages via CNAME once chosen.</p>
+
+    <h3>Performance targets</h3>
+    <ul>
+      <li>Lighthouse Performance ≥ 90 on mobile</li>
+      <li>Lighthouse Accessibility ≥ 95</li>
+      <li>Lighthouse SEO ≥ 90 (V1 baseline; Phase 2 pushes higher)</li>
+      <li>First Contentful Paint &lt; 1.5s on 4G</li>
+      <li>Total page weight &lt; 1MB per page (excluding hero image, which can be ~300 — 500KB compressed)</li>
+    </ul>
+
+    <h3>Analytics &amp; tracking</h3>
+    <p>V1: <strong>Plausible Analytics</strong> (privacy-respecting, simple, no cookie banner). Free tier covers low traffic; ~$9/mo if needed later. Avoid Google Analytics — heavy, cookie-required, doesn't fit the brand.</p>
+
+    <h4>Channel attribution via UTM tags</h4>
+    <p>Tim's print channels (business cards at car shows, flyers at mechanics) need to be measurable. Each printed QR code encodes a UTM-tagged URL so Plausible can attribute the visit:</p>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">https://andgarage.com/?ref=card                  /* business card */
+https://andgarage.com/?ref=mechanic              /* mechanic flyer (generic) */
+https://andgarage.com/?ref=mechanic-{shop-slug}  /* per shop, optional */
+https://andgarage.com/?ref=show-2026-04          /* per event */</code></pre>
+    <p>No code changes needed in the site — Plausible auto-captures URL parameters and exposes them as a "Sources" filter. Tim sees which materials are driving visits and inquiries. Phase 2 may add dedicated landing pages (<code>/show/</code>, <code>/mechanic/</code>) if a particular channel earns the investment.</p>
+
+    <h3>Form integration · Airtable</h3>
+    <p>Setup steps (Tim handles, ~15 minutes):</p>
+    <ol>
+      <li>Create an Airtable workspace (free).</li>
+      <li>Create a base called "& Garage Leads" with a "Submissions" table.</li>
+      <li>Fields: Name, Email, Phone, Chasing (long text), Timing (single-select: Now / This year / Still dreaming), Notes (long text), Submitted at (created time, auto), Status (single-select: New / Replied / Met / Closed).</li>
+      <li>Open Form view → Share form → Embed → copy iframe code.</li>
+      <li>Customize form: hide branding (paid feature, optional), match colors (background <code>#f3ede0</code>, button <code>#6e2828</code>).</li>
+      <li>Set up Airtable Automations: when new submission lands, email Tim — automation built into free tier.</li>
+      <li>Paste iframe into Contact page.</li>
+    </ol>
+
+    <h3>Browser support</h3>
+    <p>Last 2 versions of Chrome, Safari, Firefox, Edge. Mobile Safari iOS 15+. No IE. Fraunces and DM Sans are widely supported via Google Fonts.</p>
+
+    <div class="callout">
+      <div class="callout-tag">For Replit's agent</div>
+      <p>This is a static site. Do not introduce React, Next.js, Tailwind, build tools, or npm packages without a clear reason. Vanilla HTML/CSS/JS is the spec. If a feature feels like it needs a framework, it probably belongs in Phase 2.</p>
+    </div>
+  </section>
+
+  <section class="block" id="scope">
+    <span class="section-num">11</span>
+    <div class="section-kicker">Scope &amp; phasing</div>
+    <h2>What ships in V1. What waits for <em>Phase 2</em>.</h2>
+    <p class="lede">A V1 launch checklist that fits in a head, plus a Phase 2 backlog so the build now leaves clean hooks for what comes later.</p>
+
+    <h3>V1 launch checklist</h3>
+    <p>Site is live when all of these are checked.</p>
+    <ul>
+      <li>5 pages built (Home, About, Process, Gallery, Contact)</li>
+      <li>Brand tokens implemented as CSS variables</li>
+      <li><code>.brand-amp</code> and <code>.year-mark</code> components in place and used consistently</li>
+      <li>All real copy from §08 in place; no lorem, no placeholder text</li>
+      <li>Tim's About story published in full (§06.2)</li>
+      <li>Tim's portrait + 3 current cars photos uploaded</li>
+      <li>6 — 12 gallery cards published with real cars Tim has scouted</li>
+      <li>3 — 5 quote cards from Tim's past matches</li>
+      <li>Airtable form embedded on Contact page; submissions tested</li>
+      <li>Email link works (mailto: tim@andgarage.com)</li>
+      <li>Mobile responsive (320px to 1440px tested)</li>
+      <li>Lighthouse Performance ≥ 90 on home page</li>
+      <li>Domain wired (CNAME or A record set)</li>
+      <li>404 page styled per spec</li>
+      <li>Footer present on every page with all required elements</li>
+      <li>Plausible Analytics installed (or analytics intentionally skipped, decision documented)</li>
+      <li>Favicon set (year-mark glyph or oxblood square as placeholder)</li>
+      <li>Open Graph + Twitter card meta tags on every page</li>
+    </ul>
+
+    <h3>Phase 2 backlog (post-launch)</h3>
+    <p>Don't build now. Build hooks for, leave structure extensible.</p>
+    <ul>
+      <li><strong>Journal / blog</strong> — Tim's writing, car-of-the-month posts, owner stories. Adds editorial dimension and SEO surface. Standalone <code>/journal/</code> path.</li>
+      <li><strong>Airtable-driven gallery feed</strong> — Tim adds car to base, site reads via API. No HTML edits per gallery item.</li>
+      <li><strong>Instagram embed</strong> — replaces hand-coded gallery once Tim has an account with momentum.</li>
+      <li><strong>Newsletter signup + email engine</strong> — Mailchimp / Substack / similar. Sign-up form on home; monthly note from Tim.</li>
+      <li><strong>Per-car case study pages</strong> — when an engagement closes, a long-form post about the find with photos, story, what made it special. Strong for both validation and SEO.</li>
+      <li><strong>About Tim — separate dedicated page expansion</strong> — "Currently driving" interactive section, "Past cars I've owned" timeline, illustration gallery (Tim is also an illustrator).</li>
+      <li><strong>Real client portrait photography</strong> — replace stock-or-temp imagery in V1 with original work commissioned from a photographer.</li>
+      <li><strong>SEO push</strong> — proper meta descriptions per page, schema.org/LocalBusiness, sitemap.xml, robots.txt, target keywords for the era + concierge angle.</li>
+      <li><strong>Sale-side concierge page</strong> — when Tim is ready to add this service line per the BP.</li>
+    </ul>
+
+    <h3>Risk items</h3>
+    <ul>
+      <li><strong>Tim's photography supply.</strong> If Tim doesn't have enough original photos for hero/gallery at launch, V1 ships with stock standins or limited gallery. Mitigation: commit to 5 core hero shots and 6 — 8 gallery cars before launch.</li>
+      <li><strong>Real customer quotes.</strong> Tim must reach out to past matches and gather quotes. Friction risk; mitigate by drafting a quote-request template Tim can send as a single text message.</li>
+      <li><strong>Domain availability.</strong> If <code>andgarage.com</code> isn't available, alternative naming may force copy revisions on the brand. Decide domain in week 1.</li>
+      <li><strong>Replit AI agent quality drift.</strong> The agent may insert React, Tailwind, or a build step. Counter by pasting the §10 callout ("This is a static site...") at the top of every prompt.</li>
+    </ul>
+  </section>
+
+  <section class="block" id="out-of-scope">
+    <span class="section-num">12</span>
+    <div class="section-kicker">Out of scope (V1)</div>
+    <h2>What we are explicitly <em>not building</em>.</h2>
+    <p class="lede">If the agent (or anyone) starts building these in V1, stop. Listed here so the line stays bright.</p>
+
+    <h3>Phase 2 — coming, but not now</h3>
+    <ul>
+      <li><strong>Instagram embed.</strong> Replaces the gallery once Tim has an account with momentum. Build Phase 2.</li>
+      <li><strong>Newsletter signup + email engine.</strong> Build Phase 2 once a list exists. No mailing-list field on the contact form, no "subscribe" UI.</li>
+      <li><strong>Journal / blog.</strong> Editorial section. Build Phase 2.</li>
+      <li><strong>Airtable-driven gallery</strong>. V1 is hand-coded. Build Phase 2.</li>
+      <li><strong>Per-car case-study pages.</strong> Build Phase 2 once Tim has finished engagements with permission to publish.</li>
+      <li><strong>Real client photography.</strong> V1 may use temp/stock; replace Phase 2.</li>
+      <li><strong>Aggressive SEO.</strong> Basic meta tags only in V1; deeper SEO in Phase 2 once content exists.</li>
+    </ul>
+
+    <h3>Never (or not unless the business shape changes)</h3>
+    <ul>
+      <li><strong>User accounts / login / dashboards.</strong> No "client portal." Tim's relationships are person-to-person, not platform-mediated.</li>
+      <li><strong>Payment processing on the site.</strong> Engagement fees are invoiced and paid offline. No Stripe checkout, no PayPal button, no commerce.</li>
+      <li><strong>E-commerce / "shop" / inventory.</strong> The gallery is scouting, not a storefront. Cars don't have prices on the site, can't be added to a cart.</li>
+      <li><strong>Live chat / chatbot.</strong> Conversations happen via the form or email, person-to-person, on Tim's schedule. No automated response. The brand is human-paced, not always-on.</li>
+      <li><strong>Comments / reviews / forum.</strong> Not a community platform. Validation happens via referrals and conversations, not on-site reviews.</li>
+      <li><strong>Multi-language / localization.</strong> English only. Northeast US first, English-speaking market.</li>
+      <li><strong>A heavy CMS (WordPress, Webflow CMS, etc.).</strong> Static HTML is the spec. Tim's blog (Phase 2) can use a static-site generator or markdown if needed; not a database-backed CMS.</li>
+      <li><strong>Custom backend / Node server / database.</strong> Airtable is the data layer. No server-side code in V1 or Phase 2 unless a real need surfaces.</li>
+    </ul>
+
+    <div class="callout must">
+      <div class="callout-tag">Replit agent · enforce</div>
+      <p>If a feature or pattern from this list appears in your suggestions or generated code, flag it back to Kendra explicitly: "This is in the out-of-scope list — confirm before adding." Do not build it. The point of this section is to remove every excuse for accidental scope creep.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="kicker-footer">What this brief is for</div>
+    <h2>The <em>specification</em> the build comes from.</h2>
+    <p class="foot-note">A complete brief means the build phase is mostly translation, not invention. Replit's AI agent does well with concrete specs and poorly with creative interpretation. This document is the difference between a site that looks like The <span class="brand-amp">&amp;</span> Garage and one that almost does.</p>
+    <div class="foot-bottom">
+      <span>Site Brief · v0.1 · complete draft</span>
+      <span>All 12 sections · ready for review</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
