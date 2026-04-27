@@ -1297,6 +1297,98 @@ body.page-home {
   margin: 0 22px 24px;
 }
 
+/* ─── Gallery Hero (typographic, no image) ────────────────── */
+
+.gallery-hero {
+  padding: 120px 24px 96px;
+}
+
+.gallery-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gallery-hero .kicker {
+  display: block;
+  color: var(--text-on-dark-dim);
+  margin-bottom: 24px;
+}
+
+.gallery-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-on-dark);
+  margin: 0 0 32px;
+  max-width: 22ch;
+}
+
+.gallery-hero h1 em {
+  font-style: italic;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+.gallery-hero-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.5;
+  color: var(--text-on-dark-soft);
+  max-width: 42ch;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .gallery-hero {
+    padding: 80px 20px 64px;
+  }
+  .gallery-hero-inner {
+    padding: 0;
+  }
+}
+
+/* ─── Gallery Grid ─────────────────────────────────────────── */
+
+.gallery-section {
+  padding-top: 80px;
+  padding-bottom: 96px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 960px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .gallery-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
+  }
+}
+
 /* ─── Tim Signature Block ─────────────────────────────────── */
 
 .tim-signature {
