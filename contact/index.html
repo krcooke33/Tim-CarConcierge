@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Start a conversation with Tim Young at The &amp; Garage — classic car acquisition concierge.">
+  <meta name="description" content="Start a conversation with Tim Young. Tell him what you're chasing — a year, make, model, or just the dream — and he'll reply within a day.">
   <meta name="robots" content="noindex, nofollow">
-  <title>Start a Conversation — The &amp; Garage</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andgarage.com/contact/">
+  <meta property="og:title" content="Start a conversation — The &amp; Garage">
+  <meta property="og:description" content="Tell me what you're chasing. I'll reply within a day with thoughts and next steps.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Start a conversation — The &amp; Garage">
+  <meta name="twitter:description" content="Tell me what you're chasing. I'll reply within a day with thoughts and next steps.">
+
+  <title>Start a conversation — The &amp; Garage</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +28,9 @@
 </head>
 <body>
 
+  <!-- ═══════════════════════════════════════════════
+       SITE NAV
+  ════════════════════════════════════════════════ -->
   <nav class="site-nav" id="site-nav" aria-label="Main navigation">
     <a class="nav-wordmark" href="/">The <span class="brand-amp">&amp;</span> Garage</a>
 
@@ -24,10 +38,10 @@
       <li><a href="/about/">About</a></li>
       <li><a href="/process/">How it works</a></li>
       <li><a href="/gallery/">Gallery</a></li>
-      <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
+      <li class="nav-cta"><a href="/contact/" aria-current="page">Start a conversation</a></li>
     </ul>
 
-    <a class="nav-cta-mobile" href="/contact/">Start a conversation</a>
+    <a class="nav-cta-mobile" href="/contact/" aria-current="page">Start a conversation</a>
 
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-drawer">
       <span></span>
@@ -39,14 +53,76 @@
       <li><a href="/about/">About</a></li>
       <li><a href="/process/">How it works</a></li>
       <li><a href="/gallery/">Gallery</a></li>
-      <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
+      <li class="nav-cta"><a href="/contact/" aria-current="page">Start a conversation</a></li>
     </ul>
   </nav>
 
-  <main class="section block">
-    <p>[Placeholder — Contact page coming soon]</p>
+  <main>
+
+    <!-- ═══════════════════════════════════════════════
+         1. HERO — typographic, dark, no image
+    ════════════════════════════════════════════════ -->
+    <header class="section on-dark contact-hero">
+      <div class="constellation"></div>
+      <div class="contact-hero-inner">
+        <span class="kicker">Start a conversation</span>
+        <h1>Tell me what you're <em>chasing</em>.</h1>
+        <p class="contact-hero-lede">Drop a few details. I'll reply within a day with thoughts and next steps.</p>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════
+         2. WHAT HAPPENS NEXT — three numbered steps
+    ════════════════════════════════════════════════ -->
+    <section class="section block what-next">
+      <span class="kicker">What happens next</span>
+
+      <ol class="next-steps" role="list">
+
+        <li class="next-step">
+          <span class="num" aria-hidden="true">1</span>
+          <p class="body">You send a note.</p>
+        </li>
+
+        <li class="next-step">
+          <span class="num" aria-hidden="true">2</span>
+          <p class="body">We talk — phone or video, 30 minutes.</p>
+        </li>
+
+        <li class="next-step">
+          <span class="num" aria-hidden="true">3</span>
+          <p class="body">If we're a fit, we start.</p>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         3. FORM — Airtable embed (placeholder for V1)
+    ════════════════════════════════════════════════ -->
+    <section class="section block contact-form-section">
+
+      <!--
+        REPLACE WITH AIRTABLE IFRAME EMBED CODE.
+        Tim sets up the Airtable base per BRIEF.md §10 → "Form integration · Airtable".
+        Paste the iframe code from Airtable's Form view → Share → Embed.
+        Recommended customization: hide branding (paid feature, optional),
+        set background #f3ede0, button color #6e2828.
+      -->
+      <div class="airtable-placeholder" role="img" aria-label="Airtable form embed placeholder">
+        [AIRTABLE IFRAME — Tim provides embed URL]
+      </div>
+
+      <p class="email-fallback">
+        Or email Tim directly: <a href="mailto:tim@andgarage.com">tim@andgarage.com</a>.
+      </p>
+    </section>
+
   </main>
 
+  <!-- ═══════════════════════════════════════════════
+       SITE FOOTER
+  ════════════════════════════════════════════════ -->
   <footer class="site-footer">
     <div class="footer-inner">
 
@@ -76,12 +152,12 @@
 
       <div class="footer-lineage">
         <h4>Lineage</h4>
-        <p>A sibling brand of The &amp; Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
+        <p>A sibling brand of The <span class="brand-amp">&amp;</span> Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
       </div>
 
     </div>
     <div class="footer-bottom">
-      <p>© 2026 The &amp; Garage · Northeast US · 1966 to 1999</p>
+      <p>© 2026 The <span class="brand-amp">&amp;</span> Garage · Northeast US · 1966 to 1999</p>
     </div>
   </footer>
 

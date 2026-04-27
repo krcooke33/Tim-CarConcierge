@@ -1,0 +1,38 @@
+Now build the Contact page at contact/index.html per BRIEF.md §06.5.
+What to build
+1. Hero (typographic — no full-bleed image). Dark surface, constellation motif. Kicker: Start a conversation. H1: Tell me what you're <em>chasing</em>. Lede (italic Fraunces): Drop a few details. I'll reply within a day with thoughts and next steps.
+2. What happens next. A .section.block on cream surface. Three numbered short steps in a horizontal row (stacks to 1-column on mobile). Each step is a number + a single sentence:
+
+1. You send a note.
+2. We talk — phone or video, 30 minutes.
+3. If we're a fit, we start.
+
+Number style: large Fraunces (~48px), oxblood color. Body text: DM Sans, normal weight, ~16px. Comfortable spacing between the three.
+3. The form. A .section.block on cream. For now, render a placeholder block where the Airtable iframe will go: a bordered rectangle (~600×500px desktop, full-width mobile) with cream-2 background, dashed oxblood border, centered text:
+[AIRTABLE IFRAME — Tim provides embed URL]
+Add an HTML comment immediately above the placeholder:
+html<!-- 
+  REPLACE WITH AIRTABLE IFRAME EMBED CODE.
+  Tim sets up the Airtable base per BRIEF.md §10 → "Form integration · Airtable".
+  Paste the iframe code from Airtable's Form view → Share → Embed.
+  Recommended customization: hide branding (paid feature, optional), 
+  set background #f3ede0, button color #6e2828.
+-->
+Below the placeholder, the email fallback line — italic Fraunces, smaller (~14px), text-soft on cream surface:
+Or email Tim directly: tim@andgarage.com.
+4. No final CTA section. The form is the CTA on this page. Footer follows directly.
+Constraints
+
+No custom form handling. The Airtable iframe goes in the placeholder block when Tim provides it.
+Use only existing components (.section.block, .kicker, etc.). No new ones needed.
+Top nav and footer consistent with other pages.
+Mobile responsive.
+
+Acceptance
+Show me:
+
+The rendered Contact page with the placeholder iframe block visible.
+Confirm the HTML comment with replacement instructions is in place above the placeholder.
+Email fallback link works (mailto:).
+
+Pause and confirm before moving to Home page round 2.
