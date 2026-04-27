@@ -1457,6 +1457,151 @@ body.page-home {
   }
 }
 
+/* ─── FAQ accordion (Process page) ────────────────────────── */
+
+.section.process-faq {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  background: var(--cream);
+}
+
+.section.process-faq .kicker {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.section.process-faq h2 {
+  margin-bottom: 40px;
+  max-width: 18ch;
+}
+
+.section.process-faq h2 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-weight: 300;
+}
+
+.faq-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 56ch;
+  border-top: 1px solid var(--rule);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.faq-q {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.faq-q:hover,
+.faq-q:focus-visible {
+  color: var(--oxblood);
+}
+
+.faq-q:focus-visible {
+  outline: 2px solid var(--oxblood);
+  outline-offset: 4px;
+}
+
+.faq-q-text {
+  flex: 1;
+}
+
+.faq-icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon::after {
+  transform: rotate(90deg);
+}
+
+.faq-q[aria-expanded="true"] .faq-icon::after {
+  transform: rotate(0deg);
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-q[aria-expanded="true"] + .faq-a {
+  grid-template-rows: 1fr;
+}
+
+.faq-a-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-a-inner p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin: 0 0 22px;
+  padding-right: 38px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-a,
+  .faq-icon::before,
+  .faq-icon::after,
+  .faq-q {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .section.process-faq {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .faq-q {
+    font-size: 18px;
+    padding: 18px 0;
+  }
+  .faq-a-inner p {
+    font-size: 15px;
+    padding-right: 0;
+  }
+}
+
 /* ─── Gallery Card (scouting feed) ────────────────────────── */
 
 .gallery-card {

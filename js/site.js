@@ -34,3 +34,17 @@
     }
   });
 })();
+
+/* ─── FAQ accordion (Process page) ────────────────────────── */
+
+(function () {
+  var questions = document.querySelectorAll('.faq-q');
+  if (!questions.length) return;
+
+  questions.forEach(function (q) {
+    q.addEventListener('click', function () {
+      var isOpen = q.getAttribute('aria-expanded') === 'true';
+      q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+  });
+})();
