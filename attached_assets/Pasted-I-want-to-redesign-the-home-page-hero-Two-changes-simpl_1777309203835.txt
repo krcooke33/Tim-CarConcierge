@@ -1,0 +1,75 @@
+I want to redesign the home page hero. Two changes: simplify the copy, and add a subtle editorial element. The visual concept: the main hero is a wide black-and-white image of a classic Mustang at a beach (anchoring the brand's romance and timelessness), with one small auto-cycling color thumbnail in the corner showing live scouting gallery images (bringing the "alive" present-tense feed into the hero). Editorial pattern, restrained, slow.
+Update 1 — Hero image
+Replace the existing hero with the new image at img/hero/home.jpg. It's a black-and-white photograph of a 1968 Mustang rear three-quarter view on a gravel beach with water and shoreline extending to the left. Use this as the full-bleed hero backdrop. Keep the dark gradient veil for text legibility.
+Update the alt text on the hero img:
+A 1968 Ford Mustang on a gravel beach, with water and distant shoreline — black and white.
+Update 2 — Simplify hero copy
+The current hero has too much copy. Strip it down significantly. Remove:
+
+The kicker line ("WHILE WE STILL DRIVE · 1966 TO 1999") — gone.
+The tagline paragraph ("The & Garage — an acquisition concierge for enthusiasts...") — gone from the hero. (It can move down into the "Problem" section if you want to preserve it — your call. But not in the hero.)
+The "66 to 99 · by Tim Young" inline byline — gone. (The year-mark stays in the footer, where it already lives.)
+
+Keep:
+
+The brand wordmark "The & Garage" (top-left of nav, already in place).
+The top nav (About / How it works / Gallery / Start a conversation) — unchanged.
+The H1: For the <em>dream car</em> you've been chasing.
+The primary CTA button: "Start a conversation" → /contact/.
+
+Composition: the H1 and CTA should sit in the lower-left of the hero, with generous left padding (~80 – 120px on desktop, ~24px on mobile), comfortably above the bottom edge. Plenty of breathing room around them. No other text in the hero.
+Update 3 — Add the auto-cycling color thumbnail
+Add a small, unobtrusive image element fixed in the bottom-right corner of the hero, ~280 × 200px on desktop (4:3 aspect), ~160 × 120px on mobile. It auto-cycles through a set of full-color gallery images.
+Behavior:
+
+Shows one image at a time.
+Crossfades to the next every 4 seconds (1-second crossfade duration).
+Loops indefinitely while the hero is in view.
+Subtle border (1px solid rgba(255,255,255,0.2)) and slight drop shadow.
+Pause on hover (optional polish).
+A tiny italic caption beneath the thumbnail, in cream, ~11px DM Sans tracked-out caps: Cars I'm seeing right now. The caption is static; it doesn't change with the image.
+
+The 6 images to cycle through:
+img/gallery/bmw-2002-red.jpg
+img/gallery/mustang-fastback-silver.jpg
+img/gallery/mercedes-300td-wagon.jpg
+img/gallery/alfa-romeo-gtv.jpg
+img/gallery/porsche-911.jpg
+img/gallery/ford-bronco.jpg
+Implementation:
+
+Vanilla JS only. Add to js/site.js.
+Use opacity-based crossfade (stack the images absolutely, fade in/out via CSS transitions). Don't use display:none — that won't crossfade smoothly.
+Use setInterval to cycle, store the active index in a variable.
+Handle the case where the hero is out of viewport (use IntersectionObserver to pause the cycle when the user has scrolled past — saves CPU).
+Lazy-load all 6 images upfront (preload) so the crossfade doesn't stutter on slower connections.
+
+Markup pattern to follow:
+html<aside class="hero-feed">
+  <div class="hero-feed-frame">
+    <img class="hero-feed-img active" src="img/gallery/bmw-2002-red.jpg" alt="1972 BMW 2002 in red">
+    <img class="hero-feed-img" src="img/gallery/mustang-fastback-silver.jpg" alt="1966 Ford Mustang fastback in silver">
+    <img class="hero-feed-img" src="img/gallery/mercedes-300td-wagon.jpg" alt="1982 Mercedes-Benz 300TD wagon">
+    <img class="hero-feed-img" src="img/gallery/alfa-romeo-gtv.jpg" alt="1972 Alfa Romeo GTV in red">
+    <img class="hero-feed-img" src="img/gallery/porsche-911.jpg" alt="1973 Porsche 911 in red">
+    <img class="hero-feed-img" src="img/gallery/ford-bronco.jpg" alt="1971 Ford Bronco in orange">
+  </div>
+  <p class="hero-feed-caption">Cars I'm seeing right now</p>
+</aside>
+CSS pattern: .hero-feed-img uses position: absolute; opacity: 0; transition: opacity 1s ease;. The active image gets .active { opacity: 1; }. JS toggles which image has the .active class on a 4-second timer.
+Constraints
+
+Vanilla HTML/CSS/JS only. No framework, no library (no Swiper, no Slick, etc. — write the cycle logic from scratch in ~15 lines).
+Mobile responsive — the thumbnail scales down on phone, stays in bottom-right but smaller.
+Maintain the surface-aware brand-amp rule and all other §04 brand decisions.
+The H1 and CTA placement should still feel intentional and well-composed, not lost in a now-empty hero.
+
+Acceptance
+Show me:
+
+The rendered home hero with: B&W image, simplified copy, color thumbnail cycling.
+The CSS additions to components.css (or a new section for .hero-feed).
+The JS added to site.js for the cycle logic.
+Confirm the cycle pauses when the hero scrolls out of view (IntersectionObserver).
+
+Pause and confirm before any other changes.
