@@ -1,0 +1,49 @@
+Now build the three remaining components from BRIEF.md §07: .gallery-card, .tim-signature, and .quote-card. Add their CSS to components.css. Do not apply them to any page yet — just make them available. We'll use them in subsequent steps.
+.gallery-card
+Per BRIEF.md §07. Tim's photo at the top, then a text block below:
+
+<img> — 4:3 aspect ratio, loading="lazy", explicit width/height to prevent CLS.
+<h3 class="car-title"> — Fraunces 400, ~22px, tight letter-spacing.
+<p class="spotted"> — italic Fraunces, smaller (~14px), text-dim color. Format: "City, ST · Month YYYY".
+<p class="note"> — DM Sans body, 1 – 2 sentences max-width 60ch.
+
+Card frame: 1px rule border, hover state lifts subtly (small translateY + shadow). On cream surface. No status pill — the gallery is a scouting feed, every card reads as "Tim has seen this."
+.tim-signature
+Per BRIEF.md §07. Two-column block (image left, copy right) for use on the home page. Stacks to 1-column on mobile.
+html<section class="tim-signature">
+  <img src="..." alt="...">
+  <div class="copy">
+    <p class="kicker">Meet Tim</p>
+    <p class="signature-body">[3 — 5 sentence excerpt]</p>
+    <a class="btn" href="/about/">Tim's full story</a>
+  </div>
+</section>
+CSS: image is roughly square or 4:5 portrait crop, ~280 – 360px wide on desktop. Right column has comfortable padding and the kicker → body → button flow. On mobile, image stacks above copy at full width (or generous square crop).
+.quote-card
+Per BRIEF.md §07. Blockquote with cite line.
+html<article class="quote-card">
+  <blockquote>
+    "Tim's the guy I'd call if I were chasing a 1972 BMW 2002. He just <em>knows</em>."
+  </blockquote>
+  <cite>
+    <span class="name">Marcus</span> ·
+    <span class="city">Brooklyn, NY</span>
+    <span class="car">Found a 1968 Mustang fastback</span>
+  </cite>
+</article>
+Quote: italic Fraunces, ~20 – 22px, line-height ~1.45, max-width ~30ch. Cite line below: DM Sans 11px, tracked-out caps for the name and city, with the matched-car detail in italic Fraunces (smaller, text-soft). Subtle border or oxblood-tint background to distinguish from body copy. Comfortable internal padding.
+Where to test the components
+Drop a hidden test page at components.html (or expose at /components only during dev, not linked from nav) showing one example of each component. Use placeholder content — example cars and quote text are fine here since this isn't a real page. This makes the components reviewable before applying them to the gallery and home pages.
+Constraints
+
+All three components use existing tokens (oxblood, copper, ink-dark, cream, etc.) — no invented colors.
+The brand-amp surface-aware rule still applies: anywhere "The & Garage" appears in these components, oxblood on light, copper on dark.
+Mobile-responsive for all three.
+
+Acceptance
+Show me:
+
+The new CSS for all three components added to components.css.
+The test page (components.html) rendering all three side by side or stacked.
+
+Pause and confirm before applying these to the gallery and home pages.

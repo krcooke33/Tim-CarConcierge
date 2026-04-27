@@ -966,3 +966,289 @@ body.page-home {
     padding: 64px 20px;
   }
 }
+
+/* ─── Process Hero (typographic, no image) ────────────────── */
+
+.process-hero {
+  padding: 120px 24px 96px;
+}
+
+.process-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.process-hero .kicker {
+  display: block;
+  color: var(--text-on-dark-dim);
+  margin-bottom: 24px;
+}
+
+.process-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-on-dark);
+  margin: 0 0 32px;
+  max-width: 22ch;
+}
+
+.process-hero h1 em {
+  font-style: italic;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+.process-hero-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  color: var(--text-on-dark-soft);
+  max-width: 38ch;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .process-hero {
+    padding: 80px 20px 64px;
+  }
+  .process-hero-inner {
+    padding: 0;
+  }
+}
+
+/* ─── Process Arc · .timeline-v (vertical timeline) ───────── */
+
+.section.process-arc {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.section.process-arc .kicker {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.section.process-arc h2 {
+  margin-bottom: 56px;
+  max-width: 22ch;
+}
+
+.section.process-arc h2 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-weight: 300;
+}
+
+.timeline-v {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  max-width: 760px;
+}
+
+.timeline-v::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--rule);
+  z-index: 0;
+}
+
+.timeline-v .timeline-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding-bottom: 56px;
+}
+
+.timeline-v .timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-v .step-circle {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--oxblood);
+  color: var(--cream);
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.timeline-v .step-body-wrap {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.timeline-v .step-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+.timeline-v .step-marker {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--text-soft);
+  margin: 0 0 12px;
+}
+
+.timeline-v .step-marker em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--oxblood);
+}
+
+.timeline-v .step-body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* On-dark variant (for future use) */
+.section.on-dark .timeline-v::before {
+  background: var(--rule-dark);
+}
+
+.section.on-dark .timeline-v .step-circle {
+  background: var(--warm);
+  color: var(--ink-dark);
+}
+
+.section.on-dark .timeline-v .step-name {
+  color: var(--text-on-dark);
+}
+
+.section.on-dark .timeline-v .step-marker {
+  color: var(--text-on-dark-soft);
+}
+
+.section.on-dark .timeline-v .step-marker em {
+  color: var(--warm);
+}
+
+.section.on-dark .timeline-v .step-body {
+  color: var(--text-on-dark-soft);
+}
+
+@media (max-width: 760px) {
+  .section.process-arc {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .section.process-arc h2 {
+    margin-bottom: 40px;
+  }
+  .timeline-v::before {
+    left: 15px;
+  }
+  .timeline-v .timeline-step {
+    gap: 20px;
+    padding-bottom: 44px;
+  }
+  .timeline-v .step-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .timeline-v .step-name {
+    font-size: 21px;
+  }
+}
+
+/* ─── Process Pricing ─────────────────────────────────────── */
+
+.section.process-pricing {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  background: var(--cream);
+}
+
+.section.process-pricing .kicker {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.section.process-pricing h2 {
+  margin-bottom: 40px;
+  max-width: 18ch;
+}
+
+.section.process-pricing h2 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-weight: 300;
+}
+
+.pricing-body {
+  max-width: 56ch;
+}
+
+.pricing-body p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 20px;
+}
+
+.pricing-body p:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-body .pricing-teaser {
+  margin-top: 36px;
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--oxblood);
+}
+
+.pricing-body .pricing-teaser em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+@media (max-width: 760px) {
+  .section.process-pricing {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .pricing-body p {
+    font-size: 16px;
+  }
+  .pricing-body .pricing-teaser {
+    margin-top: 28px;
+  }
+}
