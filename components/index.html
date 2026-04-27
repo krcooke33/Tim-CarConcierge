@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Internal component review page — not linked from nav.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Components — The &amp; Garage (dev)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+</head>
+<body class="components-review">
+
+  <!-- ═══════════════════════════════════════════════
+       SITE NAV
+  ════════════════════════════════════════════════ -->
+  <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+    <a class="nav-wordmark" href="/">The <span class="brand-amp">&amp;</span> Garage</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/process/">How it works</a></li>
+      <li><a href="/gallery/">Gallery</a></li>
+      <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
+    </ul>
+
+    <a class="nav-cta-mobile" href="/contact/">Start a conversation</a>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-drawer" id="nav-drawer" role="list">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/process/">How it works</a></li>
+      <li><a href="/gallery/">Gallery</a></li>
+      <li class="nav-cta"><a href="/contact/">Start a conversation</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════
+         1. GALLERY CARD — 3 examples in a grid
+    ════════════════════════════════════════════════ -->
+    <section class="section block component-section">
+      <span class="kicker">Component · gallery-card</span>
+      <h2>Gallery card</h2>
+      <p class="lede">For the scouting feed on <code>/gallery/</code>. No status pills — every card reads as "Tim has seen this."</p>
+
+      <div class="component-grid-3">
+
+        <article class="gallery-card">
+          <img src="/img/gallery/bmw-2002-red.jpg" alt="A red 1972 BMW 2002 parked on a tree-lined street" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1972 BMW 2002</h3>
+          <p class="spotted">Brooklyn, NY · April 2026</p>
+          <p class="note">[Placeholder] Original paint, owner three decades. Right buyer would value matching numbers over a perfect respray.</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/alfa-romeo-gtv.jpg" alt="Alfa Romeo GTV in profile" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1974 Alfa Romeo GTV</h3>
+          <p class="spotted">Saratoga Springs, NY · March 2026</p>
+          <p class="note">[Placeholder] Twin-cam, five-speed, the right kind of patina. Suits a driver who'll work on it themselves.</p>
+        </article>
+
+        <article class="gallery-card">
+          <img src="/img/gallery/bmw-e30-touring.jpg" alt="BMW E30 Touring wagon, three-quarter view" loading="lazy" width="800" height="600">
+          <h3 class="car-title">1991 BMW E30 Touring</h3>
+          <p class="spotted">Stowe, VT · February 2026</p>
+          <p class="note">[Placeholder] Manual, never federalized. Owner's selling because the kids outgrew the back seat. Their loss.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         2. TIM SIGNATURE — single example
+    ════════════════════════════════════════════════ -->
+    <section class="section block component-section">
+      <span class="kicker">Component · tim-signature</span>
+      <h2>Tim signature</h2>
+      <p class="lede">Two-column block for the home page — Tim, in his own voice. Stacks on mobile.</p>
+
+      <section class="tim-signature">
+        <img src="/img/tim/portrait.jpg" alt="Tim Young, founder of The &amp; Garage" loading="lazy" width="640" height="800">
+        <div class="copy">
+          <p class="kicker">Meet Tim</p>
+          <p class="signature-body">I've been drawing cars since I was 5 years old. Today I drive a 1968 Mustang coupe, a rare 1993 BMW E30 316i Touring, and a 1997 Toyota 4Runner. I found all three for a combined $23k. <em>Yes, I eat my own cooking.</em></p>
+          <a class="btn" href="/about/">Tim's full story</a>
+        </div>
+      </section>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         3. QUOTE CARD — 3 examples in a grid
+    ════════════════════════════════════════════════ -->
+    <section class="section block component-section">
+      <span class="kicker">Component · quote-card</span>
+      <h2>Quote card</h2>
+      <p class="lede">For the "Folks Tim has found cars for" section on the home page. Real quotes will replace these.</p>
+
+      <div class="component-grid-3">
+
+        <article class="quote-card">
+          <blockquote>
+            "Tim's the guy I'd call if I were chasing a 1972 BMW 2002. He just <em>knows</em>."
+          </blockquote>
+          <cite>
+            <span class="name">Marcus</span> · <span class="city">Brooklyn, NY</span>
+            <span class="car">[Placeholder] Found a 1968 Mustang fastback</span>
+          </cite>
+        </article>
+
+        <article class="quote-card">
+          <blockquote>
+            "[Placeholder] He found the car, vetted it, drove out to inspect, and put it on the trailer. I just turned the <em>key</em>."
+          </blockquote>
+          <cite>
+            <span class="name">Dana</span> · <span class="city">Boston, MA</span>
+            <span class="car">[Placeholder] Found a 1987 Porsche 944</span>
+          </cite>
+        </article>
+
+        <article class="quote-card">
+          <blockquote>
+            "[Placeholder] I'd been looking on my own for two years. Tim found the right one in <em>three weeks</em>."
+          </blockquote>
+          <cite>
+            <span class="name">Ravi</span> · <span class="city">New Haven, CT</span>
+            <span class="car">[Placeholder] Found a 1994 Land Cruiser</span>
+          </cite>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       SITE FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <span class="footer-wordmark">The <span class="brand-amp">&amp;</span> Garage</span>
+        <span class="footer-year-mark">
+          <span class="year-mark on-dark">
+            <span class="num">66</span>
+            <span class="connector">to</span>
+            <span class="num">99</span>
+          </span>
+        </span>
+        <span class="footer-byline">by Tim Young</span>
+      </div>
+
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/process/">How it works</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/contact/">Start a conversation</a></li>
+        </ul>
+        <a class="footer-email" href="mailto:tim@andgarage.com">tim@andgarage.com</a>
+      </div>
+
+      <div class="footer-lineage">
+        <h4>Lineage</h4>
+        <p>A sibling brand of The <span class="brand-amp">&amp;</span> Network. Founded by <a href="https://timyoungtalent.com" target="_blank" rel="noopener">Tim Young</a>.</p>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The <span class="brand-amp">&amp;</span> Garage · Northeast US · 1966 to 1999</p>
+    </div>
+  </footer>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>

@@ -1244,3 +1244,218 @@ body.page-home {
     margin-top: 28px;
   }
 }
+
+/* ─── Gallery Card (scouting feed) ────────────────────────── */
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px -16px rgba(28, 29, 52, 0.18);
+}
+
+.gallery-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--ink-dark);
+}
+
+.gallery-card .car-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text);
+  margin: 20px 22px 6px;
+}
+
+.gallery-card .spotted {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-dim);
+  margin: 0 22px 10px;
+}
+
+.gallery-card .note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-soft);
+  max-width: 60ch;
+  margin: 0 22px 24px;
+}
+
+/* ─── Tim Signature Block ─────────────────────────────────── */
+
+.tim-signature {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.tim-signature > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--ink-dark);
+}
+
+.tim-signature .copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tim-signature .copy .kicker {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.tim-signature .signature-body {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 52ch;
+  margin: 0 0 32px;
+}
+
+.tim-signature .signature-body em {
+  font-style: italic;
+}
+
+@media (max-width: 760px) {
+  .tim-signature {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .tim-signature > img {
+    aspect-ratio: 4 / 3;
+  }
+  .tim-signature .signature-body {
+    font-size: 19px;
+    margin-bottom: 24px;
+  }
+}
+
+/* ─── Quote Card ──────────────────────────────────────────── */
+
+.quote-card {
+  background: var(--oxblood-tint);
+  padding: 32px 28px;
+  font-style: normal;
+}
+
+.quote-card blockquote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--text);
+  max-width: 30ch;
+  margin: 0 0 24px;
+  quotes: none;
+}
+
+.quote-card blockquote::before,
+.quote-card blockquote::after {
+  content: none;
+}
+
+.quote-card blockquote em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--oxblood);
+}
+
+.quote-card cite {
+  font-style: normal;
+  display: block;
+}
+
+.quote-card cite .name,
+.quote-card cite .city {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.quote-card cite .car {
+  display: block;
+  margin-top: 6px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-soft);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* On-dark variant (future use) */
+.section.on-dark .quote-card {
+  background: rgba(247, 243, 236, 0.06);
+}
+
+.section.on-dark .quote-card blockquote {
+  color: var(--text-on-dark);
+}
+
+.section.on-dark .quote-card blockquote em {
+  color: var(--warm);
+}
+
+.section.on-dark .quote-card cite .name,
+.section.on-dark .quote-card cite .city {
+  color: var(--text-on-dark);
+}
+
+.section.on-dark .quote-card cite .car {
+  color: var(--text-on-dark-soft);
+}
+
+/* ─── Components Review Page (dev only) ───────────────────── */
+
+.components-review .component-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .components-review .component-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .components-review .component-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.components-review .component-section + .component-section {
+  border-top: 1px solid var(--rule);
+}
