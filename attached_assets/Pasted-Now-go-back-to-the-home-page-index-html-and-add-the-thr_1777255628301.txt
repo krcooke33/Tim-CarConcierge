@@ -1,0 +1,46 @@
+Now go back to the home page (index.html) and add the three sections we deferred in Step 2: Tim signature, Quotes, and Gallery teaser. Place them in order between section 3 (What we do) and section 7 (Final CTA), per BRIEF.md §06.1. Don't touch the existing sections — just insert the new ones in the right place.
+What to add
+Section 4 — Tim signature. Use the .tim-signature component built in Step 5.
+
+Image: img/tim/portrait.jpg
+Kicker: Meet Tim
+Body copy: a 3 – 5 sentence excerpt. Pull verbatim from the first paragraph of the About story in BRIEF.md §06.2:
+"I've been drawing cars since I was 5 years old. That's when it started — the obsession, the love, the need to be around them. I grew up in a family of car enthusiasts and old-school NASCAR fans. Weekends were spent in the garage with my dad, hands covered in grease, learning how things worked. My first car was a 1973 Dodge Charger SE — my uncle's company car, passed down to me."
+Button: "Tim's full story" → /about/
+
+Section 5 — Quotes section. A .section.block on cream. H2: Folks Tim has found cars for. Three .quote-card instances in a 3-column grid (stacks to 1-column on mobile). For now, all three are placeholders — Tim hasn't gathered real quotes yet.
+Each card uses this exact placeholder structure:
+html<article class="quote-card">
+  <blockquote>"[NEEDS COPY: short quote in client's voice]"</blockquote>
+  <cite>
+    <span class="name">[First name]</span> ·
+    <span class="city">[City, State]</span>
+    <span class="car">Found a [year/make/model]</span>
+  </cite>
+</article>
+Do not invent quotes. Tim writes them once he gathers responses from past matches.
+Section 6 — Gallery teaser. A .section.block. H2: Cars I'm <em>seeing right now</em>. Three .gallery-card instances in a 3-column grid showing scouting items.
+Pick three cards from the gallery page that have visually strong, distinct images — these will be the teaser. Suggested picks (vary make and color so the three feel different):
+
+bmw-2002-red.jpg (1972 BMW 2002)
+mustang-fastback-black.jpg (1966 Ford Mustang Fastback) — wait, this is the home hero, pick a different one. Use mercedes-300td-wagon.jpg instead (1982 Mercedes-Benz 300TD Wagon)
+porsche-911.jpg (1973 Porsche 911)
+
+Use the same .gallery-card markup from the gallery page for these three, including any placeholder copy ([Tim: city, state...], [Tim: 1–2 sentences]).
+Below the three cards, a styled link (looks like a button or strong text link) on the right side: See the full gallery → linking to /gallery/.
+Constraints
+
+Reuse the components built in Step 5 — don't re-implement.
+Quote cards stay placeholder until Tim provides real quotes.
+Gallery teaser cards reuse exactly the same markup style as the gallery page.
+Don't touch sections 1, 2, 3, or 7 — they're already in place.
+Mobile responsive: all three new sections should render cleanly at 320px → 1440px.
+
+Acceptance
+Show me:
+
+The full rendered home page now showing all 7 sections in correct order: hero → problem → what we do → Tim signature → quotes → gallery teaser → final CTA.
+Confirm the deferred-component sections all use the components from Step 5.
+Confirm placeholder copy in quotes ([NEEDS COPY...]) is still placeholder, not invented.
+
+Pause and confirm before the navigation and footer consistency pass.
