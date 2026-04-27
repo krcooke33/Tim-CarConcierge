@@ -1007,7 +1007,7 @@ body.page-home {
   }
 }
 
-/* ─── Currently Driving (3-card grid) ─────────────────────── */
+/* ─── Currently Driving (4-card 2x2 grid) ─────────────────── */
 
 .section.currently-driving {
   padding-top: 56px;
@@ -1021,8 +1021,8 @@ body.page-home {
 
 .car-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 36px;
 }
 
 .car-card {
@@ -1051,6 +1051,18 @@ body.page-home {
   transform: scale(1.03);
 }
 
+.car-card .for-sale {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--oxblood);
+  margin: 0 0 4px;
+}
+
 .car-card .car-title {
   font-family: 'Fraunces', serif;
   font-weight: 400;
@@ -1070,27 +1082,13 @@ body.page-home {
   font-style: italic;
 }
 
-@media (max-width: 960px) {
-  .car-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  .car-cards .car-card:nth-child(3) {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 12px);
-  }
-}
-
 @media (max-width: 600px) {
   .section.currently-driving {
     padding-bottom: 64px;
   }
   .car-cards {
     grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .car-cards .car-card:nth-child(3) {
-    max-width: none;
+    gap: 36px;
   }
   .section.currently-driving h2 {
     margin-bottom: 28px;
