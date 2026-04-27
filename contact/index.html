@@ -106,17 +106,36 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         3. FORM — intake form (mailto delivery to Tim)
+         3. FORM — intake form (Web3Forms delivery to Tim)
+
+         Posts to Web3Forms (https://web3forms.com), a free hosted
+         endpoint that emails every submission to Tim's inbox. Replace
+         the placeholder access_key below with Tim's real key from
+         https://web3forms.com (free, no signup beyond confirming the
+         destination email). Until then, js/site.js detects the
+         placeholder and falls back to a mailto: handoff so the form
+         still works.
     ════════════════════════════════════════════════ -->
     <section class="section block contact-form-section">
 
       <form
         class="contact-form"
         id="contact-form"
-        action="mailto:tim@andgarage.com"
-        method="post"
-        enctype="text/plain"
+        action="https://api.web3forms.com/submit"
+        method="POST"
       >
+        <!-- Web3Forms config -->
+        <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY-HERE">
+        <input type="hidden" name="subject" value="Inquiry from The &amp; Garage contact form">
+        <input type="hidden" name="from_name" value="The &amp; Garage contact form">
+        <input type="hidden" name="redirect" value="https://andgarage.com/contact/thanks/">
+
+        <!-- Honeypot — bots tick this; humans never see it. Must stay empty. -->
+        <div class="cf-honeypot" aria-hidden="true">
+          <label for="cf-website">Leave this field empty</label>
+          <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="form-field">
           <label for="cf-name">Your name</label>
           <input type="text" id="cf-name" name="name" required autocomplete="name" maxlength="120">
@@ -150,7 +169,7 @@
 
         <div class="form-actions">
           <button class="btn solid" type="submit">Send to Tim</button>
-          <p class="form-meta"><em>Opens your email app with the note pre-filled. Tim replies within a day.</em></p>
+          <p class="form-meta"><em>Lands in Tim's inbox the moment you hit send. He replies within a day.</em></p>
         </div>
 
         <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>

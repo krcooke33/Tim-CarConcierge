@@ -2249,6 +2249,16 @@ a.gallery-card {
   margin: 0 auto;
 }
 
+/* Honeypot — hidden from humans + assistive tech, visible to dumb bots. */
+.cf-honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-field {
   margin-bottom: 28px;
 }
