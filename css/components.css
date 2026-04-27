@@ -2696,6 +2696,92 @@ a.gallery-card {
   }
 }
 
+/* ─── Thanks · "While you wait" curated link grid ─────────── */
+
+.section.block.while-you-wait h2 {
+  margin-bottom: 48px;
+  max-width: 26ch;
+}
+
+.section.block.while-you-wait h2 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-weight: 300;
+}
+
+.while-you-wait-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.while-you-wait-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.while-you-wait-card:hover {
+  transform: translateY(-2px);
+}
+
+.while-you-wait-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.04);
+  margin-bottom: 16px;
+}
+
+.while-you-wait-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.2s ease;
+}
+
+.while-you-wait-card:hover .while-you-wait-thumb img {
+  transform: scale(1.03);
+  filter: brightness(1.03);
+}
+
+.while-you-wait-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 6px;
+  transition: color 0.15s ease;
+}
+
+.while-you-wait-card:hover h3 {
+  color: var(--oxblood);
+}
+
+.while-you-wait-card p {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--text-soft, var(--text));
+  opacity: 0.85;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .section.block.while-you-wait h2 {
+    margin-bottom: 32px;
+  }
+  .while-you-wait-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 /* ─── Mood-board Fidelity Pass · materials, grain, accents ── */
 
 /* Aged-paper surface — recipe from mood-board.html .swatch.aged-paper.
