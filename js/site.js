@@ -1,5 +1,72 @@
 /* site.js — V1 interactions */
 
+/* ─── Hero Feed cycle (Home page) ─────────────────────────── */
+/* Auto-cycles the bottom-right thumbnail through the six gallery
+   images on a 4-second loop with a 1-second opacity crossfade.
+   Pauses when the hero scrolls out of view (IntersectionObserver),
+   pauses on hover, and respects prefers-reduced-motion. */
+
+(function () {
+  var feed = document.querySelector('.hero-feed');
+  if (!feed) return;
+
+  var imgs = feed.querySelectorAll('.hero-feed-img');
+  if (imgs.length < 2) return;
+
+  /* Preload all six so crossfades don't stutter on first cycle. */
+  imgs.forEach(function (img) {
+    if (!img.complete) {
+      var pre = new Image();
+      pre.src = img.getAttribute('src');
+    }
+  });
+
+  var DURATION = 4000;
+  var i = 0;
+  var timer = null;
+  var paused = false;
+
+  function step() {
+    if (paused) return;
+    imgs[i].classList.remove('is-active');
+    imgs[i].setAttribute('aria-hidden', 'true');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('is-active');
+    imgs[i].removeAttribute('aria-hidden');
+  }
+
+  function play() {
+    if (timer) return;
+    timer = setInterval(step, DURATION);
+  }
+
+  function stop() {
+    if (!timer) return;
+    clearInterval(timer);
+    timer = null;
+  }
+
+  /* Respect prefers-reduced-motion: don't cycle at all. */
+  var reduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduced) {
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) play(); else stop();
+        });
+      }, { threshold: 0.01 });
+      io.observe(feed);
+    } else {
+      play();
+    }
+
+    feed.addEventListener('mouseenter', function () { paused = true; });
+    feed.addEventListener('mouseleave', function () { paused = false; });
+  }
+})();
+
 /* ─── Mobile nav toggle ───────────────────────────────────── */
 
 (function () {
