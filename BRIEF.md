@@ -445,10 +445,8 @@ No availability or matched-state pills. The gallery is a *scouting feed*, not a 
 **Form fields:**
 - Name
 - Email
-- Phone (optional)
-- What you're chasing (textarea, prompt: "year, make, model, or just the dream")
-- Timing (radio: "Right now" / "This year" / "Still dreaming")
-- Anything else (optional textarea)
+- Budget range (select, options: "Under $25k" / "$25k to $50k" / "$50k to $100k" / "$100k to $250k" / "$250k+" / "Still figuring it out")
+- What you're chasing (textarea, prompt: "Year, make, model, or just the dream — a sentence or a paragraph, whatever you've got.")
 
 **Form integration:** Real HTML form that POSTs to Web3Forms (`https://api.web3forms.com/submit`), a free hosted relay that emails every submission to Tim's inbox. On success, `js/site.js` redirects to `/contact/thanks/`. A hidden `website` honeypot field filters bot spam. If the `access_key` is ever reset to the placeholder, the JS auto-falls back to a `mailto:tim@theandgarage.com` handoff so the form keeps working. **Do not** add a custom backend or server-side handler. See §10.
 
@@ -616,11 +614,9 @@ When a new section is needed, use the `section.block` pattern. Don't invent new 
 
 **Form fields & placeholders:**
 - Name → "Your name"
-- Email → "Email — where Tim should reply"
-- Phone (optional) → "Phone (optional)"
-- What you're chasing → "Year, make, model. Or just the dream."
-- Timing → "When are you thinking?" — Right now / This year / Still dreaming
-- Anything else → "Anything else? (optional)"
+- Email → "Email"
+- Budget range → "Budget range" (select, default option "Select a range"; options: Under $25k / $25k to $50k / $50k to $100k / $100k to $250k / $250k+ / Still figuring it out)
+- What you're chasing → "What you're chasing" (textarea, hint: "Year, make, model, or just the dream — a sentence or a paragraph, whatever you've got.")
 
 **Form success:**
 > Got it. I'll reply within a day. — Tim

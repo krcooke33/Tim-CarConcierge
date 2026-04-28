@@ -992,7 +992,7 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
       <div class="value">
         <p><strong>1. Hero</strong> — kicker "Start a conversation". H1: "Tell me what you're <em>chasing</em>." Lede: "Drop a few details. I'll reply within a day with thoughts and next steps."</p>
         <p><strong>2. What happens next</strong> — three short steps: "1. You send a note. 2. We talk — phone or video, 30 minutes. 3. If we're a fit, we start." Calibrates expectation.</p>
-        <p><strong>3. Form</strong> — real HTML form that POSTs to Web3Forms (with a mailto fallback). Fields: Name, Email, Phone (optional), What you're chasing (textarea, prompt: "year, make, model, or just the dream"), Timing (radio: "now" / "this year" / "still thinking"), Anything else (optional textarea).</p>
+        <p><strong>3. Form</strong> — real HTML form that POSTs to Web3Forms (with a mailto fallback). Fields: Name, Email, Budget range (select: "Under $25k" / "$25k to $50k" / "$50k to $100k" / "$100k to $250k" / "$250k+" / "Still figuring it out"), What you're chasing (textarea, hint: "Year, make, model, or just the dream — a sentence or a paragraph, whatever you've got.").</p>
         <p><strong>4. Email fallback</strong> — beneath the form: "Or email Tim directly: <code>tim@theandgarage.com</code>."</p>
       </div>
     </div>
@@ -1166,11 +1166,9 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
     <h4>Form field labels &amp; placeholders</h4>
     <ul>
       <li>Name → "Your name"</li>
-      <li>Email → "Email — where Tim should reply"</li>
-      <li>Phone (optional) → "Phone (optional)"</li>
-      <li>What you're chasing → "Year, make, model. Or just the dream."</li>
-      <li>Timing → "When are you thinking?" with options: "Right now" / "This year" / "Still dreaming"</li>
-      <li>Anything else → "Anything else? (optional)"</li>
+      <li>Email → "Email"</li>
+      <li>Budget range → "Budget range" (select, default option "Select a range"; options: "Under $25k" / "$25k to $50k" / "$50k to $100k" / "$100k to $250k" / "$250k+" / "Still figuring it out")</li>
+      <li>What you're chasing → "What you're chasing" (textarea, hint: "Year, make, model, or just the dream — a sentence or a paragraph, whatever you've got.")</li>
     </ul>
     <h4>Form success message</h4>
     <p style="font-family: var(--serif); font-style: italic;">"Got it. I'll reply within a day. — Tim"</p>
