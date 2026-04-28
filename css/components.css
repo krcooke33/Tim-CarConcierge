@@ -620,11 +620,11 @@ body.page-home {
   font-family: 'Fraunces', Georgia, serif;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(28px, 3.6vw, 44px);
+  font-size: clamp(40px, 5.5vw, 72px);
   line-height: 1;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.015em;
   color: var(--text-on-dark);
-  margin: 0 0 20px;
+  margin: 0 0 28px;
 }
 
 .hero .hero-content h1 {
