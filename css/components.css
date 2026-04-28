@@ -671,16 +671,15 @@ body.page-home {
   }
 }
 
-/* ─── Hero era rotation mark (bold "66 / 99" decal, bottom-right of hero) */
-
-/* Hero era rotation mark — bold "66 / 99" decal in the lower-right corner.
-   Solid cream "66" on top, outline "66" rotated 180° (reads as "99") below.
-   Pure design element — no interaction, no motion. */
-.hero-era-mark {
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  z-index: 3;
+/* ─── Era rotation mark ('66 / '99) ──────────────────────────
+   Bold typographic decal: solid '66 atop an outline '99 (which
+   reads as a 180°-rotated '66). Reusable brand motif used as a
+   corner mark on key heroes. Compose with size modifiers
+   (.size-xl / .size-lg / .size-md) and the optional .corner
+   placement variant (anchors to the lower-right of a
+   position:relative parent). Pure design element — no
+   interaction, no motion. */
+.era-mark {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -688,16 +687,15 @@ body.page-home {
   pointer-events: none;
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 500;
-  font-size: clamp(120px, 12vw, 160px);
   line-height: 0.85;
   letter-spacing: -0.04em;
 }
 
-.hero-era-mark .glyphs {
+.era-mark .glyphs {
   display: block;
 }
 
-.hero-era-mark .glyphs.solid {
+.era-mark .glyphs.solid {
   color: var(--text-on-dark);
 }
 
@@ -705,24 +703,41 @@ body.page-home {
    warm fill so the glyph stays visible in browsers that don't support
    text-stroke; the @supports block upgrades to a true stroke-only
    outline where available. */
-.hero-era-mark .glyphs.outline {
+.era-mark .glyphs.outline {
   color: rgba(197, 123, 60, 0.55);
 }
 
 @supports (-webkit-text-stroke: 1px currentColor) {
-  .hero-era-mark .glyphs.outline {
+  .era-mark .glyphs.outline {
     color: transparent;
     -webkit-text-stroke: 2px var(--warm);
   }
 }
 
+/* Size modifiers — drive font-size only so the same base rules
+   stay sharable across surfaces. */
+.era-mark.size-xl { font-size: clamp(120px, 12vw, 160px); }
+.era-mark.size-lg { font-size: clamp(88px, 9vw, 124px); }
+.era-mark.size-md { font-size: clamp(64px, 6.4vw, 96px); }
+
+/* Corner placement — anchors the mark to the lower-right of the
+   nearest position:relative ancestor (typically a hero header). */
+.era-mark.corner {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  z-index: 3;
+}
+
 @media (max-width: 760px) {
-  .hero-era-mark {
+  .era-mark.corner {
     right: 20px;
     bottom: 20px;
-    font-size: 72px;
   }
-  .hero-era-mark .glyphs.outline {
+  .era-mark.size-xl { font-size: 72px; }
+  .era-mark.size-lg { font-size: 56px; }
+  .era-mark.size-md { font-size: 44px; }
+  .era-mark .glyphs.outline {
     -webkit-text-stroke-width: 1.5px;
   }
 }
@@ -1815,6 +1830,7 @@ a.gallery-card {
 /* ─── Gallery Hero (typographic, no image) ────────────────── */
 
 .gallery-hero {
+  position: relative;
   padding: 120px 24px 96px;
 }
 
