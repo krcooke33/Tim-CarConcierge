@@ -2641,6 +2641,41 @@ a.gallery-card {
   }
 }
 
+/* ─── Home Page · Wheelhouse Section ─────────────────────── */
+/* Wrapper styles only — the .wheelhouse-grid / .wheelhouse-era
+   styles are shared with /process/ and live further up in this
+   file (search "Process Wheelhouse"). */
+
+.section.block.home-wheelhouse {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.section.block.home-wheelhouse h2 {
+  max-width: 22ch;
+}
+
+.section.block.home-wheelhouse h2 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-weight: 300;
+}
+
+.section.block.home-wheelhouse .lede {
+  margin-bottom: 56px;
+  color: var(--text-soft);
+}
+
+@media (max-width: 760px) {
+  .section.block.home-wheelhouse {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .section.block.home-wheelhouse .lede {
+    margin-bottom: 36px;
+  }
+}
+
 /* ─── Home Page · Tim Signature Section spacing ──────────── */
 
 .section.block.home-tim-signature {
