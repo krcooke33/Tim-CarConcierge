@@ -77,3 +77,9 @@ id = "XhxjnJjUq8yu6uY2Ohqgr"
 uri = "file://attached_assets/stock_images/land-cruiser-1994.jpg"
 type = "image"
 title = "1994 Toyota Land Cruiser 80 series SUV"
+
+[[outputs]]
+id = "uhhvEquQVImlEjzGnaKlr"
+uri = "file://copy-export.docx"
+type = "word_document"
+title = "The & Garage — site copy for review"
