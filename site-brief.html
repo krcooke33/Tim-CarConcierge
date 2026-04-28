@@ -587,7 +587,7 @@
     <div class="grid-pair">
       <div class="label">Implication for the site</div>
       <div class="value">
-        <p>The domain has to be print-friendly: short, memorable, easy to read at arm's length on a card. <code>andgarage.com</code> works; long alternatives don't. The QR code itself is a print asset (designed separately, not coded into the site). The site's only job is to handle the inbound visit cleanly — read the UTM, log the channel, present the same experience whether arrival was direct, scanned, or bookmarked.</p>
+        <p>The domain has to be print-friendly: short, memorable, easy to read at arm's length on a card. <code>theandgarage.com</code> works; long alternatives don't. The QR code itself is a print asset (designed separately, not coded into the site). The site's only job is to handle the inbound visit cleanly — read the UTM, log the channel, present the same experience whether arrival was direct, scanned, or bookmarked.</p>
       </div>
     </div>
     <div class="grid-pair">
@@ -844,7 +844,7 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
     <p>Present on every page. Three columns on desktop, stacked on mobile:</p>
     <ul>
       <li><strong>Brand mark</strong> — "The &amp; Garage" wordmark, "66 to 99" year-mark beneath, "by Tim Young" italic byline.</li>
-      <li><strong>Site links</strong> — same five pages as nav, plus an explicit email link (<code>tim@andgarage.com</code> — assumes domain).</li>
+      <li><strong>Site links</strong> — same five pages as nav, plus an explicit email link (<code>tim@theandgarage.com</code>).</li>
       <li><strong>Lineage line</strong> — "A sibling brand of The &amp; Network." with link to <code>timyoungtalent.com</code>.</li>
     </ul>
     <p>Copyright line: "© 2026 The &amp; Garage" — small, in the footer-bottom, alongside "Northeast US · 1966 to 1999".</p>
@@ -993,7 +993,7 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
         <p><strong>1. Hero</strong> — kicker "Start a conversation". H1: "Tell me what you're <em>chasing</em>." Lede: "Drop a few details. I'll reply within a day with thoughts and next steps."</p>
         <p><strong>2. What happens next</strong> — three short steps: "1. You send a note. 2. We talk — phone or video, 30 minutes. 3. If we're a fit, we start." Calibrates expectation.</p>
         <p><strong>3. Form</strong> — Airtable embed. Fields: Name, Email, Phone (optional), What you're chasing (textarea, prompt: "year, make, model, or just the dream"), Timing (radio: "now" / "this year" / "still thinking"), Anything else (optional textarea).</p>
-        <p><strong>4. Email fallback</strong> — beneath the form: "Or email Tim directly: <code>tim@andgarage.com</code>." (assumes domain — confirm).</p>
+        <p><strong>4. Email fallback</strong> — beneath the form: "Or email Tim directly: <code>tim@theandgarage.com</code>."</p>
       </div>
     </div>
     <div class="grid-pair">
@@ -1175,7 +1175,7 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
     <h4>Form success message</h4>
     <p style="font-family: var(--serif); font-style: italic;">"Got it. I'll reply within a day. — Tim"</p>
     <h4>Form error fallback</h4>
-    <p style="font-family: var(--serif); font-style: italic;">"Something didn't go through. Email me directly: tim@andgarage.com — sorry about the friction."</p>
+    <p style="font-family: var(--serif); font-style: italic;">"Something didn't go through. Email me directly: tim@theandgarage.com — sorry about the friction."</p>
 
     <h3>404 page</h3>
     <p style="font-family: var(--serif); font-size: 18px;">"Wrong turn. <em>Happens to all of us.</em>"<br>
@@ -1300,7 +1300,7 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
     <p><strong>Alternative: Replit Deploy.</strong> Replit can host the live site directly. Marginally faster to iterate, but adds a hosting layer to maintain. Only worth it if Replit-hosted gives meaningful benefit.</p>
 
     <h3>Domain</h3>
-    <p><strong>Status: TBD.</strong> Working assumption is <code>andgarage.com</code> — confirm or replace. Other candidates if taken: <code>theandgarage.com</code>, <code>findyourdreamcar.com</code>, <code>timyounggarage.com</code>. Wire to GitHub Pages via CNAME once chosen.</p>
+    <p><code>theandgarage.com</code>. Wired to GitHub Pages via CNAME.</p>
 
     <h3>Performance targets</h3>
     <ul>
@@ -1316,10 +1316,10 @@ The &lt;span class="brand-amp"&gt;&amp;amp;&lt;/span&gt; Garage</code></pre>
 
     <h4>Channel attribution via UTM tags</h4>
     <p>Tim's print channels (business cards at car shows, flyers at mechanics) need to be measurable. Each printed QR code encodes a UTM-tagged URL so Plausible can attribute the visit:</p>
-    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">https://andgarage.com/?ref=card                  /* business card */
-https://andgarage.com/?ref=mechanic              /* mechanic flyer (generic) */
-https://andgarage.com/?ref=mechanic-{shop-slug}  /* per shop, optional */
-https://andgarage.com/?ref=show-2026-04          /* per event */</code></pre>
+    <pre style="background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; max-width: 70ch;"><code style="background: none; padding: 0; font-size: 13px;">https://theandgarage.com/?ref=card                  /* business card */
+https://theandgarage.com/?ref=mechanic              /* mechanic flyer (generic) */
+https://theandgarage.com/?ref=mechanic-{shop-slug}  /* per shop, optional */
+https://theandgarage.com/?ref=show-2026-04          /* per event */</code></pre>
     <p>No code changes needed in the site — Plausible auto-captures URL parameters and exposes them as a "Sources" filter. Tim sees which materials are driving visits and inquiries. Phase 2 may add dedicated landing pages (<code>/show/</code>, <code>/mechanic/</code>) if a particular channel earns the investment.</p>
 
     <h3>Form integration · Airtable</h3>
@@ -1361,7 +1361,7 @@ https://andgarage.com/?ref=show-2026-04          /* per event */</code></pre>
       <li>6 — 12 gallery cards published with real cars Tim has scouted</li>
       <li>3 — 5 quote cards from Tim's past matches</li>
       <li>Airtable form embedded on Contact page; submissions tested</li>
-      <li>Email link works (mailto: tim@andgarage.com)</li>
+      <li>Email link works (mailto: tim@theandgarage.com)</li>
       <li>Mobile responsive (320px to 1440px tested)</li>
       <li>Lighthouse Performance ≥ 90 on home page</li>
       <li>Domain wired (CNAME or A record set)</li>
@@ -1390,7 +1390,7 @@ https://andgarage.com/?ref=show-2026-04          /* per event */</code></pre>
     <ul>
       <li><strong>Tim's photography supply.</strong> If Tim doesn't have enough original photos for hero/gallery at launch, V1 ships with stock standins or limited gallery. Mitigation: commit to 5 core hero shots and 6 — 8 gallery cars before launch.</li>
       <li><strong>Real customer quotes.</strong> Tim must reach out to past matches and gather quotes. Friction risk; mitigate by drafting a quote-request template Tim can send as a single text message.</li>
-      <li><strong>Domain availability.</strong> If <code>andgarage.com</code> isn't available, alternative naming may force copy revisions on the brand. Decide domain in week 1.</li>
+      <li><strong>Domain.</strong> Resolved — <code>theandgarage.com</code> is the live domain.</li>
       <li><strong>Replit AI agent quality drift.</strong> The agent may insert React, Tailwind, or a build step. Counter by pasting the §10 callout ("This is a static site...") at the top of every prompt.</li>
     </ul>
   </section>

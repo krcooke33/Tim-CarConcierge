@@ -8,7 +8,7 @@
 |---|---|
 | **Site** | The & Garage |
 | **Operator** | Tim Young |
-| **URL** | andgarage.com (TBD — confirm) |
+| **URL** | theandgarage.com |
 | **Stack** | Static HTML + CSS + minimal JS (no framework) |
 | **Era** | 1966 to 1999 |
 | **Pages (V1)** | 5 — Home · About Tim · How it works · Gallery · Contact |
@@ -334,7 +334,7 @@ Order matters — sequenced as the visitor's journey, not alphabetically.
 ### Footer (every page, three columns desktop, stacked mobile)
 
 - **Brand mark** — "The & Garage" wordmark, "66 to 99" year-mark beneath, "by Tim Young" italic byline.
-- **Site links** — same five pages as nav, plus explicit email link `tim@andgarage.com`.
+- **Site links** — same five pages as nav, plus explicit email link `tim@theandgarage.com`.
 - **Lineage line** — "A sibling brand of The & Network." with link to `timyoungtalent.com`.
 
 Bottom line: `© 2026 The & Garage · Northeast US · 1966 to 1999`
@@ -440,7 +440,7 @@ No availability or matched-state pills. The gallery is a *scouting feed*, not a 
 1. **Hero** — kicker "Start a conversation". H1: "Tell me what you're *chasing*." Lede: "Drop a few details. I'll reply within a day with thoughts and next steps."
 2. **What happens next** — three short steps: "1. You send a note. 2. We talk — phone or video, 30 minutes. 3. If we're a fit, we start."
 3. **Form** — Airtable embed. Fields below.
-4. **Email fallback** — beneath form: "Or email Tim directly: `tim@andgarage.com`."
+4. **Email fallback** — beneath form: "Or email Tim directly: `tim@theandgarage.com`."
 
 **Form fields (Airtable):**
 - Name
@@ -626,7 +626,7 @@ When a new section is needed, use the `section.block` pattern. Don't invent new 
 > Got it. I'll reply within a day. — Tim
 
 **Form error fallback:**
-> Something didn't go through. Email me directly: tim@andgarage.com — sorry about the friction.
+> Something didn't go through. Email me directly: tim@theandgarage.com — sorry about the friction.
 
 ### 404 page
 
@@ -741,9 +741,9 @@ Or flatten to `index.html / about.html / process.html / gallery.html / contact.h
 
 **Alternative: Replit Deploy.** Marginally faster to iterate; adds a hosting layer.
 
-### Domain — TBD
+### Domain
 
-Working assumption: `andgarage.com`. Confirm or replace before launch. Wire to GitHub Pages via CNAME.
+`theandgarage.com`. Wired to GitHub Pages via CNAME.
 
 ### Performance targets
 
@@ -762,10 +762,10 @@ Privacy-respecting, simple, no cookie banner. Free tier covers low traffic.
 Each printed QR code encodes a UTM-tagged URL:
 
 ```
-https://andgarage.com/?ref=card                  /* business card */
-https://andgarage.com/?ref=mechanic              /* mechanic flyer (generic) */
-https://andgarage.com/?ref=mechanic-{shop-slug}  /* per shop, optional */
-https://andgarage.com/?ref=show-2026-04          /* per event */
+https://theandgarage.com/?ref=card                  /* business card */
+https://theandgarage.com/?ref=mechanic              /* mechanic flyer (generic) */
+https://theandgarage.com/?ref=mechanic-{shop-slug}  /* per shop, optional */
+https://theandgarage.com/?ref=show-2026-04          /* per event */
 ```
 
 No code changes needed — Plausible auto-captures URL parameters as a "Sources" filter. Phase 2 may add dedicated landing pages (`/show/`, `/mechanic/`) if a channel earns the investment.
@@ -806,7 +806,7 @@ Site is live when all checked.
 - [ ] 6 – 12 gallery cards with real cars Tim has scouted
 - [ ] 3 – 5 quote cards from Tim's past matches
 - [ ] Airtable form embedded on Contact; submissions tested
-- [ ] Email link works (mailto: tim@andgarage.com)
+- [ ] Email link works (mailto: tim@theandgarage.com)
 - [ ] Mobile responsive (320px to 1440px tested)
 - [ ] Lighthouse Performance ≥ 90 on home
 - [ ] Domain wired (CNAME or A record set)

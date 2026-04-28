@@ -62,7 +62,7 @@
   if (!form) return;
 
   var status     = document.getElementById('contact-form-status');
-  var TO         = 'tim@andgarage.com';
+  var TO         = 'tim@theandgarage.com';
   var THANKS_URL = '/contact/thanks/';
   var ENDPOINT   = 'https://api.web3forms.com/submit';
   var KEY_PLACEHOLDER = 'YOUR-WEB3FORMS-ACCESS-KEY-HERE';
@@ -95,7 +95,7 @@
       "What I'm chasing:",
       brief,
       '',
-      '— Sent from the contact form on andgarage.com'
+      '— Sent from the contact form on theandgarage.com'
     ];
     return 'mailto:' + TO
       + '?subject=' + encodeURIComponent(subject)

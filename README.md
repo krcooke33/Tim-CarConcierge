@@ -18,7 +18,7 @@ The styled HTML version of the brief lives at [`site-brief.html`](./site-brief.h
 - **Pages (V1):** 5 — Home · About Tim · How it works · Gallery · Start a conversation
 - **Hosting:** GitHub Pages (existing) or Replit Deploy.
 - **Forms:** Airtable embed (no custom form handling).
-- **Domain:** `andgarage.com` (assumed — confirm).
+- **Domain:** `theandgarage.com`.
 - **Era:** 1966 to 1999. Always written as "to" — never em-dash, hyphen, or slash.
 - **Brand non-negotiables:** see BRIEF.md §04.
 
@@ -90,7 +90,6 @@ The agent's job is to **create or replace** the V1 site files per BRIEF.md:
 
 **Open items before launch:**
 
-- Confirm domain (`andgarage.com` or alternative)
 - Set up Airtable form for Contact page (Tim, ~15 min)
 - Gather 3 – 5 quotes from past matches (Tim, ongoing — see template provided)
 - Compress hero images (currently large — ~5MB) to ~300 – 500KB before final commit
