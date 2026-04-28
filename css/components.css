@@ -864,6 +864,50 @@ body.page-home {
   margin-bottom: 0;
 }
 
+/* ─── Story figure (vintage-print, floats next to opening graf) ── */
+
+.story-figure {
+  float: right;
+  width: 320px;
+  max-width: 45%;
+  margin: 4px 0 18px 32px;
+  padding: 10px 10px 14px;
+  background: #fdfaf2;
+  border: 1px solid var(--rule);
+  box-shadow: 0 14px 28px -18px rgba(28, 22, 18, 0.35), 0 2px 6px -2px rgba(28, 22, 18, 0.18);
+  transform: rotate(-1.4deg);
+  transform-origin: top right;
+}
+
+.story-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--ink-dark, #1a1714);
+}
+
+.story-figure figcaption {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-soft);
+  text-align: center;
+  margin-top: 10px;
+}
+
+@media (max-width: 760px) {
+  .story-figure {
+    float: none;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 28px;
+    transform: rotate(-1deg);
+    transform-origin: center;
+  }
+}
+
 .story-body .story-close {
   font-family: 'Fraunces', serif;
   font-style: italic;
