@@ -15,13 +15,16 @@ Pages covered (in nav order):
 Internal-only pages (brand-exploration, business-plan, competitor-research,
 components, conversation-guide, mood-board, site-brief) are excluded.
 
+Each editable block is preceded by a short canonical block-ID label in the
+form  PAGE · Section · Slot  (for example, "HOME · Hero · H1" or
+"PROCESS · FAQ · Q3"). Section headers add a larger chapter divider for
+readability. All copy is emitted verbatim — no case transformations.
+
 Output: copy-export.docx in the project root.
 """
 
 from __future__ import annotations
 
-import os
-import sys
 from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -38,25 +41,22 @@ INK = RGBColor(0x1A, 0x1A, 0x1A)
 MUTED = RGBColor(0x66, 0x66, 0x66)
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Loading + DOM helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
+
 def load(rel_path: str) -> BeautifulSoup:
     with (PROJECT_ROOT / rel_path).open("r", encoding="utf-8") as f:
         return BeautifulSoup(f.read(), "html.parser")
 
 
-def normalize_text(s: str) -> str:
-    """Collapse whitespace; the entity decoding is already done by BS4."""
-    if s is None:
-        return ""
-    return " ".join(s.split())
-
-
 def add_inline_runs(paragraph, node, italic_inherited: bool = False, bold_inherited: bool = False):
     """
     Walk a BeautifulSoup node and add runs to the paragraph, preserving
-    italic (<em>, <i>) and bold (<strong>, <b>). The .brand-amp span renders
-    as a literal "&". Anchors render as their text content. Decorative
-    spans (.faq-icon, .arrow with hidden glyphs) keep their text content
-    only when meaningful.
+    italic (<em>, <i>) and bold (<strong>, <b>) at the run level. The
+    .brand-amp span renders as a literal "&". <br> becomes a line break.
+    Anchors and other inline tags render as their text content.
     """
     for child in node.children:
         if isinstance(child, NavigableString):
@@ -86,24 +86,9 @@ def add_inline_runs(paragraph, node, italic_inherited: bool = False, bold_inheri
 
 
 def collapse_whitespace_runs(paragraph):
-    """Collapse multiple whitespace within / between runs of a paragraph."""
-    text = "".join(r.text for r in paragraph.runs)
-    collapsed = " ".join(text.split())
-    if text == collapsed:
-        return
-    # Rebuild runs, preserving italic/bold per char isn't worth it — instead,
-    # walk runs and rewrite each run's text by mapping.
-    # Simple approach: rewrite first run = collapsed, drop the rest.
-    # But that loses italic spans. So we do a smarter mapping: walk runs and
-    # collapse only if the global collapse changes total length minimally
-    # (multiple spaces → one). We rewrite each run by replacing internal
-    # multi-whitespace with single space, and trim leading/trailing per global
-    # position.
-    # Implementation: walk runs left-to-right, track whether previous char was
-    # space. For each run, build a new text where consecutive whitespace
-    # collapses (across run boundaries) and leading/trailing of overall string
-    # is trimmed.
-    prev_space = True  # treat start of paragraph as if preceded by space → trims leading
+    """Collapse multi-whitespace within and across runs of a paragraph and
+    trim leading/trailing whitespace, while preserving per-run italic/bold."""
+    prev_space = True  # treat start as whitespace → trims leading
     new_texts = []
     for r in paragraph.runs:
         out_chars = []
@@ -116,7 +101,6 @@ def collapse_whitespace_runs(paragraph):
                 out_chars.append(ch)
                 prev_space = False
         new_texts.append("".join(out_chars))
-    # Trim trailing whitespace from final non-empty run
     for i in range(len(new_texts) - 1, -1, -1):
         if new_texts[i]:
             new_texts[i] = new_texts[i].rstrip()
@@ -125,53 +109,50 @@ def collapse_whitespace_runs(paragraph):
         r.text = t
 
 
-def section_label(doc, page_label: str, section: str, slot: str = ""):
-    """
-    Add a small grey label like:
-        HOME · Hero · Headline (H1)
-    """
+# ─────────────────────────────────────────────────────────────────────────────
+# Block-ID + paragraph emitters
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def chapter_label(doc, page: str, section: str):
+    """Larger chapter divider. Page + section, no slot. For navigation."""
     p = doc.add_paragraph()
-    p.paragraph_format.space_before = Pt(14)
+    p.paragraph_format.space_before = Pt(18)
     p.paragraph_format.space_after = Pt(2)
-    parts = [page_label, section]
-    if slot:
-        parts.append(slot)
-    text = "  ·  ".join(parts).upper()
-    run = p.add_run(text)
+    run = p.add_run(f"{page}  ·  {section}")
+    run.font.size = Pt(10)
+    run.font.bold = True
+    run.font.color.rgb = OXBLOOD
+    return p
+
+
+def block_id(doc, page: str, section: str, slot: str):
+    """Small grey canonical block-ID label preceding an editable block."""
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(8)
+    p.paragraph_format.space_after = Pt(0)
+    run = p.add_run(f"{page} · {section} · {slot}")
     run.font.size = Pt(8)
     run.font.color.rgb = MUTED
     run.font.bold = True
     return p
 
 
-def add_copy_paragraph(doc, html_node, *, style: str = "body", placeholder: str = ""):
+def add_copy_paragraph(doc, html_node, *, style: str = "body"):
     """
-    Add a copy paragraph extracted from html_node (or a literal placeholder
-    if html_node is None and placeholder is provided).
-
-    Styles:
-      body      — default
-      h1        — site H1
-      h2        — site H2
-      h3        — site H3
-      kicker    — small all-caps
-      lede      — slightly larger body
-      caption   — smaller muted
-      quote     — italic blockquote-ish
-      meta      — small grey (used for meta description, alt text, etc.)
+    Emit a paragraph from a BeautifulSoup node. NEVER transforms case or
+    text — copy is verbatim. Style only adjusts visual presentation
+    (size, color, indent). Italic emphasis comes from <em>/<i> in the
+    source HTML, not from the style.
     """
     p = doc.add_paragraph()
 
     if html_node is not None:
         add_inline_runs(p, html_node)
         collapse_whitespace_runs(p)
-    elif placeholder:
-        p.add_run(placeholder)
 
     if not p.runs or all(not r.text for r in p.runs):
-        # Drop empty paragraph
-        para_el = p._element
-        para_el.getparent().remove(para_el)
+        p._element.getparent().remove(p._element)
         return None
 
     pf = p.paragraph_format
@@ -198,11 +179,12 @@ def add_copy_paragraph(doc, html_node, *, style: str = "body", placeholder: str 
         pf.space_before = Pt(2)
         pf.space_after = Pt(4)
     elif style == "kicker":
+        # NO uppercase transform — copy is verbatim. Visual cue is color
+        # only (oxblood matches site CSS for kickers).
         for r in p.runs:
-            r.font.size = Pt(9)
+            r.font.size = Pt(10)
             r.font.bold = True
             r.font.color.rgb = OXBLOOD
-            r.text = r.text.upper()
         pf.space_before = Pt(2)
         pf.space_after = Pt(2)
     elif style == "lede":
@@ -218,21 +200,13 @@ def add_copy_paragraph(doc, html_node, *, style: str = "body", placeholder: str 
         pf.space_before = Pt(0)
         pf.space_after = Pt(4)
     elif style == "quote":
-        # Do NOT force italic here — preserve the selective <em> emphasis
-        # already captured at the run level by add_inline_runs(). Use only
-        # indentation and color to give the paragraph a quote feel.
+        # Indent + size only. Italic emphasis comes from <em> in source HTML.
         for r in p.runs:
             r.font.size = Pt(11)
             r.font.color.rgb = INK
         pf.left_indent = Pt(18)
         pf.space_before = Pt(2)
         pf.space_after = Pt(4)
-    elif style == "meta":
-        for r in p.runs:
-            r.font.size = Pt(9)
-            r.font.color.rgb = MUTED
-        pf.space_before = Pt(0)
-        pf.space_after = Pt(2)
     else:  # body
         for r in p.runs:
             r.font.size = Pt(11)
@@ -244,47 +218,57 @@ def add_copy_paragraph(doc, html_node, *, style: str = "body", placeholder: str 
 
 
 def add_text_paragraph(doc, text: str, *, style: str = "body"):
-    """Convenience: add a paragraph from a plain string."""
+    """Convenience: emit a paragraph from a plain string (verbatim)."""
     if not text:
         return None
     soup = BeautifulSoup(f"<root>{text}</root>", "html.parser")
     return add_copy_paragraph(doc, soup.root, style=style)
 
 
+def emit(doc, page: str, section: str, slot: str, html_node, *, style: str = "body"):
+    """Emit a canonical block ID label followed by the editable block."""
+    if html_node is None:
+        return
+    block_id(doc, page, section, slot)
+    add_copy_paragraph(doc, html_node, style=style)
+
+
+def emit_text(doc, page: str, section: str, slot: str, text: str, *, style: str = "body"):
+    """Emit a canonical block ID label followed by a plain-text block."""
+    if not text:
+        return
+    block_id(doc, page, section, slot)
+    add_text_paragraph(doc, text, style=style)
+
+
 # ─────────────────────────────────────────────────────────────────────────────
-# Page-by-page extractors
-# Each extractor receives the loaded BeautifulSoup, the doc, and the page
-# label. They emit labeled sections in reading order.
+# Shared sections (metadata, nav, footer, alts)
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-def add_page_meta(doc, soup: BeautifulSoup, page_label: str):
-    """Title, meta description, OG title/description for the page."""
-    section_label(doc, page_label, "Page metadata", "Browser tab + share previews")
+def emit_page_meta(doc, soup: BeautifulSoup, page: str):
+    S = "Page metadata"
+    chapter_label(doc, page, S)
 
     title = soup.find("title")
     if title:
-        add_text_paragraph(doc, "Browser title: ", style="caption")
-        add_copy_paragraph(doc, title, style="body")
+        emit(doc, page, S, "Browser title", title, style="body")
 
     meta_desc = soup.find("meta", attrs={"name": "description"})
     if meta_desc and meta_desc.get("content"):
-        add_text_paragraph(doc, "Meta description (search-engine summary): ", style="caption")
-        add_text_paragraph(doc, meta_desc["content"], style="body")
+        emit_text(doc, page, S, "Meta description", meta_desc["content"], style="body")
 
     og_title = soup.find("meta", attrs={"property": "og:title"})
     if og_title and og_title.get("content"):
-        add_text_paragraph(doc, "Social-share title: ", style="caption")
-        add_text_paragraph(doc, og_title["content"], style="body")
+        emit_text(doc, page, S, "Social-share title", og_title["content"], style="body")
 
     og_desc = soup.find("meta", attrs={"property": "og:description"})
     if og_desc and og_desc.get("content"):
-        add_text_paragraph(doc, "Social-share description: ", style="caption")
-        add_text_paragraph(doc, og_desc["content"], style="body")
+        emit_text(doc, page, S, "Social-share description", og_desc["content"], style="body")
 
 
-def emit_alts(doc, soup: BeautifulSoup, page_label: str):
-    """Collect every non-empty <img alt=""> on the page, list them at the end."""
+def emit_alts(doc, soup: BeautifulSoup, page: str):
+    S = "Image alt text"
     alts = []
     for img in soup.find_all("img"):
         alt = (img.get("alt") or "").strip()
@@ -292,773 +276,483 @@ def emit_alts(doc, soup: BeautifulSoup, page_label: str):
             alts.append(alt)
     if not alts:
         return
-    section_label(doc, page_label, "Image alt text", "Read by screen readers + search engines")
-    for a in alts:
-        add_text_paragraph(doc, "• " + a, style="caption")
+    chapter_label(doc, page, S)
+    for i, a in enumerate(alts, 1):
+        emit_text(doc, page, S, f"Alt {i}", a, style="body")
 
 
-def emit_footer(doc, soup: BeautifulSoup, page_label: str):
-    """Footer microcopy — same on every page; emit once on the first page only."""
+def emit_nav_block(doc, soup: BeautifulSoup, page: str):
+    nav = soup.find("nav", class_="site-nav")
+    if not nav:
+        return
+    S = "Site navigation (same on every page)"
+    chapter_label(doc, page, S)
+
+    wordmark = nav.find(class_="nav-wordmark")
+    if wordmark:
+        emit(doc, page, S, "Wordmark (top-left)", wordmark, style="body")
+
+    links_ul = nav.find("ul", class_="nav-links")
+    if links_ul:
+        labels = [li.get_text(" ", strip=True) for li in links_ul.find_all("li")]
+        emit_text(doc, page, S, "Nav link labels", " · ".join(labels), style="body")
+
+
+def emit_footer_block(doc, soup: BeautifulSoup, page: str):
     footer = soup.find("footer", class_="site-footer")
     if not footer:
         return
-    section_label(doc, page_label, "Site footer", "Same on every page")
+    S = "Site footer (same on every page)"
+    chapter_label(doc, page, S)
 
     byline = footer.find(class_="footer-byline")
     if byline:
-        add_text_paragraph(doc, "Byline: ", style="caption")
-        add_copy_paragraph(doc, byline, style="body")
+        emit(doc, page, S, "Byline", byline, style="body")
 
-    year_mark_nums = footer.select(".year-mark .num")
+    nums = footer.select(".year-mark .num")
     connector = footer.select_one(".year-mark .connector")
-    if year_mark_nums and connector:
-        years = f"'{year_mark_nums[0].get_text(strip=True)} {connector.get_text(strip=True)} '{year_mark_nums[1].get_text(strip=True)}"
-        add_text_paragraph(doc, "Era mark (lockup): ", style="caption")
-        add_text_paragraph(doc, years, style="body")
+    if nums and connector:
+        years = f"'{nums[0].get_text(strip=True)} {connector.get_text(strip=True)} '{nums[1].get_text(strip=True)}"
+        emit_text(doc, page, S, "Era mark (lockup)", years, style="body")
 
     links_ul = footer.select_one(".footer-links ul")
     if links_ul:
-        add_text_paragraph(doc, "Footer nav labels: ", style="caption")
         labels = [li.get_text(" ", strip=True) for li in links_ul.find_all("li")]
-        add_text_paragraph(doc, " · ".join(labels), style="body")
+        emit_text(doc, page, S, "Footer nav labels", " · ".join(labels), style="body")
 
     email_link = footer.select_one(".footer-email")
     if email_link:
-        add_text_paragraph(doc, "Email link label: ", style="caption")
-        add_copy_paragraph(doc, email_link, style="body")
+        emit(doc, page, S, "Email link label", email_link, style="body")
 
     lineage = footer.select_one(".footer-lineage")
-    if lineage:
-        add_text_paragraph(doc, "Lineage line: ", style="caption")
-        add_copy_paragraph(doc, lineage.find("p"), style="body")
+    if lineage and lineage.find("p"):
+        emit(doc, page, S, "Lineage line", lineage.find("p"), style="body")
 
     bottom_left = footer.select_one(".footer-bottom-left")
     bottom_right = footer.select_one(".footer-bottom-right")
     if bottom_left:
-        add_text_paragraph(doc, "Footer bottom left (copyright): ", style="caption")
-        add_copy_paragraph(doc, bottom_left, style="body")
+        emit(doc, page, S, "Footer bottom — copyright", bottom_left, style="body")
     if bottom_right:
-        add_text_paragraph(doc, "Footer bottom right (region + era): ", style="caption")
-        add_copy_paragraph(doc, bottom_right, style="body")
+        emit(doc, page, S, "Footer bottom — region + era", bottom_right, style="body")
 
 
-def emit_nav(doc, soup: BeautifulSoup, page_label: str):
-    """Site nav labels — same on every page; emit once on the first page only."""
-    nav = soup.find("nav", class_="site-nav")
-    if not nav:
-        return
-    section_label(doc, page_label, "Site navigation", "Same on every page")
-
-    wordmark = nav.find(class_="nav-wordmark")
-    if wordmark:
-        add_text_paragraph(doc, "Wordmark (top-left): ", style="caption")
-        add_copy_paragraph(doc, wordmark, style="body")
-
-    links_ul = nav.find("ul", class_="nav-links")
-    if links_ul:
-        add_text_paragraph(doc, "Nav link labels: ", style="caption")
-        labels = [li.get_text(" ", strip=True) for li in links_ul.find_all("li")]
-        add_text_paragraph(doc, " · ".join(labels), style="body")
-
-
-# ─── HOME ────────────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Per-page extractors
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 def emit_home(doc, soup: BeautifulSoup):
-    P = "Home"
+    P = "HOME"
 
-    add_page_meta(doc, soup, P)
-    emit_nav(doc, soup, P)
+    emit_page_meta(doc, soup, P)
+    emit_nav_block(doc, soup, P)
 
     # Hero
-    section_label(doc, P, "Hero", "Top of page over a black-and-white photo")
+    S = "Hero"
+    chapter_label(doc, P, S)
     hero = soup.find("header", class_="hero")
-    wm = hero.select_one(".hero-wordmark")
-    h1 = hero.select_one("h1")
-    tagline = hero.select_one(".hero-tagline")
-    btn = hero.select_one(".btn")
-    if wm:
-        add_text_paragraph(doc, "Wordmark: ", style="caption")
-        add_copy_paragraph(doc, wm, style="body")
-    if h1:
-        add_text_paragraph(doc, "Headline (H1): ", style="caption")
-        add_copy_paragraph(doc, h1, style="h1")
-    if tagline:
-        add_text_paragraph(doc, "Tagline: ", style="caption")
-        add_copy_paragraph(doc, tagline, style="lede")
-    if btn:
-        add_text_paragraph(doc, "Button label: ", style="caption")
-        add_copy_paragraph(doc, btn, style="body")
-    add_text_paragraph(doc, "Era mark (decal): ", style="caption")
-    add_text_paragraph(doc, "'66  '99", style="body")
+    emit(doc, P, S, "Wordmark", hero.select_one(".hero-wordmark"), style="body")
+    emit(doc, P, S, "H1", hero.select_one("h1"), style="h1")
+    emit(doc, P, S, "Tagline", hero.select_one(".hero-tagline"), style="lede")
+    emit(doc, P, S, "CTA button", hero.select_one(".btn"), style="body")
+    emit_text(doc, P, S, "Era mark (decal)", "'66  '99", style="body")
 
     # The problem
-    section_label(doc, P, "Section 1 — The problem")
+    S = "Section 1 — The problem"
+    chapter_label(doc, P, S)
     prob = soup.find("section", class_="home-problem")
     if prob:
-        h2 = prob.find("h2")
+        emit(doc, P, S, "H2", prob.find("h2"), style="h2")
         lede = prob.find("p", class_="lede")
+        emit(doc, P, S, "Lede", lede, style="lede")
         body_ps = [p for p in prob.find_all("p") if "lede" not in (p.get("class") or [])]
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
         for i, p in enumerate(body_ps, 1):
-            add_text_paragraph(doc, f"Body paragraph {i}: ", style="caption")
-            add_copy_paragraph(doc, p, style="body")
+            emit(doc, P, S, f"Body {i}", p, style="body")
 
     # What we do
-    section_label(doc, P, "Section 2 — What The & Garage does")
+    S = "Section 2 — What The & Garage does"
+    chapter_label(doc, P, S)
     wwd = soup.find("section", class_="what-we-do")
     if wwd:
-        add_text_paragraph(doc, "Headline (H2): ", style="caption")
-        add_copy_paragraph(doc, wwd.find("h2"), style="h2")
-        lede = wwd.find("p", class_="lede")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "H2", wwd.find("h2"), style="h2")
+        emit(doc, P, S, "Lede", wwd.find("p", class_="lede"), style="lede")
         for card in wwd.select(".service-card"):
-            num = card.select_one(".card-num")
-            h3 = card.find("h3")
-            body = card.find("p")
-            label = f"Card {num.get_text(strip=True) if num else ''}"
-            add_text_paragraph(doc, label, style="caption")
-            if h3:
-                add_copy_paragraph(doc, h3, style="h3")
-            if body:
-                add_copy_paragraph(doc, body, style="body")
-        cta_btn = wwd.select_one(".what-we-do-cta .btn")
-        if cta_btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, cta_btn, style="body")
+            num_el = card.select_one(".card-num")
+            num = num_el.get_text(strip=True) if num_el else ""
+            emit(doc, P, S, f"Card {num} · H3", card.find("h3"), style="h3")
+            emit(doc, P, S, f"Card {num} · Body", card.find("p"), style="body")
+        emit(doc, P, S, "CTA button", wwd.select_one(".what-we-do-cta .btn"), style="body")
 
     # Tim signature
-    section_label(doc, P, "Section 3 — Meet Tim (signature)")
+    S = "Section 3 — Meet Tim signature"
+    chapter_label(doc, P, S)
     sig = soup.find("section", class_="home-tim-signature")
     if sig:
-        kicker = sig.find(class_="kicker")
-        body = sig.find(class_="signature-body")
-        btn = sig.find("a", class_="btn")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if body:
-            add_text_paragraph(doc, "Signature body: ", style="caption")
-            add_copy_paragraph(doc, body, style="body")
-        if btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
+        emit(doc, P, S, "Kicker", sig.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "Signature body", sig.find(class_="signature-body"), style="body")
+        emit(doc, P, S, "CTA button", sig.find("a", class_="btn"), style="body")
 
     # Quotes
-    section_label(doc, P, "Section 4 — Testimonials")
+    S = "Section 4 — Testimonials"
+    chapter_label(doc, P, S)
     quotes = soup.find("section", class_="home-quotes")
     if quotes:
-        add_text_paragraph(doc, "Headline (H2): ", style="caption")
-        add_copy_paragraph(doc, quotes.find("h2"), style="h2")
+        emit(doc, P, S, "H2", quotes.find("h2"), style="h2")
         for i, card in enumerate(quotes.select(".quote-card"), 1):
-            add_text_paragraph(doc, f"Testimonial {i} — quote: ", style="caption")
-            bq = card.find("blockquote")
-            if bq:
-                add_copy_paragraph(doc, bq, style="quote")
+            emit(doc, P, S, f"Testimonial {i} · Quote", card.find("blockquote"), style="quote")
             cite = card.find("cite")
             if cite:
                 name = cite.find(class_="name")
                 city = cite.find(class_="city")
                 car = cite.find(class_="car")
-                add_text_paragraph(doc, f"Testimonial {i} — attribution: ", style="caption")
                 if name:
-                    add_text_paragraph(doc, "Name: " + name.get_text(strip=True), style="body")
+                    emit_text(doc, P, S, f"Testimonial {i} · Name", name.get_text(strip=True), style="body")
                 if city:
-                    add_text_paragraph(doc, "City: " + city.get_text(strip=True), style="body")
+                    emit_text(doc, P, S, f"Testimonial {i} · City", city.get_text(strip=True), style="body")
                 if car:
-                    add_text_paragraph(doc, "Car: " + car.get_text(strip=True), style="body")
+                    emit_text(doc, P, S, f"Testimonial {i} · Car", car.get_text(strip=True), style="body")
 
     # Gallery teaser
-    section_label(doc, P, "Section 5 — Gallery teaser")
+    S = "Section 5 — Gallery teaser"
+    chapter_label(doc, P, S)
     teaser = soup.find("section", class_="home-gallery-teaser")
     if teaser:
-        add_text_paragraph(doc, "Headline (H2): ", style="caption")
-        add_copy_paragraph(doc, teaser.find("h2"), style="h2")
+        emit(doc, P, S, "H2", teaser.find("h2"), style="h2")
         for i, card in enumerate(teaser.select(".gallery-card"), 1):
-            title = card.find(class_="car-title")
-            spotted = card.find(class_="spotted")
-            note = card.find(class_="note")
-            add_text_paragraph(doc, f"Card {i} — car title: ", style="caption")
-            if title:
-                add_copy_paragraph(doc, title, style="h3")
-            if spotted:
-                add_text_paragraph(doc, f"Card {i} — location + month: ", style="caption")
-                add_copy_paragraph(doc, spotted, style="caption")
-            if note:
-                add_text_paragraph(doc, f"Card {i} — note: ", style="caption")
-                add_copy_paragraph(doc, note, style="body")
-        teaser_link = teaser.select_one(".gallery-teaser-link")
-        if teaser_link:
-            add_text_paragraph(doc, "Bottom link label: ", style="caption")
-            add_copy_paragraph(doc, teaser_link, style="body")
+            emit(doc, P, S, f"Card {i} · Title", card.find(class_="car-title"), style="h3")
+            emit(doc, P, S, f"Card {i} · Spotted", card.find(class_="spotted"), style="caption")
+            emit(doc, P, S, f"Card {i} · Note", card.find(class_="note"), style="body")
+        emit(doc, P, S, "Bottom link", teaser.select_one(".gallery-teaser-link"), style="body")
 
     # Final CTA
-    section_label(doc, P, "Section 6 — Final call to action")
+    S = "Section 6 — Final CTA"
+    chapter_label(doc, P, S)
     final = soup.find("section", class_="final-cta")
     if final:
-        quiet = final.find(class_="final-cta-quiet")
-        lead = final.find(class_="final-cta-lead")
-        btn = final.find("a", class_="btn")
-        if quiet:
-            add_text_paragraph(doc, "Quiet line (italic): ", style="caption")
-            add_copy_paragraph(doc, quiet, style="quote")
-        if lead:
-            add_text_paragraph(doc, "Lead line (italic): ", style="caption")
-            add_copy_paragraph(doc, lead, style="quote")
-        if btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
+        emit(doc, P, S, "Quiet line", final.find(class_="final-cta-quiet"), style="quote")
+        emit(doc, P, S, "Lead line", final.find(class_="final-cta-lead"), style="quote")
+        emit(doc, P, S, "CTA button", final.find("a", class_="btn"), style="body")
 
     emit_alts(doc, soup, P)
-    emit_footer(doc, soup, P)
-
-
-# ─── ABOUT ──────────────────────────────────────────────────────────────────
+    emit_footer_block(doc, soup, P)
 
 
 def emit_about(doc, soup: BeautifulSoup):
-    P = "About Tim"
+    P = "ABOUT"
 
-    add_page_meta(doc, soup, P)
+    emit_page_meta(doc, soup, P)
 
     # Hero
-    section_label(doc, P, "Hero", "Tim's portrait")
+    S = "Hero"
+    chapter_label(doc, P, S)
     hero = soup.select_one(".hero.hero-about")
     if hero:
-        kicker = hero.find(class_="kicker")
-        h1 = hero.find("h1")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h1:
-            add_text_paragraph(doc, "Headline (H1): ", style="caption")
-            add_copy_paragraph(doc, h1, style="h1")
+        emit(doc, P, S, "Kicker", hero.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H1", hero.find("h1"), style="h1")
 
     # Story
-    section_label(doc, P, "The Story", "Seven paragraphs, in reading order")
+    S = "The Story"
+    chapter_label(doc, P, S)
     story = soup.select_one(".story-body")
     if story:
         for i, p in enumerate(story.find_all("p"), 1):
-            label = f"Paragraph {i}"
+            slot = f"Paragraph {i}"
             if "story-close" in (p.get("class") or []):
-                label += " (closing — italic)"
-            add_text_paragraph(doc, label + ":", style="caption")
-            add_copy_paragraph(doc, p, style="body")
+                slot = f"Paragraph {i} (closing)"
+            emit(doc, P, S, slot, p, style="body")
 
     # Past cars
-    section_label(doc, P, "Past cars timeline")
+    S = "Past cars timeline"
+    chapter_label(doc, P, S)
     past = soup.select_one(".past-cars")
     if past:
-        kicker = past.find(class_="kicker")
-        h2 = past.find("h2")
-        lede = past.find(class_="lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", past.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", past.find("h2"), style="h2")
+        emit(doc, P, S, "Lede", past.find(class_="lede"), style="lede")
         for item in past.select(".timeline-item"):
-            year = item.find(class_="timeline-year")
-            title = item.find(class_="timeline-title")
-            note = item.find(class_="timeline-note")
-            label = f"Year {year.get_text(strip=True) if year else ''}"
-            add_text_paragraph(doc, label + " — title:", style="caption")
-            if title:
-                add_copy_paragraph(doc, title, style="h3")
-            add_text_paragraph(doc, label + " — note:", style="caption")
-            if note:
-                add_copy_paragraph(doc, note, style="body")
-        coda = past.select_one(".timeline-coda")
-        if coda:
-            add_text_paragraph(doc, "Coda (italic line): ", style="caption")
-            add_copy_paragraph(doc, coda, style="quote")
+            year_el = item.find(class_="timeline-year")
+            year = year_el.get_text(strip=True) if year_el else ""
+            emit(doc, P, S, f"{year} · Title", item.find(class_="timeline-title"), style="h3")
+            emit(doc, P, S, f"{year} · Note", item.find(class_="timeline-note"), style="body")
+        emit(doc, P, S, "Coda line", past.select_one(".timeline-coda"), style="quote")
 
     # Currently driving
-    section_label(doc, P, "Currently driving")
+    S = "Currently driving"
+    chapter_label(doc, P, S)
     cur = soup.select_one(".currently-driving")
     if cur:
-        kicker = cur.find(class_="kicker")
-        h2 = cur.find("h2")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
+        emit(doc, P, S, "Kicker", cur.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", cur.find("h2"), style="h2")
         for i, card in enumerate(cur.select(".car-card"), 1):
+            emit(doc, P, S, f"Car {i} · Title", card.find(class_="car-title"), style="h3")
             for_sale = card.find(class_="for-sale")
-            title = card.find(class_="car-title")
-            cap = card.find(class_="car-caption")
-            add_text_paragraph(doc, f"Car {i} — title:", style="caption")
-            if title:
-                add_copy_paragraph(doc, title, style="h3")
             if for_sale:
-                add_text_paragraph(doc, f"Car {i} — badge:", style="caption")
-                add_copy_paragraph(doc, for_sale, style="body")
-            add_text_paragraph(doc, f"Car {i} — caption:", style="caption")
-            if cap:
-                add_copy_paragraph(doc, cap, style="body")
+                emit(doc, P, S, f"Car {i} · Badge", for_sale, style="body")
+            emit(doc, P, S, f"Car {i} · Caption", card.find(class_="car-caption"), style="body")
 
     # Illustrations
-    section_label(doc, P, "From the sketchbook (illustrations)")
+    S = "From the sketchbook (illustrations)"
+    chapter_label(doc, P, S)
     ill = soup.select_one(".illustrations")
     if ill:
-        kicker = ill.find(class_="kicker")
-        h2 = ill.find("h2")
-        lede = ill.find(class_="lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", ill.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", ill.find("h2"), style="h2")
+        emit(doc, P, S, "Lede", ill.find(class_="lede"), style="lede")
         for i, card in enumerate(ill.select(".illustration-card"), 1):
             cap = card.find("figcaption")
-            add_text_paragraph(doc, f"Illustration {i} — caption:", style="caption")
-            if cap:
-                add_copy_paragraph(doc, cap, style="body")
+            emit(doc, P, S, f"Illustration {i} · Caption", cap, style="body")
 
     # Final CTA
-    section_label(doc, P, "Final call to action")
+    S = "Final CTA"
+    chapter_label(doc, P, S)
     final = soup.select_one(".final-cta")
     if final:
-        quiet = final.find(class_="final-cta-quiet")
-        btn = final.find("a", class_="btn")
-        if quiet:
-            add_text_paragraph(doc, "Quiet line (italic): ", style="caption")
-            add_copy_paragraph(doc, quiet, style="quote")
-        if btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
+        emit(doc, P, S, "Quiet line", final.find(class_="final-cta-quiet"), style="quote")
+        emit(doc, P, S, "CTA button", final.find("a", class_="btn"), style="body")
 
     emit_alts(doc, soup, P)
 
 
-# ─── PROCESS ────────────────────────────────────────────────────────────────
-
-
 def emit_process(doc, soup: BeautifulSoup):
-    P = "How it works"
+    P = "PROCESS"
 
-    add_page_meta(doc, soup, P)
+    emit_page_meta(doc, soup, P)
 
     # Hero
-    section_label(doc, P, "Hero", "Image variant — Plymouth Barracuda")
+    S = "Hero"
+    chapter_label(doc, P, S)
     hero = soup.select_one(".hero.hero-process")
     if hero:
-        kicker = hero.find(class_="kicker")
-        h1 = hero.find("h1")
-        lede = hero.find(class_="hero-lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h1:
-            add_text_paragraph(doc, "Headline (H1): ", style="caption")
-            add_copy_paragraph(doc, h1, style="h1")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", hero.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H1", hero.find("h1"), style="h1")
+        emit(doc, P, S, "Lede", hero.find(class_="hero-lede"), style="lede")
         anchors = hero.select(".hero-anchor-nav .btn")
         for i, a in enumerate(anchors, 1):
-            add_text_paragraph(doc, f"Anchor button {i}:", style="caption")
-            text = a.get_text(" ", strip=True).replace("→", "→")
-            add_text_paragraph(doc, text, style="body")
+            emit_text(doc, P, S, f"Anchor button {i}", a.get_text(" ", strip=True), style="body")
 
     # Buying
-    section_label(doc, P, "Buying — six-step timeline")
+    S = "Buying — six-step timeline"
+    chapter_label(doc, P, S)
     buying = soup.select_one("#buying")
     if buying:
-        kicker = buying.find(class_="kicker")
-        h2 = buying.find("h2")
-        lede = buying.find(class_="lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", buying.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", buying.find("h2"), style="h2")
+        emit(doc, P, S, "Lede", buying.find(class_="lede"), style="lede")
         for step in buying.select(".timeline-step"):
             circle = step.find(class_="step-circle")
-            name = step.find(class_="step-name")
-            marker = step.find(class_="step-marker")
-            body = step.find(class_="step-body")
             num = circle.get_text(strip=True) if circle else ""
-            add_text_paragraph(doc, f"Step {num} — name:", style="caption")
-            if name:
-                add_copy_paragraph(doc, name, style="h3")
-            if marker:
-                add_text_paragraph(doc, f"Step {num} — timeline marker:", style="caption")
-                add_copy_paragraph(doc, marker, style="caption")
-            if body:
-                add_text_paragraph(doc, f"Step {num} — body:", style="caption")
-                add_copy_paragraph(doc, body, style="body")
+            emit(doc, P, S, f"Step {num} · Name", step.find(class_="step-name"), style="h3")
+            emit(doc, P, S, f"Step {num} · Marker", step.find(class_="step-marker"), style="caption")
+            emit(doc, P, S, f"Step {num} · Body", step.find(class_="step-body"), style="body")
 
     # Selling
-    section_label(doc, P, "Selling — three-step inverse arc")
+    S = "Selling — three-step inverse arc"
+    chapter_label(doc, P, S)
     selling = soup.select_one("#selling")
     if selling:
-        kicker = selling.find(class_="kicker")
-        h2 = selling.find("h2")
-        lede = selling.find(class_="lede")
-        intro = selling.find(class_="sell-arc-intro")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
-        if intro:
-            add_text_paragraph(doc, "Intro paragraph: ", style="caption")
-            add_copy_paragraph(doc, intro, style="body")
+        emit(doc, P, S, "Kicker", selling.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", selling.find("h2"), style="h2")
+        emit(doc, P, S, "Lede", selling.find(class_="lede"), style="lede")
+        emit(doc, P, S, "Intro paragraph", selling.find(class_="sell-arc-intro"), style="body")
         for step in selling.select(".sell-step"):
             num_el = step.find(class_="sell-num")
-            name = step.find(class_="step-name")
-            marker = step.find(class_="step-marker")
-            body = step.find(class_="step-body")
             num = num_el.get_text(strip=True) if num_el else ""
-            add_text_paragraph(doc, f"Step {num} — name:", style="caption")
-            if name:
-                add_copy_paragraph(doc, name, style="h3")
-            if marker:
-                add_text_paragraph(doc, f"Step {num} — timeline marker:", style="caption")
-                add_copy_paragraph(doc, marker, style="caption")
-            if body:
-                add_text_paragraph(doc, f"Step {num} — body:", style="caption")
-                add_copy_paragraph(doc, body, style="body")
+            emit(doc, P, S, f"Step {num} · Name", step.find(class_="step-name"), style="h3")
+            emit(doc, P, S, f"Step {num} · Marker", step.find(class_="step-marker"), style="caption")
+            emit(doc, P, S, f"Step {num} · Body", step.find(class_="step-body"), style="body")
 
     # Pricing
-    section_label(doc, P, "Pricing")
+    S = "Pricing"
+    chapter_label(doc, P, S)
     pricing = soup.select_one(".process-pricing")
     if pricing:
-        kicker = pricing.find(class_="kicker")
-        h2 = pricing.find("h2")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
+        emit(doc, P, S, "Kicker", pricing.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", pricing.find("h2"), style="h2")
         body = pricing.find(class_="pricing-body")
         if body:
             for i, p in enumerate(body.find_all("p", recursive=False), 1):
                 cls = p.get("class") or []
-                label = f"Body paragraph {i}"
                 if "pricing-teaser" in cls:
-                    label = f"Teaser line (italic, paragraph {i})"
-                add_text_paragraph(doc, label + ":", style="caption")
-                style = "quote" if "pricing-teaser" in cls else "body"
-                add_copy_paragraph(doc, p, style=style)
+                    emit(doc, P, S, "Teaser line", p, style="quote")
+                else:
+                    emit(doc, P, S, f"Body {i}", p, style="body")
 
     # FAQ
-    section_label(doc, P, "FAQ")
+    S = "FAQ"
+    chapter_label(doc, P, S)
     faq = soup.select_one(".process-faq")
     if faq:
-        kicker = faq.find(class_="kicker")
-        h2 = faq.find("h2")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
+        emit(doc, P, S, "Kicker", faq.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", faq.find("h2"), style="h2")
         for i, item in enumerate(faq.select(".faq-item"), 1):
             q = item.select_one(".faq-q-text")
-            a = item.select_one(".faq-a-inner")
-            add_text_paragraph(doc, f"FAQ {i} — question:", style="caption")
-            if q:
-                add_copy_paragraph(doc, q, style="h3")
-            add_text_paragraph(doc, f"FAQ {i} — answer:", style="caption")
-            if a:
-                for p in a.find_all("p"):
-                    add_copy_paragraph(doc, p, style="body")
+            a_inner = item.select_one(".faq-a-inner")
+            emit(doc, P, S, f"Q{i}", q, style="h3")
+            if a_inner:
+                a_paras = a_inner.find_all("p")
+                if len(a_paras) == 1:
+                    emit(doc, P, S, f"A{i}", a_paras[0], style="body")
+                else:
+                    for j, p in enumerate(a_paras, 1):
+                        emit(doc, P, S, f"A{i} · Paragraph {j}", p, style="body")
 
     # Final CTA
-    section_label(doc, P, "Final call to action")
+    S = "Final CTA"
+    chapter_label(doc, P, S)
     final = soup.select_one(".final-cta")
     if final:
-        line = final.find(class_="final-cta-line")
-        btn = final.find("a", class_="btn")
-        if line:
-            add_text_paragraph(doc, "Lead line: ", style="caption")
-            add_copy_paragraph(doc, line, style="lede")
-        if btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
+        emit(doc, P, S, "Lead line", final.find(class_="final-cta-line"), style="lede")
+        emit(doc, P, S, "CTA button", final.find("a", class_="btn"), style="body")
 
     emit_alts(doc, soup, P)
-
-
-# ─── GALLERY ────────────────────────────────────────────────────────────────
 
 
 def emit_gallery(doc, soup: BeautifulSoup):
-    P = "Gallery"
+    P = "GALLERY"
 
-    add_page_meta(doc, soup, P)
+    emit_page_meta(doc, soup, P)
 
     # Hero
-    section_label(doc, P, "Hero", "Typographic, dark")
+    S = "Hero"
+    chapter_label(doc, P, S)
     hero = soup.select_one(".gallery-hero")
     if hero:
-        kicker = hero.find(class_="kicker")
-        h1 = hero.find("h1")
-        lede = hero.find(class_="gallery-hero-lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h1:
-            add_text_paragraph(doc, "Headline (H1): ", style="caption")
-            add_copy_paragraph(doc, h1, style="h1")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", hero.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H1", hero.find("h1"), style="h1")
+        emit(doc, P, S, "Lede", hero.find(class_="gallery-hero-lede"), style="lede")
 
     # Cards
-    section_label(doc, P, "Gallery cards", "One block per spotted car, in display order")
+    S = "Gallery cards"
+    chapter_label(doc, P, S)
     grid = soup.select_one(".gallery-grid")
     if grid:
         for i, card in enumerate(grid.select(".gallery-card"), 1):
-            title = card.find(class_="car-title")
-            spotted = card.find(class_="spotted")
-            note = card.find(class_="note")
-            add_text_paragraph(doc, f"Card {i} — car title:", style="caption")
-            if title:
-                add_copy_paragraph(doc, title, style="h3")
-            if spotted:
-                add_text_paragraph(doc, f"Card {i} — location + month:", style="caption")
-                add_copy_paragraph(doc, spotted, style="caption")
-            if note:
-                add_text_paragraph(doc, f"Card {i} — note:", style="caption")
-                add_copy_paragraph(doc, note, style="body")
+            emit(doc, P, S, f"Card {i} · Title", card.find(class_="car-title"), style="h3")
+            emit(doc, P, S, f"Card {i} · Spotted", card.find(class_="spotted"), style="caption")
+            emit(doc, P, S, f"Card {i} · Note", card.find(class_="note"), style="body")
 
     # Final CTA
-    section_label(doc, P, "Final call to action")
+    S = "Final CTA"
+    chapter_label(doc, P, S)
     final = soup.select_one(".final-cta")
     if final:
-        kicker = final.find(class_="final-cta-kicker")
-        lead = final.find(class_="final-cta-lead")
-        btn = final.find("a", class_="btn")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if lead:
-            add_text_paragraph(doc, "Lead line: ", style="caption")
-            add_copy_paragraph(doc, lead, style="lede")
-        if btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
+        emit(doc, P, S, "Kicker", final.find(class_="final-cta-kicker"), style="kicker")
+        emit(doc, P, S, "Lead line", final.find(class_="final-cta-lead"), style="lede")
+        emit(doc, P, S, "CTA button", final.find("a", class_="btn"), style="body")
 
     emit_alts(doc, soup, P)
 
 
-# ─── CONTACT ────────────────────────────────────────────────────────────────
-
-
 def emit_contact(doc, soup: BeautifulSoup):
-    P = "Contact"
+    P = "CONTACT"
 
-    add_page_meta(doc, soup, P)
+    emit_page_meta(doc, soup, P)
 
     # Hero
-    section_label(doc, P, "Hero", "Typographic, dark")
+    S = "Hero"
+    chapter_label(doc, P, S)
     hero = soup.select_one(".contact-hero")
     if hero:
-        kicker = hero.find(class_="kicker")
-        h1 = hero.find("h1")
-        lede = hero.find(class_="contact-hero-lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h1:
-            add_text_paragraph(doc, "Headline (H1): ", style="caption")
-            add_copy_paragraph(doc, h1, style="h1")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", hero.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H1", hero.find("h1"), style="h1")
+        emit(doc, P, S, "Lede", hero.find(class_="contact-hero-lede"), style="lede")
 
     # What happens next
-    section_label(doc, P, "What happens next", "Three numbered steps")
+    S = "What happens next"
+    chapter_label(doc, P, S)
     wn = soup.select_one(".what-next")
     if wn:
-        kicker = wn.find(class_="kicker")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
+        emit(doc, P, S, "Kicker", wn.find(class_="kicker"), style="kicker")
         for step in wn.select(".next-step"):
             num_el = step.find(class_="num")
-            body = step.find(class_="body")
             num = num_el.get_text(strip=True) if num_el else ""
-            add_text_paragraph(doc, f"Step {num}:", style="caption")
-            if body:
-                add_copy_paragraph(doc, body, style="body")
-        coda = wn.find(class_="next-coda")
-        if coda:
-            add_text_paragraph(doc, "Coda (italic line): ", style="caption")
-            add_copy_paragraph(doc, coda, style="quote")
+            emit(doc, P, S, f"Step {num} · Body", step.find(class_="body"), style="body")
+        emit(doc, P, S, "Coda line", wn.find(class_="next-coda"), style="quote")
 
     # Form
-    section_label(doc, P, "Intake form labels")
+    S = "Intake form"
+    chapter_label(doc, P, S)
     form = soup.find("form", class_="contact-form")
     if form:
         for field in form.select(".form-field"):
             label = field.find("label")
+            label_text = label.get_text(" ", strip=True) if label else "field"
+            slot_base = f"Field — {label_text}"
+            emit(doc, P, S, f"{slot_base} · Label", label, style="body")
             hint = field.find(class_="form-hint")
-            if label:
-                add_text_paragraph(doc, "Field label: ", style="caption")
-                add_copy_paragraph(doc, label, style="body")
             if hint:
-                add_text_paragraph(doc, "Field hint: ", style="caption")
-                add_copy_paragraph(doc, hint, style="caption")
+                emit(doc, P, S, f"{slot_base} · Hint", hint, style="caption")
             select = field.find("select")
             if select:
-                add_text_paragraph(doc, "Dropdown options:", style="caption")
-                for opt in select.find_all("option"):
-                    val = opt.get_text(strip=True)
-                    if val:
-                        add_text_paragraph(doc, "• " + val, style="body")
-        btn = form.select_one(".form-actions .btn")
-        meta = form.select_one(".form-actions .form-meta")
-        if btn:
-            add_text_paragraph(doc, "Submit button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
-        if meta:
-            add_text_paragraph(doc, "Below-button microcopy (italic): ", style="caption")
-            add_copy_paragraph(doc, meta, style="quote")
+                opts = [opt.get_text(strip=True) for opt in select.find_all("option") if opt.get_text(strip=True)]
+                emit_text(doc, P, S, f"{slot_base} · Dropdown options", "  ·  ".join(opts), style="body")
+        emit(doc, P, S, "Submit button", form.select_one(".form-actions .btn"), style="body")
+        emit(doc, P, S, "Below-button microcopy", form.select_one(".form-actions .form-meta"), style="quote")
 
     fallback = soup.select_one(".email-fallback")
     if fallback:
-        add_text_paragraph(doc, "Email fallback line: ", style="caption")
-        add_copy_paragraph(doc, fallback, style="body")
+        emit(doc, P, S, "Email fallback line", fallback, style="body")
 
     emit_alts(doc, soup, P)
-
-
-# ─── CONTACT THANKS ─────────────────────────────────────────────────────────
 
 
 def emit_thanks(doc, soup: BeautifulSoup):
-    P = "Contact — thank you"
+    P = "THANKS"
 
-    add_page_meta(doc, soup, P)
+    emit_page_meta(doc, soup, P)
 
-    section_label(doc, P, "Hero", "Confirmation page, dark")
+    # Hero
+    S = "Hero (confirmation)"
+    chapter_label(doc, P, S)
     hero = soup.select_one(".thanks-hero")
     if hero:
-        kicker = hero.find(class_="kicker")
-        h1 = hero.find("h1")
-        lede = hero.find(class_="thanks-hero-lede")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h1:
-            add_text_paragraph(doc, "Headline (H1): ", style="caption")
-            add_copy_paragraph(doc, h1, style="h1")
-        if lede:
-            add_text_paragraph(doc, "Lede: ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
+        emit(doc, P, S, "Kicker", hero.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H1", hero.find("h1"), style="h1")
+        emit(doc, P, S, "Lede", hero.find(class_="thanks-hero-lede"), style="lede")
         actions = hero.select_one(".thanks-actions")
         if actions:
-            btn = actions.find("a", class_="btn")
-            secondary = actions.find(class_="thanks-secondary-link")
-            if btn:
-                add_text_paragraph(doc, "Primary button label: ", style="caption")
-                add_copy_paragraph(doc, btn, style="body")
-            if secondary:
-                add_text_paragraph(doc, "Secondary link label: ", style="caption")
-                add_copy_paragraph(doc, secondary, style="body")
+            emit(doc, P, S, "Primary button", actions.find("a", class_="btn"), style="body")
+            emit(doc, P, S, "Secondary link", actions.find(class_="thanks-secondary-link"), style="body")
 
-    section_label(doc, P, "While you wait", "Three curated link cards")
+    # While you wait
+    S = "While you wait"
+    chapter_label(doc, P, S)
     wyw = soup.select_one(".while-you-wait")
     if wyw:
-        kicker = wyw.find(class_="kicker")
-        h2 = wyw.find("h2")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
+        emit(doc, P, S, "Kicker", wyw.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", wyw.find("h2"), style="h2")
         for i, card in enumerate(wyw.select(".while-you-wait-card"), 1):
-            h3 = card.find("h3")
-            p = card.find("p")
-            add_text_paragraph(doc, f"Card {i} — title:", style="caption")
-            if h3:
-                add_copy_paragraph(doc, h3, style="h3")
-            add_text_paragraph(doc, f"Card {i} — description:", style="caption")
-            if p:
-                add_copy_paragraph(doc, p, style="body")
+            emit(doc, P, S, f"Card {i} · Title", card.find("h3"), style="h3")
+            emit(doc, P, S, f"Card {i} · Description", card.find("p"), style="body")
 
     emit_alts(doc, soup, P)
 
 
-# ─── 404 ────────────────────────────────────────────────────────────────────
-
-
 def emit_404(doc, soup: BeautifulSoup):
-    P = "404 — wrong turn"
+    P = "404"
 
-    add_page_meta(doc, soup, P)
+    emit_page_meta(doc, soup, P)
 
-    section_label(doc, P, "Hero", "Lost-page screen, dark")
+    # Hero
+    S = "Hero (lost-page)"
+    chapter_label(doc, P, S)
     hero = soup.select_one(".notfound-hero")
     if hero:
-        kicker = hero.find(class_="kicker")
-        h1 = hero.find("h1")
-        lede = hero.find(class_="notfound-hero-lede")
-        btn = hero.find("a", class_="btn")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h1:
-            add_text_paragraph(doc, "Headline (H1): ", style="caption")
-            add_copy_paragraph(doc, h1, style="h1")
-        if lede:
-            add_text_paragraph(doc, "Lede (with inline links — keep the link words): ", style="caption")
-            add_copy_paragraph(doc, lede, style="lede")
-        if btn:
-            add_text_paragraph(doc, "Button label: ", style="caption")
-            add_copy_paragraph(doc, btn, style="body")
+        emit(doc, P, S, "Kicker", hero.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H1", hero.find("h1"), style="h1")
+        emit(doc, P, S, "Lede (with inline links)", hero.find(class_="notfound-hero-lede"), style="lede")
+        emit(doc, P, S, "CTA button", hero.find("a", class_="btn"), style="body")
 
-    section_label(doc, P, "Try one of these instead", "Three rescue link cards")
+    # Try one of these instead
+    S = "Try one of these instead"
+    chapter_label(doc, P, S)
     wyw = soup.select_one(".while-you-wait")
     if wyw:
-        kicker = wyw.find(class_="kicker")
-        h2 = wyw.find("h2")
-        if kicker:
-            add_text_paragraph(doc, "Kicker: ", style="caption")
-            add_copy_paragraph(doc, kicker, style="kicker")
-        if h2:
-            add_text_paragraph(doc, "Headline (H2): ", style="caption")
-            add_copy_paragraph(doc, h2, style="h2")
+        emit(doc, P, S, "Kicker", wyw.find(class_="kicker"), style="kicker")
+        emit(doc, P, S, "H2", wyw.find("h2"), style="h2")
         for i, card in enumerate(wyw.select(".while-you-wait-card"), 1):
-            h3 = card.find("h3")
-            p = card.find("p")
-            add_text_paragraph(doc, f"Card {i} — title:", style="caption")
-            if h3:
-                add_copy_paragraph(doc, h3, style="h3")
-            add_text_paragraph(doc, f"Card {i} — description:", style="caption")
-            if p:
-                add_copy_paragraph(doc, p, style="body")
+            emit(doc, P, S, f"Card {i} · Title", card.find("h3"), style="h3")
+            emit(doc, P, S, f"Card {i} · Description", card.find("p"), style="body")
 
     emit_alts(doc, soup, P)
 
@@ -1074,6 +768,7 @@ def add_page_break(doc):
 
 
 def add_cover(doc):
+    # Title
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run("The & Garage")
@@ -1082,6 +777,7 @@ def add_cover(doc):
     r.font.color.rgb = INK
     p.paragraph_format.space_before = Pt(60)
 
+    # Subtitle
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run("Site copy export")
@@ -1089,6 +785,7 @@ def add_cover(doc):
     r.font.color.rgb = OXBLOOD
     r.font.bold = True
 
+    # Tag line
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run("For copy review and editing — outside Replit")
@@ -1097,26 +794,48 @@ def add_cover(doc):
     r.italic = True
     p.paragraph_format.space_after = Pt(36)
 
+    # Short body intro — this is editable workflow guidance, brief.
     intro = (
         "This document contains every piece of editable copy on the public "
         "site, in nav order: Home, About Tim, How it works, Gallery, "
-        "Contact, the Contact thank-you page, and the 404 page. Each block "
-        "is labeled with its page, section, and slot (for example, "
-        "\"HOME · HERO · Headline (H1)\")."
+        "Contact, the Contact thank-you page, and the 404 page. Each "
+        "editable block is preceded by a short ID label in the form  "
+        "PAGE · Section · Slot  (for example, \"HOME · Hero · H1\" or "
+        "\"PROCESS · FAQ · Q3\"). Edit the copy below each label; do not "
+        "edit the labels themselves."
     )
     add_text_paragraph(doc, intro, style="body")
 
-    notes = (
-        "House conventions (please preserve when you edit): year ranges "
-        "always read \"to\" (1966 to 1999), never with a dash. The brand "
-        "wordmark renders the ampersand visually as a feature glyph — "
-        "writing it as \"&\" in this doc is fine. Italic is reserved for "
-        "emotional emphasis only, so where you see italic in a sentence, "
-        "leave the italic on the same word or replace it with the word that "
-        "carries the emphasis. Em dashes (—) are stylistic; en dashes (–) "
-        "are not used."
-    )
-    add_text_paragraph(doc, notes, style="body")
+    # Footnotes-style separator + tone notes block — small, indented, set
+    # apart from the body so the editor can see at a glance these are
+    # guidance, not text to edit.
+    sep = doc.add_paragraph()
+    sep.paragraph_format.space_before = Pt(24)
+    sep_run = sep.add_run("— Tone notes (do not edit) —")
+    sep_run.font.size = Pt(8)
+    sep_run.font.bold = True
+    sep_run.font.color.rgb = MUTED
+    sep.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    notes_lines = [
+        "Year ranges always read \"to\" (e.g., 1966 to 1999). Never use a dash for a year range.",
+        "The brand wordmark renders the ampersand as a feature glyph; writing it as \"&\" in this document is fine.",
+        "Italic is reserved for emotional emphasis only — usually a single word or short phrase. Where you see an italic word in a sentence, keep the italic on the same word, or move the italic onto whichever word now carries the emphasis.",
+        "Em dashes (—) are stylistic; en dashes (–) are not used.",
+        "Image alt text is read by screen readers and indexed by search engines. Keep alts factual and short.",
+    ]
+    for line in notes_lines:
+        n = doc.add_paragraph()
+        n.paragraph_format.left_indent = Pt(36)
+        n.paragraph_format.right_indent = Pt(36)
+        n.paragraph_format.space_after = Pt(2)
+        marker = n.add_run("•  ")
+        marker.font.size = Pt(8)
+        marker.font.color.rgb = MUTED
+        body_run = n.add_run(line)
+        body_run.font.size = Pt(8)
+        body_run.italic = True
+        body_run.font.color.rgb = MUTED
 
     add_page_break(doc)
 
@@ -1134,7 +853,6 @@ def main():
 
     doc = Document()
 
-    # Default font
     style = doc.styles["Normal"]
     style.font.name = "Georgia"
     style.font.size = Pt(11)
