@@ -765,6 +765,65 @@ body.page-home {
   }
 }
 
+/* ─── Process Hero (image variant) ────────────────────────────
+   Same image-over-veil recipe as .hero.hero-about, but accommodates
+   a longer two-sentence H1 plus a lede paragraph and dual anchor
+   CTAs. Slightly taller min-height to give the stacked content room
+   without crowding the image bottom. */
+
+.hero.hero-process {
+  min-height: 86svh;
+}
+
+/* Stronger veil for the process hero — the Barracuda photo has a bright
+   silver hood/body that washes out the kicker against the default veil.
+   Darken the lower 60% more aggressively so all text sits cleanly. */
+.hero.hero-process .veil {
+  background: linear-gradient(
+    to bottom,
+    rgba(19, 20, 38, 0.42) 0%,
+    rgba(19, 20, 38, 0.78) 55%,
+    rgba(19, 20, 38, 0.92) 100%
+  );
+}
+
+.hero.hero-process .hero-inner {
+  justify-content: flex-end;
+  padding: 40px 40px 80px 96px;
+  max-width: 1100px;
+}
+
+.hero.hero-process .kicker {
+  color: var(--text-on-dark);
+  margin-bottom: 16px;
+}
+
+.hero.hero-process h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 5.6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-on-dark);
+  max-width: 22ch;
+  margin: 0 0 28px;
+}
+
+.hero.hero-process h1 em {
+  font-style: italic;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+@media (max-width: 760px) {
+  .hero.hero-process {
+    min-height: 72svh;
+  }
+  .hero.hero-process .hero-inner {
+    padding: 24px 20px 40px;
+  }
+}
+
 /* ─── Story (long-form readable typography) ───────────────── */
 
 .section.story {
@@ -1299,43 +1358,6 @@ body.page-home {
   }
 }
 
-/* ─── Process Hero (typographic, no image) ────────────────── */
-
-.process-hero {
-  padding: 120px 24px 96px;
-}
-
-.process-hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.process-hero .kicker {
-  display: block;
-  color: var(--text-on-dark-dim);
-  margin-bottom: 24px;
-}
-
-.process-hero h1 {
-  font-family: 'Fraunces', serif;
-  font-weight: 300;
-  font-size: clamp(40px, 6.4vw, 76px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--text-on-dark);
-  margin: 0 0 32px;
-  max-width: 28ch;
-}
-
-.process-hero h1 em {
-  font-style: italic;
-  color: var(--warm);
-  font-weight: 300;
-}
-
 /* Descriptive hero lede — non-italic Fraunces 300, sits under H1 on
    dark hero surfaces. Used on the process page hero. */
 .hero-lede {
@@ -1364,15 +1386,6 @@ body.page-home {
   }
   .hero-anchor-nav .btn {
     text-align: center;
-  }
-}
-
-@media (max-width: 760px) {
-  .process-hero {
-    padding: 80px 20px 64px;
-  }
-  .process-hero-inner {
-    padding: 0;
   }
 }
 
