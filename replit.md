@@ -15,7 +15,7 @@ A classic car acquisition concierge service website for Tim Young. Static HTML +
 - Home
 - About Tim
 - How it works
-- ~~Gallery~~ — temporarily hidden as of task #55 (page file `gallery/index.html` preserved with `noindex,nofollow`; re-enable by restoring the Gallery `<li>` in the top nav and footer of every page, restoring the `home-gallery-teaser` section in `index.html`, and restoring the "Cars in the wild" card in the `while-you-wait` grids on `contact/thanks/index.html` and `404.html`)
+- ~~Gallery~~ — dedicated page hidden as of task #55. The home page's "Cars I'm seeing right now" teaser is kept as a display-only showcase (cards rendered as `<article>`, not links; "See the full gallery →" foot link removed). Re-enable the dedicated page by: restoring the Gallery `<li>` in the top nav and footer of every page, converting the home teaser cards back from `<article class="gallery-card">` to `<a class="gallery-card" href="/gallery/">` and restoring the `gallery-teaser-foot` link, restoring the "Cars in the wild" card in the `while-you-wait` grids on `contact/thanks/index.html` and `404.html`, and removing the `noindex,nofollow` meta from `gallery/index.html`.
 - Contact
 
 ## Running the Project
