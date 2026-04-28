@@ -109,12 +109,10 @@
          3. FORM — intake form (Web3Forms delivery to Tim)
 
          Posts to Web3Forms (https://web3forms.com), a free hosted
-         endpoint that emails every submission to Tim's inbox. Replace
-         the placeholder access_key below with Tim's real key from
-         https://web3forms.com (free, no signup beyond confirming the
-         destination email). Until then, js/site.js detects the
-         placeholder and falls back to a mailto: handoff so the form
-         still works.
+         endpoint that emails every submission to Tim's inbox. The
+         access_key below is Tim's real key. js/site.js still falls
+         back to a mailto: handoff if the key is ever reset to the
+         placeholder or if the visitor's browser blocks the fetch.
     ════════════════════════════════════════════════ -->
     <section class="section block contact-form-section">
 
@@ -125,7 +123,7 @@
         method="POST"
       >
         <!-- Web3Forms config -->
-        <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY-HERE">
+        <input type="hidden" name="access_key" value="feeb43bf-46f0-49b1-80c3-b47f012862f0">
         <input type="hidden" name="subject" value="Inquiry from The &amp; Garage contact form">
         <input type="hidden" name="from_name" value="The &amp; Garage contact form">
         <input type="hidden" name="redirect" value="https://andgarage.com/contact/thanks/">

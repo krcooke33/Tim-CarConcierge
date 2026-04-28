@@ -55,12 +55,12 @@ Both the nav and footer are defined in `index.html` and must be copied consisten
   every submission to Tim's inbox — works for visitors who only use
   webmail and have no native mail handler. On success `js/site.js`
   redirects to `/contact/thanks/`. A hidden `website` honeypot field
-  filters bot spam. The `access_key` hidden input is a placeholder
-  (`YOUR-WEB3FORMS-ACCESS-KEY-HERE`); until Tim replaces it with a
-  real key from web3forms.com, the JS automatically falls back to a
-  `mailto:tim@andgarage.com` handoff so the form keeps working.
-  BRIEF.md §06.5 originally specified an Airtable embed; this was
-  swapped to mailto in task #12 and to Web3Forms in task #28 so the
-  funnel works end-to-end for every visitor.
+  filters bot spam. The `access_key` is Tim's real Web3Forms key; if
+  it's ever reset to the `YOUR-WEB3FORMS-ACCESS-KEY-HERE` placeholder
+  the JS auto-falls back to a `mailto:tim@andgarage.com` handoff so
+  the form keeps working. BRIEF.md §06.5 originally specified an
+  Airtable embed; this was swapped to mailto in task #12, to
+  Web3Forms in task #28, and Tim's real key was wired in via task
+  #42 so the funnel works end-to-end for every visitor.
 - Always write year ranges as "1966 to 1999" (never dashes)
 - Tim is the protagonist on every page
