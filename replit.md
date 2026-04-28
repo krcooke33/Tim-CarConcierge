@@ -40,6 +40,7 @@ Both the nav and footer are defined in `index.html` and must be copied consisten
 - `index.html` — Component test page (to be rebuilt as Home); contains nav + footer partials
 - `css/components.css` — All reusable component styles including `.site-nav` and `.site-footer`
 - `js/site.js` — Mobile hamburger toggle
+- `js/wheelhouse.js` — Single source of truth for the four wheelhouse eras (year ranges, names, example cars, photos). Both the Home and `/process/` pages embed an empty `<ol class="wheelhouse-grid" data-wheelhouse data-variant="home|process">` placeholder; this script populates it. The `process` variant includes a per-era photo, the `home` variant is text-only. Edit examples or photos in this one file to update both pages.
 - `site-brief.html` — Styled HTML version of the brief for human review
 - `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/` (current cars + portrait, plus `tim/past/` for the About-page timeline and `tim/illustrations/` for the About-page sketchbook grid), `mood/`, `texture/` (e.g. `grain.png` — the tiled film-grain overlay used on dark surfaces)
 - `img_original/` — Source-of-truth high-resolution photos. Web-optimized versions in `img/` are generated from these.

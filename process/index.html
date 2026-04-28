@@ -85,43 +85,16 @@
 
     <!-- ═══════════════════════════════════════════════
          1.5 WHEELHOUSE — what Tim focuses on, four sub-eras
+         The four era cards (range, name, example cars, photo)
+         are populated by js/wheelhouse.js — the single source
+         of truth shared with the Home page wheelhouse section.
     ════════════════════════════════════════════════ -->
     <section id="wheelhouse" class="section block process-wheelhouse">
       <span class="kicker">Wheelhouse</span>
       <h2>1966 to 1999. <em>Enthusiast cars worth the effort.</em></h2>
       <p class="lede">A coherent era: big-V8 American, air-cooled German and Italian, analog Japanese, pre-digital Europeans.</p>
 
-      <ol class="wheelhouse-grid" role="list">
-
-        <li class="wheelhouse-era">
-          <img class="era-photo" src="/img/gallery/ford-bronco.jpg" alt="Burnt-orange first-generation Ford Bronco with white roof, parked on a paved drive" loading="lazy" width="800" height="600">
-          <p class="era-range">1966–1974</p>
-          <h3 class="era-name">Muscle &amp; Originals</h3>
-          <p class="era-examples">'68 Mustangs, early Broncos, 911 long-hood, 280SL.</p>
-        </li>
-
-        <li class="wheelhouse-era">
-          <img class="era-photo" src="/img/gallery/mercedes-450sl.jpg" alt="Dark blue Mercedes-Benz 450SL (R107) with hardtop, parked in a driveway" loading="lazy" width="800" height="600">
-          <p class="era-range">1975–1984</p>
-          <h3 class="era-name">Malaise &amp; Survivors</h3>
-          <p class="era-examples">R107 SLs, BMW E9 / E24, 911 SC, Alfa GTV6.</p>
-        </li>
-
-        <li class="wheelhouse-era">
-          <img class="era-photo" src="/img/gallery/bmw-e30-touring.jpg" alt="Red BMW E30 Touring wagon with roof rack, parked at the curb" loading="lazy" width="800" height="600">
-          <p class="era-range">1985–1994</p>
-          <h3 class="era-name">Analog Modern</h3>
-          <p class="era-examples">E30, 964, R32 Skyline, Supra MkIII, NSX.</p>
-        </li>
-
-        <li class="wheelhouse-era">
-          <img class="era-photo" src="/img/gallery/porsche-911.jpg" alt="Red Porsche 911, front three-quarter view in a parking lot" loading="lazy" width="800" height="600">
-          <p class="era-range">1995–1999</p>
-          <h3 class="era-name">BaT Era</h3>
-          <p class="era-examples">E36 M3, 993, 80-Series Land Cruiser, Integra Type R.</p>
-        </li>
-
-      </ol>
+      <ol class="wheelhouse-grid" role="list" data-wheelhouse data-variant="process"></ol>
     </section>
 
     <!-- ═══════════════════════════════════════════════
@@ -372,5 +345,6 @@
   </footer>
 
   <script src="/js/site.js"></script>
+  <script src="/js/wheelhouse.js"></script>
 </body>
 </html>
