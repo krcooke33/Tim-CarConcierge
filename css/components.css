@@ -620,11 +620,18 @@ body.page-home {
   font-family: 'Fraunces', Georgia, serif;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(40px, 5.5vw, 72px);
+  font-size: clamp(22px, 2.8vw, 36px);
   line-height: 1;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.005em;
   color: var(--text-on-dark);
-  margin: 0 0 28px;
+  margin: 0 0 20px;
+}
+
+/* Pin the ampersand's optical-size cut so the glyph design matches the
+   nav wordmark instead of swapping to Fraunces' larger, swash-heavier
+   alternate at display sizes. */
+.hero .hero-content .hero-wordmark .brand-amp {
+  font-variation-settings: "opsz" 18;
 }
 
 .hero .hero-content h1 {
