@@ -101,9 +101,9 @@
 }
 
 .btn.on-dark.solid {
-  background: var(--warm);
-  color: var(--ink-dark);
-  border-color: var(--warm);
+  background: var(--oxblood);
+  color: var(--cream);
+  border-color: var(--oxblood);
 }
 
 .btn.on-dark.solid:hover {
