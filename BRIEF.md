@@ -439,10 +439,10 @@ No availability or matched-state pills. The gallery is a *scouting feed*, not a 
 **Sections:**
 1. **Hero** — kicker "Start a conversation". H1: "Tell me what you're *chasing*." Lede: "Drop a few details. I'll reply within a day with thoughts and next steps."
 2. **What happens next** — three short steps: "1. You send a note. 2. We talk — phone or video, 30 minutes. 3. If we're a fit, we start."
-3. **Form** — Airtable embed. Fields below.
+3. **Form** — real HTML form that POSTs to Web3Forms (with a `mailto:` fallback). Fields below.
 4. **Email fallback** — beneath form: "Or email Tim directly: `tim@theandgarage.com`."
 
-**Form fields (Airtable):**
+**Form fields:**
 - Name
 - Email
 - Phone (optional)
@@ -450,9 +450,9 @@ No availability or matched-state pills. The gallery is a *scouting feed*, not a 
 - Timing (radio: "Right now" / "This year" / "Still dreaming")
 - Anything else (optional textarea)
 
-**Form integration:** Airtable embed (iframe). Tim sets up the base; Replit just embeds. **Do not** implement custom form handling. See §10.
+**Form integration:** Real HTML form that POSTs to Web3Forms (`https://api.web3forms.com/submit`), a free hosted relay that emails every submission to Tim's inbox. On success, `js/site.js` redirects to `/contact/thanks/`. A hidden `website` honeypot field filters bot spam. If the `access_key` is ever reset to the placeholder, the JS auto-falls back to a `mailto:tim@theandgarage.com` handoff so the form keeps working. **Do not** add a custom backend or server-side handler. See §10.
 
-**Acceptance:** Form embed loads on first paint. Email link works on phone (mailto:). Mobile accessible without zoom.
+**Acceptance:** Form renders on first paint. Submission either reaches Tim via Web3Forms (and redirects to thanks page) or, if the key is unset, opens the visitor's mail client pre-filled. Email link works on phone (mailto:). Mobile accessible without zoom.
 
 ---
 
@@ -710,7 +710,7 @@ Static HTML, vanilla CSS, minimal JS. **No framework.** No build step.
 - **CSS3** — vanilla, no preprocessor. CSS variables for tokens (§04). Grid + Flexbox. `clamp()` for fluid type.
 - **JavaScript** — vanilla. V1 needs only: mobile menu toggle, smooth scroll. No jQuery, React, or build pipeline.
 - **Fonts** — Google Fonts (Fraunces + DM Sans), preconnected.
-- **Forms** — Airtable embed via iframe.
+- **Forms** — Real HTML form that POSTs to Web3Forms (free hosted relay) with a `mailto:` fallback. No custom backend.
 
 ### File structure
 
@@ -770,16 +770,17 @@ https://theandgarage.com/?ref=show-2026-04          /* per event */
 
 No code changes needed — Plausible auto-captures URL parameters as a "Sources" filter. Phase 2 may add dedicated landing pages (`/show/`, `/mechanic/`) if a channel earns the investment.
 
-### Form integration · Airtable
+### Form integration · Web3Forms
 
-Tim's setup steps (~15 min):
-1. Create Airtable workspace (free).
-2. Create base "& Garage Leads" with table "Submissions".
-3. Fields: Name, Email, Phone, Chasing, Timing (Now / This year / Still dreaming), Notes, Submitted at (auto), Status (New / Replied / Met / Closed).
-4. Open Form view → Share → Embed → copy iframe.
-5. Customize: hide branding (paid feature, optional), match colors (bg `#f3ede0`, button `#6e2828`).
-6. Set Automation: new submission → email Tim.
-7. Paste iframe in Contact page.
+The Contact page is a real HTML form (`contact/index.html`) that POSTs to Web3Forms — a free hosted relay that emails every submission to Tim's inbox. No custom backend, no iframe. `js/site.js` handles the submit: on success it redirects to `/contact/thanks/`; on failure (offline, blocked) or if the access key is still the placeholder, it falls back to a `mailto:tim@theandgarage.com` handoff pre-filled with the form values. A hidden `website` honeypot field filters bot spam.
+
+Tim's setup steps (~5 min, one-time):
+1. Sign up at [web3forms.com](https://web3forms.com) with `tim@theandgarage.com` (free tier covers V1 traffic).
+2. Verify the email and copy the access key Web3Forms generates.
+3. Paste the key into the hidden `<input name="access_key">` in `contact/index.html`, replacing the placeholder `YOUR-WEB3FORMS-ACCESS-KEY-HERE`.
+4. Submit the live form once to confirm the email lands in Tim's inbox and the thanks page renders.
+
+If the key is ever cleared back to the placeholder, the form keeps working via the `mailto:` fallback — no outage.
 
 ### Browser support
 
@@ -805,7 +806,7 @@ Site is live when all checked.
 - [ ] Tim's portrait + 3 current cars photos uploaded
 - [ ] 6 – 12 gallery cards with real cars Tim has scouted
 - [ ] 3 – 5 quote cards from Tim's past matches
-- [ ] Airtable form embedded on Contact; submissions tested
+- [ ] Web3Forms access key wired into Contact form; live submission tested end-to-end (email lands, thanks page renders)
 - [ ] Email link works (mailto: tim@theandgarage.com)
 - [ ] Mobile responsive (320px to 1440px tested)
 - [ ] Lighthouse Performance ≥ 90 on home
