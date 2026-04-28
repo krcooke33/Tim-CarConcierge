@@ -687,13 +687,12 @@ body.page-home {
   color: var(--text-on-dark);
 }
 
-/* Outline layer: rotated 180° so "66" reads as "99". Fallback uses a
-   semi-opaque warm fill so the glyph stays visible in browsers that
-   don't support text-stroke; the @supports block upgrades to a true
-   stroke-only outline where available. */
+/* Outline layer for the lower year ('99). Fallback uses a semi-opaque
+   warm fill so the glyph stays visible in browsers that don't support
+   text-stroke; the @supports block upgrades to a true stroke-only
+   outline where available. */
 .hero-era-mark .glyphs.outline {
   color: rgba(197, 123, 60, 0.55);
-  transform: rotate(180deg);
 }
 
 @supports (-webkit-text-stroke: 1px currentColor) {
