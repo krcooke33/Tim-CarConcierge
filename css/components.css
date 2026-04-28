@@ -7,6 +7,10 @@
   font-style: normal;
   font-weight: 400;
   color: var(--oxblood);
+  /* Pin the optical-size cut so the ampersand renders the same clean
+     upright glyph as the nav logo at every size, instead of swapping
+     to Fraunces' display-size swash alternate. */
+  font-variation-settings: "opsz" 18;
 }
 
 .hero .brand-amp,
@@ -627,13 +631,6 @@ body.page-home {
   margin: 0 0 20px;
 }
 
-/* Pin the ampersand's optical-size cut so the glyph design matches the
-   nav wordmark instead of swapping to Fraunces' larger, swash-heavier
-   alternate at display sizes. */
-.hero .hero-content .hero-wordmark .brand-amp {
-  font-variation-settings: "opsz" 18;
-}
-
 .hero .hero-content h1 {
   color: var(--text-on-dark);
   max-width: 16ch;
@@ -1163,7 +1160,7 @@ body.page-home {
 
 .service-card {
   border-top: 2px solid var(--oxblood);
-  padding-top: 28px;
+  padding-top: 24px;
 }
 
 .service-card a {
@@ -1172,10 +1169,26 @@ body.page-home {
   color: inherit;
 }
 
+.service-card .card-num {
+  display: block;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--oxblood);
+  margin-bottom: 14px;
+  transition: color 0.15s ease;
+}
+
+.service-card a:hover .card-num {
+  color: var(--warm);
+}
+
 .service-card h3 {
   font-family: 'Fraunces', serif;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 24px;
   letter-spacing: -0.005em;
   color: var(--text);
   margin-bottom: 14px;
@@ -1191,6 +1204,13 @@ body.page-home {
   line-height: 1.6;
   color: var(--text-soft);
   max-width: none;
+}
+
+/* Prominent CTA anchoring the section — gives anyone who scans the
+   four cards one obvious next move. */
+.what-we-do-cta {
+  margin-top: 56px;
+  text-align: center;
 }
 
 /* ─── Final CTA Section (standalone dark surface) ─────────── */
