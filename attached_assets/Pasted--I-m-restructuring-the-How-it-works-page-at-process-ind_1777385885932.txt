@@ -1,0 +1,103 @@
+
+I'm restructuring the How it works page at process/index.html. The page becomes a dual-direction matchmaking page: buying (primary) and selling (secondary). Hero introduces both, in-page nav lets visitors jump, two arcs sit on the page, pricing covers both, FAQ adds one question.
+Make all changes in this step. Don't introduce new components unless explicitly listed — reuse what's already in components.css.
+Update 1 — Hero (replace existing hero)
+Replace the current hero markup with this:
+html<header class="hero">
+  <div class="constellation"></div>
+  <div class="hero-inner">
+    <!-- top nav stays the same as it currently is on this page -->
+    
+    <span class="kicker">How it works</span>
+    
+    <h1>Find your dream car. <em>Or sell your car to a dreamer.</em></h1>
+    
+    <p class="hero-lede">Tim is a matchmaker for classic-car enthusiasts. Mostly people who've been chasing a specific car for years. Sometimes people ready to find the right next driver for the one already in their garage.</p>
+    
+    <div class="hero-anchor-nav">
+      <a class="btn on-dark" href="#buying">Find your dream car &nbsp;<span class="arrow">→</span></a>
+      <a class="btn on-dark" href="#selling">Sell your car to a dreamer &nbsp;<span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+Styling notes:
+
+The H1 italic on "Or sell your car to a dreamer" uses the brand-amp surface rule (copper on dark) — same italic emphasis treatment as on the home page H1.
+.hero-lede is a descriptive paragraph, not the standard .lede italic style. Use Fraunces 300 (light), regular weight (not italic), ~22px clamp, line-height 1.5, color var(--text-on-dark-soft). Max-width ~58ch. Comfortable bottom margin before the anchor nav.
+.hero-anchor-nav is a flex row of two buttons, gap ~16px, stacks to 1-column on mobile (< 560px).
+The buttons use .btn.on-dark (outlined cream on dark, hovers to copper) — same as the hero CTA button pattern from the home page. Add the .arrow span to each so the arrow nudges right on hover.
+Smooth-scroll behavior: add html { scroll-behavior: smooth; } if it's not already in base.css.
+
+Update 2 — Buy-side section (restructure existing arc)
+The existing six-step arc section becomes the buying section. Wrap it in <section id="buying" class="block">. Keep the existing six-step .timeline-v markup exactly as-is. Update the H2 and lede to reflect that this is now one of two directions on the page.
+html<section id="buying" class="block">
+  <span class="section-kicker">Buying</span>
+  <h2>From the first conversation to the <em>first drive</em>.</h2>
+  <p class="lede">End-to-end, hand-paired, white-glove. One concierge, one car, one accountable hand.</p>
+  
+  <!-- Existing six-step .timeline-v markup goes here unchanged -->
+  <!-- Steps: Intake → Search → Vet → Negotiate → Transport → Handoff -->
+</section>
+The H2 shifts from being the page's central H2 to being the buy-side section's H2. The kicker Buying labels the section. The lede stays as it currently exists. The six-step timeline content is unchanged.
+Update 3 — New sell-side section
+Add a new section after the buying section, with anchor #selling. This is brand-new markup.
+html<section id="selling" class="block">
+  <span class="section-kicker">Selling</span>
+  <h2>Or you're selling. <em>Find it a dreamer.</em></h2>
+  <p class="lede">Sometimes you're not chasing a car. You've had one for years, and it's time to find someone who'll cherish it the way you have.</p>
+  
+  <p class="body">Tim does that too. Same network, same eye. The arc is shorter — the car's already in your garage — but the care is the same.</p>
+  
+  <!-- Three-step timeline using the same .timeline-v component as the buying section -->
+  <div class="timeline-v">
+    <div class="step-v">
+      <span class="num">01</span>
+      <h4>Intake</h4>
+      <p class="pace">Day 1.</p>
+      <p>We talk about the car. History, quirks, paperwork, what you want for it, what kind of driver you'd want it to go to. I want to know the car as well as you do.</p>
+    </div>
+    <div class="step-v">
+      <span class="num">02</span>
+      <h4>Present</h4>
+      <p class="pace">Weeks 1 to 2.</p>
+      <p>Photography. A real description, written by someone who understands what a 1972 BMW 2002 actually is — not a generic listing on Craigslist. Done well, the right buyer finds it.</p>
+    </div>
+    <div class="step-v">
+      <span class="num">03</span>
+      <h4>Find the right driver</h4>
+      <p class="pace">Weeks 2 to 8.</p>
+      <p>I work the network: enthusiast forums, my active buyer list, dealer contacts. Real candidates only. Not flippers. People who'll drive it. We negotiate, transport, and hand off the keys.</p>
+    </div>
+  </div>
+</section>
+The timeline component (.timeline-v and .step-v) is reused exactly as the buying section uses it. Same circle-numbered visual pattern, same vertical rule, same step structure. Just three steps instead of six.
+Update 4 — Pricing section (add seller line)
+The existing Pricing section gets one new paragraph added. Don't touch the existing buy-side copy. After the existing pricing body paragraphs, add:
+html<p class="body" style="margin-top: 1em;">Selling? Different model — a percentage of the final sale, quoted at intake. The work scales with the car.</p>
+The existing à la carte teaser line ("Need more targeted support? Ask me about my à la carte service options.") stays as the last line of the pricing section.
+Update 5 — FAQ section (add one question)
+Add a new accordion item to the existing FAQ. Insert as the second-to-last item (just before "Do you work outside the Northeast?").
+Question: Can you help me sell my car?
+Answer: Yes. Sale-side runs the inverse of the acquisition arc — three steps instead of six (intake, present, find the right driver). The fee structure is different too: a percentage of the final sale rather than a flat tier. See the Selling section above for the full arc.
+Match the markup pattern of the existing FAQ items exactly.
+Constraints
+
+Static HTML/CSS/JS only. No new framework, no new build tools, no JS libraries.
+Reuse existing components. Specifically: .hero, .section.block, .kicker, .section-kicker, .lede, .btn (with .on-dark and .arrow variants), .timeline-v and .step-v. The only genuinely new piece is .hero-lede (a descriptive variant of the lede that's not italic).
+Real copy verbatim. Do not paraphrase, "improve," or condense any copy I've given you. If a placeholder seems incomplete, leave it.
+Em dashes are real — characters (U+2014). Not two hyphens.
+Year ranges use "to", never em-dash, hyphen, or slash.
+The H1 italic emphasis on "Or sell your car to a dreamer" follows the surface-aware brand-amp rule — copper on the dark hero.
+Smooth scroll must work for the anchor links.
+Top nav and footer stay exactly as they are. Don't touch.
+Other pages (home, about, gallery, contact) stay exactly as they are. Don't touch.
+
+Acceptance
+Show me:
+
+Rendered How it works page with: new hero, two anchor-link buttons, buying section (H2 with kicker), new selling section (H2 with kicker, three-step timeline), updated pricing (with the new seller line), updated FAQ (with the new question).
+Confirm that clicking "Find your dream car →" smooth-scrolls to the buying section, and "Sell your car to a dreamer →" smooth-scrolls to the selling section.
+Mobile rendering at 320px, 768px, 1024px, 1440px — all clean. The two anchor-nav buttons stack to 1-column at small screens.
+Confirm copy is verbatim — especially the H1, the lede, the new sell-side step descriptions, and the new pricing line for sellers.
+
+Pause and confirm.

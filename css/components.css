@@ -98,6 +98,16 @@
   color: var(--ink-dark);
 }
 
+/* Arrow span inside any .btn — nudges right on hover. */
+.btn .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
 .btn.solid {
   background: var(--oxblood);
   color: var(--cream);
@@ -1317,7 +1327,7 @@ body.page-home {
   letter-spacing: -0.02em;
   color: var(--text-on-dark);
   margin: 0 0 32px;
-  max-width: 22ch;
+  max-width: 28ch;
 }
 
 .process-hero h1 em {
@@ -1326,15 +1336,35 @@ body.page-home {
   font-weight: 300;
 }
 
-.process-hero-lede {
+/* Descriptive hero lede — non-italic Fraunces 300, sits under H1 on
+   dark hero surfaces. Used on the process page hero. */
+.hero-lede {
   font-family: 'Fraunces', serif;
-  font-style: italic;
+  font-style: normal;
   font-weight: 300;
-  font-size: clamp(20px, 2.2vw, 26px);
-  line-height: 1.45;
+  font-size: clamp(20px, 2.2vw, 22px);
+  line-height: 1.5;
   color: var(--text-on-dark-soft);
-  max-width: 38ch;
-  margin: 0;
+  max-width: 58ch;
+  margin: 0 0 36px;
+}
+
+/* Anchor-nav row inside the process hero — two side-by-side buttons
+   that smooth-scroll to #buying / #selling. Stacks at narrow widths. */
+.hero-anchor-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .hero-anchor-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-anchor-nav .btn {
+    text-align: center;
+  }
 }
 
 @media (max-width: 760px) {
