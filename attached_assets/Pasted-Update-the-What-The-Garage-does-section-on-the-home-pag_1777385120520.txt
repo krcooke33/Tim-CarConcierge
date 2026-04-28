@@ -1,0 +1,41 @@
+Update the "What The & Garage does" section on the home page. Add a new lede paragraph directly between the H2 and the four-card grid. The four cards (01 Find / 02 Vet / 03 Negotiate / 04 Move & hand off) and the "See how it works" CTA button stay exactly as they are.
+What to add
+Insert a <p class="lede"> element directly beneath the H2, before the four-card grid:
+html<p class="lede">Tim finds classic cars for the people who've been chasing them. Sometimes the other way around — finding a buyer for the one already in your garage. Cars from 1966 to 1999.</p>
+Styling
+Reuse the existing .lede component from BRIEF.md §04 / §07. Specs:
+
+Font: Fraunces, italic, weight 300
+Size: ~22px (or whatever the existing .lede size is — match it)
+Line height: 1.45
+Color: var(--text-soft)
+Max-width: ~58ch (forces a clean line break)
+Top margin: comfortable space below the H2 (~16 – 20px)
+Bottom margin: ~36 – 44px (clear breathing room before the four cards)
+
+If .lede is already used elsewhere on the home page, just apply the existing class and let the styles cascade — no new CSS needed.
+Voice notes (do not modify the copy)
+
+"Tim finds" is intentionally third-person — the brand voice introducing him.
+The shift to "your garage" in the second sentence is intentional — addressing the reader directly when describing the sell-side angle.
+The em dash in "the other way around — finding a buyer" is a real em dash character (—, U+2014), not two hyphens.
+Year ranges always use "to" — never em-dash, hyphen, or slash. "1966 to 1999" verbatim.
+
+Do not paraphrase or "improve" this copy. It went through a humanizer pass already. If something feels off, leave it and flag it back to me.
+What NOT to change
+
+The H2 (whatever the current heading text is — likely "What The & Garage does")
+The four numbered cards (Find / Vet / Negotiate / Move & hand off) — including their titles, body copy, and order
+The "See how it works" CTA button at the bottom of the section
+The hero above this section
+Any section below this one
+
+Acceptance
+Show me:
+
+The rendered "What The & Garage does" section with the new lede paragraph between the H2 and the four-card grid.
+The lede renders in italic Fraunces, muted color, properly spaced.
+The em dash and year range render correctly.
+Mobile view at 320px, 768px, 1440px — confirm the lede wraps cleanly and the breathing room around it stays comfortable.
+
+Pause and confirm before any other changes.

@@ -1137,7 +1137,11 @@ body.page-home {
 /* ─── What We Do Card Grid ────────────────────────────────── */
 
 .what-we-do h2 {
-  margin-bottom: 48px;
+  margin-bottom: 18px;
+}
+
+.what-we-do .lede {
+  margin-bottom: 40px;
 }
 
 .card-grid {
