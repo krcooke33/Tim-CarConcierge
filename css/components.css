@@ -2852,6 +2852,86 @@ a.gallery-card {
 
 /* ─── Mood-board Fidelity Pass · materials, grain, accents ── */
 
+/* ─── Selling Arc · 3-column horizontal grid ─────────────────
+   Visual contrast against the buying section's tall vertical timeline.
+   With only three steps the horizontal layout reads as a shorter arc
+   at a glance, and the big copper outline numerals echo the hero's
+   '66 '99 era mark so the section has its own brand signature. */
+
+.sell-arc-intro {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  max-width: 60ch;
+  margin: 0 0 40px;
+}
+
+.sell-arc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .sell-arc-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.sell-step {
+  border-top: 2px solid var(--oxblood);
+  padding-top: 24px;
+}
+
+.sell-step .sell-num {
+  display: block;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(56px, 6vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--warm);
+  margin-bottom: 18px;
+}
+
+@supports not (-webkit-text-stroke: 1px currentColor) {
+  .sell-step .sell-num {
+    color: rgba(197, 123, 60, 0.7);
+  }
+}
+
+.sell-step .step-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+.sell-step .step-marker {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--text-soft);
+  margin: 0 0 14px;
+}
+
+.sell-step .step-body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  margin: 0;
+}
+
 /* Aged-paper surface — recipe from mood-board.html .swatch.aged-paper.
    Used on a single body section per page to inject worn-warm texture. */
 .surface-aged-paper {
