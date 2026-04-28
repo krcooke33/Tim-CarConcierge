@@ -616,6 +616,17 @@ body.page-home {
   align-items: flex-start;
 }
 
+.hero .hero-content .hero-wordmark {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.005em;
+  color: var(--text-on-dark);
+  margin: 0 0 20px;
+}
+
 .hero .hero-content h1 {
   color: var(--text-on-dark);
   max-width: 16ch;
