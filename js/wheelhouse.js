@@ -37,9 +37,9 @@
       examplesLong: '911 SC, 930 Turbo, Mercedes R107 SL, BMW E24, Alfa GTV6, Ferrari 308, early RX-7, 280Z.',
       photo: {
         src: '/img/gallery/alfa-gtv-black.jpg',
-        alt: 'Black Alfa Romeo GTV (Alfetta) two-door coupe, side profile parked at the curb',
-        width: 480,
-        height: 360
+        alt: 'Black Alfa Romeo GTV (Bertone 105/115) head-on, four-headlight grille with shield badge, parked on a tree-lined street',
+        width: 904,
+        height: 869
       }
     },
     {
