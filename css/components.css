@@ -440,6 +440,24 @@ body.page-home {
   margin-top: 4px;
 }
 
+.site-footer .footer-links .footer-social {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-on-dark-soft);
+  text-decoration: none;
+  margin-top: 8px;
+  transition: color 0.15s ease;
+}
+
+.site-footer .footer-links .footer-email + .footer-social {
+  margin-top: 12px;
+}
+
+.site-footer .footer-links .footer-social:hover {
+  color: var(--text-on-dark);
+}
+
 /* Col 3 — Lineage (italic Fraunces, single line per spec) */
 .site-footer .footer-lineage p {
   font-family: 'Fraunces', serif;
@@ -719,6 +737,13 @@ body.page-home {
 .era-mark.size-xl { font-size: clamp(120px, 12vw, 160px); }
 .era-mark.size-lg { font-size: clamp(88px, 9vw, 124px); }
 .era-mark.size-md { font-size: clamp(64px, 6.4vw, 96px); }
+.era-mark.size-xs { font-size: 38px; }
+
+@supports (-webkit-text-stroke: 1px currentColor) {
+  .era-mark.size-xs .glyphs.outline {
+    -webkit-text-stroke-width: 1px;
+  }
+}
 
 /* Corner placement — anchors the mark to the lower-right of the
    nearest position:relative ancestor (typically a hero header). */
