@@ -2758,9 +2758,21 @@ a.gallery-card {
   margin: 0 auto;
 }
 
+/* Single-card variant — used when the home page shows only one
+   testimonial below the gallery teaser. Centers a lone card with
+   a comfortable reading width instead of stranding it in column 1
+   of a 3-up track. */
+.quote-grid.is-single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
 @media (max-width: 899px) {
   .quote-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .quote-grid.is-single {
+    grid-template-columns: 1fr;
   }
 }
 

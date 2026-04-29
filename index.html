@@ -210,45 +210,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
-       SECTION 5 — QUOTES
-  ════════════════════════════════════════════════ -->
-  <section class="section block home-quotes">
-    <h2>Folks Tim has found cars for.</h2>
-
-    <div class="quote-grid">
-
-      <article class="quote-card">
-        <blockquote>"My &rsquo;05 Mini Cooper convertible drove its last drive mid-Covid. Tim knew I wanted classic, reliable, top-down. A couple weeks later he handed me the &rsquo;99 M3, under what I'd budgeted. I'm <em>still driving it</em>."</blockquote>
-        <cite>
-          <span class="name">Kendra</span> ·
-          <span class="city">Greenwich, CT</span>
-          <span class="car">Found her 1999 BMW M3 Convertible</span>
-        </cite>
-      </article>
-
-      <article class="quote-card">
-        <blockquote>"He found the car, vetted it, drove out to inspect, and put it on the trailer. I just turned the <em>key</em>."</blockquote>
-        <cite>
-          <span class="name">Dana</span> ·
-          <span class="city">Boston, MA</span>
-          <span class="car">Found a 1987 Porsche 944</span>
-        </cite>
-      </article>
-
-      <article class="quote-card">
-        <blockquote>"I'd been looking on my own for two years. Tim found the right one in <em>three weeks</em>."</blockquote>
-        <cite>
-          <span class="name">Ravi</span> ·
-          <span class="city">New Haven, CT</span>
-          <span class="car">Found a 1994 Land Cruiser</span>
-        </cite>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       SECTION 6 — GALLERY TEASER
+       SECTION 5 — GALLERY TEASER
        Display-only showcase of recent scouting finds.
        Cards are non-navigable — the dedicated /gallery/
        page is hidden as of task #55, so the cards are
@@ -280,6 +242,32 @@
         <h3 class="car-title">1975 BMW 2002 Coupe</h3>
         <p class="spotted">Greenwich, CT · April 2026</p>
         <p class="note">Perfect colour, perfect wheels, nice interior.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 6 — SINGLE TESTIMONIAL
+       Slimmed from the original three-up quote section
+       (Kendra + Dana + Ravi) down to one quote, moved
+       below the gallery teaser. Dana and Ravi removed
+       for v1; restore from git history if returning to
+       a multi-card layout. The is-single modifier on
+       .quote-grid swaps the 3-col grid for a centered
+       single-card max-width so the lone card doesn't
+       sit awkwardly left-aligned.
+  ════════════════════════════════════════════════ -->
+  <section class="section block home-quotes" aria-label="Client testimonial">
+    <div class="quote-grid is-single">
+
+      <article class="quote-card">
+        <blockquote>"My &rsquo;05 Mini Cooper convertible drove its last drive mid-Covid. Tim knew I wanted classic, reliable, top-down. A couple weeks later he handed me the &rsquo;99 M3, under what I'd budgeted. I'm <em>still driving it</em>."</blockquote>
+        <cite>
+          <span class="name">Kendra</span> ·
+          <span class="city">Greenwich, CT</span>
+          <span class="car">Found her 1999 BMW M3 Convertible</span>
+        </cite>
       </article>
 
     </div>
