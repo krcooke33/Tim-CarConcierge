@@ -1523,6 +1523,15 @@ body.page-home {
   margin: 0;
 }
 
+.wheelhouse-era .era-description {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 2px 0 0;
+  max-width: none;
+}
+
 .wheelhouse-era .era-examples {
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 14px;
