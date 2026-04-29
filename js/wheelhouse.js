@@ -36,10 +36,10 @@
       description: 'Detroit stumbled. The Europeans and Japanese kept building interesting cars.',
       examplesLong: '911 SC, 930 Turbo, Mercedes R107 SL, BMW E24, Alfa GTV6, Ferrari 308, early RX-7, 280Z.',
       photo: {
-        src: '/img/gallery/mercedes-450sl.jpg',
-        alt: 'Dark blue Mercedes-Benz 450SL (R107) with hardtop, parked in a driveway',
-        width: 800,
-        height: 600
+        src: '/img/gallery/alfa-gtv-black.jpg',
+        alt: 'Black Alfa Romeo GTV (Alfetta) two-door coupe, side profile parked at the curb',
+        width: 480,
+        height: 360
       }
     },
     {
