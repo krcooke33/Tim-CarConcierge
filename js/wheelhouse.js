@@ -92,7 +92,10 @@
 
     var name = document.createElement('h3');
     name.className = 'era-name';
-    name.textContent = era.name;
+    // Use the brand ampersand span so "Muscle & Originals" / "Malaise & Survivors"
+    // render with the same pinned-opsz oxblood ampersand as "The & Garage" wordmark,
+    // not the Fraunces display-size swash glyph.
+    name.innerHTML = era.name.replace(/&/g, '<span class="brand-amp">&amp;</span>');
     li.appendChild(name);
 
     if (variant === 'process' && era.description) {
