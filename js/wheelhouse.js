@@ -23,10 +23,10 @@
       description: 'American muscle, early SUVs, and the European sports cars that defined the era.',
       examplesLong: 'Mustang, Camaro, Charger, early Bronco, FJ40, 911 long-hood, Mercedes 280SL Pagoda, Alfa Spider, Ferrari 246 Dino, Jaguar E-Type.',
       photo: {
-        src: '/img/gallery/ford-bronco.jpg',
-        alt: 'Burnt-orange first-generation Ford Bronco with white roof, parked on a paved drive',
-        width: 800,
-        height: 600
+        src: '/img/gallery/camaro-ss-red.jpg',
+        alt: 'Red first-generation Chevrolet Camaro SS convertible with top down, parked under a tree outside a coastal restaurant',
+        width: 1920,
+        height: 1457
       }
     },
     {
