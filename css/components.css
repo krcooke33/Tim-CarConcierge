@@ -2708,10 +2708,8 @@ a.gallery-card {
   max-width: 22ch;
 }
 
-.section.block.home-wheelhouse h2 em {
-  font-style: italic;
+.section.block.home-wheelhouse h2 .years {
   color: var(--oxblood);
-  font-weight: 300;
 }
 
 .section.block.home-wheelhouse .lede {
