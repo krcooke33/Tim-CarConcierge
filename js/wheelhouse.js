@@ -50,9 +50,9 @@
       examplesLong: 'E30 M3, Porsche 964, Honda NSX, R32 Skyline GT-R, Lancia Delta Integrale, Ferrari 328, Miata NA, BMW E34 M5.',
       photo: {
         src: '/img/gallery/bmw-e30-m3-black.jpg',
-        alt: 'Black BMW E30 M3 with box-flared fenders and BBS basketweave wheels, front three-quarter view on gravel',
-        width: 1920,
-        height: 1080
+        alt: 'Black BMW E30 M3 with box-flared fenders, rear spoiler, and BBS basketweave wheels, front three-quarter view on a dirt lot',
+        width: 1685,
+        height: 1152
       }
     },
     {
