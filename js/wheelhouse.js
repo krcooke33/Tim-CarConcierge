@@ -49,10 +49,10 @@
       description: 'Engineered to perform, not yet managed by software.',
       examplesLong: 'E30 M3, Porsche 964, Honda NSX, R32 Skyline GT-R, Lancia Delta Integrale, Ferrari 328, Miata NA, BMW E34 M5.',
       photo: {
-        src: '/img/gallery/bmw-e30-touring.jpg',
-        alt: 'Red BMW E30 Touring wagon with roof rack, parked at the curb',
-        width: 800,
-        height: 600
+        src: '/img/gallery/bmw-e30-m3-black.jpg',
+        alt: 'Black BMW E30 M3 with box-flared fenders and BBS basketweave wheels, front three-quarter view on gravel',
+        width: 1920,
+        height: 1080
       }
     },
     {
