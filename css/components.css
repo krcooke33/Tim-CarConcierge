@@ -1964,15 +1964,15 @@ body.page-home {
   flex-direction: column;
   background: var(--cream);
   border: 1px solid var(--rule);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 a.gallery-card {
   color: inherit;
   text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.gallery-card:hover {
+a.gallery-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 32px -16px rgba(28, 29, 52, 0.18);
 }
@@ -2820,6 +2820,15 @@ a.gallery-card {
   font-weight: 300;
 }
 
+.section.block.home-gallery-teaser .gallery-credit {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  text-align: center;
+  margin: 32px auto 0;
+}
+
 .gallery-teaser-foot {
   max-width: 1180px;
   margin: 32px auto 0;
@@ -3362,11 +3371,12 @@ a.gallery-card {
 
 /* ─── Oxblood-tinted hairlines (leather edges) ────────────── */
 
-/* Gallery cards — leather-edge border, deepens to oxblood on hover */
+/* Gallery cards — leather-edge border (deepens to oxblood on hover only
+   when the card is rendered as an <a>; static <article> cards stay still) */
 .gallery-card {
   border-color: var(--oxblood-tint);
 }
-.gallery-card:hover {
+a.gallery-card:hover {
   border-color: var(--oxblood);
 }
 
