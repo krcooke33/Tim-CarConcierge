@@ -3294,10 +3294,10 @@ a.gallery-card:hover {
   font-style: italic;
 }
 
-/* Filter line beneath the coda — quiet, fine-print disclaimer */
+/* Filter line beneath the steps — quiet, fine-print disclaimer */
 .next-fineprint {
   max-width: 720px;
-  margin: 16px auto 0;
+  margin: 48px auto 0;
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
   letter-spacing: 0.04em;
