@@ -3499,6 +3499,12 @@ a.gallery-card:hover {
 .sell-step {
   border-top: 2px solid var(--oxblood);
   padding-top: 24px;
+  transition: border-top-color 0.2s ease, transform 0.2s ease;
+}
+
+.sell-step:hover {
+  border-top-color: var(--warm);
+  transform: translateY(-2px);
 }
 
 .sell-step .sell-num {
@@ -3511,6 +3517,11 @@ a.gallery-card:hover {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--warm);
   margin-bottom: 18px;
+  transition: color 0.2s ease;
+}
+
+.sell-step:hover .sell-num {
+  color: var(--warm);
 }
 
 @supports not (-webkit-text-stroke: 1px currentColor) {
