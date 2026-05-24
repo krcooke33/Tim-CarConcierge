@@ -1059,7 +1059,7 @@ body.page-home {
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: 105px;
+  left: 124px;
   top: 14px;
   width: 11px;
   height: 11px;
