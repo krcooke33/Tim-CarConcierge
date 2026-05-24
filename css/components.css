@@ -2914,6 +2914,14 @@ a.gallery-card:hover {
   font-weight: 700;
 }
 
+.inventory-card .more-photos-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-dim);
+  margin: -8px 0 18px;
+}
+
 .inventory-card .contact-link {
   display: inline-block;
   font-family: 'DM Sans', sans-serif;
