@@ -14,7 +14,8 @@
 #   - Idempotent: safe to re-run any time. Output overwrites in place.
 #
 # Sections processed:
-#   - img_original/gallery/*.jpg → img/gallery/   (max 1920px long side)
+#   - img_original/gallery/*.jpg      → img/gallery/        (max 1920px long side)
+#   - img_original/inventory/*/*.jpg  → img/inventory/*/    (max 1920px long side)
 #
 # Hero and Tim portrait images are NOT auto-regenerated here because the
 # served versions in img/hero/ and img/tim/ are not 1:1 derived from
@@ -77,11 +78,18 @@ if [[ $# -gt 0 ]]; then
   exit 0
 fi
 
-# Default: re-process the gallery from canonical sources.
+# Default: re-process gallery + inventory subdirs from canonical sources.
 shopt -s nullglob
 for src in "${SRC_ROOT}"/gallery/*.jpg "${SRC_ROOT}"/gallery/*.jpeg; do
   rel="${src#${SRC_ROOT}/}"
   resize_one "$rel"
+done
+
+for dir in "${SRC_ROOT}"/inventory/*/; do
+  for src in "${dir}"*.jpg "${dir}"*.jpeg; do
+    rel="${src#${SRC_ROOT}/}"
+    resize_one "$rel"
+  done
 done
 
 echo "Done."

@@ -15,7 +15,7 @@ A classic car acquisition concierge service website for Tim Young. Static HTML +
 - Home
 - About Tim
 - How it works
-- ~~Gallery~~ — dedicated page hidden as of task #55. The home page's "Cars I'm seeing right now" teaser is kept as a display-only showcase (cards rendered as `<article>`, not links; "See the full gallery →" foot link removed). Re-enable the dedicated page by: restoring the Gallery `<li>` in the top nav and footer of every page, converting the home teaser cards back from `<article class="gallery-card">` to `<a class="gallery-card" href="/gallery/">` and restoring the `gallery-teaser-foot` link, restoring the "Cars in the wild" card in the `while-you-wait` grids on `contact/thanks/index.html` and `404.html`, and removing the `noindex,nofollow` meta from `gallery/index.html`.
+- ~~Gallery~~ — dedicated page hidden as of task #55. The old home "Cars I'm seeing right now" scouting teaser was retired in task #64 and replaced with the **Cars available now** inventory section (real for-sale cars, per-car image carousels — see "Home inventory" below). Re-enable the dedicated gallery page by: restoring the Gallery `<li>` in the top nav and footer of every page, restoring the "Cars in the wild" card in the `while-you-wait` grids on `contact/thanks/index.html` and `404.html`, and removing the `noindex,nofollow` meta from `gallery/index.html`. (The home teaser is gone — the prior re-link steps for that teaser no longer apply.)
 - Contact
 
 ## Running the Project
@@ -42,7 +42,7 @@ Both the nav and footer are defined in `index.html` and must be copied consisten
 - `js/site.js` — Mobile hamburger toggle
 - `js/wheelhouse.js` — Single source of truth for the four wheelhouse eras (year ranges, names, example cars, photos). Both the Home and `/process/` pages embed an empty `<ol class="wheelhouse-grid" data-wheelhouse data-variant="home|process">` placeholder; this script populates it. The `process` variant includes a per-era photo, the `home` variant is text-only. Edit examples or photos in this one file to update both pages.
 - `site-brief.html` — Styled HTML version of the brief for human review
-- `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/` (current cars + portrait, plus `tim/past/` for the About-page timeline and `tim/illustrations/` for the About-page sketchbook grid), `mood/`, `texture/` (e.g. `grain.png` — the tiled film-grain overlay used on dark surfaces)
+- `img/` — Assets: `gallery/` (27 scouting photos), `hero/`, `tim/` (current cars + portrait, plus `tim/past/` for the About-page timeline and `tim/illustrations/` for the About-page sketchbook grid), `inventory/<slug>/` (per-car for-sale photos used by the home "Cars available now" carousels — see `index.html`'s `.home-inventory` section), `mood/`, `texture/` (e.g. `grain.png` — the tiled film-grain overlay used on dark surfaces)
 - `img_original/` — Source-of-truth high-resolution photos. Web-optimized versions in `img/` are generated from these.
 - `scripts/resize-images.sh` — Re-runs the image pipeline (`magick -auto-orient` → strip metadata → resize → q82 progressive JPEG). Run this whenever a source photo is added or replaced in `img_original/gallery/`. **Always uses `-auto-orient` BEFORE stripping EXIF** — without that step, photos with EXIF orientation flags render rotated in the browser once metadata is gone (the bug that hit `mercedes-450sl.jpg` in Task #13 / formalized in Task #29).
 

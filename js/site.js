@@ -49,6 +49,106 @@
   });
 })();
 
+/* ─── Image carousels (Home inventory) ────────────────────── */
+/* Progressive enhancement: without JS the track is still
+   horizontally scrollable thanks to overflow-x + scroll-snap,
+   so the photos remain reachable. JS adds arrow + dot controls,
+   keyboard navigation, and a live-region slide counter. */
+
+(function () {
+  var carousels = document.querySelectorAll('[data-carousel]');
+  if (!carousels.length) return;
+
+  carousels.forEach(function (root) {
+    var track  = root.querySelector('.carousel-track');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.carousel-slide'));
+    var prev   = root.querySelector('.carousel-arrow.prev');
+    var next   = root.querySelector('.carousel-arrow.next');
+    var dotsBox = root.querySelector('.carousel-dots');
+    var status = root.querySelector('.carousel-status');
+    var count  = slides.length;
+    if (!track || count < 2) return;
+
+    root.classList.add('is-enhanced');
+    var current = 0;
+    var dots = [];
+
+    if (dotsBox) {
+      for (var i = 0; i < count; i++) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'carousel-dot';
+        btn.setAttribute('aria-label', 'Photo ' + (i + 1) + ' of ' + count);
+        btn.dataset.index = String(i);
+        dotsBox.appendChild(btn);
+        dots.push(btn);
+      }
+    }
+
+    function scrollToIndex(i) {
+      if (i < 0) i = 0;
+      if (i >= count) i = count - 1;
+      var slide = slides[i];
+      if (!slide) return;
+      track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    }
+
+    function setCurrent(i) {
+      if (i < 0) i = 0;
+      if (i >= count) i = count - 1;
+      current = i;
+      dots.forEach(function (d, idx) {
+        if (idx === i) d.setAttribute('aria-current', 'true');
+        else d.removeAttribute('aria-current');
+      });
+      if (status) status.textContent = 'Photo ' + (i + 1) + ' of ' + count;
+      if (prev) prev.disabled = (i === 0);
+      if (next) next.disabled = (i === count - 1);
+    }
+
+    // Primary source of truth: scroll position → nearest slide.
+    // Robust across browsers regardless of IntersectionObserver support.
+    function indexFromScroll() {
+      var x = track.scrollLeft;
+      var best = 0;
+      var bestDist = Infinity;
+      for (var i = 0; i < count; i++) {
+        var d = Math.abs(slides[i].offsetLeft - track.offsetLeft - x);
+        if (d < bestDist) { bestDist = d; best = i; }
+      }
+      return best;
+    }
+
+    var scrollRaf = 0;
+    track.addEventListener('scroll', function () {
+      if (scrollRaf) return;
+      scrollRaf = window.requestAnimationFrame(function () {
+        scrollRaf = 0;
+        var idx = indexFromScroll();
+        if (idx !== current) setCurrent(idx);
+      });
+    }, { passive: true });
+
+    if (prev) prev.addEventListener('click', function () { scrollToIndex(current - 1); });
+    if (next) next.addEventListener('click', function () { scrollToIndex(current + 1); });
+
+    if (dotsBox) {
+      dotsBox.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('.carousel-dot');
+        if (!b) return;
+        scrollToIndex(parseInt(b.dataset.index, 10));
+      });
+    }
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollToIndex(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(current + 1); }
+    });
+
+    setCurrent(0);
+  });
+})();
+
 /* ─── Contact form (Contact page) ─────────────────────────── */
 /* Posts the form to Web3Forms (a free hosted relay) so every
    submission lands in Tim's inbox — even for visitors whose browser

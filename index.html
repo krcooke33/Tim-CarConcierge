@@ -210,44 +210,95 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
-       SECTION 5 — GALLERY TEASER
-       Display-only showcase of recent scouting finds.
-       Cards are non-navigable — the dedicated /gallery/
-       page is hidden as of task #55, so the cards are
-       <article> not <a>, and the "See the full gallery"
-       foot link is omitted. Re-link by converting the
-       articles back to anchors and restoring the foot.
+       SECTION 5 — CARS AVAILABLE NOW (inventory)
+       Replaced the older scouting-feed "Cars I'm seeing
+       right now" teaser. This is a small for-sale list
+       of cars Tim is brokering, each with a multi-image
+       carousel (see js/site.js → "Image carousels"). The
+       Mustang card is a muted placeholder until photos
+       and specs are ready.
   ════════════════════════════════════════════════ -->
-  <section class="section block home-gallery-teaser">
-    <h2>Cars I'm seeing right now</h2>
-    <p class="lede">Not listings — just cars I've spotted in the wild. Driveways, lots, gas stations, the shoulder of the road. Every photo on this site I shot myself, when something made me <em>stop the car</em>.</p>
+  <section class="section block home-inventory">
+    <h2>Cars available now</h2>
+    <p class="lede"><em>Every so often, someone I know asks me to help move a car they're ready to let go. These are available right now. If something catches your eye, reach out &mdash; I&rsquo;ll connect you directly.</em></p>
 
-    <div class="gallery-grid">
+    <div class="inventory-list">
 
-      <article class="gallery-card">
-        <img src="/img/gallery/plymouth-barracuda-turquoise.jpg" alt="1969 Plymouth Barracuda convertible in Seafoam Turquoise, side profile on a Brooklyn street" loading="lazy" width="960" height="684">
-        <h3 class="car-title">1969 Barracuda Convertible</h3>
-        <p class="spotted">Brooklyn, NY · April 2026</p>
-        <p class="note">Super clean, love that Seafoam Turquoise paint.</p>
+      <!-- VW Beetle ─────────────────────────────────────── -->
+      <article class="inventory-card">
+        <div class="carousel" data-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Photos of the 1969 VW Beetle">
+          <ul class="carousel-track" role="list">
+            <li class="carousel-slide"><img src="/img/inventory/vw-beetle-1969/01-front-right.jpg" alt="Cream 1969 VW Beetle, front three-quarter right view in a parking lot" width="1920" height="1440"></li>
+            <li class="carousel-slide"><img src="/img/inventory/vw-beetle-1969/02-front-left.jpg" alt="Cream 1969 VW Beetle, front three-quarter left view with For Sale sign in the window" loading="lazy" width="1920" height="1440"></li>
+            <li class="carousel-slide"><img src="/img/inventory/vw-beetle-1969/03-rear-three-quarter.jpg" alt="Cream 1969 VW Beetle, rear three-quarter view in front of a garage" loading="lazy" width="1920" height="1596"></li>
+            <li class="carousel-slide"><img src="/img/inventory/vw-beetle-1969/04-rear-straight-on.jpg" alt="Cream 1969 VW Beetle, straight-on rear view with chrome bumper and Connecticut plate" loading="lazy" width="1440" height="1920"></li>
+            <li class="carousel-slide"><img src="/img/inventory/vw-beetle-1969/05-interior.jpg" alt="Interior of the 1969 VW Beetle &mdash; black dash, steering wheel, and bench seats with a For Sale sign on the passenger seat" loading="lazy" width="1440" height="1920"></li>
+            <li class="carousel-slide"><img src="/img/inventory/vw-beetle-1969/06-engine-bay.jpg" alt="Rear engine bay of the 1969 VW Beetle &mdash; air-cooled 1500cc flat-four" loading="lazy" width="1440" height="1920"></li>
+          </ul>
+          <button class="carousel-arrow prev" type="button" aria-label="Previous photo">&lsaquo;</button>
+          <button class="carousel-arrow next" type="button" aria-label="Next photo">&rsaquo;</button>
+          <div class="carousel-dots" aria-label="Choose photo"></div>
+          <p class="carousel-status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <div class="inventory-body">
+          <h3 class="car-title">1969 VW Beetle</h3>
+          <p class="meta">Greenwich, CT &middot; <span class="price">$14,800</span></p>
+          <p class="desc">Cream paint, new black interior. Southern car &mdash; no rust to speak of. Runs well, no leaks.</p>
+          <ul class="spec-list">
+            <li>1500cc air-cooled flat-four</li>
+            <li>Four-speed manual</li>
+            <li>New bumpers, running boards, and interior</li>
+            <li>Recent tune-up</li>
+            <li>Solid body and frame</li>
+          </ul>
+          <a class="contact-link" href="/contact/">Contact me for details &rarr;</a>
+        </div>
       </article>
 
-      <article class="gallery-card">
-        <img src="/img/gallery/ford-f250-blue.jpg" alt="1978 Ford F250 Long Bed in light blue, parked in a driveway" loading="lazy" width="1024" height="768">
-        <h3 class="car-title">1978 Ford F250 Long Bed</h3>
-        <p class="spotted">Piermont, NY · March 2026</p>
-        <p class="note">Solid Survivor. Drives as honest as it looks.</p>
+      <!-- Mercedes E320 Cabriolet ───────────────────────── -->
+      <article class="inventory-card">
+        <div class="carousel" data-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Photos of the 1995 Mercedes-Benz E320 Cabriolet">
+          <ul class="carousel-track" role="list">
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/01-side-top-down.jpg" alt="Silver 1995 Mercedes-Benz E320 Cabriolet, side profile with the top down, parked beside a brick wall and American flag" width="1201" height="902"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/02-front-right-top-up.jpg" alt="Silver 1995 Mercedes-Benz E320 Cabriolet, front three-quarter right view with the soft top up" loading="lazy" width="1920" height="1440"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/03-side-top-down-curb.jpg" alt="Silver 1995 Mercedes-Benz E320 Cabriolet, side profile with the top down, parked at a residential curb" loading="lazy" width="480" height="360"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/04-front-left-top-up.jpg" alt="Silver 1995 Mercedes-Benz E320 Cabriolet, front three-quarter left view with the soft top up" loading="lazy" width="504" height="360"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/05-rear-right-top-up.jpg" alt="Silver 1995 Mercedes-Benz E320 Cabriolet, rear three-quarter right view with the soft top up, parked beside a garage" loading="lazy" width="540" height="360"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/06-interior-top-down.jpg" alt="Interior of the 1995 Mercedes E320 Cabriolet from above &mdash; black leather front and rear seats with the top down" loading="lazy" width="360" height="480"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/07-interior-driver-side.jpg" alt="Driver's side interior of the 1995 Mercedes E320 Cabriolet &mdash; black leather seats and steering wheel" loading="lazy" width="480" height="360"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/08-dashboard-console.jpg" alt="Dashboard and center console of the 1995 Mercedes E320 Cabriolet &mdash; wood trim, automatic shifter, factory radio replaced with aftermarket head unit" loading="lazy" width="1460" height="1105"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/09-rear-seats-from-front.jpg" alt="Rear leather seats of the 1995 Mercedes E320 Cabriolet, viewed from between the front headrests" loading="lazy" width="360" height="480"></li>
+            <li class="carousel-slide"><img src="/img/inventory/mercedes-e320-cabriolet-1995/10-rear-bench-detail.jpg" alt="Close-up of the rear leather bench seat in the 1995 Mercedes E320 Cabriolet" loading="lazy" width="480" height="360"></li>
+          </ul>
+          <button class="carousel-arrow prev" type="button" aria-label="Previous photo">&lsaquo;</button>
+          <button class="carousel-arrow next" type="button" aria-label="Next photo">&rsaquo;</button>
+          <div class="carousel-dots" aria-label="Choose photo"></div>
+          <p class="carousel-status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <div class="inventory-body">
+          <h3 class="car-title">1995 Mercedes-Benz E320 Cabriolet</h3>
+          <p class="meta">Greenwich, CT &middot; <span class="price">$29,500</span></p>
+          <p class="desc">49,235 miles. Hard to find in this condition.</p>
+          <ul class="spec-list">
+            <li>W124 E320 cabriolet</li>
+            <li>M104 inline-six, four-speed automatic</li>
+            <li>Silver over black leather, black soft top</li>
+            <li>15&Prime; alloys, power seats</li>
+          </ul>
+          <a class="contact-link" href="/contact/">Contact me for details &rarr;</a>
+        </div>
       </article>
 
-      <article class="gallery-card">
-        <img src="/img/gallery/bmw-2002-black.jpg" alt="1975 BMW 2002 coupe in black with grey wheels, three-quarter front view" loading="lazy" width="1064" height="739">
-        <h3 class="car-title">1975 BMW 2002 Coupe</h3>
-        <p class="spotted">Greenwich, CT · April 2026</p>
-        <p class="note">Perfect colour, perfect wheels, nice interior.</p>
+      <!-- 1968 Ford Mustang — coming soon placeholder ───── -->
+      <article class="inventory-card coming-soon">
+        <div class="inventory-body">
+          <span class="coming-soon-tag">Coming soon</span>
+          <h3 class="car-title">1968 Ford Mustang</h3>
+          <p class="desc">Photos and details to follow.</p>
+        </div>
       </article>
 
     </div>
-
-    <p class="gallery-credit">All photos taken by Tim Young &mdash; no stock photography or AI used.</p>
   </section>
 
   <!-- ═══════════════════════════════════════════════
