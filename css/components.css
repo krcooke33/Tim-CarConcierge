@@ -3010,6 +3010,31 @@ a.gallery-card:hover {
   .inventory-card .car-title { font-size: 24px; }
 }
 
+.inventory-follow {
+  max-width: 820px;
+  margin: 56px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.inventory-follow a {
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px solid var(--oxblood);
+  padding-bottom: 2px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.inventory-follow a:hover,
+.inventory-follow a:focus-visible {
+  color: var(--warm);
+  border-bottom-color: var(--warm);
+}
+
 /* ─── Carousel ────────────────────────────────────────────── */
 /* Used inside .inventory-card. Without JS the track is still
    horizontally scrollable; JS adds arrow + dot controls. */
