@@ -53,33 +53,53 @@ id = "UjERf-fTWJOJWxtEmGyUt"
 uri = "file://attached_assets/stock_images/charger-se-1973.jpg"
 type = "image"
 title = "1973 Dodge Charger SE classic muscle car side view, vintage"
+logical_id = "41afd0b0-f60b-42c5-a721-230d28041637"
 
 [[outputs]]
 id = "FKYOrRjK1Rt-mEpWkQmeS"
 uri = "file://attached_assets/stock_images/daytona-turbo-z-1985.jpg"
 type = "image"
 title = "1985 Dodge Daytona Turbo Z 1980s sports coupe"
+logical_id = "26d1783c-a347-4816-91fc-ae793269f637"
 
 [[outputs]]
 id = "9pU4Kt7mRxmPGcxiUWnZT"
 uri = "file://attached_assets/stock_images/f150-1985.jpg"
 type = "image"
 title = "1985 Ford F-150 classic square body pickup truck"
+logical_id = "306ddb90-0677-48e8-9b5e-44a1d545007b"
 
 [[outputs]]
 id = "vbv90DcmlxhCzIoikrAYY"
 uri = "file://attached_assets/stock_images/bmw-e30-1987.jpg"
 type = "image"
 title = "1987 BMW E30 3-Series sedan classic"
+logical_id = "440207f5-f479-4fc1-9b34-da660d7279f8"
 
 [[outputs]]
 id = "XhxjnJjUq8yu6uY2Ohqgr"
 uri = "file://attached_assets/stock_images/land-cruiser-1994.jpg"
 type = "image"
 title = "1994 Toyota Land Cruiser 80 series SUV"
+logical_id = "a3762760-541a-42c5-bc1a-082842a17952"
 
 [[outputs]]
 id = "uhhvEquQVImlEjzGnaKlr"
 uri = "file://copy-export.docx"
 type = "word_document"
 title = "The & Garage — site copy for review (revised)"
+logical_id = "0abe32c1-ae6a-4a6f-997c-81ee7e10d4ef"
+
+[[outputs]]
+id = "kBU0K3O6omlYfvkLcxeoI"
+uri = "file://exports/the-and-garage-logo-transparent.png"
+type = "image"
+title = "The & Garage Logo — Transparent PNG"
+description = "High-resolution 1918 × 392 PNG with a transparent background, using the site’s Fraunces wordmark and copper ampersand."
+logical_id = "f6dce016-2cef-4469-aa67-ec57b44c6c4d"
+content_hash = "sha256:608762517ff73856c96c393b7005c444fbea76283aabfdcb189e2db2727ad88c"
+size = 47103
+mtime_ms = 1788363330074
+storage_uri = "gcs://replit-rams-assets-riker/rams/assets/repl:91c96298-ec8f-4026-ad1f-792533a0aa68/f6dce016-2cef-4469-aa67-ec57b44c6c4d/d82b1343-d118-4a4a-a0a3-a341df4c46c7"
+storage_version_token = "1788363340930495"
+content_type = "image/png"
