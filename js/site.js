@@ -1,5 +1,41 @@
 /* site.js — V1 interactions */
 
+/* Replit supplies Umami on published sites with analytics enabled.
+   Never let an absent or failing tracker interfere with the site. */
+function trackGarageEvent(name, data) {
+  try {
+    var pending = window.umami?.track(name, data);
+    if (pending && typeof pending.catch === 'function') pending.catch(function () {});
+  } catch (err) {}
+}
+
+(function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href]');
+    if (!link) return;
+    var url;
+    try { url = new URL(link.href, window.location.href); } catch (err) { return; }
+    var location = link.closest('.site-footer') ? 'footer'
+      : link.closest('.site-nav') ? 'navigation'
+      : link.closest('.inventory-card') ? 'inventory' : 'content';
+    var data = { page: window.location.pathname, location: location };
+    if (url.protocol === 'mailto:') {
+      trackGarageEvent('email_clicked', data);
+    } else if (url.hostname === 'instagram.com' || url.hostname === 'www.instagram.com') {
+      var account = url.pathname.split('/').filter(Boolean)[0];
+      if (['the_and_garage', '6ty8mustang', 'ernst_von_dreissig'].indexOf(account) !== -1) {
+        data.account = account;
+        trackGarageEvent('instagram_clicked', data);
+      }
+    } else if (url.origin === window.location.origin && /^\/contact\/?$/.test(url.pathname)) {
+      var card = link.closest('.inventory-card');
+      var title = card && card.querySelector('.car-title');
+      if (title) data.car = title.textContent.trim().slice(0, 100);
+      trackGarageEvent('contact_clicked', data);
+    }
+  });
+})();
+
 /* ─── Mobile nav toggle ───────────────────────────────────── */
 
 (function () {
@@ -41,10 +77,13 @@
   var questions = document.querySelectorAll('.faq-q');
   if (!questions.length) return;
 
-  questions.forEach(function (q) {
+  questions.forEach(function (q, index) {
     q.addEventListener('click', function () {
       var isOpen = q.getAttribute('aria-expanded') === 'true';
       q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      if (!isOpen) trackGarageEvent('faq_opened', {
+        page: window.location.pathname, question: index + 1
+      });
     });
   });
 })();
@@ -167,6 +206,13 @@
   var ENDPOINT   = 'https://api.web3forms.com/submit';
   var KEY_PLACEHOLDER = 'YOUR-WEB3FORMS-ACCESS-KEY-HERE';
 
+  var formStarted = false;
+  form.addEventListener('input', function (e) {
+    if (formStarted || !['cf-name', 'cf-email', 'cf-budget', 'cf-brief'].includes(e.target.id)) return;
+    formStarted = true;
+    trackGarageEvent('inquiry_started', { page: '/contact/' });
+  });
+
   function setStatus(msg, kind) {
     if (!status) return;
     status.textContent = msg || '';
@@ -203,6 +249,7 @@
   }
 
   function fallbackToMailto(name, email, budget, brief) {
+    trackGarageEvent('inquiry_email_fallback', { page: '/contact/' });
     setStatus("Opening your email app as a backup… if nothing happens, email Tim directly at " + TO + ".", 'success');
     window.location.href = buildMailtoHref(name, email, budget, brief);
   }
@@ -254,6 +301,7 @@
     }
 
     var accessKey = getAccessKey();
+    trackGarageEvent('inquiry_submit_attempted', { page: '/contact/' });
 
     /* If Web3Forms isn't configured yet (placeholder key), or fetch
        isn't available, skip straight to the mailto fallback. */
@@ -294,6 +342,11 @@
       });
     }).then(function (result) {
       if (result.ok) {
+        // Count only an explicit service confirmation, never a thank-you
+        // page visit, a honeypot redirect, or an email-app handoff.
+        if (result.data && result.data.success) {
+          trackGarageEvent('inquiry_submitted', { page: '/contact/' });
+        }
         window.location.href = THANKS_URL;
       } else {
         if (submitBtn) submitBtn.disabled = false;
