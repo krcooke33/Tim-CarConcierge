@@ -1,0 +1,1 @@
+- [GitHub authentication](github-authentication.md) — connection health is not proof of working Git push access.
